@@ -1,0 +1,506 @@
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>POS-Exchange</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- normalize & reset style -->
+	<link rel="stylesheet" href="./pos-css/normalize.min.css" type="text/css">
+	<link rel="stylesheet" href="./pos-css/reset.min.css" type="text/css">
+	<link rel="stylesheet" href="./pos-css/jquery-ui.css" type="text/css">
+	<!-- google lato font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300" rel="stylesheet" type="text/css">
+	<!-- Bootstrap Core CSS -->
+	<!--<link href="./pos-css/bootstrap.min.css" rel="stylesheet">-->
+	<!-- bootstrap-horizon -->
+	<link href="./pos-css/bootstrap-horizon.css" rel="stylesheet">
+	<!-- datatable style -->
+	<link href="./pos-css/dataTables.bootstrap.css" rel="stylesheet">
+	<!-- font awesome -->
+	<link rel="stylesheet" href="./pos-css/font-awesome.min.css">
+	<!-- include summernote css-->
+	<link href="./pos-css/summernote.css" rel="stylesheet">
+	<!-- waves -->
+	<link rel="stylesheet" href="./pos-css/waves.min.css">
+	<!-- daterangepicker -->
+	<link rel="stylesheet" type="text/css" href="./pos-css/daterangepicker.css">
+	<!-- css for the preview keyset extension -->
+	<link href="./pos-css/keyboard-previewkeyset.css" rel="stylesheet">
+	<!-- keyboard widget style -->
+	<link href="./pos-css/keyboard.css" rel="stylesheet">
+	<!-- Select 2 style -->
+	<link href="./pos-css/select2.min.css" rel="stylesheet">
+	<!-- datepicker css -->
+	<link rel="stylesheet" type="text/css" href="./pos-css/bootstrap-datepicker.min.css">
+	<!-- Sweet alert swal -->
+	<link rel="stylesheet" type="text/css" href="./pos-css/sweetalert.css">
+	<!-- Custom CSS -->
+	<link href="./pos-css/Style-Light.css" rel="stylesheet">
+	<!-- jQuery -->
+	<script type="text/javascript" src="./pos-js/jquery-2.2.2.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+	<script type="text/javascript" src="./pos-js/loading.js"></script>
+
+	<!-- angular links -->
+	<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>-->
+	<script src="./pos-js/angular.min.js"></script>
+	<script src="angular-app.js"></script>
+	<script src="./pos-js/controllers/pos-filter.js"></script>
+	<script src="./pos-js/controllers/productController.js"></script>
+	<script src="./pos-js/controllers/ordersController.js"></script>
+	<script src="./pos-js/controllers/headerController.js"></script>
+	<script src="./pos-js/controllers/customerPageController.js"></script>
+	<script src="./pos-js/controllers/posMainController.js"></script>
+	<script src="./pos-js/controllers/servicesController.js"></script>
+
+	<script src="./pos-js/services/config.js"></script>
+
+	<script src="./pos-js/services/serviceCenterService.js"></script>
+	<script src="./pos-js/services/customerPageService.js"></script>
+	<script src="./pos-js/services/newCustomerService.js"></script>
+	<script src="./pos-js/services/editCustomerService.js"></script>
+	<script src="./pos-js/services/deleteCustomerService.js"></script>
+	<script src="./pos-js/services/loginService.js"></script>
+	<script src="./pos-js/services/smtCategoriesProductsService.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.3/angular-messages.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>-->
+
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+	<style>
+		.exc-pol-old {
+			margin-bottom: 10px;
+		}
+
+		.exc-pol-new {
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+
+<body class="pace-done" ng-app="myApp" ng-cloak>
+	<div class="pace  pace-inactive">
+		<div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+			<div class="pace-progress-inner"></div>
+		</div>
+		<div class="pace-activity"></div>
+	</div>
+	<!-------------------------------------header part start here---------------------------------------------------------------->
+	<!-- Fixed header top start here -->
+	<div class="navbar" id="myDIV" ng-controller="servicesCtrl">
+
+		<!-- login person details start here -->
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
+			<form class="form-horizontal">
+				<div class="form-group" style="float:left;width:100%;">
+
+					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+						<div class="navbar-header" id="top_logo_pos">
+							<a class="navbar-brand111" href="#"><img src="./images/new-logo.png" alt="td logo" class="img-responsive"></a>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="sesTime">
+						<label class="control-label "><b>Session Time : </b</label>
+						<span ng-cloak>{{loginSessionTime}}</span>
+					</div>
+
+					<div class="col-md-5 col-lg-5 col-sm-5 col-xs-12" id="shopName">
+						<label for="inputtxt" class="control-label"><b>Shop Name : </b></label>
+						<span ng-cloak>{{shopName}}</span>
+					</div>
+
+					<!--<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+								<span style="color:#b9f2ff;font-size:20px;"><i class="fa fa-circle"></i></span>
+								<label class="control-label">Diamond</label>								
+							</div>-->
+
+					<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" id="usrName">
+						<label for="inputtxt" class="control-label"><b>Hai, </b></label>
+						<span ng-cloak>{{userName}}</span>
+					</div>
+
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- Fixed header top end here -->
+
+
+	<!-------------------------------------------------header part end here---------------------------------------------------->
+
+	<!-- Navigation start here -->
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="menuToggle" ng-controller="posMainController">
+		<nav class="navbar navbar-default" role="navigation" id="nav_bckground">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+			</div>
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav products_menu">
+					<li class="flat-box waves-effect waves-block"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i>POS</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i>PRODUCTS</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i>CUSTOMERS</a></li>
+					<!--<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>-->
+					<li class="flat-box waves-effect waves-block"><a href="pos-orderinfo.html"><i class="fa fa-line-chart"></i>ORDERINFO</a></li>
+
+					<li class="flat-box waves-effect waves-block"><a href="pos-invoice.html"><i class="fa fa-line-chart"></i>INVOICEINFO</a></li>
+
+					<li class="flat-box waves-effect waves-block"><a href="pos-services.html"><i class="fa fa-line-chart"></i>SERVICES</a></li>
+					<li class="flat-box waves-effect waves-block active"><a href="pos-exchange.html"><i class="fa fa-line-chart"></i>EXCHANGE</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="pos-transferorders.html"><i class="fa fa-share"></i>TRANSFER-ORDER</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="flat-box waves-effect waves-block" style="padding-right:20px;" ng-click="logOut()"><a title="Logout" id="lgout"><i class="fa fa-sign-out fa-lg"></i>Logout</a></li>
+				</ul>
+			</div>
+			<!-- Brand and toggle get grouped for better mobile display end here-->
+
+			<div id="loadingimg" style="display: none;"></div>
+		</nav>
+	</div>
+	<!-- navigation end here -->
+
+
+	<div ng-controller='servicesCtrl'>
+
+		<div class="bg-imageDiv" ng-if="showExchangeForm == 'false'">
+			<div class="container" id="wrapper">
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+						<div class="loginmodal-container">
+							<!--<img src="./images/new-logo.png" alt="logo" class="logo-pos-main">-->
+							<h1>Dealer Login</h1><br>
+							<form name="dealerLoginForm" novalidate method="post" accept-charset="utf-8" class="login">
+								<input type="text" autofocus="" name="username" value="" ng-pattern='/^((([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,}))|((^0-5$)|(^[6-9]\d{0,9}))$/i'
+								 placeholder="Email/Phone number" required ng-model="loginData.username">
+								<p class="validationError errorMsg" ng-show="submitted && dealerLoginForm.username.$error.required">Enter Email/Phone number</p>
+
+								<div ng-messages="dealerLoginForm.username.$error ">
+
+									<p class="validationError errorMsg" ng-message="pattern">Enter Valid Email/Phone number</p>
+
+								</div><br>
+								<input type="password" name="password" placeholder="Password" required ng-model="loginData.password">
+								<p class="validationError errorMsg" ng-show="submitted && dealerLoginForm.password.$error.required">Enter Password</p>
+
+								<input type="submit" name="submit" value="Login" class="login loginmodal-submit" ng-click="submitted=true; dealerLoginForm.$valid && dealerLogin(loginData)">
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="container" id="serviceContainer" ng-if="showExchangeForm == 'true'">
+			
+			<div class="service_module1 col-md-12 col-lg-12 col-sm-12 col-xs-12" style="background:#f9f9f9;">
+				<h4 style="margin-bottom:20px;color:#0487a1;font-weight:bold;text-decoration:underline;">Exchange Policy </h4>
+				<form method="post"  accept-charset="utf-8" enctype="multipart/form-data" name="exchangeDataForm" role="form" novalidate="true">
+									
+					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+						<div class="row exc-pol-old">
+								<!-- <label for="old_smt_id" id="ordrsmtid">Old SMT ID : {{exchange.old_smt_id}}</label> -->
+							<label for="old_smt_id" id="ordrsmtid">Old SMT ID : </label>
+							<input type="text" name="old_smt_id" required id="old_smt_id" ng-model="exchange.old_smt_id" ng-pattern="/^[a-zA-Z0-9]*$/"
+							 placeholder="Enter Old SMT ID">
+							<a type="submit" class="btn-success exchange_old_smt_get" ng-click="getOldSmtIdDetails(exchange)">Get</a>
+							<div ng-messages="exchangeDataForm.old_smt_id.$error ">
+								<p class="validationError errorMsg exchangeerrorMsg" ng-message="pattern">Enter valid SMTID</p>
+							</div>
+							<p class="validationError errorMsg exchangeerrorMsg" ng-show="submitted && exchangeDataForm.old_smt_id.$error.required">Enter Old SMTID</p>
+						</div>
+						<div class="row exc-pol-old">
+							<!-- <label for="orderid" id="ordrno">Order No : {{exchange.orderid}}</label> -->
+							<label for="orderid" id="ordrno">Order No : </label>
+							<input type="text" name="orderid" required id="orderid" ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Enter Order No" ng-model="exchange.orderid"></br>
+							<div ng-messages="exchangeDataForm.orderid.$error ">
+								<p class="validationError errorMsg exchangeerrorMsg" ng-message="pattern">Enter valid Order Number</p>
+							</div>
+							<p class="validationError errorMsg exchangeerrorMsg" ng-show="submitted && exchangeDataForm.orderid.$error.required">Enter Order Number</p>
+						</div>
+						<div class="row exc-pol-old">
+							<!-- <label for="brand" id="ordrname">Brand Name: {{exchange.brand}}</label> -->
+							<label for="brand" id="ordrname">Brand Name: </label>
+							<input type="text" name="brand" required id="brand" placeholder="Enter Brand" ng-pattern="/^[a-zA-Z ]*$/" ng-model="exchange.brand"></br>
+							<div ng-messages="exchangeDataForm.brand.$error ">
+								<p class="validationError errorMsg exchangeerrorMsg" ng-message="pattern">Enter valid Brand</p>
+							</div>
+							<p class="validationError errorMsg exchangeerrorMsg" ng-show="submitted && exchangeDataForm.brand.$error.required">Enter Brand</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+						<div class="row exc-pol-new">
+							<!-- <label for="productdesp" style="padding-right:10px;">ProductName:{{exchange.productdesp}}</label> -->
+							<label for="productdesp" style="padding-right:10px;">Product Name:</label>
+							<input type="text" name="productdesp" required id="productdesp" ng-model="exchange.productdesp" placeholder="Enter Product Name"></br>
+							<div ng-messages="exchangeDataForm.productdesp.$error ">
+								<p class="validationError errorMsg exchangeerrorMsg2" ng-message="pattern">Enter valid Product Name</p>
+							</div>
+							<p class="validationError errorMsg exchangeerrorMsg2" ng-show="submitted && exchangeDataForm.productdesp.$error.required">Enter Product Name</p>
+						</div>
+
+						<div class="row exc-pol-new">
+							<!-- <label for="modelno" style="padding-right:10px;">Model No: {{exchange.modelno}}</label> -->
+							<label for="modelno" style="padding-right:10px;">Model No: </label>
+							<input type="text" name="modelno" required id="model" ng-model="exchange.modelno" placeholder="Enter Model No"></br>
+							<!-- <div ng-messages="exchangeDataForm.modelno.$error ">
+							<p class="validationError errorMsg exchangeerrorMsg2" ng-message="pattern">Enter valid Model Number</p>					
+						</div>				 -->
+							<p class="validationError errorMsg exchangeerrorMsg2" ng-show="submitted && exchangeDataForm.modelno.$error.required">Enter Model Number</p>
+						</div>
+
+						<div class="row exc-pol-new">
+								<!-- <label for="new_smt_id" style="padding-right:10px;">New SMT ID : {{exchangeObjArray.new_smt_id}}</label> -->
+							<label for="avlsmtids" style="padding-right:10px;">New SMT ID : </label>
+							<select name="avlsmtids" required id="avlsmtids" ng-model="exchange.avlsmtids" >
+								<option  ng-repeat="avlsmtids in avlSMTid track by $index">{{avlsmtids}}</option>
+							</select>
+							<!-- <input type="text" name="new_smt_id" required  id="new_smt_id" ng-model="exchange.new_smt_id" ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Enter New SMT ID">	</br> -->
+							<div ng-messages="exchangeDataForm.itemId.$error ">
+								<p class="validationError errorMsg exchangeerrorMsg2" ng-message="pattern">Enter valid SMTID</p>
+							</div>
+							<p class="validationError errorMsg exchangeerrorMsg2" ng-show="submitted && exchangeDataForm.avlsmtids.$error.required">Enter New SMTID</p>
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+						<div class="exc-pol-new1 center-block">
+							<button type="submit" class="btn btn-add btn-center" ng-click="submitted=true; exchangeDataForm.$valid && exchangeProduct(exchange)">Exchange</button>
+							<button type="button" class="btn btn-add hiddenpr" ng-click="printExchange(printSectionId)">Print</button>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			
+						<!-- Print section start here -->
+						<!--<div id="printSectionId" ng-hide="printSection == 'true'">
+							<div style="border:1px solid #ddd;border-top:1px solid #ddd;">
+								<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed #ddd;padding:5px">
+									<div class="tax-invoice">
+										<div class="row">
+											<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="headrMbl">
+												<div class="" style="float:left;font-size:12px;">
+													<h5><span><b>Shop Name:</b>{{shopName}}</span></h5>
+													<h5><span><b>GSTIN:</b>{{exchangeDetails.GSTnumber}}</span></h5>												
+												</div>
+											</div>
+
+											<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="headrMbl">
+												<div class="" style="float:left;font-size:12px;">
+													<h5><span><b>User:</b>{{exchangeDetails.user_name}}</span></h5>
+													<h5><span><b>Mobile:</b>{{exchangeDetails.user_mobile}}</span></h5>
+												</div>
+											</div>
+										
+											<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="headrMbl">
+												<div class="" style="float:right;font-size:12px;">
+													<h5><span style="padding-left:10px;"><b>{{exchangeDetails.orderid}}</b></span></h5>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+									<div class="row exc-pol-old">
+										<label for="old_smt_id" id="ordrsmtid">Old SMT ID : {{exchangeObjArray.old_smt_id}}</label> 
+									</div>
+									<div class="row exc-pol-old">
+										<label for="orderid" id="ordrno">Order No : {{exchangeObjArray.orderid}}</label>
+									</div>
+									<div class="row exc-pol-old">
+										 <label for="brand" id="ordrname">Brand Name: {{exchangeObjArray.brand}}</label>
+									</div>
+								</div>	
+								<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12" >
+									<div class="row exc-pol-old">
+										<label for="productdesp" style="padding-right:10px;">Product Name:{{exchangeObjArray.productdesp}}</label>
+									</div>
+									<div class="row exc-pol-old">
+										<label for="modelno" style="padding-right:10px;">Model No: {{exchangeObjArray.model}}</label>
+									</div>
+									<div class="row exc-pol-old">
+										<label for="new_smt_id" style="padding-right:10px;">New SMT ID : {{exchangeObjArray.new_smt_id}}</label> 
+									</div>
+								</div>	 						
+							</div>
+						</div>-->
+						<!-- Print section end here -->
+						
+						
+						
+	<!-- Print section start here -->					
+	<div class="container" id="printSectionId" ng-hide="printSection == 'true'" style="margin-top:30px;">
+		<div class="all_h5">
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border:1px solid #ddd;padding:5px">
+				<div class="row">
+					<div class="tax-invoice">
+						<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
+							<div class="orderinfo_name">
+								<h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Shop Name : </b> {{shopName}}</span></h5>
+								<h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">GSTIN : </b> {{exchangeDetails.GSTnumber}}</span></h5>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
+							<div class="orderinfo_totalamt" style="float:right;">
+								<h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Order ID : </b> {{exchangeDetails.orderid}}</span></h5>              
+								<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="table-responsive" style="overflow-x: unset !important;">
+				<table class="table table-bordered" style="margin-bottom:5px;">
+					<thead style="background: #0487a1;color: #fff;">
+									<th style="text-align:center;font-size:12px;padding: 5px !important;">
+										<strong style="font-weight:bold;">S.No</strong>
+									</th>
+									<th style="text-align:left;font-size:12px;padding: 5px !important;">
+										<strong style="font-weight:bold;">Order No</strong>
+									</th>
+									<th style="text-align:left;font-size:12px;padding: 5px !important;">
+										<strong style="font-weight:bold;">Old SMT ID</strong>
+									</th>
+									<th style="text-align:left;font-size:12px;padding: 5px !important;">
+										<strong style="font-weight:bold;">New SMT ID</strong>
+									</th>
+									<th style="text-align:left;font-size:12px;padding: 5px !important;">
+										<strong style="font-weight:bold;">Product Name</strong>
+									</th>
+									<th style="text-align:left;font-size:12px;padding: 5px !important;">
+										<strong style="font-weight:bold;">Brand Name</strong>
+									</th>
+									<th style="text-align:left;font-size:12px;padding: 5px !important;">
+										<strong style="font-weight:bold;">Model No</strong>
+									</th>					
+								</thead>
+								<tbody>
+									<div class="panel panel-default product-details">
+										<tr>
+											<td style="text-align:center;border-top:none;font-size:11px;padding: 5px;">{{$index+1}}</td>
+											<td style="text-align:left;border-top: none;font-size:11px;padding: 5px;">{{exchangeObjArray.orderid}}</td>
+											<td style="text-align:left;border-top: none;font-size:11px;padding: 5px;">{{exchangeObjArray.old_smt_id}}</td>
+											<td style="text-align:left;border-top: none;font-size:11px;padding: 5px;">{{exchangeObjArray.new_smt_id}}</td>
+											<td style="text-align:left;border-top: none;font-size:11px;padding: 5px;">{{exchangeObjArray.productdesp}}</td>
+											<td style="text-align:left;border-top: none;font-size:11px;padding: 5px;">{{exchangeObjArray.brand}}</td>
+											<td style="text-align:left;border-top: none;font-size:11px;padding: 5px;">{{exchangeObjArray.model}}</td>
+										</tr>
+										<br>
+									</div>
+					</tbody>
+				</table>
+			</div>
+
+			
+			<div style="border:1px solid #ddd;padding:5px;margin-top:-5px;">
+				<div class="row">
+					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
+						<div class="service_gst">
+							<h5><span><b>Address : </b> {{shopAddress}}</span></h5>
+						</div>
+					</div>
+					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
+						<div class="service_inv" style="float:right;">
+							<h5><span><b style="color:#444;font-weight:bold;">User : </b>{{exchangeDetails.user_name}}</span></h5>
+							<h5><span><b style="color:#444;font-weight:bold;">Mobile : </b>{{exchangeDetails.user_mobile}}</span></h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- Print section end here -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+						
+						
+						
+						
+
+			<div style="float:right;">
+				<p style="color:red;"><sub style="color:red;font-weight:bolder;font-size: 21px;">*</sub><span style="color:#000;font-weight:bold;text-decoration:underline;">Note : </span>					Order Should be 2 Days old...</p>
+			</div>
+
+		</div>
+
+
+	</div>
+	<!-- slim scroll script -->
+	<script type="text/javascript" src="./pos-js/jquery.slimscroll.min.js"></script>
+	<!-- waves material design effect -->
+	<script type="text/javascript" src="./pos-js/waves.min.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script type="text/javascript" src="./pos-js/bootstrap.min.js"></script>
+	<!-- keyboard widget dependencies -->
+	<script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.js"></script>
+	<script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-all.js"></script>
+	<script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-extender.js"></script>
+	<script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-typing.js"></script>
+	<script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.mousewheel.js"></script>
+	<!-- select2 plugin script -->
+	<script type="text/javascript" src="./pos-js/select2.min.js"></script>
+	<!-- dalatable scripts 
+  <script src="../../pos-js/jquery.dataTables.min.js"></script>
+  <script src="../../pos-js/dataTables.bootstrap.js"></script>-->
+	<!-- summernote js -->
+	<script src="./pos-js/summernote.js"></script>
+	<!-- chart.js script -->
+	<script src="./pos-js/Chart.js"></script>
+	<!-- moment JS -->
+	<script type="text/javascript" src="./pos-js/moment.min.js"></script>
+	<!-- Include Date Range Picker -->
+	<script type="text/javascript" src="./pos-js/daterangepicker.js"></script>
+	<!-- Sweet Alert swal -->
+	<script src="./pos-js/sweetalert.min.js"></script>
+	<!-- datepicker script -->
+	<script src="./pos-js/bootstrap-datepicker.min.js"></script>
+	<!-- creditCardValidator script -->
+	<script src="./pos-js/jquery.creditCardValidator.js"></script>
+	<!-- creditCardValidator script -->
+	<script src="./pos-js/credit-card-scanner.js"></script>
+	<script src="./pos-js/jquery.redirect.js"></script>
+	<!-- ajax form -->
+	<script src="./pos-js/jquery.form.min.js"></script>
+	<!-- custom script -->
+	<script src="./pos-js/app.js"></script>
+
+</body>
+
+</html>

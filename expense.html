@@ -1,0 +1,540 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>POS - point of sale Dar Elweb</title>
+  
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- normalize & reset style -->
+  <link rel="stylesheet" href="http://www.dar-elweb.com/demos/zarpos/assets/css/normalize.min.css" type="text/css">
+  <link rel="stylesheet" href="http://www.dar-elweb.com/demos/zarpos/assets/css/reset.min.css" type="text/css">
+  <link rel="stylesheet" href="http://www.dar-elweb.com/demos/zarpos/assets/css/jquery-ui.css" type="text/css">
+  <!-- google lato font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300" rel="stylesheet" type="text/css">
+  <!-- Bootstrap Core CSS -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap-horizon -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/bootstrap-horizon.css" rel="stylesheet">
+  <!-- datatable style -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/datatables/css/dataTables.bootstrap.css" rel="stylesheet">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="http://www.dar-elweb.com/demos/zarpos/assets/css/font-awesome.min.css">
+  <!-- include summernote css-->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/summernote.css" rel="stylesheet">
+  <!-- waves -->
+  <link rel="stylesheet" href="http://www.dar-elweb.com/demos/zarpos/assets/css/waves.min.css">
+  <!-- daterangepicker -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/daterangepicker.css">
+  <!-- css for the preview keyset extension -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/keyboard-previewkeyset.css" rel="stylesheet">
+  <!-- keyboard widget style -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/keyboard.css" rel="stylesheet">
+  <!-- Select 2 style -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/select2.min.css" rel="stylesheet">
+  <!-- datepicker css -->
+  <link rel="stylesheet" type="text/css" href="http://www.dar-elweb.com/demos/zarpos/assets/css/bootstrap-datepicker.min.css">
+  <!-- Sweet alert swal -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/sweetalert.css">
+  <!-- Custom CSS -->
+  <link href="./pos-css/Style-Light.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="./pos-js/loading.js"></script>
+	
+	<!-- angular links -->
+	<script src="./pos-js/angular.min.js"></script>
+	<script src="./pos-js/angular-app.js"></script>
+	<script src="./pos-js/controllers/pos-filter.js"></script>
+	<script src="http://code.angularjs.org/snapshot/angular-messages.js"></script>
+	
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+	  
+	  <script>
+			function myFunction() {
+				var x = document.getElementById('myDIV');
+				if (x.style.display === 'none') {
+					x.style.display = 'block';
+				} else {
+					x.style.display = 'none';
+				}
+			}
+		</script>
+</head>
+
+<body class="pace-done" ng-app="myApp" ng-controller="myController">
+  <div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+      <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+  </div>
+   <!-------------------------------------header part start here---------------------------------------------------------------->
+  
+  <!-- Fixed header top start here -->
+    <div class="navbar navbar-default" id="myDIV">
+		
+		<!-- logo start here 
+		<div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
+			<div class="navbar-header" style="padding-top: 0px;">       
+			  <a class="navbar-brand" href="#"><img src="../../images/logo-admin.png" alt="td logo" class="img-responsive"></a>
+			</div>
+		</div>
+		<!-- logo end here -->
+
+		<!-- Address start here 
+		<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+			<div id="navbar" class="navbar-header collapse navbar-collapse" style="margin-top: -10px;">
+				<div class="pos-addr">
+					<h3 style="margin-top: 40px;color: #f19737;font-weight: bold;">GoldenSun Technology Pvt Ltd</h3>
+					<!--<p class="adr">
+						<span style="padding-right:10px;"><i class="fa fa-map-marker"></i></span><span class="street-address">201-A, Platina Building, Gachiboli, Hyderabad,</span><br>
+						<span style="padding-right:20px;"></span><span class="region">Telangana, India, 500036</span>. &nbsp;<span style="padding-right:10px;"></span><span class="tel">XXXX XXXXXX</span>
+					</p>
+					<span style="padding-right:10px;"><i class="fa fa-phone"></i></span><span class="tel">XXXX XXXXXX</span>
+				</div>
+			</div>
+        </div>
+		<!-- Address end here -->
+		
+		<!-- shop photo start here 
+		<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+			<div id="navbar-pic" class="collapse navbar-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				<a href="#"><img class="img-circle topbar-userpic" src="../../images/baby.jpg" width="50px" height="50px">
+					<span class=""> &nbsp;&nbsp;Shop Photo </span>
+				</a>
+			  </ul>
+			</div>
+		</div>
+		<!-- shop-photo start here -->
+		
+		<!-- login person details start here -->
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
+				<form class="form-horizontal">
+					<div class="form-group" style="float:left;width:100%;">
+					
+					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+						<div class="navbar-header" style="margin-top:-17px;">       
+							<a class="navbar-brand" href="#"><img src="./images/logo-admin.png" alt="td logo" class="img-responsive"></a>
+						</div>
+					</div>
+					
+					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+						<label class="control-label ">Session Time : </label>
+						<span>02:05:36</span>
+					</div>
+
+					<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+						<label for="inputtxt" class="control-label">Login Person Name : </label>
+						<span>Lakshmi</span>
+					</div>
+	
+						<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+							<span style="color:#b9f2ff;font-size:20px;"><i class="fa fa-circle"></i></span>
+							<label class="control-label">Diamond</label>
+							<span style="color:gold;font-size:20px;"><i class="fa fa-circle"></i></span>
+							<label class="control-label">Gold</label>&nbsp;&nbsp;&nbsp;&nbsp;
+							<span style="color:silver;font-size:20px;"><i class="fa fa-circle"></i></span>
+							<label class="control-label">Silver</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+						<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2" style="float:right;">
+							<div id="navbar" class="collapse navbar-collapse" style="">
+							  <ul class="nav navbar-nav navbar-right">
+								<a href="#"><img class="img-circle topbar-userpic" src="./images/baby.jpg" width="40px" height="40px">
+									<span class=""> &nbsp;&nbsp;Person Photo </span>
+								</a>
+							  </ul>
+							</div>
+						</div>
+					
+					</div>
+					
+				</form>
+			</div>
+			<!-- login person details end here -->
+
+			
+    </div>
+    <!-- Fixed header top end here -->
+  
+  <!-------------------------------------------------header part end here---------------------------------------------------->
+
+		 <!-- Navigation start here -->
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"  style="padding-right:0px !important;padding-left:0px !important;">
+			 <nav class="navbar navbar-default" role="navigation">
+				  <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>					
+				  </div>
+				  <!-- Brand and toggle get grouped for better mobile display -->
+				  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+					  <li class="flat-box waves-effect waves-block"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i> POS</a></li>
+					  <li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i> Product</a></li>
+					  <li class="dropdown">
+						<a href="#" class="dropdown-toggle flat-box waves-effect waves-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i> People <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+						  <li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i> Customers</a></li>
+						  <!--<li class="flat-box waves-effect waves-block"><a href="people-suppliers.html"><i class="fa fa-truck"></i> Suppliers</a></li>-->
+						</ul>
+					  </li>
+					  <!--<li class="flat-box waves-effect waves-block"><a href="sales.html"><i class="fa fa-ticket"></i> Sales</a></li>
+					  <li class="flat-box waves-effect waves-block"><a href="expense.html"><i class="fa fa-inr"></i> Expense</a></li>-->
+					  <li class="dropdown">
+						<a href="#" class="dropdown-toggle flat-box waves-effect waves-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bookmark"></i> Categories <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+						  <li class="flat-box waves-effect waves-block"><a href="categories-orders.html"><i class="fa fa-archive"></i> Orders</a></li>
+						  <!--<li class="flat-box waves-effect waves-block"><a href="categories-expense.html"><i class="fa fa-inr"></i> Expense</a></li>-->
+						</ul>
+					  </li>
+					  <li class="flat-box waves-effect waves-block"><a href="pos-settings.html"><i class="fa fa-cogs"></i> Setting</a></li>
+					  <li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i> Reports</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					  <!--<li><button onclick="myFunction()">Try it</button></li>-->
+					  <li class="flat-box waves-effect waves-block" style="padding-right:10px;"><a href="#" title="Logout" onclick="myFunction()">Hide Header</a></li>
+					  <li class="flat-box waves-effect waves-block" style="padding-right:20px;padding-top:5px"><a href="pos-index.html" title="Logout"><i class="fa fa-sign-out fa-lg"></i></a></li>
+					</ul>
+				  </div>
+				  <!-- Brand and toggle get grouped for better mobile display end here-->
+				  <div id="loadingimg" style="display: none;"></div>
+			  </nav>
+			</div>
+			<!-- navigation end here -->
+			
+	<!-- Page Content start here -->
+  <div class="container">
+    <h3>Expense</h3>
+    <br>
+    <br>
+    <div id="table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+	
+	
+      <!--<div class="row">
+        <div class="col-sm-6">
+          <div class="dataTables_length" id="table_length">
+            <label>Show
+              <select name="table_length" aria-controls="table" class="form-control input-sm">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select> entries</label>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div id="table_filter" class="dataTables_filter">
+            <label>Search:
+              <input type="search" class="form-control input-sm" placeholder="" aria-controls="table">
+            </label>
+          </div>
+        </div>
+      </div>-->
+	  
+      <div class="row">
+        <div class="col-sm-12">
+          <table id="table" class="table table-striped table-bordered dataTable no-footer" cellspacing="0" width="100%" role="grid" style="width: 100%;">
+            <thead class="thead-inverse">
+              <tr role="row">
+                <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Date: activate to sort column ascending" style="width: 120px;">Date</th>
+                <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Reference: activate to sort column ascending" style="width: 140px;">Reference</th>
+                <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Amount: activate to sort column ascending" style="width: 115px;">Amount</th>
+                <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending" style="width: 128px;">Category</th>
+                <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Store: activate to sort column ascending" style="width: 105px;">Store</th>
+                <th class="sorting" tabindex="0" aria-controls="table" rowspan="1" colspan="1" aria-label="Ceated By: activate to sort column ascending" style="width: 140px;">Ceated By</th>
+                <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="Action" style="width: 120px;">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr role="row" class="odd">
+                <td>2016-04-12</td>
+                <td>456456</td>
+                <td>12000.000</td>
+                <td>invoices</td>
+                <td>Dar el web</td>
+                <td>admin</td>
+                <td>
+                  <div class="btn-group">
+                    <a class="btn btn-default" href="javascript:void(0)"  title="Delete"><i class="fa fa-times"></i></a>
+                    <a class="btn btn-default" href="#" title="Edit"><i class="fa fa-pencil"></i></a>
+
+                  </div>
+                </td>
+              </tr>
+              <tr role="row" class="even">
+                <td>2016-05-23</td>
+                <td>54278145</td>
+                <td>150.000</td>
+                <td>product</td>
+                <td>Dar el web</td>
+                <td>admin</td>
+                <td>
+                  <div class="btn-group">
+                    <a class="btn btn-default" href="javascript:void(0)" title="Delete"><i class="fa fa-times"></i></a>
+                    <a class="btn btn-default" href="#" title="Edit"><i class="fa fa-pencil"></i></a>
+                    <a class="btn color02 white open-modalimage" target="_blank" href="http://www.dar-elweb.com/demos/zarpos/files/expences/f8761e68a0ff083a73dd87c23157cf0b.jpg" title="View File"><i class="fa fa-file-archive-o"></i></a>
+                  </div>
+                </td>
+              </tr>
+              <tr role="row" class="odd">
+                <td>2016-05-21</td>
+                <td>54782165</td>
+                <td>1420.000</td>
+                <td>invoices</td>
+                <td>Dar el web</td>
+                <td>admin</td>
+                <td>
+                  <div class="btn-group">
+                    <a class="btn btn-default" href="javascript:void(0)"  title="Delete"><i class="fa fa-times"></i></a>
+                    <a class="btn btn-default" href="" title="Edit"><i class="fa fa-pencil"></i></a>
+                    <a class="btn color02 white open-modalimage" target="_blank" href="#" title="View File"><i class="fa fa-file-archive-o"></i></a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div id="table_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+          <div class="dataTables_paginate paging_simple_numbers" id="table_paginate">
+            <ul class="pagination">
+              <li class="paginate_button previous disabled" id="table_previous"><a href="#" aria-controls="table" data-dt-idx="0" tabindex="0">Previous</a></li>
+              <li class="paginate_button active"><a href="#" aria-controls="table" data-dt-idx="1" tabindex="0">1</a></li>
+              <li class="paginate_button next disabled" id="table_next"><a href="#" aria-controls="table" data-dt-idx="2" tabindex="0">Next</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-add btn-lg" data-toggle="modal" data-target="#AddExpence">
+      Add Expense </button>
+  </div>
+
+
+  <script type="text/javascript">
+    var save_method; //for save method string
+    var table;
+
+
+    $(document).ready(function() {
+
+      $('#Date').datepicker({
+        todayHighlight: true
+      });
+
+      $('#summernote').summernote({
+        height: 200,
+        toolbar: [
+          // [groupName, [list of button]]
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['font', []],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['height', ['height']]
+        ]
+      });
+
+      table = $('#table').DataTable({
+
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+          "url": "http://www.dar-elweb.com/demos/zarpos/expences_controller/ajax_list",
+          "type": "POST"
+        },
+
+        //Set column definition initialisation properties.
+        "columnDefs": [{
+          "targets": [-1], //last column
+          "orderable": false, //set not orderable
+        }, ],
+        "bInfo": false,
+        // "fnRowCallback": function(nRow, aData, iDisplayIndex) {
+        //     nRow.setAttribute('data-order',aData[4]);
+        // }
+      });
+    });
+
+
+    function reload_table() {
+      table.ajax.reload(null, false); //reload datatable ajax
+    }
+
+    function delete_expences(id) {
+      swal({
+          title: 'Are you sure ?',
+          text: 'You will not be able to recover this Data later!',
+          type: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#DD6B55",
+          confirmButtonText: 'Yes, delete it!',
+          closeOnConfirm: false
+        },
+        function() {
+          // ajax delete data to database
+          $.ajax({
+            url: "http://www.dar-elweb.com/demos/zarpos/expences_controller/ajax_delete/" + id,
+            type: "POST",
+            dataType: "JSON",
+            success: function(data) {
+              //if success reload ajax table
+              $('#modal_form').modal('hide');
+              reload_table();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              alert('Error adding / update data');
+            }
+          });
+          swal('Deleted!', 'the data has been deleted.', "success");
+        });
+    }
+  </script>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="AddExpence" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add Expense</h4>
+        </div>
+        <form action="#" method="post" accept-charset="utf-8" id="addform" enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="form-group controls">
+              <label for="Date">Date *</label>
+              <input type="text" maxlength="30" required="" name="date" class="form-control" id="Date" placeholder="Date">
+            </div>
+            <div class="form-group">
+              <label for="Reference">Reference *</label>
+              <input type="text" name="reference" maxlength="25" required="" class="form-control" id="Reference" placeholder="Reference">
+            </div>
+            <div class="form-group">
+              <label for="Category">Category</label>
+              <select class="form-control" name="category" id="Category">
+                <option value="0">Category</option>
+                <option value="1">invoices</option>
+                <option value="2">product</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="store_id">Store</label>
+              <input type="text" value="zar POS store" class="form-control" id="store_id" disabled="">
+              <input type="hidden" value="3" name="store_id">
+
+            </div>
+            <div class="form-group">
+              <label for="Amount">Amount (INR) *</label>
+              <input type="number" step="any" required="" name="amount" class="form-control" id="Amount" placeholder="Amount">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">Attachment</label>
+              <input type="file" name="userfile" id="attachment">
+              <p class="help-block">Accepted files(images|pdf|doc|xls|zip) Max size : 2Mb</p>
+            </div>
+			
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-add">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal -->
+
+
+
+ <!-- slim scroll script -->
+  <script type="text/javascript" src="./pos-js/jquery.slimscroll.min.js"></script>
+  <!-- waves material design effect -->
+  <script type="text/javascript" src="./pos-js/waves.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="./pos-js/bootstrap.min.js"></script>
+  <!-- keyboard widget dependencies -->
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-all.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-extender.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-typing.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.mousewheel.js"></script>
+  <!-- select2 plugin script -->
+  <script type="text/javascript" src="./pos-js/select2.min.js"></script>
+  <!-- dalatable scripts 
+  <script src="../../pos-js/jquery.dataTables.min.js"></script>
+  <script src="../../pos-js/dataTables.bootstrap.js"></script>-->
+  <!-- summernote js -->
+  <script src="./pos-js/summernote.js"></script>
+  <!-- chart.js script -->
+  <script src="./pos-js/Chart.js"></script>
+  <!-- moment JS -->
+  <script type="text/javascript" src="./pos-js/moment.min.js"></script>
+  <!-- Include Date Range Picker -->
+  <script type="text/javascript" src="./pos-js/daterangepicker.js"></script>
+  <!-- Sweet Alert swal -->
+  <script src="./pos-js/sweetalert.min.js"></script>
+  <!-- datepicker script -->
+  <script src="./pos-js/bootstrap-datepicker.min.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/jquery.creditCardValidator.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/credit-card-scanner.js"></script>
+  <script src="./pos-js/jquery.redirect.js"></script>
+  <!-- ajax form -->
+  <script src="./pos-js/jquery.form.min.js"></script>
+  <!-- custom script -->
+  <script src="./pos-js/app.js"></script>
+
+
+  <div class="note-popover popover in note-link-popover bottom">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container"><span><a target="_blank"></a>&nbsp;</span>
+      <div class="note-btn-group btn-group note-link">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Edit"><i class="note-icon-link"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Unlink"><i class="note-icon-chain-broken"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="note-popover popover in note-image-popover bottom">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container">
+      <div class="note-btn-group btn-group note-imagesize">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Full"><span class="note-fontsize-10">100%</span></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Half"><span class="note-fontsize-10">50%</span></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Quarter"><span class="note-fontsize-10">25%</span></button>
+      </div>
+      <div class="note-btn-group btn-group note-float">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float Left"><i class="note-icon-align-left"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float Right"><i class="note-icon-align-right"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float None"><i class="note-icon-align-justify"></i></button>
+      </div>
+      <div class="note-btn-group btn-group note-remove">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Remove Image"><i class="note-icon-trash"></i></button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>POS-Services</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- normalize & reset style -->
+  <link rel="stylesheet" href="./pos-css/normalize.min.css" type="text/css">
+  <link rel="stylesheet" href="./pos-css/reset.min.css" type="text/css">
+  <link rel="stylesheet" href="./pos-css/jquery-ui.css" type="text/css">
+  <!-- google lato font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300" rel="stylesheet" type="text/css">
+  <!-- Bootstrap Core CSS -->
+  <link href="./pos-css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap-horizon -->
+  <link href="./pos-css/bootstrap-horizon.css" rel="stylesheet">
+  <!-- datatable style -->
+  <link href="./pos-css/dataTables.bootstrap.css" rel="stylesheet">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="./pos-css/font-awesome.min.css">
+  <!-- include summernote css-->
+  <link href="./pos-css/summernote.css" rel="stylesheet">
+  <!-- waves -->
+  <link rel="stylesheet" href="./pos-css/waves.min.css">
+  <!-- daterangepicker -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/daterangepicker.css">
+  <!-- css for the preview keyset extension -->
+  <link href="./pos-css/keyboard-previewkeyset.css" rel="stylesheet">
+  <!-- keyboard widget style -->
+  <link href="./pos-css/keyboard.css" rel="stylesheet">
+  <!-- Select 2 style -->
+  <link href="./pos-css/select2.min.css" rel="stylesheet">
+  <!-- datepicker css -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/bootstrap-datepicker.min.css">
+  <!-- Sweet alert swal -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/sweetalert.css">
+  <!-- Custom CSS -->
+  <link href="./pos-css/Style-Light.css" rel="stylesheet">
+  
+  
+  <!-- jQuery -->
+  <script type="text/javascript" src="./pos-js/jquery-2.2.2.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <script type="text/javascript" src="./pos-js/loading.js"></script>
+	
+	<!-- angular links -->
+	<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>-->
+	<script src="./pos-js/angular.min.js"></script>
+	<script src="angular-app.js"></script>
+	<script src="./pos-js/controllers/pos-filter.js"></script>
+	<script src="./pos-js/controllers/productController.js"></script>
+	<script src="./pos-js/controllers/ordersController.js"></script>
+	<script src="./pos-js/controllers/headerController.js"></script>
+	<script src="./pos-js/controllers/customerPageController.js"></script>
+	<script src="./pos-js/controllers/posMainController.js"></script>
+	<script src="./pos-js/controllers/servicesController.js"></script>
+	<script src="./pos-js/services/config.js"></script>
+	
+	
+	<script src="./pos-js/services/customerPageService.js"></script>
+	<script src="./pos-js/services/newCustomerService.js"></script>
+	<script src="./pos-js/services/editCustomerService.js"></script>
+	<script src="./pos-js/services/deleteCustomerService.js"></script>
+	<script src="./pos-js/services/loginService.js"></script>
+	
+	<script src="http://code.angularjs.org/snapshot/angular-messages.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+	<style>
+	/*.bg-imageDiv{
+	 width: 100%;
+    height: 100%;
+    height: calc(100% - 1px);
+    background-image: url(images/bg-tdhub.png);
+    background-size: cover;
+    padding: 63px;
+	 background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+	     top: 0;
+      left: 0;
+}*/
+</style>
+</head>
+
+  <body class="pace-done" ng-app="myApp" ng-cloak>
+  <div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+      <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+  </div>
+    <!-------------------------------------header part start here---------------------------------------------------------------->
+  <!-- Fixed header top start here -->
+   <div class="navbar" id="myDIV"   ng-controller="servicesCtrl" >
+
+			<!-- login person details start here -->
+				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
+					<form class="form-horizontal">
+						<div class="form-group" style="float:left;width:100%;">
+					
+							<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+								<div class="navbar-header" style="margin-top:-40px;">       
+									<a class="navbar-brand" href="#"><img src="./images/new-logo.png" alt="td logo" class="img-responsive"></a>
+								</div>
+							</div>
+							
+							<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+								<label class="control-label ">Session Time : </label>
+								<span ng-cloak>{{loginSessionTime}}</span>
+							</div>
+
+							<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" >
+								<label for="inputtxt" class="control-label">Shop Name : </label>
+								<span ng-cloak>{{shopName}}</span>
+							</div>
+		
+							<!--<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+								<span style="color:#b9f2ff;font-size:20px;"><i class="fa fa-circle"></i></span>
+								<label class="control-label">Diamond</label>
+								
+							</div>-->
+							<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" style="float:right;">
+								<label for="inputtxt" class="control-label">Hai, </label>
+								<span ng-cloak>{{userName}}</span>
+							</div>
+							
+						</div>				
+					</form>
+				</div>
+		
+    </div>
+    <!-- Fixed header top end here -->
+  
+  
+  <!-------------------------------------------------header part end here---------------------------------------------------->
+	
+	<!-- Navigation start here -->
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 30px;padding-right:0px !important;padding-left:0px !important;" ng-controller="initController">
+			 <nav class="navbar navbar-default " role="navigation">
+				  <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>					
+				  </div>
+				  <!-- Brand and toggle get grouped for better mobile display -->
+				  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="flat-box waves-effect waves-block"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i>POS</a></li>
+						<li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i>PRODUCTS</a></li>
+						<li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i>CUSTOMERS</a></li>
+						<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>
+						<li class="flat-box waves-effect waves-block"><a href="pos-services.html"><i class="fa fa-line-chart"></i>SERVICES</a></li>
+						
+						<!--<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>
+						<li class="flat-box waves-effect waves-block"><a href="#"><i class="fa fa-shares"></i>TRANSFER-ORDER</a></li>
+					--></ul>
+					<ul class="nav navbar-nav navbar-right">
+					  <!--<li><button onclick="myFunction()">Try it</button></li>-->
+					  <!-- <li class="flat-box waves-effect waves-block" style="padding-right:20px;padding-top:5px" cancel-confirmation ><a  title="Logout"><i class="fa fa-bell-o"></i><span class="badge notificationBadge">5</span></a></li>-->
+					
+					  <li class="flat-box waves-effect waves-block" style="padding-right:20px;padding-top:5px"><a href="logout.html" title="Logout" style="background:none;border:0px solid red;" ng-click="logOut()"><i class="fa fa-sign-out fa-lg"></i></a></li>
+					</ul>
+				  </div>
+				  <!-- Brand and toggle get grouped for better mobile display end here-->
+				  <div id="loadingimg" style="display: none;"></div>
+			  </nav>
+			</div>
+			<!-- navigation end here -->
+
+<div ng-controller='servicesCtrl'>
+   <div class="bg-imageDiv">
+       <div class="container" id="serviceContainer">
+            <div class="form-group">
+				<label for="lastname">Item Id</label>				
+				<input type="text" name="lastname" required="" class="form-control" id="lastname" ng-model="newCustomer.lastname" placeholder="Enter Customer Name" ng-minlength="3" ng-maxlength="50" required ng-pattern="/^[a-zA-Z ]{1,50}$/">					
+			</div>
+			<div align="right">
+			 <button type="submit" class="btn btn-add"  style="margin-top: -35px;">Get</button>
+            </div>
+			
+			<table class="table table-striped" id="service_module">
+				<thead>
+					<tr>
+						<th>SMT ID</th>
+						<th>Brand</th>
+						<th>Model</th>
+						<th>Purchased Date</th>
+						<th>Shop</th>
+						<th>Customer Nam</th>
+						<th>Mobile</th>
+						<th>Warrenty</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>bosch</td>
+						<td>36546464</td>
+						<td>5-11-2017</td>
+						<td>abc</td>
+						<td>hsdvhasd</td>
+						<td>8978041215</td>
+						<td>2yrs</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>bosch</td>
+						<td>36546464</td>
+						<td>5-11-2017</td>
+						<td>abc</td>
+						<td>hsdvhasd</td>
+						<td>8978041215</td>
+						<td>2yrs</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>bosch</td>
+						<td>36546464</td>
+						<td>5-11-2017</td>
+						<td>abc</td>
+						<td>hsdvhasd</td>
+						<td>8978041215</td>
+						<td>2yrs</td>
+					</tr>
+				</tbody>
+		  </table>
+			
+			
+       </div>
+    </div>
+</div>
+
+
+
+
+
+ 
+
+<!-- slim scroll script -->
+  <script type="text/javascript" src="./pos-js/jquery.slimscroll.min.js"></script>
+  <!-- waves material design effect -->
+  <script type="text/javascript" src="./pos-js/waves.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="./pos-js/bootstrap.min.js"></script>
+  <!-- keyboard widget dependencies -->
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-all.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-extender.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-typing.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.mousewheel.js"></script>
+  <!-- select2 plugin script -->
+  <script type="text/javascript" src="./pos-js/select2.min.js"></script>
+  <!-- dalatable scripts 
+  <script src="../../pos-js/jquery.dataTables.min.js"></script>
+  <script src="../../pos-js/dataTables.bootstrap.js"></script>-->
+  <!-- summernote js -->
+  <script src="./pos-js/summernote.js"></script>
+  <!-- chart.js script -->
+  <script src="./pos-js/Chart.js"></script>
+  <!-- moment JS -->
+  <script type="text/javascript" src="./pos-js/moment.min.js"></script>
+  <!-- Include Date Range Picker -->
+  <script type="text/javascript" src="./pos-js/daterangepicker.js"></script>
+  <!-- Sweet Alert swal -->
+  <script src="./pos-js/sweetalert.min.js"></script>
+  <!-- datepicker script -->
+  <script src="./pos-js/bootstrap-datepicker.min.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/jquery.creditCardValidator.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/credit-card-scanner.js"></script>
+  <script src="./pos-js/jquery.redirect.js"></script>
+  <!-- ajax form -->
+  <script src="./pos-js/jquery.form.min.js"></script>
+  <!-- custom script -->
+  <script src="./pos-js/app.js"></script>
+   
+
+</body></html>

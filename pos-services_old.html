@@ -1,0 +1,572 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>POS-Services</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- normalize & reset style -->
+    <link rel="stylesheet" href="./pos-css/normalize.min.css" type="text/css">
+    <link rel="stylesheet" href="./pos-css/reset.min.css" type="text/css">
+    <link rel="stylesheet" href="./pos-css/jquery-ui.css" type="text/css">
+    <!-- google lato font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300" rel="stylesheet" type="text/css">
+    <!-- Bootstrap Core CSS -->
+    <link href="./pos-css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap-horizon -->
+    <link href="./pos-css/bootstrap-horizon.css" rel="stylesheet">
+    <!-- datatable style -->
+    <link href="./pos-css/dataTables.bootstrap.css" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="./pos-css/font-awesome.min.css">
+    <!-- include summernote css-->
+    <link href="./pos-css/summernote.css" rel="stylesheet">
+    <!-- waves -->
+    <link rel="stylesheet" href="./pos-css/waves.min.css">
+    <!-- daterangepicker -->
+    <link rel="stylesheet" type="text/css" href="./pos-css/daterangepicker.css">
+    <!-- css for the preview keyset extension -->
+    <link href="./pos-css/keyboard-previewkeyset.css" rel="stylesheet">
+    <!-- keyboard widget style -->
+    <link href="./pos-css/keyboard.css" rel="stylesheet">
+    <!-- Select 2 style -->
+    <link href="./pos-css/select2.min.css" rel="stylesheet">
+    <!-- datepicker css -->
+    <link rel="stylesheet" type="text/css" href="./pos-css/bootstrap-datepicker.min.css">
+    <!-- Sweet alert swal -->
+    <link rel="stylesheet" type="text/css" href="./pos-css/sweetalert.css">
+    <!-- Custom CSS -->
+    <link href="./pos-css/Style-Light.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script type="text/javascript" src="./pos-js/jquery-2.2.2.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script type="text/javascript" src="./pos-js/loading.js"></script>
+
+    <!-- angular links -->
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>-->
+    <script src="./pos-js/angular.min.js"></script>
+    <script src="angular-app.js"></script>
+    <script src="./pos-js/controllers/pos-filter.js"></script>
+    <script src="./pos-js/controllers/productController.js"></script>
+    <script src="./pos-js/controllers/ordersController.js"></script>
+    <script src="./pos-js/controllers/headerController.js"></script>
+    <script src="./pos-js/controllers/customerPageController.js"></script>
+    <script src="./pos-js/controllers/posMainController.js"></script>
+    <script src="./pos-js/controllers/servicesController.js"></script>
+
+    <script src="./pos-js/services/config.js"></script>
+
+    <script src="./pos-js/services/serviceCenterService.js"></script>
+    <script src="./pos-js/services/customerPageService.js"></script>
+    <script src="./pos-js/services/newCustomerService.js"></script>
+    <script src="./pos-js/services/editCustomerService.js"></script>
+    <script src="./pos-js/services/deleteCustomerService.js"></script>
+    <script src="./pos-js/services/loginService.js"></script>
+
+    <script src="http://code.angularjs.org/snapshot/angular-messages.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>-->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+</head>
+
+<body class="pace-done" ng-app="myApp" ng-cloak>
+    <div class="pace  pace-inactive">
+        <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+            <div class="pace-progress-inner"></div>
+        </div>
+        <div class="pace-activity"></div>
+    </div>
+    <!-------------------------------------header part start here---------------------------------------------------------------->
+    <!-- Fixed header top start here -->
+    <div class="navbar" id="myDIV" ng-controller="servicesCtrl">
+
+        <!-- login person details start here -->
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
+            <form class="form-horizontal">
+                <div class="form-group" style="float:left;width:100%;">
+
+                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+                        <div class="navbar-header" style="margin-top:-40px;">
+                            <a class="navbar-brand" href="#"><img src="./images/new-logo.png" alt="td logo" class="img-responsive"></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+                        <label class="control-label ">Session Time : </label>
+                        <span ng-cloak>{{loginSessionTime}}</span>
+                    </div>
+
+                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
+                        <label for="inputtxt" class="control-label">Shop Name : </label>
+                        <span ng-cloak>{{shopName}}</span>
+                    </div>
+
+                    <!--<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+								<span style="color:#b9f2ff;font-size:20px;"><i class="fa fa-circle"></i></span>
+								<label class="control-label">Diamond</label>
+								
+							</div>-->
+                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" style="float:right;">
+                        <label for="inputtxt" class="control-label">Hai, </label>
+                        <span ng-cloak>{{userName}}</span>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <!-- Fixed header top end here -->
+
+
+    <!-------------------------------------------------header part end here---------------------------------------------------->
+
+    <!-- Navigation start here -->
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 30px;padding-right:0px !important;padding-left:0px !important;"
+        ng-controller="initController">
+        <nav class="navbar navbar-default " role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+            </div>
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="flat-box waves-effect waves-block"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i>POS</a></li>
+                    <li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i>PRODUCTS</a></li>
+                    <li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i>CUSTOMERS</a></li>
+                    <!-- <li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li> -->
+                    <li class="flat-box waves-effect waves-block"><a href="pos-orderinfo.html"><i class="fa fa-line-chart"></i>ORDERINFO</a></li>
+
+                    <li class="flat-box waves-effect waves-block"><a href="pos-invoice.html"><i class="fa fa-line-chart"></i>INVOICEINFO</a></li>
+
+                    <li class="flat-box waves-effect waves-block"><a href="pos-services.html"><i class="fa fa-line-chart"></i>SERVICES</a></li>
+                    <li class="flat-box waves-effect waves-block"><a href="pos-exchange.html"><i class="fa fa-line-chart"></i>EXCHANGE</a></li>
+                    <li class="flat-box waves-effect waves-block"><a href="pos-transferorders.html"><i class="fa fa-share"></i>TRANSFER-ORDER</a></li>
+
+                    <!--<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>
+						<li class="flat-box waves-effect waves-block"><a href="#"><i class="fa fa-shares"></i>TRANSFER-ORDER</a></li>
+					-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <!--<li><button onclick="myFunction()">Try it</button></li>-->
+                    <!-- <li class="flat-box waves-effect waves-block" style="padding-right:20px;padding-top:5px" cancel-confirmation ><a  title="Logout"><i class="fa fa-bell-o"></i><span class="badge notificationBadge">5</span></a></li>-->
+
+                    <li class="flat-box waves-effect waves-block" style="padding-right:20px;padding-top:5px"><a href="logout.html" title="Logout" style="background:none;border:0px solid red;" ng-click="logOut()"><i class="fa fa-sign-out fa-lg"></i></a></li>
+                </ul>
+            </div>
+            <!-- Brand and toggle get grouped for better mobile display end here-->
+            <div id="loadingimg" style="display: none;"></div>
+        </nav>
+    </div>
+    <!-- navigation end here -->
+
+
+
+    <div ng-controller='servicesCtrl'>
+        <div class="bg-imageDiv">
+            <div class="container" id="serviceContainer">
+
+                <div class="service_module1">
+                    <div class="">
+                        <form name="getSMTDetailsForm" novalidate>
+
+                            <label for="itemId" style="padding-right:10px;">SMT Id : </label>
+                            <input type="text" name="itemId" required id="itemId" ng-model="serviceitem.itemId" ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Enter SMTID">
+                            <div ng-messages="getSMTDetailsForm.itemId.$error ">
+                                <p class="validationError errorMsg" style="margin-left: 6%;" ng-message="pattern">Enter valid SMTID</p>
+
+                            </div>
+                            <!-- <p  class="validationError errorMsg" style="margin-left: 6%;" ng-show="submitted && getSMTDetailsForm.itemId.$error.required">Enter SMTID</p> -->
+                            <button type="submit" style="margin-right: 75%; margin-top: -3%;float:right;" class="btn btn-add" ng-click="getItemDetails(serviceitem)">Get</button>
+
+                        </form>
+
+                    </div>
+
+                    <table class="table table-striped table-bordered" id="service_module">
+                        <tbody>
+                            <tr>
+                                <th><b>SMT ID</b></th>
+                                <td>{{serviceItemDetails.SMTID}}</td>
+                                <th><b>Shop</b></th>
+                                <td>{{serviceItemDetails.shop}}</td>
+                            </tr>
+                            <tr>
+                                <th><b>Brand<b></th>
+						<td>{{serviceItemDetails.brand}}</td>
+						<th><b>Customer Name</b></th>
+                                <td>{{serviceItemDetails.user_name}}</td>
+                            </tr>
+                            <tr>
+                                <th><b>Model</b></th>
+                                <td>{{serviceItemDetails.model}}</td>
+                                <th><b>Mobile</b></th>
+                                <td>{{serviceItemDetails.user_mobile}}</td>
+                            </tr>
+                            <tr>
+                                <th><b>Purchased Date</b></th>
+                                <td>{{serviceItemDetails.purchased_date}}</td>
+                                <th><b>Warranty</b></th>
+                                <td>{{serviceItemDetails.warranty}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <div class="warrenty_time_crossed" ng-if="showWarranty == 'false'">
+                        <span>Warranty time crossed </span>
+                    </div>
+
+                    <div class="warrenty_time_crossed" ng-if="showNoWarranty == 'true'">
+                        <span>No Warranty </span>
+                    </div>
+
+                    <div class="under_warrenty" ng-if="showWarranty == 'true'">
+                        <span>Under Warranty </span>
+                    </div>
+
+                    <div class="inputs">
+                        <form name="serviceDetailsForm" novalidate>
+                            <div class="form-group aa">
+                                <label for="item_name">Service Name</label><br/>
+                                <input type="text" name="item_name" id="item_name" placeholder="Service Name" required ng-pattern="/^[\w -]*$/" ng-model="service.item_name">
+                                <div ng-messages="serviceDetailsForm.item_name.$error ">
+                                    <p class="validationError errorMsg" style="margin-left: 6%;" ng-message="pattern">Enter valid Service Name</p>
+
+                                </div>
+                                <p class="validationError errorMsg" style="margin-left: 6%;" ng-show="submitted && serviceDetailsForm.item_name.$error.required">Enter Service Name</p>
+
+                            </div>
+                            <div class="form-group aa">
+                                <label for="charges">Charges</label><br/>
+                                <input type="text" placeholder="Charges" name="charges" id="charges" required ng-pattern="/^[0-9]*$/" ng-model="service.charges">
+                                <div ng-messages="serviceDetailsForm.charges.$error ">
+                                    <p class="validationError errorMsg" style="margin-left: 6%;" ng-message="pattern">Enter valid Charges</p>
+
+                                </div>
+                                <p class="validationError errorMsg" style="margin-left: 6%;" ng-show="submitted && serviceDetailsForm.charges.$error.required">Enter Charges</p>
+
+                            </div>
+                            <div class="form-group aa">
+                                <label for="tax">Tax</label><br/>
+                                <select class="dropdown" name="tax" id="tax" ng-model="service.tax" style="width:100px;" required>
+						<option ng-repeat="tax in taxArray"  ng-value="tax.tax_rate">{{tax.tax_rate}}</option>
+						
+					</select>
+
+                                <p class="validationError errorMsg" style="margin-left: 6%;" ng-show="submitted && serviceDetailsForm.tax.$error.required">Select Tax</p>
+
+                            </div>
+                            <div class="form-group aa">
+                                <label for="applicable">Applicable</label><br/>
+                                <select class="dropdown" name="applicable" id="applicable" ng-model="service.applicable" style="width:100px;" required>
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+
+                                <p class="validationError errorMsg" style="margin-left: 6%;" ng-show="submitted && serviceDetailsForm.applicable.$error.required">Select Applicable or Not</p>
+
+
+                            </div>
+
+                        </form>
+                        <button type="submit" class="btn btn-theme" style="margin-right: 25%; margin-top: -3%;float:right;" ng-click="submitted=true; serviceDetailsForm.$valid && addServiceDetails(service)">Add</button>
+
+                    </div>
+
+
+                    <div class="service_item" id="printServiceOrderId">
+                        <div class="row">
+                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                <div class="service_usr">
+                                    <h5><span><b>User:</b>{{serviceItemDetails.user_name}}</span></h5>
+                                    <h5><span><b>Mobile:</b>{{serviceItemDetails.user_mobile}}</span></h5>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                <div class="service_gst">
+                                    <h5><span><b>GSTNUMBER:</b>{{gstNumber}}</span></h5>
+                                    <h5><span><b>Shop Name:</b>{{shopName}}</span></h5>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                                <div class="service_inv">
+                                    <h5><span style="padding-left:10px;"><b>{{serviceItemDetails.orderid}}</b></span></h5>
+                                    <h5><span style="padding-left:10px;"><b>Total Amount:</b>Rs.{{totalAmnt | currency:""}}</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-bordered" id="service_item_tbl">
+                            <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th>Charges</th>
+                                    <th>Tax %</th>
+                                    <th>Applicable</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="serviceInfo in serviceInfoArray">
+                                    <td>{{serviceInfo.item_name}}</td>
+                                    <td style="text-align:right;">{{serviceInfo.charges}}</td>
+                                    <td style="text-align:right;">{{serviceInfo.tax}}</td>
+                                    <td>{{serviceInfo.applicable}}</td>
+                                    <td style="text-align:right;" ng-if="serviceInfo.applicable == 'yes'">{{total_tax_change(serviceInfo)|currency}}</td>
+                                    <td style="text-align:right;" ng-if="serviceInfo.applicable == 'no'">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <b ng-show="printService == 'true'">Total Rs.</b><span ng-show="printService == 'true'">{{totalAmnt|currency}}</span><br>
+                        <b ng-show="printService == 'true'">Service Order Id:</b><span ng-show="printService == 'true'">{{serviceOrderId}}</span>
+                    </div>
+                    <div class="service_order_generation">
+                        <label style="float:left;">Total Rs.</label>
+                        <input type="text" placeholder="Total" disabled ng-model="totalAmnt">
+                        <button type="button" class="btn btn-theme" style="float:right;" ng-disabled="showOrderPrintBtn == 'false'" ng-click="printServiceOrder(printServiceOrderId)">Print</button>
+
+                        <button type="button" class="btn btn-theme" style="float:right;margin-right:5px;" ng-disabled="showOrderPrintBtn == 'true'"
+                            ng-click="serviceOrderIdGenerate()">Service Order Generation</button>
+                    </div>
+                </div>
+
+                <div class="service_module2">
+                    <div class="service_order_id">
+                        <form method="post" accept-charset="utf-8" enctype="multipart/form-data" name="getServiceDetailsForm" role="form" novalidate="true">
+
+                            <label style="padding-right:10px;">Service Order ID  </label>
+                            <input type="text" placeholder="Service Order ID" ng-model="sevice_order" ng-pattern="/^[a-zA-Z0-9]*$/" required>
+                            <div ng-messages="getServiceDetailsForm.sevice_order.$error ">
+                                <p class="validationError errorMsg" ng-message="pattern">Enter valid Service Order Id</p>
+
+                            </div>
+                            <p class="validationError errorMsg" ng-show="submitted && getServiceDetailsForm.sevice_order.$error.required">Enter Service Order Id</p>
+                        </form>
+                        <button type="submit" class="btn btn-add" style="margin-right: 70%; margin-top: -3%;float:right;" ng-click="submitted=true; getServiceDetailsForm.$valid && getServiceOrderInfo(sevice_order)">Get</button>
+                    </div>
+                    <div id="invoiceOrder">
+                        <div class="service_module1" id="invoiceOrder">
+
+                            <table class="table table-striped table-bordered" id="service_module">
+                                <tbody>
+                                    <tr>
+                                        <th><b>SMT ID</b></th>
+                                        <td>{{serviceOrderUserInfo.smtid}}</td>
+                                        <th><b>Shop</b></th>
+                                        <td>{{serviceOrderUserInfo.shop}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>Brand<b></th>
+						<td>{{serviceOrderUserInfo.brand}}</td>
+						<th><b>Customer Name</b></th>
+                                        <td>{{serviceOrderUserInfo.customer_name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>Model</b></th>
+                                        <td>{{serviceOrderUserInfo.model}}</td>
+                                        <th><b>Mobile</b></th>
+                                        <td>{{serviceOrderUserInfo.mobile}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><b>Purchased Date</b></th>
+                                        <td>{{serviceOrderUserInfo.purchased_date}}</td>
+                                        <th><b>Warranty</b></th>
+                                        <td>{{serviceOrderUserInfo.warranty}}</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="service_item" id="invoiceOrder">
+                            <table class="table table-striped table-bordered" id="service_order_tbl">
+                                <thead>
+                                    <tr>
+                                        <th>Item Name</th>
+                                        <th>Charges</th>
+                                        <th>Tax %</th>
+                                        <th>Applicable</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="serviceInfo in serviceOrderInfo">
+                                        <td>{{serviceInfo.item_name}}</td>
+                                        <td style="text-align:right;">{{serviceInfo.charges}}</td>
+                                        <td style="text-align:right;">{{serviceInfo.tax}}</td>
+                                        <td>{{serviceInfo.applicable}}</td>
+                                        <td style="text-align:right;" ng-if="serviceInfo.applicable == 'yes'">{{serviceInfo.total|currency}}</td>
+                                        <td style="text-align:right;" ng-if="serviceInfo.applicable == 'no'">0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <b ng-show="printService == 'true'">Total Rs.</b><span ng-show="printService == 'true'">{{invoiceAmnt|currency}}</span><br>
+                            <b ng-show="printService == 'true'">Invoice Number:</b><span ng-show="printService == 'true'">{{invoiceId}}</span>
+                        </div>
+                    </div>
+                    <div class="service_order_generation">
+                        <label style="float:left;">Total Rs.</label>
+                        <input type="text" placeholder="Total" disabled ng-model="invoiceAmnt">
+                        <button type="button" class="btn btn-theme" style="float:right;" ng-disabled="showPrintBtn == 'false'" ng-click="printInvoice(invoiceOrder)">Print</button>
+                        <button type="button" class="btn btn-theme" style="float:right;margin-right:5px;" ng-disabled="showPrintBtn == 'true'" ng-click="generateServiceInvoice()">Invoice Generation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- slim scroll script -->
+    <script type="text/javascript" src="./pos-js/jquery.slimscroll.min.js"></script>
+    <!-- waves material design effect -->
+    <script type="text/javascript" src="./pos-js/waves.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="./pos-js/bootstrap.min.js"></script>
+    <!-- keyboard widget dependencies -->
+    <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.js"></script>
+    <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-all.js"></script>
+    <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-extender.js"></script>
+    <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-typing.js"></script>
+    <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.mousewheel.js"></script>
+    <!-- select2 plugin script -->
+    <script type="text/javascript" src="./pos-js/select2.min.js"></script>
+    <!-- dalatable scripts 
+  <script src="../../pos-js/jquery.dataTables.min.js"></script>
+  <script src="../../pos-js/dataTables.bootstrap.js"></script>-->
+    <!-- summernote js -->
+    <script src="./pos-js/summernote.js"></script>
+    <!-- chart.js script -->
+    <script src="./pos-js/Chart.js"></script>
+    <!-- moment JS -->
+    <script type="text/javascript" src="./pos-js/moment.min.js"></script>
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="./pos-js/daterangepicker.js"></script>
+    <!-- Sweet Alert swal -->
+    <script src="./pos-js/sweetalert.min.js"></script>
+    <!-- datepicker script -->
+    <script src="./pos-js/bootstrap-datepicker.min.js"></script>
+    <!-- creditCardValidator script -->
+    <script src="./pos-js/jquery.creditCardValidator.js"></script>
+    <!-- creditCardValidator script -->
+    <script src="./pos-js/credit-card-scanner.js"></script>
+    <script src="./pos-js/jquery.redirect.js"></script>
+    <!-- ajax form -->
+    <script src="./pos-js/jquery.form.min.js"></script>
+    <!-- custom script -->
+    <script src="./pos-js/app.js"></script>
+
+    <div class="service_item" id="printServiceOrderId" ng-show="printService == 'true'">
+        <table class="table table-striped table-bordered" id="service_order_tbl">
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Charges</th>
+                    <th>Tax %</th>
+                    <th>Applicable</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="serviceInfo in serviceOrderInfo">
+                    <td>{{serviceInfo.item_name}}</td>
+                    <td style="text-align:right;">{{serviceInfo.charges}}</td>
+                    <td style="text-align:right;">{{serviceInfo.tax}}</td>
+                    <td>{{serviceInfo.applicable}}</td>
+                    <td style="text-align:right;" ng-if="serviceInfo.applicable == 'yes'">{{total_tax_change(serviceInfo)}}</td>
+                    <td style="text-align:right;" ng-if="serviceInfo.applicable == 'No'">0</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="service_order_generation">
+            <label style="float:left;">Total Rs.{{totalCal()}}</label>
+            <label style="float:left;">Service Order Id.{{serviceOrderId}}</label>
+        </div>
+    </div>
+
+    <div class="service_module2" id="invoiceOrder" ng-show="printService == 'true'">
+        <div class="service_order_id">
+            <label style="padding-right:10px;">Service Order ID : {{serviceId}} </label>
+
+        </div>
+        <div class="service_module1">
+
+            <table class="table table-striped table-bordered" id="service_module">
+                <tbody>
+                    <tr>
+                        <th><b>SMT ID</b></th>
+                        <td>{{serviceOrderUserInfo.smtid}}</td>
+                        <th><b>Shop</b></th>
+                        <td>{{serviceOrderUserInfo.shop}}</td>
+                    </tr>
+                    <tr>
+                        <th><b>Brand<b></th>
+						<td>{{serviceOrderUserInfo.brand}}</td>
+						<th><b>Customer Name</b></th>
+                        <td>{{serviceOrderUserInfo.customer_name}}</td>
+                    </tr>
+                    <tr>
+                        <th><b>Model</b></th>
+                        <td>{{serviceOrderUserInfo.model}}</td>
+                        <th><b>Mobile</b></th>
+                        <td>{{serviceOrderUserInfo.mobile}}</td>
+                    </tr>
+                    <tr>
+                        <th><b>Purchased Date</b></th>
+                        <td>{{serviceOrderUserInfo.purchased_date}}</td>
+                        <th><b>Warranty</b></th>
+                        <td>{{serviceOrderUserInfo.warranty}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="service_item">
+            <table class="table table-striped table-bordered" id="service_order_tbl">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Charges</th>
+                        <th>Tax %</th>
+                        <th>Applicable</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="serviceInfo in serviceOrderInfo">
+                        <td>{{serviceInfo.item_name}}</td>
+                        <td style="text-align:right;">{{serviceInfo.charges}}</td>
+                        <td style="text-align:right;">{{serviceInfo.tax}}</td>
+                        <td>{{serviceInfo.applicable}}</td>
+                        <td style="text-align:right;" ng-if="serviceInfo.applicable == 'yes'">{{total_tax_change(serviceInfo)}}</td>
+                        <td style="text-align:right;" ng-if="serviceInfo.applicable == 'No'">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="service_order_generation">
+            <label style="float:left;">Total Rs.{{invoiceTotal()}}</label>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

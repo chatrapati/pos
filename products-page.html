@@ -1,0 +1,1084 @@
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>POS - point of sale</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- normalize & reset style -->
+	<link rel="stylesheet" href="./pos-css/normalize.min.css" type="text/css">
+	<link rel="stylesheet" href="./pos-css/reset.min.css" type="text/css">
+	<link rel="stylesheet" href="./pos-css/jquery-ui.css" type="text/css">
+	<!-- google lato font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300" rel="stylesheet" type="text/css">
+	<!-- Bootstrap Core CSS -->
+	<!--<link href="./pos-css/bootstrap.min.css" rel="stylesheet">-->
+	<!-- bootstrap-horizon -->
+	<link href="./pos-css/bootstrap-horizon.css" rel="stylesheet">
+	<!-- datatable style -->
+	<link href="./pos-css/dataTables.bootstrap.css" rel="stylesheet">
+	<!-- font awesome -->
+	<link rel="stylesheet" href="./pos-css/font-awesome.min.css">
+	<!-- include summernote css-->
+	<link href="./pos-css/summernote.css" rel="stylesheet">
+	<!-- waves -->
+	<link rel="stylesheet" href="./pos-css/waves.min.css">
+	<!-- daterangepicker -->
+	<link rel="stylesheet" type="text/css" href="./pos-css/daterangepicker.css">
+	<!-- css for the preview keyset extension -->
+	<link href="./pos-css/keyboard-previewkeyset.css" rel="stylesheet">
+	<!-- keyboard widget style -->
+	<link href="./pos-css/keyboard.css" rel="stylesheet">
+	<!-- Select 2 style -->
+	<link href="./pos-css/select2.min.css" rel="stylesheet">
+	<!-- datepicker css -->
+	<link rel="stylesheet" type="text/css" href="./pos-css/bootstrap-datepicker.min.css">
+	<!-- Sweet alert swal -->
+	<link rel="stylesheet" type="text/css" href="./pos-css/sweetalert.css">
+	<!-- Custom CSS -->
+	<link href="./pos-css/Style-Light.css" rel="stylesheet">
+	<!-- jQuery -->
+	<script type="text/javascript" src="./pos-js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript" src="./pos-js/loading.js"></script>
+	<!-- pdf format js files -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+	<!-- angular links -->
+	<script src="./pos-js/angular.min.js"></script>
+	<script src="angular-app.js"></script>
+	<script src="./pos-js/controllers/pos-filter.js"></script>
+	<script src="./pos-js/controllers/productController.js"></script>
+	<script src="./pos-js/controllers/smtCategoriesProductsController.js"></script>
+	<script src="./pos-js/controllers/ordersController.js"></script>
+	<script src="./pos-js/controllers/headerController.js"></script>
+	<script src="./pos-js/controllers/customerPageController.js"></script>
+	<script src="./pos-js/controllers/posMainController.js"></script>
+
+	<script src="./pos-js/services/config.js"></script>
+
+	<script src="./pos-js/controllers/loginController.js"></script>
+	<script src="./pos-js/services/customerPageService.js"></script>
+	<script src="./pos-js/services/newCustomerService.js"></script>
+	<script src="./pos-js/services/editCustomerService.js"></script>
+	<script src="./pos-js/services/deleteCustomerService.js"></script>
+	<script src="./pos-js/services/loginService.js"></script>
+	<script src="./pos-js/services/smtCategoriesProductsService.js"></script>
+	<script src="http://code.angularjs.org/snapshot/angular-messages.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+
+
+	<style>
+		.loading {
+			border: 1px solid #6e7171;
+			background: #6e7171;
+			border-radius: 8px;
+			color: #fff;
+			padding: 20px;
+			margin: 40px 500px;
+			width: 100px;
+		}
+	</style>
+</head>
+
+<body class="pace-done" ng-app="myApp" ng-cloak>
+	<!--<div class="pace  pace-inactive">
+		<div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+			<div class="pace-progress-inner"></div>
+		</div>
+		<div class="pace-activity"></div>
+	</div>-->
+
+	<!-------------------------------------header part start here---------------------------------------------------------------->
+
+	<!-- Fixed header top start here -->
+	<div class="navbar" id="myDIV" ng-controller="posMainController">
+
+		<!-- login person details start here -->
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
+			<form class="form-horizontal">
+				<div class="form-group" style="float:left;width:100%;">
+
+					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="">
+						<div class="navbar-header"  id="top_logo_pos">
+							<a class="navbar-brand111" href="#"><img src="./images/new-logo.png" alt="td logo" class="img-responsive"></a>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="sesTime">
+						<label class="control-label "><b>Session Time : </b></label>
+						<span ng-cloak>{{loginSessionTime}}</span>
+					</div>
+
+					<div class="col-md-5 col-lg-5 col-sm-5 col-xs-12" id="shopName">
+						<label for="inputtxt" class="control-label"><b>Shop Name : </b></label>
+						<span ng-cloak>{{shopName}}</span>
+					</div>
+
+					<!--<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+							<span style="color:#b9f2ff;font-size:20px;"><i class="fa fa-circle"></i></span>
+							<label class="control-label">Diamond</label>
+						</div>-->
+						
+					<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" id="usrName">
+						<label for="inputtxt" class="control-label"><b>Hai, </b></label>
+						<span ng-cloak>{{userName}}</span>
+					</div>
+
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- Fixed header top end here -->
+
+	<!-------------------------------------------------header part end here---------------------------------------------------->
+	<!-- Navigation start here -->
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="menuToggle" ng-controller="posMainController">
+		<nav class="navbar navbar-default" role="navigation" id="nav_bckground">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+			</div>
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav products_menu">
+					<li class="flat-box waves-effect waves-block"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i>POS</a></li>
+					<li class="flat-box waves-effect waves-block active"><a href="products-page.html"><i class="fa fa-archive"></i>PRODUCTS</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i>CUSTOMERS</a></li>
+					<!--<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>-->
+					<li class="flat-box waves-effect waves-block"><a href="pos-orderinfo.html"><i class="fa fa-line-chart"></i>ORDERINFO</a></li>
+
+					<li class="flat-box waves-effect waves-block"><a href="pos-invoice.html"><i class="fa fa-line-chart"></i>INVOICEINFO</a></li>
+
+					<li class="flat-box waves-effect waves-block"><a href="pos-services.html"><i class="fa fa-line-chart"></i>SERVICES</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="pos-exchange.html"><i class="fa fa-line-chart"></i>EXCHANGE</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="pos-transferorders.html"><i class="fa fa-share"></i>TRANSFER-ORDER</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="flat-box waves-effect waves-block" style="padding-right:20px;" ng-click="logOut()"><a  title="Logout" id="lgout"><i class="fa fa-sign-out fa-lg"></i>Logout</a></li>
+				</ul>
+			</div>
+			<!-- Brand and toggle get grouped for better mobile display end here-->
+
+			<div id="loadingimg" style="display: none;"></div>
+		</nav>
+	</div>
+	<!-- navigation end here -->
+
+<!-- Page Content start here -->
+<div class="container">
+<div class="row" id="edit_row">
+<div ng-controller="productController">
+  <!-- ng-switch start here -->
+ <div ng-switch="x">	 
+      <!--<form action="products" method="post" class="form-inline float-right hidden-xs hidden-sm" style="margin-bottom:-50px;">
+        <label for="Supplier">Supplier</label>
+        <select class="form-control" id="Supplier" name="filtersupp">
+          <option value="">All</option>
+          <option value="supplier 01">supplier 01</option>
+          <option value="Supplier 02">Supplier 02</option>
+        </select>
+        <label for="Producttype">Product type</label>
+        <select class="form-control" id="Producttype" name="filtertype">
+          <option value="">All</option>
+          <option value="0">Standard</option>
+          <option value="1">Service</option>
+          <option value="2">combination</option>
+        </select>
+        <button type="submit" class="btn btn-default">Apply Filter</button>
+      </form>-->
+      <div id="Table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+        <div class="clear"></div>
+		
+		<!--<div style="padding-bottom:40px;">
+        <div class="dataTables_length pull-left" id="Table_length">
+          <label>Show
+            <select name="Table_length" aria-controls="Table" ng-model="pageSize" class="form-control input-sm" id="pageSize">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select> entries</label>
+        </div>	
+		
+        <div id="Table_filter" class="pull-right">
+          <label>Search:
+            <input type="search" class="form-control input-sm" placeholder="" aria-controls="Table" ng-model="searchText" id="gosearch">
+          </label>
+        </div>
+		</div>-->
+		 <div id="Table_filter" class="">
+          <label>Search:
+            <input type="search" class="form-control input-sm" placeholder="" aria-controls="Table" ng-model="searchText" id="gosearch">
+          </label>
+        </div>
+		<!-- add,update,delete  successfully msg start here -->
+		<!--<div class="alert alert-success" ng-if="message">
+				<a href="#" class="close" ng-click="clearMessage()">&times;</a>
+				{{message}}
+		</div>-->
+		<!-- add,update,delete  successfully msg end here -->
+		
+	<div ng-switch-when="Table" class="table-responsive">
+        <table id="Table" class="table table-striped table-bordered no-footer productpagetbl" role="grid" aria-describedby="Table_info">
+          <thead class="table-head-styl">
+            <tr role="row">
+               <th style="text-align:center;">S.No</th> 
+			  <!--<th ng-click = "sortData('wh_id')">WhereHouse Id<div ng-class = "getSortClass('username')"></div></th>-->
+              <th style="text-align:left;">Category</th>
+              <th style="text-align:left;">Sub Category</th>
+			  <th style="text-align:left;">Product Name</th>
+            
+              <th style="text-align:left;">Brand</th>
+               <th style="text-align:right;">MRP</th>
+			  <th style="text-align:right;">Offer Price</th>
+			  <!--<th ng-click = "sortData('warrenty')">WARRENTY<div ng-class = "getSortClass('username')"></div></th>-->
+			
+			  <!--<th ng-click = "sortData('barcode')">Bar Code<div ng-class = "getSortClass('username')"></div></th>-->
+			 
+			  <th style="text-align:right;">Avl Qty</th>
+			   
+             <!-- <th>Action</th>-->
+            </tr>
+          </thead>
+
+          <tbody>
+		  
+            <tr role="row" class="odd" ng-repeat="user in productsarray | filter:searchText ">
+               <td style="text-align:center;"  ng-cloak>{{user.S_no}}</td>
+               <!-- <td style="text-align:center;" ng-if="productsNextBtn == 'false'" ng-cloak>{{user.sno}}</td>
+               <td style="text-align:center;" ng-if="productsNextBtn == 'true'" ng-cloak>{{user.sno+1}}</td>  -->
+			  <!--<td>{{user.wh_id}}</td>-->
+              <td style="text-align:left;" ng-cloak>{{user.category}}</td>
+              <td style="text-align:left;" ng-cloak>{{user.subcategory}}</td>
+              <td style="text-align:left;" ng-cloak>{{user.productdescription}}</td>
+			
+              <td style="text-align:left;" ng-cloak>{{user.brand}}</td>
+               <td style="text-align:right;" ng-cloak>{{user.MRP | currency:'&#8377;'}}</td>	
+              <td style="text-align:right;" ng-cloak>{{user.offer_price | currency:'&#8377;'}}</td>
+              <!--<td>{{user.warrenty}}</td>-->
+			
+			  <!--<td>{{user.barcode}}</td>-->
+			   
+			  <td style="text-align:right;" ng-cloak>{{user.inqty}}</td>
+			
+             <!-- <td style="text-align:center;width:13%;">
+					<div class="btn-group">
+					  <a class="btn btn-action" href="#" dropdown-toggle=" " data-toggle="dropdown"><i class="fa fa-cog fa-fw"></i> Action</a>
+					 <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-caret-down" title="Toggle dropdown menu"></span></a>
+						<ul class="dropdown-menu">
+							
+							<li><a href="#" data-toggle="modal" data-target="#productViewmore" ng-click="viewDeatils(user)"><i class="fa fa-file-text" aria-hidden="true"></i> View product</a></li>
+							<li><a class="open-modalimage" href="" data-toggle="modal" data-target="#ImageModal" ng-click="viewDeatils(user)">
+								<i class="fa fa-picture-o" data-toggle="tooltip" data-placement="top" title="" data-original-title="View Image"></i>View Image</a>
+							</li>
+							<li>
+								<a class="#" href="#" data-toggle="modal" data-target="#barcode" ng-click="viewDeatils(user)">
+								<i class="fa fa-barcode" data-toggle="tooltip" data-placement="top" title="" data-original-title="print barcode"></i>View Bar Code</a>
+							</li>
+							<li>
+								<a class="#" href="#" data-toggle="modal" data-target="#hsncode" ng-click="viewDeatils(user)">
+								<i class="fa fa-barcode" data-toggle="tooltip" data-placement="top" title="" data-original-title="print hsncode"></i>View HSN Code</a>
+							</li>
+								</ul>
+					</div>
+              </td>-->
+            </tr>
+			
+          </tbody>
+        </table>
+		</div>
+		<!-- previous next buttons start here -->
+			<div class="buttons-countrows" >
+				<button type="button" class="btn-prev btn  col-md flat-box-btn waves-effect waves-button" ng-disabled="currentPageNumber == 1" ng-click="previousPageMethod(fromVal,toVal)">
+					<< Previous
+				</button>
+				<span class="countpages" ng-cloak>
+					{{currentPageNumber}}
+				</span>
+				<button type="button" class="btn-next btn  col-md flat-box-btn waves-effect waves-button" ng-disabled="productsarray.length == 0" ng-click="nextPageMethod(fromVal,toVal)">
+					Next >>
+				</button>
+			</div>
+		<!-- previous next buttons end here -->
+		
+		
+		
+	
+      </div>
+   
+   
+ 
+			<!-- previous next buttons start here -->
+			<!--<div class="buttons-countrows" >
+				<button class="btn-prev btn-md" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+					<< Previous
+				</button>
+				<span class="countpages">
+					{{currentPage+1}}{{numberOfPages()}}
+				</span>
+				<button class="btn-next btn-md" ng-disabled="currentPage >= getData().length/pageSize-1" ng-click="currentPage=currentPage+1">
+					Next >>
+				</button>
+			</div>
+			<!-- previous next buttons end here -->
+	
+ 
+ </div>
+ <!-- ng-switch end here -->
+  
+  <!-- /.container -->
+  <div class="modal fade" id="ImageModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel">Image</h4>
+        </div>
+        <div class="modal-body">
+         <img src="{{userDetails.image}}">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery-ui.min.js"></script>
+  <script type="text/javascript">
+    var items = [];
+    $(function() {
+      $('#addform').submit(function() {
+        var error = false;
+        $('.productcode').each(function() {
+          if ($(this).text() === $("#ProductCode").val()) {
+            $('#codeError').show();
+            error = true;
+          }
+        });
+        if (error) return false;
+        // ... continue work
+      });
+
+      $('#Type').on('change', function() {
+        if (this.value == 1) //if service
+        {
+          $("#pushaceP").slideUp();
+          $("#alertqty").slideUp();
+          $("#supply").slideUp();
+          $("#UnitP").slideUp();
+        } else if (this.value == 2) {
+          $("#pushaceP").slideUp();
+          $("#alertqty").slideUp();
+          $("#supply").slideUp();
+          $("#UnitP").slideUp();
+        } else {
+          $("#pushaceP").slideDown();
+          $("#alertqty").slideDown();
+          $("#supply").slideDown();
+          $("#UnitP").slideDown();
+        }
+      });
+    });
+
+
+    $(document).on("click", ".open-modalimage", function() {
+      var myId = $(this).data('id');
+      $(".modal-body #image").attr("src", "http://www.dar-elweb.com/demos/zarpos//files/products/" + myId);
+    });
+
+
+    var quant = [];
+    var quantw = [];
+    var pricestore = [];
+    var productID;
+    $(document).ready(function() {
+
+      $('#addform').ajaxForm({ //FormID - id of the form.
+
+        success: function(data) {
+          if (data === "service") {
+            location.reload();
+          } else if ($('#Type').value == 1) {
+            $('#stockcontent').html(data);
+            $('#stock').modal('show');
+            $('#Addproduct').modal('hide');
+
+            $("[id='quantity']").on('change', function() {
+              var storeID = $(this).attr("store-id");
+              quant.push({
+                'store_id': storeID,
+                'quantity': $(this).val()
+              });
+            });
+
+            $("[id='quantityw']").on('change', function() {
+              var warehouseID = $(this).attr("warehouse-id");
+              quantw.push({
+                'warehouse_id': warehouseID,
+                'quantity': $(this).val()
+              });
+            });
+
+            $("[id='pricestr']").on('change', function() {
+              var storeID = $(this).attr("store-id");
+              pricestore.push({
+                'store_id': storeID,
+                'price': $(this).val()
+              });
+            });
+
+            productID = $('#prodctID').val();
+          } else {
+
+            productID = $('#prodctID').val();
+            $('#combocontent').html(data);
+            $('#combo').modal('show');
+            $('#Addproduct').modal('hide');
+
+            $("#add_item").autocomplete({
+              source: 'http://www.dar-elweb.com/demos/zarpos/productcontroller/suggest',
+              minLength: 1,
+              autoFocus: false,
+              delay: 200,
+              select: function(event, ui) {
+
+                event.preventDefault();
+                if (ui.item.id !== 0) {
+                  var row = add_product_item(ui.item);
+                  if (row) {
+                    $(this).val('');
+                  }
+                } else {
+                  alert('no match found');
+                  return false;
+                }
+              },
+              response: function(event, ui) {
+                if ($(this).val().length >= 16 && ui.content[0].id == 0) {
+                  alert('no match found');
+                  $('#add_item').focus();
+                  $(this).val('');
+                } else if (ui.content.length == 1 && ui.content[0].id != 0) {
+                  ui.item = ui.content[0];
+                  $(this).data('ui-autocomplete')._trigger('select', 'autocompleteselect', ui);
+                  $(this).autocomplete('close');
+                  $(this).removeClass('ui-autocomplete-loading');
+                } else if (ui.content.length == 1 && ui.content[0].id == 0) {
+                  alert('no match found');
+                  $('#add_item').focus();
+                  $(this).val('');
+
+                }
+              }
+            });
+
+          }
+        }
+      });
+    });
+
+    function add_product_item(item, noitem) {
+      if (item == null && noitem == null) {
+        return false;
+      }
+      if (noitem != 1) {
+        var item_id = 0;
+        $.each(items, function(i) {
+          if (items[i].item_id == item.id) {
+            items[i].quantity = (parseFloat(items[i].quantity) + 1);
+            item_id = item.id;
+            return false;
+          }
+        });
+        if (item_id == 0) {
+          item.qty = 1;
+          items.push({
+            'item_id': item.id,
+            'quantity': item.qty,
+            'code': item.code,
+            'name': item.name
+          });
+        }
+      }
+
+
+      $("#Comboprd tbody").empty();
+      items.forEach(function(item) {
+        var Tr = $('<tr id="rowid_' + item.item_id + '" class="item_' + item.item_id + '"></tr>');
+        td = '<td>' + item.name + ' (' + item.code + ')</td>';
+        td += '<td><input class="form-control text-center" name="quantity" type="text" value="' + item.quantity + '" item-id="' + item.item_id + '" id="quantit"></td>';
+        td += '<td class="text-center"><i class="fa fa-times tip delt" id="' + item.item_id + '" title="Remove" style="cursor:pointer;"></i></td>';
+        Tr.html(td);
+        Tr.prependTo("#Comboprd");
+      });
+      console.log(items);
+      $("[id='quantit']").on('change', function() {
+        var itemID = $(this).attr("item-id");
+        var val = $(this).val();
+        items.forEach(function(e) {
+          if (e.item_id == itemID) {
+            e.quantity = val;
+          }
+        });
+        console.log(items);
+      });
+      return true;
+
+    }
+
+    function addcombo() {
+      var productID = $('#prodctID').val();
+      $.ajax({
+        url: "http://www.dar-elweb.com/demos/zarpos/productcontroller/addcombo/",
+        type: "POST",
+        data: {
+          items: items,
+          productID: productID
+        },
+        success: function(data) {
+          location.reload();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          alert("error");
+        }
+      });
+    }
+
+    function updatestock() {
+      $.ajax({
+        url: "http://www.dar-elweb.com/demos/zarpos/products/updatestock/",
+        data: {
+          quant: quant,
+          quantw: quantw,
+          productID: productID,
+          pricest: pricestore
+        },
+        type: "POST",
+        success: function(data) {
+          location.reload();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          alert("error");
+        }
+      });
+    };
+
+    function modifystock(id) {
+      $.ajax({
+        url: "http://www.dar-elweb.com/demos/zarpos/productcontroller/modifystock/" + id,
+        type: "POST",
+        success: function(data) {
+          $('#stockcontent').html(data);
+          $('#stock').modal('show');
+
+          $("[id='quantity']").on('change', function() {
+            var storeID = $(this).attr("store-id");
+            quant.push({
+              'store_id': storeID,
+              'quantity': $(this).val()
+            });
+          });
+
+          $("[id='quantityw']").on('change', function() {
+            var warehouseID = $(this).attr("warehouse-id");
+            quantw.push({
+              'warehouse_id': warehouseID,
+              'quantity': $(this).val()
+            });
+          });
+
+          $("[id='pricestr']").on('change', function() {
+            var storeID = $(this).attr("store-id");
+            pricestore.push({
+              'store_id': storeID,
+              'price': $(this).val()
+            });
+          });
+
+          productID = $('#prodctID').val();
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          alert("error");
+        }
+      });
+    }
+
+
+    function Viewproduct(id) {
+      $.ajax({
+        url: "http://www.dar-elweb.com/demos/zarpos/productcontroller/Viewproduct/" + id,
+        type: "POST",
+        success: function(data) {
+          $('#viewSectionProduct').html(data);
+          $('#Viewproduct').modal('show');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          alert("error");
+        }
+      });
+    }
+
+    $(document).on('click', '.delt', function() {
+      var id = $(this).attr('id');
+      $.each(items, function(i) {
+        if (items[i].item_id == id) {
+          items.splice(i, 1);
+          return false;
+        }
+      });
+      $(this).closest('#rowid_' + id).remove();
+      console.log(items);
+    });
+
+    function modifycombo(id) {
+      $.ajax({
+        url: "http://www.dar-elweb.com/demos/zarpos/productcontroller/modifycombo/" + id,
+        type: "POST",
+        success: function(data) {
+          $('#combocontent').html(data);
+          $('#Viewproduct').modal('hide');
+          $('#combo').modal('show');
+          $.ajax({
+            url: "http://www.dar-elweb.com/demos/zarpos/productcontroller/getcombos/" + id,
+            type: "POST",
+            success: function(data) {
+              dataitems = JSON.parse(data);
+              dataitems.forEach(function(e) {
+                items.push({
+                  'item_id': e.item_id,
+                  'quantity': e.quantity,
+                  'code': e.code,
+                  'name': e.name
+                });
+              });
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+              alert("error");
+            }
+          });
+          console.log(items);
+          $("#add_item").autocomplete({
+            source: 'http://www.dar-elweb.com/demos/zarpos/productcontroller/suggest',
+            minLength: 1,
+            autoFocus: false,
+            delay: 200,
+            select: function(event, ui) {
+
+              event.preventDefault();
+              if (ui.item.id !== 0) {
+                var row = add_product_item(ui.item);
+                if (row) {
+                  $(this).val('');
+                }
+              } else {
+                alert('no match found');
+                return false;
+              }
+            },
+            response: function(event, ui) {
+              if ($(this).val().length >= 16 && ui.content[0].id == 0) {
+                alert('no match found');
+                $('#add_item').focus();
+                $(this).val('');
+              } else if (ui.content.length == 1 && ui.content[0].id != 0) {
+                ui.item = ui.content[0];
+                $(this).data('ui-autocomplete')._trigger('select', 'autocompleteselect', ui);
+                $(this).autocomplete('close');
+                $(this).removeClass('ui-autocomplete-loading');
+              } else if (ui.content.length == 1 && ui.content[0].id == 0) {
+                alert('no match found');
+                $('#add_item').focus();
+                $(this).val('');
+
+              }
+            }
+          });
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          alert("error");
+        }
+      });
+    }
+
+
+    function barcode() {
+      row = $('#Brrows').val();
+      num = $('#Brnum').val();
+      $.ajax({
+        url: "http://www.dar-elweb.com/demos/zarpos/productcontroller/barcode/" + row + "/" + num + "/" + productBcode,
+        type: "POST",
+        success: function(data) {
+          $('#printSection').html(data);
+          $('#barcodeP').modal('show');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          alert("error");
+        }
+      });
+    }
+
+    function Printbarcode() {
+      $('.modal-body').removeAttr('id');
+      window.print();
+      $('.modal-body').attr('id', 'modal-body');
+    }
+
+    function makePrdInvis(id, prd) {
+      $.ajax({
+        url: "http://www.dar-elweb.com/demos/zarpos/productcontroller/makePrdInvis/" + id + "/" + prd,
+        type: "POST",
+        success: function(data) {},
+        error: function(jqXHR, textStatus, errorThrown) {
+          alert("error");
+        }
+      });
+    }
+  </script>
+
+  
+	  
+  <!-- Modal -->
+  <div class="modal fade" id="ImportProducts" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add Product</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            this option is disabled on the demo
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-add">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal -->
+
+
+  <!-- Modal combo -->
+  <div class="modal fade" id="combo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" id="comboModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="combo">Combinations</h4>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <div id="combocontent">
+            <!-- combo goes here -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default hiddenpr" onclick="location.reload();">Close</button>
+          <button type="button" class="btn btn-add hiddenpr" onclick="addcombo()">submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal -->
+
+  <!-- Modal barcode start here -->
+  <div class="modal fade" id="barcode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" id="stockModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="stock">BAR CODE</h4>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <h4>BAR Code is : {{userDetails.barcode}}</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default hiddenpr" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-add hiddenpr" >submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal barcode end here-->
+
+  <!-- Modal hsncode start here -->
+  <div class="modal fade" id="hsncode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" id="stockModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="stock">HSN code</h4>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <h4>HSN Code is : {{userDetails.hsn_number}}</h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default hiddenpr" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-add hiddenpr" >submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal hsncode end here-->
+
+  <!-- Modal view -->
+  <div class="modal fade" id="Viewproduct" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document" id="viewModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="view">View product</h4>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <div id="viewSectionProduct">
+            <!-- view goes here -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default hiddenpr" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal -->
+
+
+  <!-- Modal barcode -->
+  <div class="modal fade" id="barcode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" id="stockModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="barcode">Stock</h4>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <div class="form-group col-md-6">
+            <label for="Price">column Number</label>
+            <select required="" class="form-control" id="Brrows">
+              <option value="12">1</option>
+              <option value="6">2</option>
+              <option value="4">3</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="Price">Number</label>
+            <input type="number" required="" name="num" class="form-control" id="Brnum" placeholder="Number" value="10">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default hiddenpr" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-add hiddenpr" onclick="barcode()">submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal -->
+
+
+  <!-- Modal barcode -->
+  <div class="modal fade" id="barcodeP" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" id="stockModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="barcodeP">Stock</h4>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <div id="printSection" style="text-align: center;">
+            <!-- content -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default hiddenpr" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-add hiddenpr" onclick="Printbarcode()">print</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal -->
+
+<!-------------------------STATRT VIEW MORE POP-UP--------------------------------------->
+
+
+<div class="modal fade" id="productViewmore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="barcodeP">View Product Details</h4>
+        </div>
+ <div class="modal-body" id="modal-body">
+    <div id="printSection" style="text-align: center;">
+        <div class="row">
+			<div class="col-sm-6">
+				<div class="table-responsive">
+					<table class="table viewmoretable">				 
+						 <tbody>
+							  <tr>					  
+								   <td><span><strong>S.No</strong></span></td>
+								   <td>{{$index+1}}</td>					  
+							  </tr>
+							  <tr>					  
+								   <td><span><strong>WhereHouse ID</strong></span></td>
+								   <td>{{userDetails.wh_id}}</td>					  
+							  </tr>
+							  <tr>					  
+								   <td><span><strong>CATEGORY</strong></span></td>
+								   <td>{{userDetails.category}}</td>					  
+							  </tr>
+							  <tr>					  
+								  <td><span><strong>SUB CATEGORY</strong></span></td>
+								   <td>{{userDetails.sub_category}}</td>					 
+							  </tr>
+							  <tr>					
+								   <td><span><strong>NAME</strong></span></td>
+								   <td>{{userDetails.product_name}}</td>					  
+							  </tr>
+							   <tr>					
+								   <td><span><strong>MODEL NO</strong></span></td>
+								   <td>{{userDetails.model_number}}</td>				  
+							  </tr> 
+						 </tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="table-responsive">
+				  <table class="table viewmoretable">
+						 <tbody>
+							 <tr>					  
+								  <td><span><strong>BRAND</strong></span></td>
+								   <td>{{userDetails.brand}}</td>					 
+							  </tr>
+							   <tr>					  
+								   <td><span><strong>PRICE</strong></span></td>
+								   <td>{{userDetails.dealerprice}}</td>					  
+							  </tr>
+							   <tr>					  
+								   <td><span><strong>HSN CODE</strong></span></td>
+								   <td>{{userDetails.hsn_number}}</td>				  
+							  </tr>
+							   <tr>					  
+								   <td><span><strong>BAR CODE</strong></span></td>
+								   <td>{{userDetails.barcode}}</td>				  
+							  </tr>
+							   <tr>					  
+								   <td><span><strong>QUANTITY</strong></span></td>
+								   <td>{{userDetails.quantity}}</td>					  
+							  </tr>
+							  <tr>					  
+								   <td><span><strong>MRP</strong></span></td>
+								   <td>{{userDetails.mrp}}</td>					  
+							  </tr>
+						 </tbody>
+					</table>
+				</div>
+			</div>			
+		</div>
+    </div>
+</div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default hiddenpr" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-add hiddenpr" onclick="Printbarcode()">print</button>
+        </div>
+		
+      </div>
+    </div>
+  </div>
+<!-------------------------END VIEW MORE POP-UP--------------------------------------->
+
+</div>
+
+ <!-- slim scroll script -->
+  <script type="text/javascript" src="./pos-js/jquery.slimscroll.min.js"></script>
+  <!-- waves material design effect -->
+  <script type="text/javascript" src="./pos-js/waves.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="./pos-js/bootstrap.min.js"></script>
+  <!-- keyboard widget dependencies -->
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-all.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-extender.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-typing.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.mousewheel.js"></script>
+  <!-- select2 plugin script -->
+  <script type="text/javascript" src="./pos-js/select2.min.js"></script>
+  <!-- dalatable scripts 
+  <script src="../../pos-js/jquery.dataTables.min.js"></script>
+  <script src="../../pos-js/dataTables.bootstrap.js"></script>-->
+  <!-- summernote js -->
+  <script src="./pos-js/summernote.js"></script>
+  <!-- chart.js script -->
+  <script src="./pos-js/Chart.js"></script>
+  <!-- moment JS -->
+  <script type="text/javascript" src="./pos-js/moment.min.js"></script>
+  <!-- Include Date Range Picker -->
+  <script type="text/javascript" src="./pos-js/daterangepicker.js"></script>
+  <!-- Sweet Alert swal -->
+  <script src="./pos-js/sweetalert.min.js"></script>
+  <!-- datepicker script -->
+  <script src="./pos-js/bootstrap-datepicker.min.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/jquery.creditCardValidator.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/credit-card-scanner.js"></script>
+  <script src="./pos-js/jquery.redirect.js"></script>
+  <!-- ajax form -->
+  <script src="./pos-js/jquery.form.min.js"></script>
+  <!-- custom script -->
+  <script src="./pos-js/app.js"></script>
+
+  <!--   pop-ups start here -->
+  <div class="note-popover popover in note-link-popover bottom">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container"><span><a target="_blank"></a>&nbsp;</span>
+      <div class="note-btn-group btn-group note-link">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Edit"><i class="note-icon-link"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Unlink"><i class="note-icon-chain-broken"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="note-popover popover in note-image-popover bottom">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container">
+      <div class="note-btn-group btn-group note-imagesize">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Full"><span class="note-fontsize-10">100%</span></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Half"><span class="note-fontsize-10">50%</span></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Quarter"><span class="note-fontsize-10">25%</span></button>
+      </div>
+      <div class="note-btn-group btn-group note-float">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float Left"><i class="note-icon-align-left"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float Right"><i class="note-icon-align-right"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float None"><i class="note-icon-align-justify"></i></button>
+      </div>
+      <div class="note-btn-group btn-group note-remove">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Remove Image"><i class="note-icon-trash"></i></button>
+      </div>
+    </div>
+  </div>
+   <!--   pop-ups end here -->
+  
+  
+  </div>
+  </div>
+  </div>
+  
+</body>
+
+</html>

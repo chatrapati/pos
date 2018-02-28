@@ -1,0 +1,364 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>POS - point of sale Dar Elweb</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- normalize & reset style -->
+  <link rel="stylesheet" href="http://www.dar-elweb.com/demos/zarpos/assets/css/normalize.min.css" type="text/css">
+  <link rel="stylesheet" href="http://www.dar-elweb.com/demos/zarpos/assets/css/reset.min.css" type="text/css">
+  <link rel="stylesheet" href="http://www.dar-elweb.com/demos/zarpos/assets/css/jquery-ui.css" type="text/css">
+  <!-- google lato font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300" rel="stylesheet" type="text/css">
+  <!-- Bootstrap Core CSS -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap-horizon -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/bootstrap-horizon.css" rel="stylesheet">
+  <!-- datatable style -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/datatables/css/dataTables.bootstrap.css" rel="stylesheet">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="http://www.dar-elweb.com/demos/zarpos/assets/css/font-awesome.min.css">
+  <!-- include summernote css-->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/summernote.css" rel="stylesheet">
+  <!-- waves -->
+  <link rel="stylesheet" href="http://www.dar-elweb.com/demos/zarpos/assets/css/waves.min.css">
+  <!-- daterangepicker -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/daterangepicker.css">
+  <!-- css for the preview keyset extension -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/keyboard-previewkeyset.css" rel="stylesheet">
+  <!-- keyboard widget style -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/keyboard.css" rel="stylesheet">
+  <!-- Select 2 style -->
+  <link href="http://www.dar-elweb.com/demos/zarpos/assets/css/select2.min.css" rel="stylesheet">
+  <!-- datepicker css -->
+  <link rel="stylesheet" type="text/css" href="http://www.dar-elweb.com/demos/zarpos/assets/css/bootstrap-datepicker.min.css">
+  <!-- Sweet alert swal -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/sweetalert.css">
+  <!-- Custom CSS -->
+  <link href="./pos-css/Style-Light.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="./pos-js/loading.js"></script>
+	
+	<!-- angular links -->
+	<script src="./pos-js/angular.min.js"></script>
+	<script src="./pos-js/angular-app.js"></script>
+	<script src="./pos-js/controllers/pos-filter.js"></script>
+	<script src="http://code.angularjs.org/snapshot/angular-messages.js"></script>
+	
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+	  
+	  <script>
+		function myFunction() {
+		var x = document.getElementById('myDIV');
+		if (x.style.display === 'none') {
+			x.style.display = 'block';
+		} else {
+			x.style.display = 'none';
+			}
+		}
+	</script>
+	
+</head>
+
+<body class="pace-done" ng-app="myApp" ng-controller="myController">
+  <div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+      <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+  </div>
+    <!-------------------------------------header part start here---------------------------------------------------------------->
+  
+  <!-- Fixed header top start here -->
+    <div class="navbar navbar-default" id="myDIV">
+		
+		<!-- logo start here 
+		<div class="col-md-5 col-lg-5 col-sm-5 col-xs-5">
+			<div class="navbar-header" style="padding-top: 0px;">       
+			  <a class="navbar-brand" href="#"><img src="../../images/logo-admin.png" alt="td logo" class="img-responsive"></a>
+			</div>
+		</div>
+		<!-- logo end here -->
+
+		<!-- Address start here 
+		<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+			<div id="navbar" class="navbar-header collapse navbar-collapse" style="margin-top: -10px;">
+				<div class="pos-addr">
+					<h3 style="margin-top: 40px;color: #f19737;font-weight: bold;">GoldenSun Technology Pvt Ltd</h3>
+					<!--<p class="adr">
+						<span style="padding-right:10px;"><i class="fa fa-map-marker"></i></span><span class="street-address">201-A, Platina Building, Gachiboli, Hyderabad,</span><br>
+						<span style="padding-right:20px;"></span><span class="region">Telangana, India, 500036</span>. &nbsp;<span style="padding-right:10px;"></span><span class="tel">XXXX XXXXXX</span>
+					</p>
+					<span style="padding-right:10px;"><i class="fa fa-phone"></i></span><span class="tel">XXXX XXXXXX</span>
+				</div>
+			</div>
+        </div>
+		<!-- Address end here -->
+		
+		<!-- shop photo start here 
+		<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+			<div id="navbar-pic" class="collapse navbar-collapse">
+			  <ul class="nav navbar-nav navbar-right">
+				<a href="#"><img class="img-circle topbar-userpic" src="../../images/baby.jpg" width="50px" height="50px">
+					<span class=""> &nbsp;&nbsp;Shop Photo </span>
+				</a>
+			  </ul>
+			</div>
+		</div>
+		<!-- shop-photo start here -->
+		
+		<!-- login person details start here -->
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
+				<form class="form-horizontal">
+					<div class="form-group" style="float:left;width:100%;">
+					
+					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+						<div class="navbar-header" style="margin-top:-17px;">       
+							<a class="navbar-brand" href="#"><img src="./images/logo-admin.png" alt="td logo" class="img-responsive"></a>
+						</div>
+					</div>
+					
+					<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+						<label class="control-label ">Session Time : </label>
+						<span>02:05:36</span>
+					</div>
+
+					<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+						<label for="inputtxt" class="control-label">Login Person Name : </label>
+						<span>Lakshmi</span>
+					</div>
+	
+						<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+							<span style="color:silver;font-size:20px;"><i class="fa fa-circle"></i></span>
+							<label class="control-label">Silver</label>&nbsp;&nbsp;&nbsp;&nbsp;
+							<span style="color:gold;font-size:20px;"><i class="fa fa-circle"></i></span>
+							<label class="control-label">Gold</label>&nbsp;&nbsp;&nbsp;&nbsp;
+							<span style="color:#b9f2ff;font-size:20px;"><i class="fa fa-circle"></i></span>
+							<label class="control-label">Diamond</label>
+						</div>
+						<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2" style="float:right;">
+							<div id="navbar" class="collapse navbar-collapse" style="">
+							  <ul class="nav navbar-nav navbar-right">
+								<a href="#"><img class="img-circle topbar-userpic" src="./images/baby.jpg" width="40px" height="40px">
+									<span class=""> &nbsp;&nbsp;Person Photo </span>
+								</a>
+							  </ul>
+							</div>
+						</div>
+					
+					</div>
+					
+				</form>
+			</div>
+			<!-- login person details end here -->
+
+			
+    </div>
+    <!-- Fixed header top end here -->
+  
+  <!-------------------------------------------------header part end here---------------------------------------------------->
+
+
+  <!-- Navigation start here -->
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"  style="padding-right:0px !important;padding-left:0px !important;">
+			 <nav class="navbar navbar-default" role="navigation">
+				  <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>					
+				  </div>
+				  <!-- Brand and toggle get grouped for better mobile display -->
+				  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+					  <li class="flat-box waves-effect waves-block"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i> POS</a></li>
+					  <li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i> Product</a></li>
+					  <li class="dropdown">
+						<a href="#" class="dropdown-toggle flat-box waves-effect waves-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i> People <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+						  <li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i> Customers</a></li>
+						  <!--<li class="flat-box waves-effect waves-block"><a href="people-suppliers.html"><i class="fa fa-truck"></i> Suppliers</a></li>-->
+						</ul>
+					  </li>
+					  <!--<li class="flat-box waves-effect waves-block"><a href="sales.html"><i class="fa fa-ticket"></i> Sales</a></li>
+					  <li class="flat-box waves-effect waves-block"><a href="expense.html"><i class="fa fa-inr"></i> Expense</a></li>-->
+					  <li class="dropdown">
+						<a href="#" class="dropdown-toggle flat-box waves-effect waves-block" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bookmark"></i> Categories <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+						  <li class="flat-box waves-effect waves-block"><a href="categories-orders.html"><i class="fa fa-archive"></i> Orders</a></li>
+						  <!--<li class="flat-box waves-effect waves-block"><a href="categories-expense.html"><i class="fa fa-inr"></i> Expense</a></li>-->
+						</ul>
+					  </li>
+					  <li class="flat-box waves-effect waves-block"><a href="pos-settings.html"><i class="fa fa-cogs"></i> Setting</a></li>
+					  <li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i> Reports</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					  <!--<li><button onclick="myFunction()">Try it</button></li>-->
+					  <li class="flat-box waves-effect waves-block" style="padding-right:10px;"><a href="#" title="Logout" onclick="myFunction()">Hide Header</a></li>
+					  <li class="flat-box waves-effect waves-block" style="padding-right:20px;padding-top:5px"><a href="pos-index.html" title="Logout"><i class="fa fa-sign-out fa-lg"></i></a></li>
+					</ul>
+				  </div>
+				  <!-- Brand and toggle get grouped for better mobile display end here-->
+				  <div id="loadingimg" style="display: none;"></div>
+			  </nav>
+			</div>
+			<!-- navigation end here -->
+
+  <!-- Page Content start here -->
+  <div class="container">
+    <div class="row">
+      <div id="Table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+        <div class="clear"></div>
+        
+		
+		<!--<div class="dataTables_length" id="Table_length">
+          <label>Show
+            <select name="Table_length" aria-controls="Table" class="form-control input-sm">
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select> entries</label>
+        </div>
+        <div id="Table_filter" class="dataTables_filter">
+          <label>Search:
+            <input type="search" class="form-control input-sm" placeholder="" aria-controls="Table">
+          </label>
+        </div>-->
+		
+		
+        <table id="Table" class="table table-striped table-bordered dataTable no-footer" cellspacing="0" width="100%" role="grid" aria-describedby="Table_info" style="width: 100%;">
+          <thead>
+            <tr role="row">
+              <th class="sorting_asc" tabindex="0" aria-controls="Table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Category Name: activate to sort column descending" style="width: 383px;">Category Name</th>
+              <th class="sorting" tabindex="0" aria-controls="Table" rowspan="1" colspan="1" aria-label="Ceated At: activate to sort column ascending" style="width: 429px;">Ceated At</th>
+              <th class="sorting" tabindex="0" aria-controls="Table" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 242px;">Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+
+            <tr role="row" class="odd">
+              <td class="sorting_1">invoices</td>
+              <td>2016-05-17 07:51:23</td>
+              <td>
+                <div class="btn-group">
+                  <a class="btn btn-default" href="javascript:void(0)" data-toggle="popover" data-placement="left" data-html="true" title="" data-content="<a class=&quot;btn btn-danger&quot; >Yes, delete it!</a>" data-original-title="Are you sure ?"><i class="fa fa-times"></i></a> <a class="btn btn-default" href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                </div>
+              </td>
+            </tr>
+            <tr role="row" class="even">
+              <td class="sorting_1">product</td>
+              <td>2016-05-17 07:52:30</td>
+              <td>
+                <div class="btn-group">
+                  <a class="btn btn-default" href="javascript:void(0)" data-toggle="popover" data-placement="left" data-html="true" title="" data-content="<a class=&quot;btn btn-danger&quot; >Yes, delete it!</a>" data-original-title="Are you sure ?"><i class="fa fa-times"></i></a> <a class="btn btn-default" href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+		
+		<!--<div class="dataTables_info" id="Table_info" role="status" aria-live="polite">Showing 1 to 2 of 2 entries</div>
+        <div class="dataTables_paginate paging_simple_numbers" id="Table_paginate">
+          <ul class="pagination">
+            <li class="paginate_button previous disabled" id="Table_previous"><a href="#" aria-controls="Table" data-dt-idx="0" tabindex="0">Previous</a></li>
+            <li class="paginate_button active"><a href="#" aria-controls="Table" data-dt-idx="1" tabindex="0">1</a></li>
+            <li class="paginate_button next disabled" id="Table_next"><a href="#" aria-controls="Table" data-dt-idx="2" tabindex="0">Next</a></li>
+          </ul>
+        </div>-->
+		
+		
+      </div>
+    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-add btn-lg" data-toggle="modal" data-target="#Addcategory">
+      Add Category </button>
+  </div>
+  <!-- /.container -->
+  <!-- Modal -->
+  <div class="modal fade" id="Addcategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add Category</h4>
+        </div>
+        <form action="#" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="CategoryName">Category Name</label>
+              <input type="text" maxlength="50" name="name" class="form-control" id="CategoryName" placeholder="Category Name" required="">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-add">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal -->
+
+
+
+
+  <!-- slim scroll script -->
+  <script type="text/javascript" src="./pos-js/jquery.slimscroll.min.js"></script>
+  <!-- waves material design effect -->
+  <script type="text/javascript" src="./pos-js/waves.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="./pos-js/bootstrap.min.js"></script>
+  <!-- keyboard widget dependencies -->
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-all.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-extender.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-typing.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.mousewheel.js"></script>
+  <!-- select2 plugin script -->
+  <script type="text/javascript" src="./pos-js/select2.min.js"></script>
+  <!-- dalatable scripts 
+  <script src="../../pos-js/jquery.dataTables.min.js"></script>
+  <script src="../../pos-js/dataTables.bootstrap.js"></script>-->
+  <!-- summernote js -->
+  <script src="./pos-js/summernote.js"></script>
+  <!-- chart.js script -->
+  <script src="./pos-js/Chart.js"></script>
+  <!-- moment JS -->
+  <script type="text/javascript" src="./pos-js/moment.min.js"></script>
+  <!-- Include Date Range Picker -->
+  <script type="text/javascript" src="./pos-js/daterangepicker.js"></script>
+  <!-- Sweet Alert swal -->
+  <script src="./pos-js/sweetalert.min.js"></script>
+  <!-- datepicker script -->
+  <script src="./pos-js/bootstrap-datepicker.min.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/jquery.creditCardValidator.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/credit-card-scanner.js"></script>
+  <script src="./pos-js/jquery.redirect.js"></script>
+  <!-- ajax form -->
+  <script src="./pos-js/jquery.form.min.js"></script>
+  <!-- custom script -->
+  <script src="./pos-js/app.js"></script>
+
+
+</body>
+
+</html>

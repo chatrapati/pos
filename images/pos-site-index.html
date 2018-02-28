@@ -1,0 +1,1669 @@
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>POS - point of sale</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- normalize & reset style -->
+	<link rel="stylesheet" href="./pos-css/normalize.min.css" type="text/css">
+	<link rel="stylesheet" href="./pos-css/reset.min.css" type="text/css">
+	<link rel="stylesheet" href="./pos-css/jquery-ui.css" type="text/css">
+	<!-- google lato font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300" rel="stylesheet" type="text/css">
+	<!-- Bootstrap Core CSS -->
+	<!--<link href="./pos-css/bootstrap.min.css" rel="stylesheet">-->
+	<!-- bootstrap-horizon -->
+	<link href="./pos-css/bootstrap-horizon.css" rel="stylesheet">
+	<!-- datatable style -->
+	<link href="./pos-css/dataTables.bootstrap.css" rel="stylesheet">
+	<!-- font awesome -->
+	<link rel="stylesheet" href="./pos-css/font-awesome.min.css">
+	<!-- include summernote css-->
+	<link href="./pos-css/summernote.css" rel="stylesheet">
+	<!-- waves -->
+	<link rel="stylesheet" href="./pos-css/waves.min.css">
+	<!-- daterangepicker -->
+	<link rel="stylesheet" type="text/css" href="./pos-css/daterangepicker.css">
+	<!-- css for the preview keyset extension -->
+	<link href="./pos-css/keyboard-previewkeyset.css" rel="stylesheet">
+	<!-- keyboard widget style -->
+	<link href="./pos-css/keyboard.css" rel="stylesheet">
+	<!-- Select 2 style -->
+	<link href="./pos-css/select2.min.css" rel="stylesheet">
+	<!-- datepicker css -->
+	<link rel="stylesheet" type="text/css" href="./pos-css/bootstrap-datepicker.min.css">
+	<!-- Sweet alert swal -->
+	<link rel="stylesheet" type="text/css" href="./pos-css/sweetalert.css">
+	<!-- Custom CSS -->
+	<link href="./pos-css/Style-Light.css" rel="stylesheet">
+	<!-- jQuery -->
+	<script type="text/javascript" src="./pos-js/jquery-2.2.2.min.js"></script>
+	<script type="text/javascript" src="./pos-js/loading.js"></script>
+	<!-- pdf format js files -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+	<!-- angular links -->
+	<script src="./pos-js/angular.min.js"></script>
+	<script src="angular-app.js"></script>
+	<script src="./pos-js/controllers/pos-filter.js"></script>
+	<script src="./pos-js/controllers/productController.js"></script>
+	<script src="./pos-js/controllers/smtCategoriesProductsController.js"></script>
+	<script src="./pos-js/controllers/ordersController.js"></script>
+	<script src="./pos-js/controllers/headerController.js"></script>
+	<script src="./pos-js/controllers/customerPageController.js"></script>
+	<script src="./pos-js/controllers/posMainController.js"></script>
+
+	<script src="./pos-js/services/config.js"></script>
+
+	<script src="./pos-js/controllers/loginController.js"></script>
+	<script src="./pos-js/services/customerPageService.js"></script>
+	<script src="./pos-js/services/newCustomerService.js"></script>
+	<script src="./pos-js/services/editCustomerService.js"></script>
+	<script src="./pos-js/services/deleteCustomerService.js"></script>
+	<script src="./pos-js/services/loginService.js"></script>
+	<script src="./pos-js/services/smtCategoriesProductsService.js"></script>
+	<script src="http://code.angularjs.org/snapshot/angular-messages.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+
+
+	<style>
+		.loading {
+			border: 1px solid #6e7171;
+			background: #6e7171;
+			border-radius: 8px;
+			color: #fff;
+			padding: 20px;
+			margin: 40px 500px;
+			width: 100px;
+		}
+	</style>
+</head>
+
+<body class="pace-done" ng-app="myApp" ng-cloak>
+	<!--<div class="pace  pace-inactive">
+		<div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+			<div class="pace-progress-inner"></div>
+		</div>
+		<div class="pace-activity"></div>
+	</div>-->
+
+	<!-------------------------------------header part start here---------------------------------------------------------------->
+
+	<!-- Fixed header top start here -->
+	<div class="navbar" id="myDIV" ng-controller="posMainController">
+
+		<!-- login person details start here -->
+		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
+			<form class="form-horizontal">
+				<div class="form-group" style="float:left;width:100%;">
+
+					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+						<div class="navbar-header" style="margin-top:-40px;">
+							<a class="navbar-brand" href="#"><img src="./images/new-logo.png" alt="td logo" class="img-responsive"></a>
+						</div>
+					</div>
+
+					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+						<label class="control-label ">Session Time : </label>
+						<span ng-cloak>{{loginSessionTime}}</span>
+					</div>
+
+					<div class="col-md-5 col-lg-5 col-sm-5 col-xs-12">
+						<label for="inputtxt" class="control-label">Shop Name : </label>
+						<span ng-cloak>{{shopName}}</span>
+					</div>
+
+					<!--<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+							<span style="color:#b9f2ff;font-size:20px;"><i class="fa fa-circle"></i></span>
+							<label class="control-label">Diamond</label>
+						</div>-->
+						
+					<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" style="float:right;">
+						<label for="inputtxt" class="control-label">Hai, </label>
+						<span ng-cloak>{{userName}}</span>
+					</div>
+
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- Fixed header top end here -->
+
+	<!-------------------------------------------------header part end here---------------------------------------------------->
+	<!-- Navigation start here -->
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="padding-right:0px !important;padding-left:0px !important;">
+		<nav class="navbar navbar-default1" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				 aria-expanded="false">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
+			</div>
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav products_menu">
+					<li class="flat-box waves-effect waves-block active"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i>POS</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i>PRODUCTS</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i>CUSTOMERS</a></li>
+					<!--<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>-->
+					<li class="flat-box waves-effect waves-block"><a href="pos-orderinfo.html"><i class="fa fa-line-chart"></i>ORDERINFO</a></li>
+
+					<li class="flat-box waves-effect waves-block"><a href="pos-invoice.html"><i class="fa fa-line-chart"></i>INVOICEINFO</a></li>
+
+					<li class="flat-box waves-effect waves-block"><a href="pos-services.html"><i class="fa fa-line-chart"></i>SERVICES</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="pos-exchange.html"><i class="fa fa-line-chart"></i>EXCHANGE</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="pos-transferorders.html"><i class="fa fa-share"></i>TRANSFER-ORDER</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="flat-box waves-effect waves-block" style="padding-right:20px;padding-top:5px" ng-click="logOut()"><a href="logout.html" title="Logout" style="background:none;border:0px solid red;"><i class="fa fa-sign-out fa-lg"></i></a></li>
+				</ul>
+			</div>
+			<!-- Brand and toggle get grouped for better mobile display end here-->
+
+			<div id="loadingimg" style="display: none;"></div>
+		</nav>
+	</div>
+	<!-- navigation end here -->
+
+	<!-- Page Content start here -->
+	<div class="pos-main" ng-controller="posMainController">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-5 left-side">
+					<div class="container-fluid1">
+
+						<!---- user mobilee & user links strats here --->
+						<div class="col-md-7">
+							<h3 style="margin-top:4px;font-size:14px;font-weight:bold;margin-left:5px;">User:<span ng-cloak style="color:#ff6a00;">{{regMobileNo}}&nbsp;&nbsp;&nbsp;{{mobileUserName}}</span></h3>
+						</div>
+						<!--<div class="col-md-4">
+          <h3 style="margin-top:4px;font-size:14px;font-weight:bold;">Name : <span ng-cloak style="color:#ff6a00;"></span></h3>
+        </div>-->
+						<div class="col-md-5 client-add" style="margin-left:-55px;">
+							<a href="javascript:void(0)" data-toggle="modal" data-target="#AddCustomer" ng-click="resetForm()">
+				<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add New Customer">
+					<i class="fa fa-user-plus fa-stack-1x fa-inverse dark-blue iconBackground"></i>
+				</span>
+			</a>
+							<a href="javascript:void(0)" data-toggle="modal" data-target="#ticket" ng-click="showLastReceipt()">
+				<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Show last Receipt">
+					<i class="fa fa-ticket fa-stack-1x fa-inverse dark-blue iconBackground"></i>
+               </span>
+			</a>
+							<a href="javascript:void(0)" data-toggle="modal" data-target="#selectUser" ng-click="resetForm()">
+				<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Select User">
+					<i class="fa fa-user fa-stack-1x fa-inverse dark-blue iconBackground"></i>
+				</span>
+			</a>
+							<a href="javascript:void(0)" data-toggle="modal" data-target="#" ng-click="refreshData()">
+				<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh Data">              
+					<i class="fa fa-refresh fa-stack-1x fa-inverse dark-blue iconBackground"></i>
+               </span>
+			</a>
+						</div>
+						<!---- user mobilee & user links ends here --->
+						<!---- order id & get buttons strats here --->
+						<div class="col-xs-8">
+							<input type="text" class="form-control" placeholder="Order Number" ng-model="orderId">
+						</div>
+						<div class="col-xs-4 client-add">
+							<button class="btn btn-green  flat-box-btn waves-effect waves-button  closeButton" ng-click="clearOrders(orderId)">X</button>
+
+							<button class="btn btn-green  flat-box-btn waves-effect waves-button getButton" ng-disabled="showGet == 'false'" ng-click="getOrderDetails(orderId)">Get</button>
+							<!--	<button class="btn btn-green  flat-box-btn waves-effect waves-button newButton" ng-disabled="showGet == 'false'" ng-click="getOrderId()">New</button>-->
+						</div>
+						<!---- order id & get buttons ends here --->
+						<!---- Barcode Scanner strats here --->
+						<!--	<div class="col-xs-10" style="margin-top:8px;">
+							<form onsubmit="return barcode()">
+								<input type="text" id="barcodeScannerForm" class="form-control barcode" placeholder="Barcode Scanner">
+							</form>
+						</div>
+						<div class="col-xs-2" style="margin-top:8px;margin-left:-25px;">
+							<button type="submit" class="btn btn-success" style="background:#0487a1 !important;border:1px solid #0487a1 !important;">Submit</button>
+						</div>-->
+						<!---- Barcode Scanner ends here --->
+
+						<div class="col-xs-5 table-header" ng-if="getDetailsInfo == 'false'">
+							<h3>Product</h3>
+						</div>
+						<div class="col-xs-2 table-header" ng-if="getDetailsInfo == 'false'">
+							<h3 style="padding-right: 20px;">Price (<i class="fa fa-rupee" style="padding-right:0px;"></i>)</h3>
+						</div>
+						<div class="col-xs-3 table-header nopadding" ng-if="getDetailsInfo == 'false'">
+							<h3 class="text-left">Quantity</h3>
+						</div>
+						<div class="col-xs-2 table-header nopadding" ng-if="getDetailsInfo == 'false'">
+							<h3>Total (<i class="fa fa-rupee" style="padding-right:0px;"></i>)</h3>
+						</div>
+
+						<div class="slimScrollDiv" ng-if="getDetailsInfo == 'false'" style="position: relative; overflow-y: scroll; height:310px;">
+							<div ng-show="productList.length == 0 || showEmptyList == 'true'" id="productList" style="overflow: hidden; width: auto; height: 355px;">
+								<div class="messageVide">Empty List <span>(Select Product)</span></div>
+							</div>
+							<div class="col-xs-12">
+								<div class="panel panel-default product-details" ng-repeat="orderProduct in productList">
+									<div class="panel-body" style="padding:7px 15px !important;">
+										<div class="col-xs-5 nopadding">
+											<div class="col-xs-2 nopadding">
+												<a href="javascript:void(0)" ng-if="orderSavedFlag == 'false'">
+					<span class="fa-stack fa-sm productD">
+					<i class="fa fa-circle fa-stack-2x delete-product"></i>
+					<i class="fa fa-times fa-stack-1x fa-fw fa-inverse" ng-click="deleteProduct(orderProduct)"></i>
+					</span>
+					</a>
+											</div>
+											<div class="col-xs-10 nopadding" ng-if="orderProduct.proddescription"><span class="textPD">{{orderProduct.proddescription}}</span></div>
+											<div class="col-xs-10 nopadding" ng-if="orderProduct.productdesp"><span class="textPD">{{orderProduct.productdesp}}</span></div>
+										</div>
+										<div class="col-xs-2"><span class="textPD">{{orderProduct.offer_price}}</span></div>
+
+										<div class="col-xs-3 nopadding productNum">
+											<!-- <div class="col-xs-2"><span class="textPD">{{orderProduct.qty}}</span></div>-->
+
+											<a href="javascript:void(0)" ng-if="orderSavedFlag == 'false'">
+					  <span class="fa-stack fa-sm decbutton">
+						  <i class="fa fa-square fa-stack-2x light-grey" ></i>
+						  <i class="fa fa-minus fa-stack-1x fa-inverse white" ng-click="reduceQuantity(orderProduct)" ></i>
+					  </span>
+					</a>
+											<input type="text" ng-if="orderSavedFlag == 'false'" id="qt-1505" ng-change="enterQuantity(orderProduct)" class="form-control"
+											 ng-model="orderProduct.qty ">
+											<a href="javascript:void(0)" ng-if="orderSavedFlag == 'false'">
+							<span class="fa-stack fa-sm incbutton">
+								<i class="fa fa-square fa-stack-2x light-grey" ></i>
+								<i class="fa fa-plus fa-stack-1x fa-inverse white" ng-click="addQuantity(orderProduct)"></i>
+							</span>
+						</a>
+
+											<div class="col-xs-2" ng-if="orderSavedFlag == 'true'"><span class="textPD">{{orderProduct.qty}}</span></div>
+										</div>
+
+										<div class="col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.offer_price*orderProduct.qty}}</span></div>
+
+									</div>
+								</div>
+							</div>
+							<div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 355px;"></div>
+							<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+						</div>
+
+						<div class="col-xs-5 table-header" ng-if="orderDetailsArray.status == 'pending' || orderDetailsArray.status == 'Complete' || orderDetailsArray.status == 'Accepted'">
+							<h3>Product</h3>
+						</div>
+						<div class="col-xs-2 table-header" ng-if="orderDetailsArray.status == 'pending' || orderDetailsArray.status == 'Complete' || orderDetailsArray.status == 'Accepted'">
+							<h3 style="padding-right: 50px;">Price</h3>
+						</div>
+						<div class="col-xs-3 table-header nopadding" ng-if="orderDetailsArray.status == 'pending' || orderDetailsArray.status == 'Complete' || orderDetailsArray.status == 'Accepted'">
+							<h3 class="text-left">Quantity</h3>
+						</div>
+						<div class="col-xs-2 table-header nopadding" ng-if="orderDetailsArray.status == 'pending' || orderDetailsArray.status == 'Complete' || orderDetailsArray.status == 'Accepted'">
+							<h3>Total</h3>
+						</div>
+
+						<div class="slimScrollDiv" style="position: relative; overflow-y: scroll; height:310px;" ng-if="orderDetailsArray.status == 'pending' || orderDetailsArray.status == 'Complete' || orderDetailsArray.status == 'Accepted'">
+
+							<div class="col-xs-12">
+								<div class="panel panel-default product-details" ng-repeat="orderProduct in productList">
+									<div class="panel-body" style="">
+										<div class="col-xs-5 nopadding">
+
+											<div class="col-xs-10 nopadding" style="margin-left:10%;"><span class="textPD">{{orderProduct.productdesp}}</span></div>
+										</div>
+										<div class="col-xs-2"><span class="textPD">{{orderProduct.unitprice | number : 0}}</span></div>
+
+
+										<div class="col-xs-2"><span class="textPD">{{orderProduct.qty | number : 0}}</span></div>
+
+
+
+
+
+										<div class="col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.unitprice*orderProduct.qty | number : 0}}</span></div>
+
+									</div>
+								</div>
+							</div>
+							<div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 355px;"></div>
+							<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+						</div>
+
+						<div class="col-xs-5 table-header" ng-if="orderDetailsArray.status == 'pending' && orderDetailsArray.fromweb == 'shop'">
+							<h3>Product</h3>
+						</div>
+						<div class="col-xs-2 table-header" ng-if="orderDetailsArray.status == 'pending' && orderDetailsArray.fromweb == 'shop'">
+							<h3 style="padding-right: 50px;">Price</h3>
+						</div>
+						<div class="col-xs-3 table-header nopadding" ng-if="orderDetailsArray.status == 'pending' && orderDetailsArray.fromweb == 'shop'">
+							<h3 class="text-left">Quantity</h3>
+						</div>
+						<div class="col-xs-2 table-header nopadding" ng-if="orderDetailsArray.status == 'pending' && orderDetailsArray.fromweb == 'shop'">
+							<h3>Total</h3>
+						</div>
+
+						<div class="slimScrollDiv" style="position: relative; overflow-y: scroll; height:310px;" ng-if="orderDetailsArray.status == 'pending' && orderDetailsArray.fromweb == 'shop'">
+
+							<div class="col-xs-12">
+								<div class="panel panel-default product-details" ng-repeat="orderProduct in productList">
+									<div class="panel-body">
+										<div class="col-xs-5 nopadding">
+
+											<div class="col-xs-10 nopadding" style="margin-left:10%;"><span class="textPD">{{orderProduct.productdesp}}</span></div>
+										</div>
+										<div class="col-xs-2"><span class="textPD">{{orderProduct.unitprice | number : 0}}</span></div>
+
+
+										<div class="col-xs-2"><span class="textPD">{{orderProduct.qty | number : 0}}</span></div>
+
+
+
+
+
+										<div class="col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.unitprice*orderProduct.qty | number : 0}}</span></div>
+
+									</div>
+								</div>
+							</div>
+							<div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 355px;"></div>
+							<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+						</div>
+
+
+
+						<div class="footer-section">
+							<div class="table-responsive col-sm-12 totalTab">
+								<table class="table" style="margin-bottom:10px !important;">
+									<tbody>
+										<tr>
+											<td class="active" width="40%">SubTotal</td>
+											<td class="whiteBg" width="60%"><span id="Subtot" ng-cloak><i class="fa fa-inr"></i>{{totalPrice() | currency : ""}}</span>
+												<span class="float-right"><b id="ItemsNum"><span ng-cloak> {{totalQty}}</span> items</b>
+												</span>
+											</td>
+										</tr>
+
+										<!--<tr>
+											<td class="active">Total</td>
+											<td class="whiteBg light-blue text-bold"><span id="total" ng-cloak> <i class="fa fa-inr"></i>{{total_amtchange()|currency:""}}</span></td>
+										</tr>-->
+									</tbody>
+								</table>
+							</div>
+
+							<button type="button" class="btn btn-red col-md-5 flat-box-btn waves-effect waves-button confirmBtn" ng-disabled="productList.length == '0' || invoiceBtn == 'true'  || orderDetailsArray.status == 'pending' || orderDetailsArray.status == 'Complete'"
+							 ng-enabled="productList.length > '0'" ng-click="saveOrder()" style="height:30px;margin-right: 70px;margin-left: 15px;">
+							<h5 class="text-bold" style="line-height:0;">CONFIRM</h5></button>
+
+							<button type="button" ng-click="makeInvoice()" class="btn btn-green col-md-5 flat-box-btn waves-effect waves-button invoiceBtn"
+							 data-toggle="modal" ng-disabled="invoiceBtn == 'false' || orderDetailsArray.status == 'Complete'" ng-enabled="invoiceBtn == 'true'"
+							 data-target="#invoiceIt" style="height:30px;">
+							<h5 class="text-bold" style="line-height:0;">INVOICE IT</h5></button>
+
+
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-7 right-side nopadding" ng-controller="posMainController">
+					<div class="row row-horizon addrow-l">
+
+						<!-- <span class="categories selectedGat" id="" ng-click="smtAllBrands()"><i class="fa fa-home" style="padding-right:5px;"></i>All</span>-->
+						<span class="categories category_names_navbar" ng-repeat="category in categoryArray" id="{{category.categoryname}}" ng-click="getSubCat(category)">{{category.categoryname}}</span>
+
+					</div>
+					<div class="col-sm-12">
+						<div id="searchContaner">
+							<div class="col-xs-10" style="margin-top:8px;">
+								<form name="barcodeScannerForm">
+									<input type="text" id="barcodeNo" name="barcodeNo" class="form-control barcode" ng-model="barcode.barcodeNo" placeholder="Enter Barcode">
+								</form>
+							</div>
+							<div class="col-xs-2" style="margin-top:8px;margin-left:-25px;">
+								<button type="submit" class="btn btn-success" ng-click="getBarcodeProduct(barcode.barcodeNo)" style="background:#0487a1 !important;border:1px solid #0487a1 !important;">Get</button>
+							</div>
+							<!-- <div class="input-group stylish-input-group">
+								<input type="text" ng-model="searchtext" id="searchProd" class="form-control" placeholder="Search" my-enter="searchBrandsOrProducts(searchtext)">
+								<span class="input-group-addon">
+				<button type="submit">
+                    <span class="fa fa-search"></span>
+								</button>
+								</span>
+							</div> -->
+						</div>
+					</div>
+
+					<div class="slimScrollDiv" ng-cloak ng-if="barcodeFlag == 'false' && allSubCat == 'false' && allCat == 'false' && brandDiv == 'false' && subCategory == 'false'  && allBrands == 'true'"
+					 style="position: relative; overflow-y: scroll; height:465px;">
+
+						<div id="productList2" style="height:465px;">
+							<loading></loading>
+							<!-- Power-Tools start here -->
+
+
+							<div class="col-md-4 col-lg-3 col-sm-4 col-xs-4" ng-repeat="category in allBrandArray">
+								<a href="#" class="addPct" id="product-123654">
+									<div class="product color04 flat-box waves-effect waves-block" ng-click="getBrandCategory(category)">
+										<h3 id="proname">{{category.brand}}</h3>
+
+										<img src="images/new-logo.png">
+									</div>
+								</a>
+							</div>
+
+
+						</div>
+						<div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 740px;"></div>
+						<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+					</div>
+
+					<div class="slimScrollDiv" ng-cloak ng-if="barcodeFlag == 'false' && allSubCat == 'false' && allCat == 'true' && brandDiv == 'false' && subCategory == 'false' && allBrands == 'false'"
+					 style="position: relative; overflow-y: scroll; height:465px;">
+
+						<div id="productList2" style="height:465px;">
+							<loading></loading>
+							<!-- Power-Tools start here -->
+
+
+							<div class="col-md-4 col-lg-3 col-sm-4 col-xs-4" ng-repeat="category in allBrandCategoryArray">
+								<a href="#" class="addPct" id="product-123654">
+									<div class="product color04 flat-box waves-effect waves-block" ng-click="getBrandCatSubCat(category)">
+										<h3 id="proname">{{category.category}}</h3>
+
+										<img src="images/new-logo.png">
+									</div>
+								</a>
+							</div>
+
+
+						</div>
+						<div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 740px;"></div>
+						<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+					</div>
+
+					<div class="slimScrollDiv" ng-cloak ng-if="barcodeFlag == 'false'  && allSubCat == 'true' && allCat == 'false' && brandDiv == 'false' && subCategory == 'false'  && allBrands == 'false'"
+					 style="position: relative; overflow-y: scroll; height:465px;">
+
+						<div id="productList2" style="height:465px;">
+							<loading></loading>
+							<!-- Power-Tools start here -->
+
+
+							<div class="col-md-4 col-lg-3 col-sm-4 col-xs-4" ng-repeat="category in brandSubCategoryArray">
+								<a href="#" class="addPct" id="product-123654">
+									<div class="product color04 flat-box waves-effect waves-block" ng-click="getProducts(category)">
+										<h3 id="proname">{{category.subcategory}}</h3>
+
+										<img src="images/new-logo.png">
+
+									</div>
+								</a>
+							</div>
+
+
+						</div>
+						<div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 740px;"></div>
+						<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+					</div>
+
+					<!-- product list section -->
+					<div class="slimScrollDiv" ng-cloak ng-if="barcodeFlag == 'false'  && allSubCat == 'false' && allCat == 'false' && brandDiv == 'false' && subCategory == 'true'  && allBrands == 'false'"
+					 style="position: relative; overflow-y: scroll; height:465px;">
+
+						<div id="productList2" style="height:465px;">
+							<loading></loading>
+							<!-- Power-Tools start here -->
+
+
+							<div class="col-md-4 col-lg-3 col-sm-4 col-xs-4" ng-repeat="category in subCategoryArray">
+								<a href="#" class="addPct" id="product-123654">
+									<div class="product color04 flat-box waves-effect waves-block" ng-click="getBrands(category)">
+										<h3 id="proname">{{category.subcategory}}</h3>
+
+										<img ng-if="category.image == null" src="images/new-logo.png">
+										<img ng-if="category.image != null" src="{{category.image}}">
+									</div>
+								</a>
+							</div>
+
+
+						</div>
+						<div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 740px;"></div>
+						<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+					</div>
+
+
+					<div class="slimScrollDiv" ng-cloak ng-if="barcodeFlag == 'false' && allSubCat == 'false' && allCat == 'false' && brandDiv == 'true' && subCategory == 'false' && allBrands == 'false'"
+					 style="position: relative; overflow-y: scroll; height:465px;">
+
+						<div id="productList2" style="height:465px;">
+							<loading></loading>
+							<!-- Power-Tools start here -->
+
+
+							<div class="col-md-4 col-lg-3 col-sm-4 col-xs-4" ng-repeat="brand in brandsArray">
+								<a href="#" class="addPct" id="product-123654">
+									<div class="product color04 flat-box waves-effect waves-block" ng-click="getProducts(brand)">
+										<h3 id="proname">{{brand.brand}}</h3>
+
+										<img src="images/new-logo.png">
+									</div>
+								</a>
+							</div>
+
+
+						</div>
+						<div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 740px;"></div>
+						<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+					</div>
+
+					<div class="slimScrollDiv" ng-cloak ng-if="barcodeFlag == 'false' && allSubCat == 'false' &&  allCat == 'false' && brandDiv == 'false' && subCategory == 'false' && allBrands == 'false'"
+					 style="position: relative; overflow-y: scroll; height:465px;">
+
+						<div id="productList2" style="height:465px;">
+							<loading></loading>
+							<!-- Power-Tools start here -->
+
+
+							<div class="col-md-4 col-lg-3 col-sm-4 col-xs-4" ng-repeat="product in productsArray">
+								<span class="badge">{{product.inqty-product.outqty}}</span>
+								<a href="#" class="addPct" id="product-123654">
+									<div class="product color04 flat-box waves-effect waves-block">
+										<h3 id="proname">{{product.proddescription}}</h3>
+										<img src="images/new-logo.png" ng-click="saveProductObj(product)">
+										<!-- <img src="{{product.image}}" ng-if="product.image != null " ng-click="saveProductObj(product)">-->
+									</div>
+									<div id="proicons">
+										<i class="fa fa-cart-plus" ng-click="saveProductObj(product)" aria-hidden="true" style="color:#5b5858;font-size:20px;float:right;"></i>
+										<!--<span style="margin-left:-5px;color:#000;">/</span> <span style="color:#000;">{{product.inqty-product.outqty}}</span>-->
+										<i class="fa fa-rupee" aria-hidden="true" style="color:#008000;font-size:15px;"><span style="padding-left:1px;color:#008000;font-weight:bold;">{{product.offer_price}}</span></i>
+										<i class="fa fa-rupee" aria-hidden="true" style="color:#e34a38;font-size:15px;text-decoration:line-through;"><span style="padding-left:1px;color:#e34a38;">{{product.enduser_price}}</span></i>
+										<!--<i class="fa fa-plus" aria-hidden="true" style="color:#fff;font-size:15px;float:right;"><span style="padding-left:5px;">{{product.inqty-product.outqty}}</span></i>-->
+									</div>
+								</a>
+							</div>
+
+
+						</div>
+						<div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 740px;"></div>
+						<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+					</div>
+
+					<div class="slimScrollDiv" ng-cloak ng-if="barcodeFlag == 'true' && allSubCat == 'false' &&  allCat == 'false' && brandDiv == 'false' && subCategory == 'false' && allBrands == 'false'"
+					 style="position: relative; overflow-y: scroll; height:465px;">
+
+						<div id="productList2" style="height:465px;">
+							<loading></loading>
+							<!-- Power-Tools start here -->
+
+
+							<div class="col-md-4 col-lg-3 col-sm-4 col-xs-4">
+								<span class="badge">{{barcodeArray.inqty-barcodeArray.outqty}}</span>
+								<a href="#" class="addPct" id="product-123654">
+									<div class="product color04 flat-box waves-effect waves-block">
+										<h3 id="proname">{{barcodeArray.proddescription}}</h3>
+										<img src="images/new-logo.png" ng-click="saveProductObj(barcodeArray)">
+										<!-- <img src="{{product.image}}" ng-if="product.image != null " ng-click="saveProductObj(product)">-->
+									</div>
+									<div id="proicons">
+										<i class="fa fa-cart-plus" ng-click="saveProductObj(barcodeArray)" aria-hidden="true" style="color:#5b5858;font-size:20px;float:right;"></i>
+										<!--<span style="margin-left:-5px;color:#000;">/</span> <span style="color:#000;">{{product.inqty-product.outqty}}</span>-->
+										<i class="fa fa-rupee" aria-hidden="true" style="color:#008000;font-size:15px;"><span style="padding-left:1px;color:#008000;font-weight:bold;">{{barcodeArray.offer_price}}</span></i>
+										<i class="fa fa-rupee" aria-hidden="true" style="color:#e34a38;font-size:15px;text-decoration:line-through;"><span style="padding-left:1px;color:#e34a38;">{{barcodeArray.enduser_price}}</span></i>
+										<!--<i class="fa fa-plus" aria-hidden="true" style="color:#fff;font-size:15px;float:right;"><span style="padding-left:5px;">{{product.inqty-product.outqty}}</span></i>-->
+									</div>
+								</a>
+							</div>
+
+
+						</div>
+						<div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 740px;"></div>
+						<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+					</div>
+
+					<!--<div class="slimScrollDiv"  ng-if="allSubCat == 'false' &&  allCat == 'false' && brandDiv == 'false' && subCategory == 'false' && allBrands == 'false'" style="position: relative; overflow-y: scroll; height:465px;">
+            
+<div id="productList2" style="height:465px;">
+			<loading></loading>
+			
+			
+			<div class="col-md-4 col-lg-3 col-sm-4 col-xs-4"    ng-repeat="product in brandSubCatArray" >
+              <a href="#" class="addPct" id="product-123654">
+                <div class="product color04 flat-box waves-effect waves-block" ng-click="getBrandSubCat(product)" >
+                  <h3 id="proname">{{product.subcategory}}</h3>
+                  <img src="images/powertools/core_drill_machine.png">
+                </div>
+              </a>
+            </div>
+			
+			
+          </div>
+          <div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 740px;"></div>
+          <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: block; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px;"></div>
+        </div>
+		
+      </div>-->
+
+
+
+					<div class="modal fade" id="selectUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" cache="false">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+									<h4 class="modal-title" id="selectUser">Mobile Number</h4>
+								</div>
+								<form method="post" accept-charset="utf-8" enctype="multipart/form-data" name="mobileNumForm" role="form" novalidate="true">
+
+									<div class="modal-body" id="modal-body">
+										<span class="input-label form-group">Mobile Number</span><br>
+										<label class="item item-input">
+		<input type="text" autocomplete="off"  ng-change="blur(userData)" ng-model="userData.mobileno"  name="mobileno" ng-maxlength="10" placeholder="Mobile Number" ng-pattern="/(^0-5$)|(^[6-9]\d{0,9}$)/"  required >
+		</label><br>
+
+										<div ng-messages="mobileNumForm.mobileno.$error " style="float:right !important;">
+											<p class="validationError errorMsg" ng-message="required">Enter Mobile Number</p>
+
+											<p class="validationError errorMsg" ng-message="pattern">Enter valid Mobile Number</p>
+											<p class="validationError errorMsg" ng-message="minlength">Mobile should be 10 digits</p>
+											<p class="validationError errorMsg" ng-message="maxlength">Mobile should be 10 digits</p>
+										</div>
+										<!-- <p style="float:right !important;" class="validationError errorMsg"  ng-show="submitted && mobileNumForm.mobileno.$error.required">Enter Mobile Number</p>  -->
+										<div ng-show="showHint == 'true'" ng-repeat="mobileUser in mobileUserData">
+											<div ng-click="saveMobile(mobileUser)" style="margin:7px 0;">
+												<p> {{mobileUser.mobile}}-{{mobileUser.firstname | uppercase}}</p>
+											</div>
+										</div>
+
+
+										<!--<div class="form-group">
+		
+             <label for="mobileno">Mobile Number</label>
+			  
+             <input type="text" name="mobileno" class="form-control" ng-pattern="/^[0]?[789]\d{9}$/" id="mobileno" ng-change="blur(userData)" ng-model="userData.mobileno" 
+					placeholder="Enter phone Number" ng-minlength="10" ng-maxlength="10"  required >
+					 <div ng-messages="mobileNumForm.mobileno.$error " style="float:right !important;">
+					<p class="validationError errorMsg" ng-message="pattern">Enter valid Mobile Number</p>
+					<p class="validationError errorMsg" ng-message="minlength">Mobile should be 10 digits</p>
+					<p class="validationError errorMsg" ng-message="maxlength">Mobile should be 10 digits</p>
+				</div>
+				<p style="float:right !important;" class="validationError errorMsg" ng-show="submitted && mobileNumForm.mobileno.$error.required">Enter Mobile Number</p>
+				<label class="item item-input " ng-show="showHint == 'true'" ng-repeat="mobileUser in mobileUserData">
+				<textarea type="text" value="{{mobileUser.mobile}}-{{mobileUser.firstname}}"  disabled >{{mobileUser.mobile}}-{{mobileUser.firstname}}</textarea></label>
+
+					</div>-->
+
+
+									</div>
+								</form>
+								<div class="modal-footer">
+									<button class="btn btn-green  flat-box-btn waves-effect waves-button " ng-click="submitted=true; mobileNumForm.$valid && getMobileNum(userData)">Get</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+
+
+
+					<!--------------------in payment after submit button click pop-up will come like this start here--------------------------->
+
+					<!-- Modal ticket -->
+					<div class="modal fade" id="invoiceIt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" cache="false">
+						<div class="modal-dialog" role="document" id="ticketModal">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+									<h4 class="modal-title" id="invoiceIt">Invoice</h4>
+								</div>
+								<div class="modal-body" id="modal-body">
+
+
+									<div>
+
+										<div style="border:1px solid #ddd;border-top:1px solid #ddd;">
+											<div class="col-md-12" style="border-bottom:0px dashed #ddd;padding:5px">
+												<div class="tax-invoice">
+													<div class="row">
+														<div class="col-md-4">
+															<div class="" style="float:left;font-size:12px;">
+																<h5><span><b>User:</b>{{custName}}</span></h5>
+																<h5><span><b>Mobile:</b>{{regMobileNo}}</span></h5>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="" style="font-size:12px;">
+																<h5><span><b>GSTNUMBER:</b>{{gstNumber}}</span></h5>
+																<h5><span><b>Shop Name:</b>{{shopName}}</span></h5>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="" style="float:right;font-size:12px;">
+																<h5><span style="padding-left:10px;"><b>{{invoiceNo}}</b></span></h5>
+																<h5><span style="padding-left:10px;"><b>Total Amount:</b>Rs.{{invoiceTotalAmt | currency:""}}</span></h5>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<table class="table table-bordered" style="margin-bottom:5px;">
+												<thead>
+													<tr>
+														<th style="text-align:center;font-size:13px;padding: 5px;">S.No</th>
+														<th style="text-align:left;font-size:13px;padding: 5px;">Product</th>
+														<th style="text-align:right;font-size:13px;padding: 5px;">Quantity</th>
+														<th style="text-align:right;font-size:13px;padding: 5px;">Unit Price</th>
+														<th style="text-align:right;font-size:13px;padding: 5px;">SMT ID</th>
+														<th style="text-align:right;font-size:13px;padding: 5px;">Tax(%)</th>
+														<th style="text-align:right;font-size:13px;padding: 5px;">Tax Amount</th>
+														<th style="text-align:right;font-size:13px;padding: 5px;">Amount(Inc. Tax)</th>
+												</thead>
+												<tbody>
+													<div class="panel panel-default product-details">
+														<tr ng-repeat="productInfo in productData">
+															<td style="text-align:center;border-top:none;font-size:12px;padding: 5px;">{{$index + 1}}</td>
+															<td style="text-align:left;border-top: none;font-size:12px;padding: 5px;">{{productInfo.proddescription}}</td>
+															<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.qty}}</td>
+															<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.offer_price}}</td>
+															<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">
+
+																<textarea type="text" class="form-control" ng-show="showSMTIDs == 'true'" ng-model="productInfo.avlSMTIDs" my-enter="editedSMTId(productInfo.avlSMTIDs)"></textarea>
+																<span ng-click="editSmtId()" ng-show="showSMTIDs == 'false'" ng-repeat="x in productInfo.avlSMTIDs">{{x}} , </span></td>
+															</td>
+															<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.tax}}</td>
+															<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.tax_amount|currency:""}}</td>
+															<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.tax_including_total |currency:""}}</td>
+														</tr><br>
+													</div>
+												</tbody>
+											</table>
+
+											<div class="col-md-12" style="border-bottom:0px dashed #ddd;padding:5px" ng-hide="orderDetailsArray.status == 'Accepted' || getDetails == 'true' || !orderDetailsArray " ng-if="orderDetailsArray.status == 'pending'  && orderDetailsArray.paymenttype != 'cashondelivery' || orderDetailsArray.paymenttype != 'COD'">
+												<div class="tax-invoice">
+													<div class="row">
+														<div class="col-md-4">
+															<div class="" style="float:left;font-size:12px;">
+																<h4>
+																	Verify:
+
+																	<span><input type="text" ng-model="verify" ></span></h4>
+																<button type="submit" class="btn btn-success" ng-show="showVerify == 'false'" ng-click="verifyCode(verify)">GET</button>
+																<button type="submit" class="btn btn-success" ng-show="showVerify == 'true'">VERIFIED</button>
+															</div>
+														</div>
+
+														 <div class="col-md-4"  >
+												<div class="" style="float:right;">
+													<button type="submit" class="btn btn-success" ng-disabled="showPrintBtn == 'true'" ng-click="confirmOnlineInvoiceMethod(total_amtchange())">Done</button>
+													<button type="submit" class="btn btn-danger" ng-click="closeModal()">Close</button>
+												</div>
+											</div> 
+
+														<div class="col-md-4">
+															<div class="" style="float:right;font-size:12px;">
+
+																<h5><span style="float:right;"><b style="padding-right:10px;">Sub Total  : </b>Rs.{{invoiceTotalAmt|currency:""}}</span></h5>
+																<h5 ng-if="discount > 0"><span style="float:right;"><b style="padding-right:10px;">Discount  : </b>{{discount}}</span></h5>
+																<h5><span style="float:right;"><b style="padding-right:10px;">Total(Inc. Tax)  : </b>Rs.{{invoiceTotalAmt|currency:""}}</span></h5>
+
+															</div>
+														</div>
+
+
+													</div>
+												</div>
+											</div>
+
+													<div class="col-md-12" style="border-bottom:0px dashed #ddd;padding:5px" ng-if="orderDetailsArray.status == 'pending' && getDetails == 'true' && orderDetailsArray.paymenttype == 'cashondelivery' || orderDetailsArray.paymenttype == 'COD'">
+												<div class="tax-invoice">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="" style="float:left;font-size:12px;">
+																<h4>
+																	Verify:
+
+																	<span><input type="text" ng-model="verify" ></span></h4>
+																<button type="submit" class="btn btn-success" ng-show="showVerify == 'false'" ng-click="verifyCode(verify)">GET</button>
+																<button type="submit" class="btn btn-success" ng-show="showVerify == 'true'">VERIFIED</button>
+															</div>
+														</div>
+
+														
+
+														<div class="col-md-6">
+															<div class="" style="float:right;font-size:12px;">
+
+																<h5><span style="float:right;"><b style="padding-right:10px;">Sub Total  : </b>Rs.{{invoiceTotalAmt|currency:""}}</span></h5>
+																<h5 ng-if="discount > 0"><span style="float:right;"><b style="padding-right:10px;">Discount  : </b>{{discount}}</span></h5>
+																<h5><span style="float:right;"><b style="padding-right:10px;">Total(Inc. Tax)  : </b>Rs.{{invoiceTotalAmt|currency:""}}</span></h5>
+
+															</div>
+														</div>
+
+
+													</div>
+												</div>
+											</div>
+
+	
+
+											<div class="col-md-12" style="border-bottom:0px dashed #ddd;padding:5px" ng-if="orderDetailsArray.status == 'pending'  && orderDetailsArray.paymenttype == 'cashondelivery' || orderDetailsArray.paymenttype == 'COD'">
+												<div class="tax-invoice">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="" style="float:left;font-size:12px;">
+																<div class="form-group">
+																	<label id="paymentMethodlbl" for="paymentMethod">Payment method:</label>
+																	<select class="form-control" ng-model="paymentMethod" ng-change="selectedPaymentMethod(paymentMethod)" style="width: 130px;">
+																			<option value="0">Cash</option>
+																			<option value="1">Card Payment</option>
+																	</select>
+																	<p class="validationError errorMsg" style="margin-left: 49%" ng-if="showPaymentMsg == 'true'">Select Payment Mode</p>
+																</div>
+															</div>
+														</div>
+
+														
+
+
+
+													</div>
+												</div>
+											</div>
+											<div class="tax-invoice" ng-if="orderDetailsArray.status == 'pending' && orderDetailsArray.paymenttype == 'cashondelivery' || orderDetailsArray.paymenttype == 'COD'">
+												<div class="row">
+													<div class="col-md-12" id="cash-sec" ng-show="paymentFlag == 'cash'" >
+
+														<div class="col-md-4">
+
+															<div class="form-group">
+																<label id="cashGivenId" for="cash_given">Cash Given</label>
+																<input type="text" class="form-control" id="cash_given" name="cash_given" ng-model="cash_given" style="width:45%;">
+															</div>
+															<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="showCashMsg == 'true'">Enter this Field</p>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label id="returnId" for="return_amt">Return</label>
+																<input type="text" class="form-control" id="return_amt" ng-show="cash_given-invoiceTotalAmt > 0" name="return_amt" ng-model="cash_given-invoiceTotalAmt"
+																 style="width:45%;">
+																<input type="text" class="form-control" id="return_amt" ng-hide="cash_given-invoiceTotalAmt > 0" name="return_amt" style="width:45%;">
+															</div>
+														</div>
+
+														<div class="col-md-4" style="float:right;" ng-if="orderDetailsArray.status == 'pending' && orderDetailsArray.paymenttype == 'cashondelivery' || orderDetailsArray.paymenttype == 'COD'">
+															<div class="">
+																<button type="submit" class="btn btn-success" ng-disabled="showPrintBtn == 'true'" ng-click="confirmOnlineInvoiceMethod(total_amtchange())">Done</button>
+																<button type="submit" class="btn btn-danger" ng-click="closeModal()">Close</button>
+															</div>
+														</div>
+
+														<!-- <div class="col-md-4" style="float:right;" ng-if="orderDetailsArray.status == 'pending' && orderDetailsArray.paymenttype != 'cashondelivery' || orderDetailsArray.paymenttype != 'COD'">
+												<div class="">
+													<button type="submit" class="btn btn-success" ng-click="confirmOnlineInvoiceMethod(total_amtchange(),'payu')">Done</button>
+													<button type="submit" class="btn btn-danger" ng-click="closeModal()">Close</button>
+												</div>
+											</div>  -->
+													</div>
+
+												</div>
+												<div class="tax-invoice" ng-if="orderDetail.status == 'pending' && orderDetailsArray.paymenttype == 'cashondelivery' || orderDetailsArray.paymenttype == 'COD'">
+													<div class="row">
+														<div class="col-md-12" id="return-sec" ng-show="paymentFlag == 'card'">
+
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label id="cardEndsId" for="card_ends">Card Ends</label>
+																	<input type="text" class="form-control" id="card_ends" name="card_ends" ng-model="card_ends" style="width:45%;">
+															<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="showCashMsg == 'true'">Enter this Field</p>
+																</div>
+															</div>
+															<div class="col-md-6" style="float:right;" ng-show="orderDetailsArray.status == 'pending' && orderDetailsArray.paymenttype == 'cashondelivery' || orderDetailsArray.paymenttype == 'COD' && paymentFlag == 'card'">
+																<div class="">
+																	<button type="submit" class="btn btn-success" ng-disabled="showPrintBtn == 'true'" ng-click="confirmOnlineInvoiceMethod(total_amtchange())">Done</button>
+																	<button type="submit" class="btn btn-danger " data-dismiss="modal" >Close</button>
+																</div>
+															</div>
+
+															<!-- <div class="col-md-6" style="float:right;" ng-show="orderDetailsArray.status == 'pending' && orderDetailsArray.paymenttype != 'cashondelivery' || orderDetailsArray.paymenttype != 'COD' && paymentFlag == 'card'" >
+												<div class="">
+													<button type="submit" class="btn btn-success" ng-click="confirmOnlineInvoiceMethod(total_amtchange(),'payu')">Done</button>
+													<button type="submit" class="btn btn-danger" ng-click="closeModal()">Close</button>
+												</div>
+											</div> -->
+
+														</div>
+													</div>
+												</div>
+
+
+											</div>
+
+											<div class="col-md-12" style="border-bottom:0px dashed #ddd;padding:5px" ng-if="!orderDetailsArray">
+												<div class="tax-invoice">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="" style="float:left;font-size:12px;">
+																<div class="form-group">
+																	<label id="paymentMethodlbl" for="paymentMethod">Payment method:</label>
+																	<select class="form-control" ng-model="paymentMethod" ng-change="selectedPaymentMethod(paymentMethod)" style="width: 130px;">
+                                            <option value="0">Cash</option>
+                                            <option value="1">Card Payment</option>
+																				 </select>
+																	<p class="validationError errorMsg" style="margin-left: 49%" ng-if="showPaymentMsg == 'true'">Select Payment Mode</p>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-md-6">
+															<div class="" style="float:right;font-size:12px;">
+
+																<h5><span style="float:right;"><b style="padding-right:10px;">Sub Total  : </b>Rs.{{invoiceTotalAmt|currency:""}}</span></h5>
+																<h5 ng-if="discount > 0"><span style="float:right;"><b style="padding-right:10px;">Discount  : </b>{{discount}}</span></h5>
+																<h5><span style="float:right;"><b style="padding-right:10px;">Total(Inc. Tax)  : </b>Rs.{{invoiceTotalAmt|currency:""}}</span></h5>
+
+															</div>
+														</div>
+
+													</div>
+												</div>
+											</div>
+											<div class="tax-invoice" ng-if="!orderDetailsArray">
+												<div class="row">
+													<div class="col-md-12" id="cash-sec" ng-if="paymentFlag == 'cash'">
+
+														<div class="col-md-4">
+
+															<div class="form-group">
+																<label id="cashGivenId" for="cash_given">Cash Given</label>
+																<input type="text" class="form-control" id="cash_given" name="cash_given" ng-model="cash_given" style="width:45%;">
+															</div>
+														<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="showCashMsg == 'true'">Enter this Field</p>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label id="returnId" for="return_amt">Return</label>
+																<input type="text" class="form-control" id="return_amt" ng-show="cash_given-invoiceTotalAmt > 0" name="return_amt" ng-model="cash_given-invoiceTotalAmt"
+																 style="width:45%;">
+																<input type="text" class="form-control" id="return_amt" ng-hide="cash_given-invoiceTotalAmt > 0" name="return_amt" style="width:45%;">
+															</div>
+														</div>
+
+														<div class="col-md-4">
+															<div class="">
+																<button type="submit" class="btn btn-success confirmSuccess" ng-disabled="showPrintBtn == 'true'" ng-click="confirmInvoiceMethod(incTaxTotal,'Cash','0')">Done</button>
+																<button type="submit" class="btn btn-danger" ng-click="closeModal()">Close</button>
+															</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="tax-invoice" ng-if="!orderDetailsArray">
+													<div class="row">
+														<div class="col-md-12" id="return-sec" ng-if="paymentFlag == 'card'">
+
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label id="cardEndsId" for="card_ends">Card Ends</label>
+																	<input type="text" class="form-control" id="card_ends" name="card_ends" ng-model="card_ends" style="width:45%;">
+																<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="showCashMsg == 'true'">Enter this Field</p>
+																</div>
+															</div>
+															<div class="col-md-6" style="float:right">
+																<button type="submit" class="btn btn-success confirmSuccess" ng-disabled="showPrintBtn == 'true'" ng-click="confirmInvoiceMethod(card_ends,'Card','0')">Done</button>
+																<button type="submit" class="btn btn-danger" ng-click="closeModal()">Close</button>
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+											</div>
+
+											<div class="col-md-12" style="border-bottom:0px dashed #ddd;padding:5px" ng-if="orderDetailsArray.status == 'Accepted'">
+												<div class="tax-invoice">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="" style="float:left;font-size:12px;">
+																<div class="form-group">
+																	<label id="paymentMethodlbl" for="paymentMethod">Payment method:</label>
+																	<select class="form-control" ng-model="paymentMethod" ng-change="selectedPaymentMethod(paymentMethod)" style="width: 130px;">
+                                            <option value="0">Cash</option>
+                                            <option value="1">Card Payment</option>
+																				 </select>
+																	<p class="validationError errorMsg" style="margin-left: 49%" ng-if="showPaymentMsg == 'true'">Select Payment Mode</p>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-md-6">
+															<div class="" style="float:right;font-size:12px;">
+
+																<h5><span style="float:right;"><b style="padding-right:10px;">Sub Total  : </b>Rs.{{invoiceTotalAmt|currency:""}}</span></h5>
+																<h5 ng-if="discount > 0"><span style="float:right;"><b style="padding-right:10px;">Discount  : </b>{{discount}}</span></h5>
+																<h5><span style="float:right;"><b style="padding-right:10px;">Total(Inc. Tax)  : </b>Rs.{{invoiceTotalAmt|currency:""}}</span></h5>
+
+															</div>
+														</div>
+
+													</div>
+												</div>
+											</div>
+											<div class="tax-invoice" ng-if="orderDetailsArray.status == 'Accepted'">
+												<div class="row">
+													<div class="col-md-12" id="cash-sec" ng-if="paymentFlag == 'cash'">
+
+														<div class="col-md-4">
+
+															<div class="form-group">
+																<label id="cashGivenId" for="cash_given">Cash Given</label>
+																<input type="text" class="form-control" id="cash_given" name="cash_given" ng-model="cash_given" style="width:45%;">
+															</div>
+														<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="showCashMsg == 'true'">Enter this Field</p>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label id="returnId" for="return_amt">Return</label>
+																<input type="text" class="form-control" id="return_amt" ng-show="cash_given-invoiceTotalAmt > 0" name="return_amt" ng-model="cash_given-invoiceTotalAmt"
+																 style="width:45%;">
+																<input type="text" class="form-control" id="return_amt" ng-hide="cash_given-invoiceTotalAmt > 0" name="return_amt" style="width:45%;">
+															</div>
+														</div>
+
+														<div class="col-md-4">
+															<div class="">
+																<button type="submit" class="btn btn-success confirmSuccess" ng-disabled="showPrintBtn == 'true'" ng-click="confirmInvoiceMethod(incTaxTotal,'Cash','0')">Done</button>
+																<button type="submit" class="btn btn-danger" ng-click="closeModal()">Close</button>
+															</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="tax-invoice" ng-if="orderDetailsArray.status == 'Accepted'">
+													<div class="row">
+														<div class="col-md-12" id="return-sec" ng-if="paymentFlag == 'card'">
+
+															<div class="col-md-6">
+																<div class="form-group">
+																	<label id="cardEndsId" for="card_ends">Card Ends</label>
+																	<input type="text" class="form-control" id="card_ends" name="card_ends" ng-model="card_ends" style="width:45%;">
+																<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="showCashMsg == 'true'">Enter this Field</p>
+																</div>
+															</div>
+															<div class="col-md-6" style="float:right">
+																<button type="submit" class="btn btn-success confirmSuccess" ng-disabled="showPrintBtn == 'true'" ng-click="confirmInvoiceMethod(card_ends,'Card','0')">Done</button>
+																<button type="submit" class="btn btn-danger" ng-click="closeModal()">Close</button>
+															</div>
+														</div>
+													</div>
+												</div>
+
+
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-add hiddenpr" ng-disabled="showPrintBtn == 'false'" ng-click="printToCart('printSectionId')">Print</button>
+									</div>
+									<!--<div class="modal-footer">
+											<button type="button" class="btn btn-default hiddenpr" id="clseticket" data-dismiss="modal">Close</button>
+											<button type="button" class="btn btn-add hiddenpr" ng-click="export()">PDF</button>
+											<button type="button" class="btn btn-add hiddenpr">Email</button>
+											<button type="button" class="btn btn-add hiddenpr" ng-click="printToCart('printSectionId')">Print</button>
+										</div>-->
+								</div>
+							</div>
+						</div>
+						<!-- /.Modal -->
+
+						<div class="modal fade" id="verifyCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" cache="false">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" aria-label="Close" ng-click="closeVerifyAlert()"><span aria-hidden="true">×</span></button>
+
+									</div>
+
+									<div class="modal-body" id="modal-body">
+
+										<h4>Verify Code is not valid.</h4>
+
+									</div>
+
+									<div class="modal-footer">
+										<button class="btn btn-green  flat-box-btn waves-effect waves-button " ng-click="closeVerifyAlert()">OK</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+
+						<div id="printSectionId" ng-hide="printSection == 'true'">
+
+							<div style="border:1px solid #ddd;border-top:1px solid #ddd;">
+								<div class="col-md-12" style="border-bottom:0px dashed #ddd;padding:5px">
+									<div class="tax-invoice">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="" style="float:left;font-size:12px;">
+													<h5><span><b>User:</b>{{custName}}</span></h5>
+													<h5><span><b>Mobile:</b>{{regMobileNo}}</span></h5>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="" style="float:left;font-size:12px;">
+													<h5><span><b>GSTNUMBER:</b>{{gstNumber}}</span></h5>
+													<h5><span><b>Shop Name:</b>{{shopName}}</span></h5>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="" style="float:right;font-size:12px;">
+													<h5><span style="padding-left:10px;"><b>{{invoiceNo}}</b></span></h5>
+													<!-- <h5><span style="padding-left:10px;"><b>Total Amount:</b>Rs.{{totalPrice() | currency:""}}</span></h5> -->
+												<h5><span style="padding-left:10px;"><b>{{orderId}}</b></span></h5>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<table class="table table-bordered" style="margin-bottom:5px;">
+									<thead>
+										<tr>
+											<th style="text-align:center;font-size:13px;padding: 5px;">SR</th>
+											<th style="text-align:left;font-size:13px;padding: 5px;">Product</th>
+											<th style="text-align:right;font-size:13px;padding: 5px;">Qty</th>
+											<th style="text-align:right;font-size:13px;padding: 5px;">Unit Price</th>
+											<th style="text-align:right;font-size:13px;padding: 5px;">SMT ID</th>
+											<th style="text-align:right;font-size:13px;padding: 5px;">Tax(%)</th>
+											<th style="text-align:right;font-size:13px;padding: 5px;">Tax Amount</th>
+											<th style="text-align:right;font-size:13px;padding: 5px;">Amount</th>
+									</thead>
+									<tbody>
+										<div class="panel panel-default product-details">
+											<tr ng-repeat="productInfo in productData">
+												<td style="text-align:center;border-top:none;font-size:12px;padding: 5px;">{{$index + 1}}</td>
+												<td style="text-align:left;border-top: none;font-size:12px;padding: 5px;">{{productInfo.proddescription}}</td>
+												<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.qty}}</td>
+												<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.unitprice}}</td>
+												<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">
+
+
+													<span ng-repeat="x in productInfo.avlSMTIDs">{{x}},</span></td>
+												</td>
+												<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.tax}}</td>
+												<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.tax_amount}}</td>
+												<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.tax_including_total | currency:""}}</td>
+
+
+											</tr><br>
+										</div>
+									</tbody>
+								</table>
+
+								<div class="col-md-12" style="border-bottom:0px dashed #ddd;padding:5px">
+									<div class="tax-invoice">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="" style="float:left;font-size:12px;">
+
+													<h4> Payment method:<span>{{paymentPaid}}</span></h4>
+
+
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="" style="float:right;font-size:12px;">
+													<h5><span><b>Sub Total:</b>Rs.{{invoiceTotalAmt | currency:""}}</span></h5>
+													<h5 ng-if="discountVal > 0"><span><b>Discount:</b></span></h5>
+													<h5 ><span style="float:right;"><b>Total:</b>Rs.{{invoiceTotalAmt | currency:""}}</span></h5>
+
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+
+
+
+					</div>
+				</div>
+			</div>
+			<!-- /.container -->
+			<script type="text/javascript">
+				$(document).ready(function () {
+
+					//  search product
+					$("#searchProd").keyup(function () {
+						// Retrieve the input field text
+						var filter = $(this).val();
+						// Loop through the list
+						$("#productList2 #proname").each(function () {
+							// If the list item does not contain the text phrase fade it out
+							if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+								$(this).parent().parent().parent().hide();
+								// Show the list item if the phrase matches
+							} else {
+								$(this).parent().parent().parent().show();
+							}
+						});
+					});
+				});
+
+				//  **********************select categorie
+
+				$(".categories").on("click", function () {
+					// Retrieve the input field text
+					var filter = $(this).attr('id');
+					$(this).parent().children().removeClass('selectedGat');
+
+					$(this).addClass('selectedGat');
+					// Loop through the list
+					$("#productList2 #category").each(function () {
+						// If the list item does not contain the text phrase fade it out
+						if ($(this).val().search(new RegExp(filter, "i")) < 0) {
+							$(this).parent().parent().parent().hide();
+							// Show the list item if the phrase matches
+						} else {
+							$(this).parent().parent().parent().show();
+						}
+					});
+				});
+
+
+
+				$('[data-dismiss=modal]').on('click', function (e) {
+					var $t = $(this),
+						target = $t[0].href || $t.data("target") || $t.parents('.modal') || [];
+
+					$(target)
+						.find("input,textarea,select")
+						.val('')
+						.end()
+						.find("input[type=checkbox], input[type=radio]")
+						.prop("checked", "")
+						.end();
+				})
+
+
+				/******** Delete Pos start here ******/
+
+				function cancelPOS() {
+					swal({
+						title: 'Are you sure ?',
+						text: 'You will not be able to recover this Data later!',
+						type: "warning",
+						showCancelButton: true,
+						confirmButtonColor: "#DD6B55",
+						confirmButtonText: 'Yes, delete it!',
+						closeOnConfirm: false
+					},
+						function () {
+
+							$('#customerSelect').val('0');
+							$('#customerSelect').trigger('change.select2');
+							$('.Remise').val('');
+							$('.TAX').val('12%');
+
+							$.ajax({
+								url: "http://www.dar-elweb.com/demos/zarpos/pos/ResetPos/",
+								type: "POST",
+								success: function (data) {
+									$('#productList').load("http://www.dar-elweb.com/demos/zarpos/pos/load_posales");
+									$('#Subtot').load("http://www.dar-elweb.com/demos/zarpos/pos/subtot", null, total_change);
+									$('#ItemsNum span, #ItemsNum2 span').text("0");
+								},
+								error: function (jqXHR, textStatus, errorThrown) {
+									//alert("error");
+								}
+							});
+							swal('Deleted!', 'the data has been deleted.', "success");
+						});
+				};
+		/******** Delete Pos end here ******/
+			</script>
+
+			<!-- Modal for add customer start here -->
+			<div class="modal fade" id="AddCustomer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+							<h4 class="modal-title" id="myModalLabel">Add Customer</h4>
+						</div>
+						<form method="post" accept-charset="utf-8" enctype="multipart/form-data" name="addCustomerForm" role="form" id="register-form"
+						 autocomplete="off" novalidate="true">
+							<div class="modal-body">
+
+
+								<div class="form-group" style="padding-bottom:5px;">
+									<label for="firstname"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> First Name </label>
+									<div ng-messages="addCustomerForm.firstname.$error" style="float:right !important;">
+										<p class="validationError errorMsg" ng-message="pattern">Enter valid First name</p>
+										<p class="validationError errorMsg" ng-message="minlength">Enter Min 3 to Max 50 characters</p>
+										<p class="validationError errorMsg" ng-message="maxlength">Enter Min 3 to Max 50 characters</p>
+									</div>
+									<p style="float:right !important;" class="validationError errorMsg" ng-show="submitted && addCustomerForm.firstname.$error.required">Enter First name</p>
+									<input type="text" name="firstname" required class="form-control" id="firstname" ng-model="newCustomer.firstname" placeholder="Enter Customer Name"
+									 ng-minlength="3" ng-maxlength="50" maxlength="50" required ng-pattern="/^[a-zA-Z ]{1,50}$/">
+								</div>
+
+								<div class="form-group" style="padding-bottom:5px;">
+									<label for="lastname"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Last Name</label>
+									<div ng-messages="addCustomerForm.lastname.$error " style="float:right !important;">
+										<p class="validationError errorMsg" ng-message="pattern">Enter valid Last name</p>
+										<p class="validationError errorMsg" ng-message="minlength">Enter Min 3 to Max 50 characters</p>
+										<p class="validationError errorMsg" ng-message="maxlength">Enter Min 3 to Max 50 characters</p>
+									</div>
+									<p style="float:right !important;" class="validationError errorMsg" ng-show="submitted && addCustomerForm.lastname.$error.required">Enter Last name</p>
+
+									<input type="text" name="lastname" required="" class="form-control" id="lastname" ng-model="newCustomer.lastname" placeholder="Enter Customer Name"
+									 ng-minlength="3" ng-maxlength="50" maxlength="50" required ng-pattern="/^[a-zA-Z ]{1,50}$/">
+
+								</div>
+								
+								<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
+									<div class="col-md-12">			
+										<div class="col-md-6">
+								<div class="form-group" style="padding-bottom:5px;">
+									<label for="mobile"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Phone</label>
+									<div ng-messages="addCustomerForm.mobile.$error " style="float:right !important;">
+										<p class="validationError errorMsg" ng-message="pattern">Enter valid Mobile Number</p>
+										<p class="validationError errorMsg" ng-message="minlength">Mobile should be 10 digits</p>
+										<p class="validationError errorMsg" ng-message="maxlength">Mobile should be 10 digits</p>
+									</div>
+									<p style="float:right !important;" class="validationError errorMsg" ng-show="submitted && addCustomerForm.mobile.$error.required">Enter Mobile Number</p>
+
+									<input type="text" name="mobile" class="form-control" id="mobile" ng-model="newCustomer.mobile" placeholder="Enter phone Number"
+									 ng-minlength="10" ng-maxlength="10" maxlength="10" required ng-pattern="/^[0]?[789]\d{9}$/">
+
+								</div>
+								</div>
+								
+								<div class="col-md-6">
+								<div class="form-group" style="padding-bottom:5px;padding-top: 3px;">
+									<label for="altmobile"> Alternative Phone</label>
+									<div ng-messages="addCustomerForm.altmobile.$error " style="float:right !important;">
+										<p class="validationError errorMsg" ng-message="pattern">Enter valid Mobile Number</p>
+										<p class="validationError errorMsg" ng-message="minlength">Mobile should be 10 digits</p>
+										<p class="validationError errorMsg" ng-message="maxlength">Mobile should be 10 digits</p>
+										<p class="validationError errorMsg" ng-message="match">Alternate number should not be same</p>
+									</div>
+									<input type="text" name="altmobile" class="form-control" id="altmobile" ng-model="newCustomer.altmobile" placeholder="Enter phone Number"
+									 ng-minlength="10" ng-maxlength="10" maxlength="10" data-ng-match="!newCustomer.mobile" ng-pattern="/^[0]?[789]\d{9}$/">
+
+								</div>
+								</div>
+								</div>
+								</div>
+
+								<div class="form-group" style="padding-bottom:5px;">
+									<label for="email"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Email</label>
+									<div ng-messages="addCustomerForm.email.$error " style="float:right !important;">
+										<p class="validationError errorMsg" ng-message="pattern">Enter valid Email</p>
+
+									</div>
+									<input type="email" name="email" class="form-control" id="email" ng-model="newCustomer.email" placeholder="Enter Email ID"
+									 required ng-pattern="/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/">
+
+								</div>
+								
+								<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
+									<div class="col-md-12">			
+										<div class="col-md-6">
+								<div class="form-group" style="padding-bottom:5px;padding-top: 3px;">
+									<label for="rewardpoints"> Reward Points</label>
+									<input type="text" name="rewardpoints" class="form-control" id="rewardpoints" placeholder="0" ng-model="newCustomer.rewardpoints"
+									 ng-disabled="true">
+								</div>
+								</div>
+								
+								<div class="col-md-6">
+								<div class="form-group" style="padding-bottom:5px;">
+									<label for="discount"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Discount</label>
+
+
+									<div ng-messages="addCustomerForm.discount.$error " style="float:right !important;">
+										<p class="validationError errorMsg" ng-message="pattern">Please enter valid Discount</p>
+										<p class="validationError errorMsg" ng-message="maxlength">Please enter valid Discount</p>
+
+									</div>
+									<p style="float:right !important;" class="validationError errorMsg" ng-show="submitted && addCustomerForm.discount.$error.required">Enter Discount</p>
+
+									<input type="text" maxlength="2" name="discount" class="form-control" id="discount" ng-model="newCustomer.discount" placeholder="Enter Discount"
+									 required ng-pattern="/^[1-9]?[0-9]$|^99$/">
+								</div>
+								</div>
+								</div>
+								</div>
+								
+								<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
+									<div class="col-md-12">			
+										<div class="col-md-6">
+								<div class="form-group" style="padding-bottom:5px;padding-top: 3px;">
+									<label for="createddate">Created Date</label>
+									<input type="text" class="form-control" name="createddate" id="createddate" ng-model="newCustomer.createddate" ng-disabled="true">
+								</div>
+								</div>
+								
+								<div class="col-md-6">
+								<div class="form-group" style="padding-bottom:5px;padding-top: 3px;">
+									<label for="createdat">Created At</label>
+									<input type="text" name="createdat" class="form-control" id="createdat" ng-model="newCustomer.createdat" ng-disabled="true">
+								</div>
+								</div>
+								</div>
+								</div>
+
+							</div>
+							<div class="modal-footer" id="mf">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-add" ng-click="submitted=true; addCustomerForm.$valid && saveNewCustomer(newCustomer)">Submit</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- /.Modal for add customer start here -->
+
+			<!-- Modal add user -->
+			<div class="modal fade" id="CloseRegister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+							<h4 class="modal-title" id="myModalLabel">close&nbsp;register</h4>
+						</div>
+						<div class="modal-body">
+							<div id="closeregsection">
+								<!-- close register detail goes here -->
+							</div>
+						</div>
+						<div class="modal-footer">
+							<a href="javascript:void(0)" class="btn btn-red col-md-12 flat-box-btn waves-effect waves-button">close&nbsp;register</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /.Modal -->
+
+			<!-- Modal for id's strat here-->
+			<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+							<h4 class="modal-title" id="myModalLabel">Edit Customer Details</h4>
+						</div>
+						<form action="#" method="post" accept-charset="utf-8" id="addform" enctype="multipart/form-data">
+							<div class="modal-body">
+
+								<div class="form-group controls">
+									<input type="checkbox" name="id1" value="Bike"><span>21514646464</span>
+								</div>
+
+								<div class="form-group controls">
+									<input type="checkbox" name="id1" value="Bike"><span>9865486764</span><br>
+								</div>
+
+								<div class="form-group controls">
+									<input type="checkbox" name="id1" value="Bike"><span>2545787</span><br>
+								</div>
+
+								<div class="form-group">
+									<input type="checkbox" name="id1" value="Bike"><span>95545772255</span><br>
+								</div>
+
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="submit" class="btn btn-add" ng-click="updateUser()" data-dismiss="modal">Save</button>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal for id's end here-->
+
+
+			<!--------------------in payment after submit button click pop-up will come like this end here--------------------------->
+			
+			<!-- conform order alert start here -->
+			<div class="modal fade" id="confirmOrder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+							<h4 class="modal-title" id="myModalLabel">Success</h4>
+						</div>	
+						<div class="modal-body">
+							<h4>Order saved Successfully</h4></div>					
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<!-- <button type="submit" class="btn btn-add">OK</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- conform order alert end here -->
+			
+			<!-- invoice order alert start here -->
+			<div class="modal fade" id="invoiceOrder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+							<h4 class="modal-title" id="myModalLabel">Success</h4>
+						</div>	
+						<div class="modal-body">
+							<h4>Invoice has been confirmed Successfully</h4></div>							
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<!-- <button type="submit" class="btn btn-add">OK</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- invoice order alert end here -->
+			
+			<!-- mobile number alert start here -->
+			<div class="modal fade" id="mobileNumOrder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+							<h4 class="modal-title" id="myModalLabel"></h4>
+						</div>						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-add">OK</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--  mobile number alert end here -->
+			
+			<!-- added customer alert start here -->
+			<div class="modal fade" id="addedCustomer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+							<h4 class="modal-title" id="myModalLabel">Success</h4>
+						</div>		
+						<div class="modal-body">
+						<h4>Added Customer Successfully</h4>	
+						</div>				
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<!-- <button type="submit" class="btn btn-add">OK</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--  added custome alert end here -->
+
+			<!-- slim scroll script -->
+			<script type="text/javascript" src="./pos-js/jquery.slimscroll.min.js"></script>
+			<!-- waves material design effect -->
+			<script type="text/javascript" src="./pos-js/waves.min.js"></script>
+			<!-- Bootstrap Core JavaScript -->
+			<script type="text/javascript" src="./pos-js/bootstrap.min.js"></script>
+			<!-- keyboard widget dependencies -->
+			<script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.js"></script>
+			<script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-all.js"></script>
+			<script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-extender.js"></script>
+			<script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-typing.js"></script>
+			<script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.mousewheel.js"></script>
+			<!-- select2 plugin script -->
+			<script type="text/javascript" src="./pos-js/select2.min.js"></script>
+			<!-- dalatable scripts 
+			<script src="../../pos-js/jquery.dataTables.min.js"></script>
+			<script src="../../pos-js/dataTables.bootstrap.js"></script>-->
+			<!-- summernote js -->
+			<script src="./pos-js/summernote.js"></script>
+			<!-- chart.js script -->
+			<script src="./pos-js/Chart.js"></script>
+			<!-- moment JS -->
+			<script type="text/javascript" src="./pos-js/moment.min.js"></script>
+			<!-- Include Date Range Picker -->
+			<script type="text/javascript" src="./pos-js/daterangepicker.js"></script>
+			<!-- Sweet Alert swal -->
+			<script src="./pos-js/sweetalert.min.js"></script>
+			<!-- datepicker script -->
+			<script src="./pos-js/bootstrap-datepicker.min.js"></script>
+			<!-- creditCardValidator script -->
+			<script src="./pos-js/jquery.creditCardValidator.js"></script>
+			<!-- creditCardValidator script -->
+			<script src="./pos-js/credit-card-scanner.js"></script>
+			<script src="./pos-js/jquery.redirect.js"></script>
+			<!-- ajax form -->
+			<script src="./pos-js/jquery.form.min.js"></script>
+			<!-- custom script -->
+			<script src="./pos-js/app.js"></script>
+
+</body>
+
+</html>

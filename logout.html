@@ -1,0 +1,149 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>POS - LOGOUT</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- normalize & reset style -->
+  <link rel="stylesheet" href="./pos-css/normalize.min.css" type="text/css">
+  <link rel="stylesheet" href="./pos-css/reset.min.css" type="text/css">
+  <link rel="stylesheet" href="./pos-css/jquery-ui.css" type="text/css">
+  <!-- google lato font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300" rel="stylesheet" type="text/css">
+  <!-- Bootstrap Core CSS -->
+  <link href="./pos-css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap-horizon -->
+  <link href="./pos-css/bootstrap-horizon.css" rel="stylesheet">
+  <!-- datatable style -->
+  <link href="./pos-css/dataTables.bootstrap.css" rel="stylesheet">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="./pos-css/font-awesome.min.css">
+  <!-- include summernote css-->
+  <link href="./pos-css/summernote.css" rel="stylesheet">
+  <!-- waves -->
+  <link rel="stylesheet" href="./pos-css/waves.min.css">
+  <!-- daterangepicker -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/daterangepicker.css">
+  <!-- css for the preview keyset extension -->
+  <link href="./pos-css/keyboard-previewkeyset.css" rel="stylesheet">
+  <!-- keyboard widget style -->
+  <link href="./pos-css/keyboard.css" rel="stylesheet">
+  <!-- Select 2 style -->
+  <link href="./pos-css/select2.min.css" rel="stylesheet">
+  <!-- datepicker css -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/bootstrap-datepicker.min.css">
+  <!-- Sweet alert swal -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/sweetalert.css">
+  <!-- Custom CSS -->
+  <link href="./pos-css/Style-Light.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script type="text/javascript" src="./pos-js/jquery-2.2.2.min.js"></script>
+  <script type="text/javascript" src="./pos-js/loading.js"></script>
+  <!-- pdf format js files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  
+	<!-- angular links -->
+	<script src="./pos-js/angular.min.js"></script>
+	<script src="angular-app.js"></script>
+	<script src="./pos-js/controllers/pos-filter.js"></script>
+	<script src="./pos-js/controllers/productController.js"></script>
+	<script src="./pos-js/controllers/smtCategoriesProductsController.js"></script>
+	<script src="./pos-js/controllers/ordersController.js"></script>
+	<script src="./pos-js/controllers/headerController.js"></script>
+	<script src="./pos-js/controllers/customerPageController.js"></script>
+	<script src="./pos-js/controllers/posMainController.js"></script>
+	
+	<script src="./pos-js/services/config.js"></script>
+	
+	<script src="./pos-js/controllers/loginController.js"></script>
+	<script src="./pos-js/services/customerPageService.js"></script>
+	<script src="./pos-js/services/newCustomerService.js"></script>
+	<script src="./pos-js/services/editCustomerService.js"></script>
+	<script src="./pos-js/services/deleteCustomerService.js"></script>
+	<script src="./pos-js/services/loginService.js"></script>
+	<script src="./pos-js/services/smtCategoriesProductsService.js"></script>
+	<script src="http://code.angularjs.org/snapshot/angular-messages.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+	
+ 
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+	  
+		<!--<script>
+			function myFunction() {
+				var x = document.getElementById('myDIV');
+				if (x.style.display === 'none') {
+					x.style.display = 'block';
+				} else {
+					x.style.display = 'none';
+				}
+			}
+		</script>-->
+<style>
+
+</style>
+</head>
+
+<body class="pace-done" ng-app="myApp">
+ 
+<div class="container">
+	<div class="log-out">
+		<h2>Thanks for using POS...</h2>
+	</div>
+</div>
+   
+
+ <!-- slim scroll script -->
+  <script type="text/javascript" src="./pos-js/jquery.slimscroll.min.js"></script>
+  <!-- waves material design effect -->
+  <script type="text/javascript" src="./pos-js/waves.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="./pos-js/bootstrap.min.js"></script>
+  <!-- keyboard widget dependencies -->
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-all.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-extender.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-typing.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.mousewheel.js"></script>
+  <!-- select2 plugin script -->
+  <script type="text/javascript" src="./pos-js/select2.min.js"></script>
+  <!-- dalatable scripts 
+  <script src="../../pos-js/jquery.dataTables.min.js"></script>
+  <script src="../../pos-js/dataTables.bootstrap.js"></script>-->
+  <!-- summernote js -->
+  <script src="./pos-js/summernote.js"></script>
+  <!-- chart.js script -->
+  <script src="./pos-js/Chart.js"></script>
+  <!-- moment JS -->
+  <script type="text/javascript" src="./pos-js/moment.min.js"></script>
+  <!-- Include Date Range Picker -->
+  <script type="text/javascript" src="./pos-js/daterangepicker.js"></script>
+  <!-- Sweet Alert swal -->
+  <script src="./pos-js/sweetalert.min.js"></script>
+  <!-- datepicker script -->
+  <script src="./pos-js/bootstrap-datepicker.min.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/jquery.creditCardValidator.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/credit-card-scanner.js"></script>
+  <script src="./pos-js/jquery.redirect.js"></script>
+  <!-- ajax form -->
+  <script src="./pos-js/jquery.form.min.js"></script>
+  <!-- custom script -->
+  <script src="./pos-js/app.js"></script>
+
+
+  
+</body>
+
+</html>

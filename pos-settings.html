@@ -1,0 +1,1476 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>POS - point of sale Dar Elweb</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- normalize & reset style -->
+  <link rel="stylesheet" href="./pos-css/normalize.min.css" type="text/css">
+  <link rel="stylesheet" href="./pos-css/reset.min.css" type="text/css">
+  <link rel="stylesheet" href="./pos-css/jquery-ui.css" type="text/css">
+  <!-- google lato font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300" rel="stylesheet" type="text/css">
+  <!-- Bootstrap Core CSS -->
+  <link href="./pos-css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap-horizon -->
+  <link href="./pos-css/bootstrap-horizon.css" rel="stylesheet">
+  <!-- datatable style -->
+  <link href="./pos-css/dataTables.bootstrap.css" rel="stylesheet">
+  <!-- font awesome -->
+  <link rel="stylesheet" href="./pos-css/font-awesome.min.css">
+  <!-- include summernote css-->
+  <link href="./pos-css/summernote.css" rel="stylesheet">
+  <!-- waves -->
+  <link rel="stylesheet" href="./pos-css/waves.min.css">
+  <!-- daterangepicker -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/daterangepicker.css">
+  <!-- css for the preview keyset extension -->
+  <link href="./pos-css/keyboard-previewkeyset.css" rel="stylesheet">
+  <!-- keyboard widget style -->
+  <link href="./pos-css/keyboard.css" rel="stylesheet">
+  <!-- Select 2 style -->
+  <link href="./pos-css/select2.min.css" rel="stylesheet">
+  <!-- datepicker css -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/bootstrap-datepicker.min.css">
+  <!-- Sweet alert swal -->
+  <link rel="stylesheet" type="text/css" href="./pos-css/sweetalert.css">
+  <!-- Custom CSS -->
+  <link href="./pos-css/Style-Light.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script type="text/javascript" src="./pos-js/jquery-2.2.2.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <script type="text/javascript" src="./pos-js/loading.js"></script>
+  
+	<!-- angular links -->
+	<script src="./pos-js/angular.min.js"></script>
+	<script src="./pos-js/angular-app.js"></script>
+	<script src="./pos-js/controllers/pos-filter.js"></script>
+	<script src="./pos-js/controllers/productController.js"></script>
+	<script src="./pos-js/controllers/ordersController.js"></script>
+	<script src="./pos-js/controllers/headerController.js"></script>
+	<script src="./pos-js/controllers/customerPageController.js"></script>
+	<script src="./pos-js/services/ordersService.js"></script>
+	<script src="./pos-js/services/productService.js"></script>
+	<script src="./pos-js/services/customerPageService.js"></script>
+	<script src="./pos-js/services/newCustomerService.js"></script>
+	<script src="./pos-js/services/loginService.js"></script>
+	<script src="http://code.angularjs.org/snapshot/angular-messages.js"></script>
+	
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+	  
+		<!--<script>
+			function myFunction() {
+				var x = document.getElementById('myDIV');
+				if (x.style.display === 'none') {
+					x.style.display = 'block';
+				} else {
+					x.style.display = 'none';
+				}
+			}
+		</script>-->
+	
+</head>
+
+<body class="pace-done" ng-app="myApp">
+  <div class="pace  pace-inactive">
+    <div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+      <div class="pace-progress-inner"></div>
+    </div>
+    <div class="pace-activity"></div>
+  </div>
+   <!-------------------------------------header part start here---------------------------------------------------------------->
+  <!-- Fixed header top start here -->
+   <div class="navbar" id="myDIV"   ng-controller="posMainController" >
+
+			<!-- login person details start here -->
+				<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
+					<form class="form-horizontal">
+						<div class="form-group" style="float:left;width:100%;">
+					
+							<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+								<div class="navbar-header" style="margin-top:-40px;">       
+									<a class="navbar-brand" href="#"><img src="./images/new-logo.png" alt="td logo" class="img-responsive"></a>
+								</div>
+							</div>
+							
+							<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+								<label class="control-label ">Session Time : </label>
+								<span>{{loginSessionTime}}</span>
+							</div>
+
+							<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" >
+								<label for="inputtxt" class="control-label">Shop Name : </label>
+								<span>{{shopName}}</span>
+							</div>
+		
+							<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+								<span style="color:#b9f2ff;font-size:20px;"><i class="fa fa-circle"></i></span>
+								<label class="control-label">Diamond</label>
+								
+							</div>
+							<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" style="float:right;">
+								<label for="inputtxt" class="control-label">Hai, </label>
+								<span>{{userName}}</span>
+							</div>
+							
+						</div>				
+					</form>
+				</div>
+		
+    </div>
+    <!-- Fixed header top end here -->
+  
+  <!-------------------------------------------------header part end here---------------------------------------------------->
+<!-- Navigation start here -->
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 30px;padding-right:0px !important;padding-left:0px !important;" ng-controller="initController">
+			 <nav class="navbar navbar-default " role="navigation">
+				  <div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>					
+				  </div>
+				  <!-- Brand and toggle get grouped for better mobile display -->
+				  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="flat-box waves-effect waves-block"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i>POS</a></li>
+						<li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i>Product</a></li>
+						<li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i>Customers</a></li>
+						<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>Reports</a></li>
+						<li class="flat-box waves-effect waves-block"><a href="#"><i class="fa fa-share"></i>TRANSFER-ORDER</a></li>						
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<!--<li class="flat-box waves-effect waves-block" style="padding-right:10px;" ng-hide ="show == true" id="myBtn" ><a href="#" title="Logout" ng-click="hideHeader()">Hide Header</a></li>
+					   <li class="flat-box waves-effect waves-block" style="padding-right:10px;" ng-show ="show == true" id="myBtn" ><a href="#" title="Logout" ng-click="showHeader()">Show Header</a></li>-->
+					  <li class="flat-box waves-effect waves-block" style="padding-right:20px;padding-top:5px"><a href="pos-index.html" title="Logout" style="background:none;border:0px solid red;"><i class="fa fa-sign-out fa-lg"></i></a></li>
+					</ul>
+				  </div>
+				  <!-- Brand and toggle get grouped for better mobile display end here-->
+				  <div id="loadingimg" style="display: none;"></div>
+			  </nav>
+			</div>
+			<!-- navigation end here -->
+
+  <!-- Page Content start here -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- tab navigation -->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#setting" data-toggle="tab"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
+          <li class=""><a href="#users" data-toggle="tab"><i class="fa fa-users" aria-hidden="true"></i> Users</a></li>
+          <li class=""><a href="#stores" data-toggle="tab"><i class="fa fa-building-o" aria-hidden="true"></i> Stores</a></li>
+          <li class=""><a href="#warehouses" data-toggle="tab"><i class="fa fa-building" aria-hidden="true"></i> Warehouses</a></li>
+        </ul>
+
+        <!-- tab sections -->
+        <div class="tab-content" style="padding-top:0px;">
+          <!-- General setting tab -->
+          <div class="tab-pane fade in active" id="setting">
+            <h1>Settings</h1>
+            <p>Update your Settings</p>
+            <form action="#" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+              <div class="form-group col-md-6">
+                <label for="companyName">Company Name</label>
+                <input type="text" value="" name="companyname" class="form-control" id="companyName" placeholder="Company Name">
+              </div>
+            <div class="form-group col-md-6">
+                <label for="logo">Company Logo</label>
+                <input type="file" name="userfile" id="logo">
+                <!--<img src="images/logo-admin.png" alt="" class="float-right" width="100px">-->
+			</div>
+              <div class="form-group col-md-6">
+                <label for="phone">Company Phone</label>
+                <input type="text" value="" name="phone" class="form-control" id="phone" placeholder="Company Phone">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="currency">Currency Code</label>
+                <input type="text" value="" name="currency" class="form-control" id="currency" placeholder="Currency Code">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="DefaultDiscount">Default Discount</label>
+                <input type="text" value="" name="discount" class="form-control" id="DefaultDiscount" placeholder="Default Discount">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="DefualtTax">Defualt TAX</label>
+                <input type="text" value="" name="tax" class="form-control" id="DefualtTax" placeholder="Defualt TAX">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="numberDecimal">number of decimal (Rounding)</label>
+                <select class="form-control" name="decimals" id="numberDecimal">
+                  <option value="1">0.1</option>
+                  <option value="2">0.01</option>
+                  <option value="3" selected="">0.001</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label>
+                  <input type="hidden" name="keyboard" value="0">
+                  <input type="checkbox" name="keyboard" value="1">
+                  <span class="label-text">Display virtual keyboard</span>
+                </label>
+              </div>
+              <div class="form-group col-md-6">
+                <label>
+                  <select name="timezone" class="form-control">
+                    <option value="0">Please, select timezone</option>
+                    <option value="Africa/Abidjan">
+                      UTC/GMT +01:00 - Africa/Abidjan </option>
+                    <option value="Africa/Accra">
+                      UTC/GMT +01:00 - Africa/Accra </option>
+                    <option value="Africa/Addis_Ababa">
+                      UTC/GMT +01:00 - Africa/Addis_Ababa </option>
+                    <option value="Africa/Algiers">
+                      UTC/GMT +01:00 - Africa/Algiers </option>
+                    <option value="Africa/Asmara">
+                      UTC/GMT +01:00 - Africa/Asmara </option>
+                    <option value="Africa/Bamako">
+                      UTC/GMT +01:00 - Africa/Bamako </option>
+                    <option value="Africa/Bangui">
+                      UTC/GMT +01:00 - Africa/Bangui </option>
+                    <option value="Africa/Banjul">
+                      UTC/GMT +01:00 - Africa/Banjul </option>
+                    <option value="Africa/Bissau">
+                      UTC/GMT +01:00 - Africa/Bissau </option>
+                    <option value="Africa/Blantyre">
+                      UTC/GMT +01:00 - Africa/Blantyre </option>
+                    <option value="Africa/Brazzaville">
+                      UTC/GMT +01:00 - Africa/Brazzaville </option>
+                    <option value="Africa/Bujumbura">
+                      UTC/GMT +01:00 - Africa/Bujumbura </option>
+                    <option value="Africa/Cairo">
+                      UTC/GMT +01:00 - Africa/Cairo </option>
+                    <option value="Africa/Casablanca">
+                      UTC/GMT +01:00 - Africa/Casablanca </option>
+                    <option value="Africa/Ceuta">
+                      UTC/GMT +01:00 - Africa/Ceuta </option>
+                    <option value="Africa/Conakry">
+                      UTC/GMT +01:00 - Africa/Conakry </option>
+                    <option value="Africa/Dakar">
+                      UTC/GMT +01:00 - Africa/Dakar </option>
+                    <option value="Africa/Dar_es_Salaam">
+                      UTC/GMT +01:00 - Africa/Dar_es_Salaam </option>
+                    <option value="Africa/Djibouti">
+                      UTC/GMT +01:00 - Africa/Djibouti </option>
+                    <option value="Africa/Douala">
+                      UTC/GMT +01:00 - Africa/Douala </option>
+                    <option value="Africa/El_Aaiun">
+                      UTC/GMT +01:00 - Africa/El_Aaiun </option>
+                    <option value="Africa/Freetown">
+                      UTC/GMT +01:00 - Africa/Freetown </option>
+                    <option value="Africa/Gaborone">
+                      UTC/GMT +01:00 - Africa/Gaborone </option>
+                    <option value="Africa/Harare">
+                      UTC/GMT +01:00 - Africa/Harare </option>
+                    <option value="Africa/Johannesburg">
+                      UTC/GMT +01:00 - Africa/Johannesburg </option>
+                    <option value="Africa/Juba">
+                      UTC/GMT +01:00 - Africa/Juba </option>
+                    <option value="Africa/Kampala">
+                      UTC/GMT +01:00 - Africa/Kampala </option>
+                    <option value="Africa/Khartoum">
+                      UTC/GMT +01:00 - Africa/Khartoum </option>
+                    <option value="Africa/Kigali">
+                      UTC/GMT +01:00 - Africa/Kigali </option>
+                    <option value="Africa/Kinshasa">
+                      UTC/GMT +01:00 - Africa/Kinshasa </option>
+                    <option value="Africa/Lagos">
+                      UTC/GMT +01:00 - Africa/Lagos </option>
+                    <option value="Africa/Libreville">
+                      UTC/GMT +01:00 - Africa/Libreville </option>
+                    <option value="Africa/Lome">
+                      UTC/GMT +01:00 - Africa/Lome </option>
+                    <option value="Africa/Luanda">
+                      UTC/GMT +01:00 - Africa/Luanda </option>
+                    <option value="Africa/Lubumbashi">
+                      UTC/GMT +01:00 - Africa/Lubumbashi </option>
+                    <option value="Africa/Lusaka">
+                      UTC/GMT +01:00 - Africa/Lusaka </option>
+                    <option value="Africa/Malabo">
+                      UTC/GMT +01:00 - Africa/Malabo </option>
+                    <option value="Africa/Maputo">
+                      UTC/GMT +01:00 - Africa/Maputo </option>
+                    <option value="Africa/Maseru">
+                      UTC/GMT +01:00 - Africa/Maseru </option>
+                    <option value="Africa/Mbabane">
+                      UTC/GMT +01:00 - Africa/Mbabane </option>
+                    <option value="Africa/Mogadishu">
+                      UTC/GMT +01:00 - Africa/Mogadishu </option>
+                    <option value="Africa/Monrovia">
+                      UTC/GMT +01:00 - Africa/Monrovia </option>
+                    <option value="Africa/Nairobi">
+                      UTC/GMT +01:00 - Africa/Nairobi </option>
+                    <option value="Africa/Ndjamena">
+                      UTC/GMT +01:00 - Africa/Ndjamena </option>
+                    <option value="Africa/Niamey">
+                      UTC/GMT +01:00 - Africa/Niamey </option>
+                    <option value="Africa/Nouakchott">
+                      UTC/GMT +01:00 - Africa/Nouakchott </option>
+                    <option value="Africa/Ouagadougou">
+                      UTC/GMT +01:00 - Africa/Ouagadougou </option>
+                    <option value="Africa/Porto-Novo">
+                      UTC/GMT +01:00 - Africa/Porto-Novo </option>
+                    <option value="Africa/Sao_Tome">
+                      UTC/GMT +01:00 - Africa/Sao_Tome </option>
+                    <option value="Africa/Tripoli">
+                      UTC/GMT +01:00 - Africa/Tripoli </option>
+                    <option value="Africa/Tunis" selected="">
+                      UTC/GMT +01:00 - Africa/Tunis </option>
+                    <option value="Africa/Windhoek">
+                      UTC/GMT +01:00 - Africa/Windhoek </option>
+                    <option value="America/Adak">
+                      UTC/GMT +01:00 - America/Adak </option>
+                    <option value="America/Anchorage">
+                      UTC/GMT +01:00 - America/Anchorage </option>
+                    <option value="America/Anguilla">
+                      UTC/GMT +01:00 - America/Anguilla </option>
+                    <option value="America/Antigua">
+                      UTC/GMT +01:00 - America/Antigua </option>
+                    <option value="America/Araguaina">
+                      UTC/GMT +01:00 - America/Araguaina </option>
+                    <option value="America/Argentina/Buenos_Aires">
+                      UTC/GMT +01:00 - America/Argentina/Buenos_Aires </option>
+                    <option value="America/Argentina/Catamarca">
+                      UTC/GMT +01:00 - America/Argentina/Catamarca </option>
+                    <option value="America/Argentina/Cordoba">
+                      UTC/GMT +01:00 - America/Argentina/Cordoba </option>
+                    <option value="America/Argentina/Jujuy">
+                      UTC/GMT +01:00 - America/Argentina/Jujuy </option>
+                    <option value="America/Argentina/La_Rioja">
+                      UTC/GMT +01:00 - America/Argentina/La_Rioja </option>
+                    <option value="America/Argentina/Mendoza">
+                      UTC/GMT +01:00 - America/Argentina/Mendoza </option>
+                    <option value="America/Argentina/Rio_Gallegos">
+                      UTC/GMT +01:00 - America/Argentina/Rio_Gallegos </option>
+                    <option value="America/Argentina/Salta">
+                      UTC/GMT +01:00 - America/Argentina/Salta </option>
+                    <option value="America/Argentina/San_Juan">
+                      UTC/GMT +01:00 - America/Argentina/San_Juan </option>
+                    <option value="America/Argentina/San_Luis">
+                      UTC/GMT +01:00 - America/Argentina/San_Luis </option>
+                    <option value="America/Argentina/Tucuman">
+                      UTC/GMT +01:00 - America/Argentina/Tucuman </option>
+                    <option value="America/Argentina/Ushuaia">
+                      UTC/GMT +01:00 - America/Argentina/Ushuaia </option>
+                    <option value="America/Aruba">
+                      UTC/GMT +01:00 - America/Aruba </option>
+                    <option value="America/Asuncion">
+                      UTC/GMT +01:00 - America/Asuncion </option>
+                    <option value="America/Atikokan">
+                      UTC/GMT +01:00 - America/Atikokan </option>
+                    <option value="America/Bahia">
+                      UTC/GMT +01:00 - America/Bahia </option>
+                    <option value="America/Bahia_Banderas">
+                      UTC/GMT +01:00 - America/Bahia_Banderas </option>
+                    <option value="America/Barbados">
+                      UTC/GMT +01:00 - America/Barbados </option>
+                    <option value="America/Belem">
+                      UTC/GMT +01:00 - America/Belem </option>
+                    <option value="America/Belize">
+                      UTC/GMT +01:00 - America/Belize </option>
+                    <option value="America/Blanc-Sablon">
+                      UTC/GMT +01:00 - America/Blanc-Sablon </option>
+                    <option value="America/Boa_Vista">
+                      UTC/GMT +01:00 - America/Boa_Vista </option>
+                    <option value="America/Bogota">
+                      UTC/GMT +01:00 - America/Bogota </option>
+                    <option value="America/Boise">
+                      UTC/GMT +01:00 - America/Boise </option>
+                    <option value="America/Cambridge_Bay">
+                      UTC/GMT +01:00 - America/Cambridge_Bay </option>
+                    <option value="America/Campo_Grande">
+                      UTC/GMT +01:00 - America/Campo_Grande </option>
+                    <option value="America/Cancun">
+                      UTC/GMT +01:00 - America/Cancun </option>
+                    <option value="America/Caracas">
+                      UTC/GMT +01:00 - America/Caracas </option>
+                    <option value="America/Cayenne">
+                      UTC/GMT +01:00 - America/Cayenne </option>
+                    <option value="America/Cayman">
+                      UTC/GMT +01:00 - America/Cayman </option>
+                    <option value="America/Chicago">
+                      UTC/GMT +01:00 - America/Chicago </option>
+                    <option value="America/Chihuahua">
+                      UTC/GMT +01:00 - America/Chihuahua </option>
+                    <option value="America/Costa_Rica">
+                      UTC/GMT +01:00 - America/Costa_Rica </option>
+                    <option value="America/Creston">
+                      UTC/GMT +01:00 - America/Creston </option>
+                    <option value="America/Cuiaba">
+                      UTC/GMT +01:00 - America/Cuiaba </option>
+                    <option value="America/Curacao">
+                      UTC/GMT +01:00 - America/Curacao </option>
+                    <option value="America/Danmarkshavn">
+                      UTC/GMT +01:00 - America/Danmarkshavn </option>
+                    <option value="America/Dawson">
+                      UTC/GMT +01:00 - America/Dawson </option>
+                    <option value="America/Dawson_Creek">
+                      UTC/GMT +01:00 - America/Dawson_Creek </option>
+                    <option value="America/Denver">
+                      UTC/GMT +01:00 - America/Denver </option>
+                    <option value="America/Detroit">
+                      UTC/GMT +01:00 - America/Detroit </option>
+                    <option value="America/Dominica">
+                      UTC/GMT +01:00 - America/Dominica </option>
+                    <option value="America/Edmonton">
+                      UTC/GMT +01:00 - America/Edmonton </option>
+                    <option value="America/Eirunepe">
+                      UTC/GMT +01:00 - America/Eirunepe </option>
+                    <option value="America/El_Salvador">
+                      UTC/GMT +01:00 - America/El_Salvador </option>
+                    <option value="America/Fortaleza">
+                      UTC/GMT +01:00 - America/Fortaleza </option>
+                    <option value="America/Glace_Bay">
+                      UTC/GMT +01:00 - America/Glace_Bay </option>
+                    <option value="America/Godthab">
+                      UTC/GMT +01:00 - America/Godthab </option>
+                    <option value="America/Goose_Bay">
+                      UTC/GMT +01:00 - America/Goose_Bay </option>
+                    <option value="America/Grand_Turk">
+                      UTC/GMT +01:00 - America/Grand_Turk </option>
+                    <option value="America/Grenada">
+                      UTC/GMT +01:00 - America/Grenada </option>
+                    <option value="America/Guadeloupe">
+                      UTC/GMT +01:00 - America/Guadeloupe </option>
+                    <option value="America/Guatemala">
+                      UTC/GMT +01:00 - America/Guatemala </option>
+                    <option value="America/Guayaquil">
+                      UTC/GMT +01:00 - America/Guayaquil </option>
+                    <option value="America/Guyana">
+                      UTC/GMT +01:00 - America/Guyana </option>
+                    <option value="America/Halifax">
+                      UTC/GMT +01:00 - America/Halifax </option>
+                    <option value="America/Havana">
+                      UTC/GMT +01:00 - America/Havana </option>
+                    <option value="America/Hermosillo">
+                      UTC/GMT +01:00 - America/Hermosillo </option>
+                    <option value="America/Indiana/Indianapolis">
+                      UTC/GMT +01:00 - America/Indiana/Indianapolis </option>
+                    <option value="America/Indiana/Knox">
+                      UTC/GMT +01:00 - America/Indiana/Knox </option>
+                    <option value="America/Indiana/Marengo">
+                      UTC/GMT +01:00 - America/Indiana/Marengo </option>
+                    <option value="America/Indiana/Petersburg">
+                      UTC/GMT +01:00 - America/Indiana/Petersburg </option>
+                    <option value="America/Indiana/Tell_City">
+                      UTC/GMT +01:00 - America/Indiana/Tell_City </option>
+                    <option value="America/Indiana/Vevay">
+                      UTC/GMT +01:00 - America/Indiana/Vevay </option>
+                    <option value="America/Indiana/Vincennes">
+                      UTC/GMT +01:00 - America/Indiana/Vincennes </option>
+                    <option value="America/Indiana/Winamac">
+                      UTC/GMT +01:00 - America/Indiana/Winamac </option>
+                    <option value="America/Inuvik">
+                      UTC/GMT +01:00 - America/Inuvik </option>
+                    <option value="America/Iqaluit">
+                      UTC/GMT +01:00 - America/Iqaluit </option>
+                    <option value="America/Jamaica">
+                      UTC/GMT +01:00 - America/Jamaica </option>
+                    <option value="America/Juneau">
+                      UTC/GMT +01:00 - America/Juneau </option>
+                    <option value="America/Kentucky/Louisville">
+                      UTC/GMT +01:00 - America/Kentucky/Louisville </option>
+                    <option value="America/Kentucky/Monticello">
+                      UTC/GMT +01:00 - America/Kentucky/Monticello </option>
+                    <option value="America/Kralendijk">
+                      UTC/GMT +01:00 - America/Kralendijk </option>
+                    <option value="America/La_Paz">
+                      UTC/GMT +01:00 - America/La_Paz </option>
+                    <option value="America/Lima">
+                      UTC/GMT +01:00 - America/Lima </option>
+                    <option value="America/Los_Angeles">
+                      UTC/GMT +01:00 - America/Los_Angeles </option>
+                    <option value="America/Lower_Princes">
+                      UTC/GMT +01:00 - America/Lower_Princes </option>
+                    <option value="America/Maceio">
+                      UTC/GMT +01:00 - America/Maceio </option>
+                    <option value="America/Managua">
+                      UTC/GMT +01:00 - America/Managua </option>
+                    <option value="America/Manaus">
+                      UTC/GMT +01:00 - America/Manaus </option>
+                    <option value="America/Marigot">
+                      UTC/GMT +01:00 - America/Marigot </option>
+                    <option value="America/Martinique">
+                      UTC/GMT +01:00 - America/Martinique </option>
+                    <option value="America/Matamoros">
+                      UTC/GMT +01:00 - America/Matamoros </option>
+                    <option value="America/Mazatlan">
+                      UTC/GMT +01:00 - America/Mazatlan </option>
+                    <option value="America/Menominee">
+                      UTC/GMT +01:00 - America/Menominee </option>
+                    <option value="America/Merida">
+                      UTC/GMT +01:00 - America/Merida </option>
+                    <option value="America/Metlakatla">
+                      UTC/GMT +01:00 - America/Metlakatla </option>
+                    <option value="America/Mexico_City">
+                      UTC/GMT +01:00 - America/Mexico_City </option>
+                    <option value="America/Miquelon">
+                      UTC/GMT +01:00 - America/Miquelon </option>
+                    <option value="America/Moncton">
+                      UTC/GMT +01:00 - America/Moncton </option>
+                    <option value="America/Monterrey">
+                      UTC/GMT +01:00 - America/Monterrey </option>
+                    <option value="America/Montevideo">
+                      UTC/GMT +01:00 - America/Montevideo </option>
+                    <option value="America/Montserrat">
+                      UTC/GMT +01:00 - America/Montserrat </option>
+                    <option value="America/Nassau">
+                      UTC/GMT +01:00 - America/Nassau </option>
+                    <option value="America/New_York">
+                      UTC/GMT +01:00 - America/New_York </option>
+                    <option value="America/Nipigon">
+                      UTC/GMT +01:00 - America/Nipigon </option>
+                    <option value="America/Nome">
+                      UTC/GMT +01:00 - America/Nome </option>
+                    <option value="America/Noronha">
+                      UTC/GMT +01:00 - America/Noronha </option>
+                    <option value="America/North_Dakota/Beulah">
+                      UTC/GMT +01:00 - America/North_Dakota/Beulah </option>
+                    <option value="America/North_Dakota/Center">
+                      UTC/GMT +01:00 - America/North_Dakota/Center </option>
+                    <option value="America/North_Dakota/New_Salem">
+                      UTC/GMT +01:00 - America/North_Dakota/New_Salem </option>
+                    <option value="America/Ojinaga">
+                      UTC/GMT +01:00 - America/Ojinaga </option>
+                    <option value="America/Panama">
+                      UTC/GMT +01:00 - America/Panama </option>
+                    <option value="America/Pangnirtung">
+                      UTC/GMT +01:00 - America/Pangnirtung </option>
+                    <option value="America/Paramaribo">
+                      UTC/GMT +01:00 - America/Paramaribo </option>
+                    <option value="America/Phoenix">
+                      UTC/GMT +01:00 - America/Phoenix </option>
+                    <option value="America/Port-au-Prince">
+                      UTC/GMT +01:00 - America/Port-au-Prince </option>
+                    <option value="America/Port_of_Spain">
+                      UTC/GMT +01:00 - America/Port_of_Spain </option>
+                    <option value="America/Porto_Velho">
+                      UTC/GMT +01:00 - America/Porto_Velho </option>
+                    <option value="America/Puerto_Rico">
+                      UTC/GMT +01:00 - America/Puerto_Rico </option>
+                    <option value="America/Rainy_River">
+                      UTC/GMT +01:00 - America/Rainy_River </option>
+                    <option value="America/Rankin_Inlet">
+                      UTC/GMT +01:00 - America/Rankin_Inlet </option>
+                    <option value="America/Recife">
+                      UTC/GMT +01:00 - America/Recife </option>
+                    <option value="America/Regina">
+                      UTC/GMT +01:00 - America/Regina </option>
+                    <option value="America/Resolute">
+                      UTC/GMT +01:00 - America/Resolute </option>
+                    <option value="America/Rio_Branco">
+                      UTC/GMT +01:00 - America/Rio_Branco </option>
+                    <option value="America/Santa_Isabel">
+                      UTC/GMT +01:00 - America/Santa_Isabel </option>
+                    <option value="America/Santarem">
+                      UTC/GMT +01:00 - America/Santarem </option>
+                    <option value="America/Santiago">
+                      UTC/GMT +01:00 - America/Santiago </option>
+                    <option value="America/Santo_Domingo">
+                      UTC/GMT +01:00 - America/Santo_Domingo </option>
+                    <option value="America/Sao_Paulo">
+                      UTC/GMT +01:00 - America/Sao_Paulo </option>
+                    <option value="America/Scoresbysund">
+                      UTC/GMT +01:00 - America/Scoresbysund </option>
+                    <option value="America/Sitka">
+                      UTC/GMT +01:00 - America/Sitka </option>
+                    <option value="America/St_Barthelemy">
+                      UTC/GMT +01:00 - America/St_Barthelemy </option>
+                    <option value="America/St_Johns">
+                      UTC/GMT +01:00 - America/St_Johns </option>
+                    <option value="America/St_Kitts">
+                      UTC/GMT +01:00 - America/St_Kitts </option>
+                    <option value="America/St_Lucia">
+                      UTC/GMT +01:00 - America/St_Lucia </option>
+                    <option value="America/St_Thomas">
+                      UTC/GMT +01:00 - America/St_Thomas </option>
+                    <option value="America/St_Vincent">
+                      UTC/GMT +01:00 - America/St_Vincent </option>
+                    <option value="America/Swift_Current">
+                      UTC/GMT +01:00 - America/Swift_Current </option>
+                    <option value="America/Tegucigalpa">
+                      UTC/GMT +01:00 - America/Tegucigalpa </option>
+                    <option value="America/Thule">
+                      UTC/GMT +01:00 - America/Thule </option>
+                    <option value="America/Thunder_Bay">
+                      UTC/GMT +01:00 - America/Thunder_Bay </option>
+                    <option value="America/Tijuana">
+                      UTC/GMT +01:00 - America/Tijuana </option>
+                    <option value="America/Toronto">
+                      UTC/GMT +01:00 - America/Toronto </option>
+                    <option value="America/Tortola">
+                      UTC/GMT +01:00 - America/Tortola </option>
+                    <option value="America/Vancouver">
+                      UTC/GMT +01:00 - America/Vancouver </option>
+                    <option value="America/Whitehorse">
+                      UTC/GMT +01:00 - America/Whitehorse </option>
+                    <option value="America/Winnipeg">
+                      UTC/GMT +01:00 - America/Winnipeg </option>
+                    <option value="America/Yakutat">
+                      UTC/GMT +01:00 - America/Yakutat </option>
+                    <option value="America/Yellowknife">
+                      UTC/GMT +01:00 - America/Yellowknife </option>
+                    <option value="Antarctica/Casey">
+                      UTC/GMT +01:00 - Antarctica/Casey </option>
+                    <option value="Antarctica/Davis">
+                      UTC/GMT +01:00 - Antarctica/Davis </option>
+                    <option value="Antarctica/DumontDUrville">
+                      UTC/GMT +01:00 - Antarctica/DumontDUrville </option>
+                    <option value="Antarctica/Macquarie">
+                      UTC/GMT +01:00 - Antarctica/Macquarie </option>
+                    <option value="Antarctica/Mawson">
+                      UTC/GMT +01:00 - Antarctica/Mawson </option>
+                    <option value="Antarctica/McMurdo">
+                      UTC/GMT +01:00 - Antarctica/McMurdo </option>
+                    <option value="Antarctica/Palmer">
+                      UTC/GMT +01:00 - Antarctica/Palmer </option>
+                    <option value="Antarctica/Rothera">
+                      UTC/GMT +01:00 - Antarctica/Rothera </option>
+                    <option value="Antarctica/Syowa">
+                      UTC/GMT +01:00 - Antarctica/Syowa </option>
+                    <option value="Antarctica/Troll">
+                      UTC/GMT +01:00 - Antarctica/Troll </option>
+                    <option value="Antarctica/Vostok">
+                      UTC/GMT +01:00 - Antarctica/Vostok </option>
+                    <option value="Arctic/Longyearbyen">
+                      UTC/GMT +01:00 - Arctic/Longyearbyen </option>
+                    <option value="Asia/Aden">
+                      UTC/GMT +01:00 - Asia/Aden </option>
+                    <option value="Asia/Almaty">
+                      UTC/GMT +01:00 - Asia/Almaty </option>
+                    <option value="Asia/Amman">
+                      UTC/GMT +01:00 - Asia/Amman </option>
+                    <option value="Asia/Anadyr">
+                      UTC/GMT +01:00 - Asia/Anadyr </option>
+                    <option value="Asia/Aqtau">
+                      UTC/GMT +01:00 - Asia/Aqtau </option>
+                    <option value="Asia/Aqtobe">
+                      UTC/GMT +01:00 - Asia/Aqtobe </option>
+                    <option value="Asia/Ashgabat">
+                      UTC/GMT +01:00 - Asia/Ashgabat </option>
+                    <option value="Asia/Baghdad">
+                      UTC/GMT +01:00 - Asia/Baghdad </option>
+                    <option value="Asia/Bahrain">
+                      UTC/GMT +01:00 - Asia/Bahrain </option>
+                    <option value="Asia/Baku">
+                      UTC/GMT +01:00 - Asia/Baku </option>
+                    <option value="Asia/Bangkok">
+                      UTC/GMT +01:00 - Asia/Bangkok </option>
+                    <option value="Asia/Beirut">
+                      UTC/GMT +01:00 - Asia/Beirut </option>
+                    <option value="Asia/Bishkek">
+                      UTC/GMT +01:00 - Asia/Bishkek </option>
+                    <option value="Asia/Brunei">
+                      UTC/GMT +01:00 - Asia/Brunei </option>
+                    <option value="Asia/Chita">
+                      UTC/GMT +01:00 - Asia/Chita </option>
+                    <option value="Asia/Choibalsan">
+                      UTC/GMT +01:00 - Asia/Choibalsan </option>
+                    <option value="Asia/Colombo">
+                      UTC/GMT +01:00 - Asia/Colombo </option>
+                    <option value="Asia/Damascus">
+                      UTC/GMT +01:00 - Asia/Damascus </option>
+                    <option value="Asia/Dhaka">
+                      UTC/GMT +01:00 - Asia/Dhaka </option>
+                    <option value="Asia/Dili">
+                      UTC/GMT +01:00 - Asia/Dili </option>
+                    <option value="Asia/Dubai">
+                      UTC/GMT +01:00 - Asia/Dubai </option>
+                    <option value="Asia/Dushanbe">
+                      UTC/GMT +01:00 - Asia/Dushanbe </option>
+                    <option value="Asia/Gaza">
+                      UTC/GMT +01:00 - Asia/Gaza </option>
+                    <option value="Asia/Hebron">
+                      UTC/GMT +01:00 - Asia/Hebron </option>
+                    <option value="Asia/Ho_Chi_Minh">
+                      UTC/GMT +01:00 - Asia/Ho_Chi_Minh </option>
+                    <option value="Asia/Hong_Kong">
+                      UTC/GMT +01:00 - Asia/Hong_Kong </option>
+                    <option value="Asia/Hovd">
+                      UTC/GMT +01:00 - Asia/Hovd </option>
+                    <option value="Asia/Irkutsk">
+                      UTC/GMT +01:00 - Asia/Irkutsk </option>
+                    <option value="Asia/Jakarta">
+                      UTC/GMT +01:00 - Asia/Jakarta </option>
+                    <option value="Asia/Jayapura">
+                      UTC/GMT +01:00 - Asia/Jayapura </option>
+                    <option value="Asia/Jerusalem">
+                      UTC/GMT +01:00 - Asia/Jerusalem </option>
+                    <option value="Asia/Kabul">
+                      UTC/GMT +01:00 - Asia/Kabul </option>
+                    <option value="Asia/Kamchatka">
+                      UTC/GMT +01:00 - Asia/Kamchatka </option>
+                    <option value="Asia/Karachi">
+                      UTC/GMT +01:00 - Asia/Karachi </option>
+                    <option value="Asia/Kathmandu">
+                      UTC/GMT +01:00 - Asia/Kathmandu </option>
+                    <option value="Asia/Khandyga">
+                      UTC/GMT +01:00 - Asia/Khandyga </option>
+                    <option value="Asia/Kolkata">
+                      UTC/GMT +01:00 - Asia/Kolkata </option>
+                    <option value="Asia/Krasnoyarsk">
+                      UTC/GMT +01:00 - Asia/Krasnoyarsk </option>
+                    <option value="Asia/Kuala_Lumpur">
+                      UTC/GMT +01:00 - Asia/Kuala_Lumpur </option>
+                    <option value="Asia/Kuching">
+                      UTC/GMT +01:00 - Asia/Kuching </option>
+                    <option value="Asia/Kuwait">
+                      UTC/GMT +01:00 - Asia/Kuwait </option>
+                    <option value="Asia/Macau">
+                      UTC/GMT +01:00 - Asia/Macau </option>
+                    <option value="Asia/Magadan">
+                      UTC/GMT +01:00 - Asia/Magadan </option>
+                    <option value="Asia/Makassar">
+                      UTC/GMT +01:00 - Asia/Makassar </option>
+                    <option value="Asia/Manila">
+                      UTC/GMT +01:00 - Asia/Manila </option>
+                    <option value="Asia/Muscat">
+                      UTC/GMT +01:00 - Asia/Muscat </option>
+                    <option value="Asia/Nicosia">
+                      UTC/GMT +01:00 - Asia/Nicosia </option>
+                    <option value="Asia/Novokuznetsk">
+                      UTC/GMT +01:00 - Asia/Novokuznetsk </option>
+                    <option value="Asia/Novosibirsk">
+                      UTC/GMT +01:00 - Asia/Novosibirsk </option>
+                    <option value="Asia/Omsk">
+                      UTC/GMT +01:00 - Asia/Omsk </option>
+                    <option value="Asia/Oral">
+                      UTC/GMT +01:00 - Asia/Oral </option>
+                    <option value="Asia/Phnom_Penh">
+                      UTC/GMT +01:00 - Asia/Phnom_Penh </option>
+                    <option value="Asia/Pontianak">
+                      UTC/GMT +01:00 - Asia/Pontianak </option>
+                    <option value="Asia/Pyongyang">
+                      UTC/GMT +01:00 - Asia/Pyongyang </option>
+                    <option value="Asia/Qatar">
+                      UTC/GMT +01:00 - Asia/Qatar </option>
+                    <option value="Asia/Qyzylorda">
+                      UTC/GMT +01:00 - Asia/Qyzylorda </option>
+                    <option value="Asia/Rangoon">
+                      UTC/GMT +01:00 - Asia/Rangoon </option>
+                    <option value="Asia/Riyadh">
+                      UTC/GMT +01:00 - Asia/Riyadh </option>
+                    <option value="Asia/Sakhalin">
+                      UTC/GMT +01:00 - Asia/Sakhalin </option>
+                    <option value="Asia/Samarkand">
+                      UTC/GMT +01:00 - Asia/Samarkand </option>
+                    <option value="Asia/Seoul">
+                      UTC/GMT +01:00 - Asia/Seoul </option>
+                    <option value="Asia/Shanghai">
+                      UTC/GMT +01:00 - Asia/Shanghai </option>
+                    <option value="Asia/Singapore">
+                      UTC/GMT +01:00 - Asia/Singapore </option>
+                    <option value="Asia/Srednekolymsk">
+                      UTC/GMT +01:00 - Asia/Srednekolymsk </option>
+                    <option value="Asia/Taipei">
+                      UTC/GMT +01:00 - Asia/Taipei </option>
+                    <option value="Asia/Tashkent">
+                      UTC/GMT +01:00 - Asia/Tashkent </option>
+                    <option value="Asia/Tbilisi">
+                      UTC/GMT +01:00 - Asia/Tbilisi </option>
+                    <option value="Asia/Tehran">
+                      UTC/GMT +01:00 - Asia/Tehran </option>
+                    <option value="Asia/Thimphu">
+                      UTC/GMT +01:00 - Asia/Thimphu </option>
+                    <option value="Asia/Tokyo">
+                      UTC/GMT +01:00 - Asia/Tokyo </option>
+                    <option value="Asia/Ulaanbaatar">
+                      UTC/GMT +01:00 - Asia/Ulaanbaatar </option>
+                    <option value="Asia/Urumqi">
+                      UTC/GMT +01:00 - Asia/Urumqi </option>
+                    <option value="Asia/Ust-Nera">
+                      UTC/GMT +01:00 - Asia/Ust-Nera </option>
+                    <option value="Asia/Vientiane">
+                      UTC/GMT +01:00 - Asia/Vientiane </option>
+                    <option value="Asia/Vladivostok">
+                      UTC/GMT +01:00 - Asia/Vladivostok </option>
+                    <option value="Asia/Yakutsk">
+                      UTC/GMT +01:00 - Asia/Yakutsk </option>
+                    <option value="Asia/Yekaterinburg">
+                      UTC/GMT +01:00 - Asia/Yekaterinburg </option>
+                    <option value="Asia/Yerevan">
+                      UTC/GMT +01:00 - Asia/Yerevan </option>
+                    <option value="Atlantic/Azores">
+                      UTC/GMT +01:00 - Atlantic/Azores </option>
+                    <option value="Atlantic/Bermuda">
+                      UTC/GMT +01:00 - Atlantic/Bermuda </option>
+                    <option value="Atlantic/Canary">
+                      UTC/GMT +01:00 - Atlantic/Canary </option>
+                    <option value="Atlantic/Cape_Verde">
+                      UTC/GMT +01:00 - Atlantic/Cape_Verde </option>
+                    <option value="Atlantic/Faroe">
+                      UTC/GMT +01:00 - Atlantic/Faroe </option>
+                    <option value="Atlantic/Madeira">
+                      UTC/GMT +01:00 - Atlantic/Madeira </option>
+                    <option value="Atlantic/Reykjavik">
+                      UTC/GMT +01:00 - Atlantic/Reykjavik </option>
+                    <option value="Atlantic/South_Georgia">
+                      UTC/GMT +01:00 - Atlantic/South_Georgia </option>
+                    <option value="Atlantic/St_Helena">
+                      UTC/GMT +01:00 - Atlantic/St_Helena </option>
+                    <option value="Atlantic/Stanley">
+                      UTC/GMT +01:00 - Atlantic/Stanley </option>
+                    <option value="Australia/Adelaide">
+                      UTC/GMT +01:00 - Australia/Adelaide </option>
+                    <option value="Australia/Brisbane">
+                      UTC/GMT +01:00 - Australia/Brisbane </option>
+                    <option value="Australia/Broken_Hill">
+                      UTC/GMT +01:00 - Australia/Broken_Hill </option>
+                    <option value="Australia/Currie">
+                      UTC/GMT +01:00 - Australia/Currie </option>
+                    <option value="Australia/Darwin">
+                      UTC/GMT +01:00 - Australia/Darwin </option>
+                    <option value="Australia/Eucla">
+                      UTC/GMT +01:00 - Australia/Eucla </option>
+                    <option value="Australia/Hobart">
+                      UTC/GMT +01:00 - Australia/Hobart </option>
+                    <option value="Australia/Lindeman">
+                      UTC/GMT +01:00 - Australia/Lindeman </option>
+                    <option value="Australia/Lord_Howe">
+                      UTC/GMT +01:00 - Australia/Lord_Howe </option>
+                    <option value="Australia/Melbourne">
+                      UTC/GMT +01:00 - Australia/Melbourne </option>
+                    <option value="Australia/Perth">
+                      UTC/GMT +01:00 - Australia/Perth </option>
+                    <option value="Australia/Sydney">
+                      UTC/GMT +01:00 - Australia/Sydney </option>
+                    <option value="Europe/Amsterdam">
+                      UTC/GMT +01:00 - Europe/Amsterdam </option>
+                    <option value="Europe/Andorra">
+                      UTC/GMT +01:00 - Europe/Andorra </option>
+                    <option value="Europe/Athens">
+                      UTC/GMT +01:00 - Europe/Athens </option>
+                    <option value="Europe/Belgrade">
+                      UTC/GMT +01:00 - Europe/Belgrade </option>
+                    <option value="Europe/Berlin">
+                      UTC/GMT +01:00 - Europe/Berlin </option>
+                    <option value="Europe/Bratislava">
+                      UTC/GMT +01:00 - Europe/Bratislava </option>
+                    <option value="Europe/Brussels">
+                      UTC/GMT +01:00 - Europe/Brussels </option>
+                    <option value="Europe/Bucharest">
+                      UTC/GMT +01:00 - Europe/Bucharest </option>
+                    <option value="Europe/Budapest">
+                      UTC/GMT +01:00 - Europe/Budapest </option>
+                    <option value="Europe/Busingen">
+                      UTC/GMT +01:00 - Europe/Busingen </option>
+                    <option value="Europe/Chisinau">
+                      UTC/GMT +01:00 - Europe/Chisinau </option>
+                    <option value="Europe/Copenhagen">
+                      UTC/GMT +01:00 - Europe/Copenhagen </option>
+                    <option value="Europe/Dublin">
+                      UTC/GMT +01:00 - Europe/Dublin </option>
+                    <option value="Europe/Gibraltar">
+                      UTC/GMT +01:00 - Europe/Gibraltar </option>
+                    <option value="Europe/Guernsey">
+                      UTC/GMT +01:00 - Europe/Guernsey </option>
+                    <option value="Europe/Helsinki">
+                      UTC/GMT +01:00 - Europe/Helsinki </option>
+                    <option value="Europe/Isle_of_Man">
+                      UTC/GMT +01:00 - Europe/Isle_of_Man </option>
+                    <option value="Europe/Istanbul">
+                      UTC/GMT +01:00 - Europe/Istanbul </option>
+                    <option value="Europe/Jersey">
+                      UTC/GMT +01:00 - Europe/Jersey </option>
+                    <option value="Europe/Kaliningrad">
+                      UTC/GMT +01:00 - Europe/Kaliningrad </option>
+                    <option value="Europe/Kiev">
+                      UTC/GMT +01:00 - Europe/Kiev </option>
+                    <option value="Europe/Lisbon">
+                      UTC/GMT +01:00 - Europe/Lisbon </option>
+                    <option value="Europe/Ljubljana">
+                      UTC/GMT +01:00 - Europe/Ljubljana </option>
+                    <option value="Europe/London">
+                      UTC/GMT +01:00 - Europe/London </option>
+                    <option value="Europe/Luxembourg">
+                      UTC/GMT +01:00 - Europe/Luxembourg </option>
+                    <option value="Europe/Madrid">
+                      UTC/GMT +01:00 - Europe/Madrid </option>
+                    <option value="Europe/Malta">
+                      UTC/GMT +01:00 - Europe/Malta </option>
+                    <option value="Europe/Mariehamn">
+                      UTC/GMT +01:00 - Europe/Mariehamn </option>
+                    <option value="Europe/Minsk">
+                      UTC/GMT +01:00 - Europe/Minsk </option>
+                    <option value="Europe/Monaco">
+                      UTC/GMT +01:00 - Europe/Monaco </option>
+                    <option value="Europe/Moscow">
+                      UTC/GMT +01:00 - Europe/Moscow </option>
+                    <option value="Europe/Oslo">
+                      UTC/GMT +01:00 - Europe/Oslo </option>
+                    <option value="Europe/Paris">
+                      UTC/GMT +01:00 - Europe/Paris </option>
+                    <option value="Europe/Podgorica">
+                      UTC/GMT +01:00 - Europe/Podgorica </option>
+                    <option value="Europe/Prague">
+                      UTC/GMT +01:00 - Europe/Prague </option>
+                    <option value="Europe/Riga">
+                      UTC/GMT +01:00 - Europe/Riga </option>
+                    <option value="Europe/Rome">
+                      UTC/GMT +01:00 - Europe/Rome </option>
+                    <option value="Europe/Samara">
+                      UTC/GMT +01:00 - Europe/Samara </option>
+                    <option value="Europe/San_Marino">
+                      UTC/GMT +01:00 - Europe/San_Marino </option>
+                    <option value="Europe/Sarajevo">
+                      UTC/GMT +01:00 - Europe/Sarajevo </option>
+                    <option value="Europe/Simferopol">
+                      UTC/GMT +01:00 - Europe/Simferopol </option>
+                    <option value="Europe/Skopje">
+                      UTC/GMT +01:00 - Europe/Skopje </option>
+                    <option value="Europe/Sofia">
+                      UTC/GMT +01:00 - Europe/Sofia </option>
+                    <option value="Europe/Stockholm">
+                      UTC/GMT +01:00 - Europe/Stockholm </option>
+                    <option value="Europe/Tallinn">
+                      UTC/GMT +01:00 - Europe/Tallinn </option>
+                    <option value="Europe/Tirane">
+                      UTC/GMT +01:00 - Europe/Tirane </option>
+                    <option value="Europe/Uzhgorod">
+                      UTC/GMT +01:00 - Europe/Uzhgorod </option>
+                    <option value="Europe/Vaduz">
+                      UTC/GMT +01:00 - Europe/Vaduz </option>
+                    <option value="Europe/Vatican">
+                      UTC/GMT +01:00 - Europe/Vatican </option>
+                    <option value="Europe/Vienna">
+                      UTC/GMT +01:00 - Europe/Vienna </option>
+                    <option value="Europe/Vilnius">
+                      UTC/GMT +01:00 - Europe/Vilnius </option>
+                    <option value="Europe/Volgograd">
+                      UTC/GMT +01:00 - Europe/Volgograd </option>
+                    <option value="Europe/Warsaw">
+                      UTC/GMT +01:00 - Europe/Warsaw </option>
+                    <option value="Europe/Zagreb">
+                      UTC/GMT +01:00 - Europe/Zagreb </option>
+                    <option value="Europe/Zaporozhye">
+                      UTC/GMT +01:00 - Europe/Zaporozhye </option>
+                    <option value="Europe/Zurich">
+                      UTC/GMT +01:00 - Europe/Zurich </option>
+                    <option value="Indian/Antananarivo">
+                      UTC/GMT +01:00 - Indian/Antananarivo </option>
+                    <option value="Indian/Chagos">
+                      UTC/GMT +01:00 - Indian/Chagos </option>
+                    <option value="Indian/Christmas">
+                      UTC/GMT +01:00 - Indian/Christmas </option>
+                    <option value="Indian/Cocos">
+                      UTC/GMT +01:00 - Indian/Cocos </option>
+                    <option value="Indian/Comoro">
+                      UTC/GMT +01:00 - Indian/Comoro </option>
+                    <option value="Indian/Kerguelen">
+                      UTC/GMT +01:00 - Indian/Kerguelen </option>
+                    <option value="Indian/Mahe">
+                      UTC/GMT +01:00 - Indian/Mahe </option>
+                    <option value="Indian/Maldives">
+                      UTC/GMT +01:00 - Indian/Maldives </option>
+                    <option value="Indian/Mauritius">
+                      UTC/GMT +01:00 - Indian/Mauritius </option>
+                    <option value="Indian/Mayotte">
+                      UTC/GMT +01:00 - Indian/Mayotte </option>
+                    <option value="Indian/Reunion">
+                      UTC/GMT +01:00 - Indian/Reunion </option>
+                    <option value="Pacific/Apia">
+                      UTC/GMT +01:00 - Pacific/Apia </option>
+                    <option value="Pacific/Auckland">
+                      UTC/GMT +01:00 - Pacific/Auckland </option>
+                    <option value="Pacific/Bougainville">
+                      UTC/GMT +01:00 - Pacific/Bougainville </option>
+                    <option value="Pacific/Chatham">
+                      UTC/GMT +01:00 - Pacific/Chatham </option>
+                    <option value="Pacific/Chuuk">
+                      UTC/GMT +01:00 - Pacific/Chuuk </option>
+                    <option value="Pacific/Easter">
+                      UTC/GMT +01:00 - Pacific/Easter </option>
+                    <option value="Pacific/Efate">
+                      UTC/GMT +01:00 - Pacific/Efate </option>
+                    <option value="Pacific/Enderbury">
+                      UTC/GMT +01:00 - Pacific/Enderbury </option>
+                    <option value="Pacific/Fakaofo">
+                      UTC/GMT +01:00 - Pacific/Fakaofo </option>
+                    <option value="Pacific/Fiji">
+                      UTC/GMT +01:00 - Pacific/Fiji </option>
+                    <option value="Pacific/Funafuti">
+                      UTC/GMT +01:00 - Pacific/Funafuti </option>
+                    <option value="Pacific/Galapagos">
+                      UTC/GMT +01:00 - Pacific/Galapagos </option>
+                    <option value="Pacific/Gambier">
+                      UTC/GMT +01:00 - Pacific/Gambier </option>
+                    <option value="Pacific/Guadalcanal">
+                      UTC/GMT +01:00 - Pacific/Guadalcanal </option>
+                    <option value="Pacific/Guam">
+                      UTC/GMT +01:00 - Pacific/Guam </option>
+                    <option value="Pacific/Honolulu">
+                      UTC/GMT +01:00 - Pacific/Honolulu </option>
+                    <option value="Pacific/Johnston">
+                      UTC/GMT +01:00 - Pacific/Johnston </option>
+                    <option value="Pacific/Kiritimati">
+                      UTC/GMT +01:00 - Pacific/Kiritimati </option>
+                    <option value="Pacific/Kosrae">
+                      UTC/GMT +01:00 - Pacific/Kosrae </option>
+                    <option value="Pacific/Kwajalein">
+                      UTC/GMT +01:00 - Pacific/Kwajalein </option>
+                    <option value="Pacific/Majuro">
+                      UTC/GMT +01:00 - Pacific/Majuro </option>
+                    <option value="Pacific/Marquesas">
+                      UTC/GMT +01:00 - Pacific/Marquesas </option>
+                    <option value="Pacific/Midway">
+                      UTC/GMT +01:00 - Pacific/Midway </option>
+                    <option value="Pacific/Nauru">
+                      UTC/GMT +01:00 - Pacific/Nauru </option>
+                    <option value="Pacific/Niue">
+                      UTC/GMT +01:00 - Pacific/Niue </option>
+                    <option value="Pacific/Norfolk">
+                      UTC/GMT +01:00 - Pacific/Norfolk </option>
+                    <option value="Pacific/Noumea">
+                      UTC/GMT +01:00 - Pacific/Noumea </option>
+                    <option value="Pacific/Pago_Pago">
+                      UTC/GMT +01:00 - Pacific/Pago_Pago </option>
+                    <option value="Pacific/Palau">
+                      UTC/GMT +01:00 - Pacific/Palau </option>
+                    <option value="Pacific/Pitcairn">
+                      UTC/GMT +01:00 - Pacific/Pitcairn </option>
+                    <option value="Pacific/Pohnpei">
+                      UTC/GMT +01:00 - Pacific/Pohnpei </option>
+                    <option value="Pacific/Port_Moresby">
+                      UTC/GMT +01:00 - Pacific/Port_Moresby </option>
+                    <option value="Pacific/Rarotonga">
+                      UTC/GMT +01:00 - Pacific/Rarotonga </option>
+                    <option value="Pacific/Saipan">
+                      UTC/GMT +01:00 - Pacific/Saipan </option>
+                    <option value="Pacific/Tahiti">
+                      UTC/GMT +01:00 - Pacific/Tahiti </option>
+                    <option value="Pacific/Tarawa">
+                      UTC/GMT +01:00 - Pacific/Tarawa </option>
+                    <option value="Pacific/Tongatapu">
+                      UTC/GMT +01:00 - Pacific/Tongatapu </option>
+                    <option value="Pacific/Wake">
+                      UTC/GMT +01:00 - Pacific/Wake </option>
+                    <option value="Pacific/Wallis">
+                      UTC/GMT +01:00 - Pacific/Wallis </option>
+                    <option value="UTC">
+                      UTC/GMT +01:00 - UTC </option>
+                  </select>
+                </label>
+              </div>
+
+              
+			  
+              <div class="form-group col-md-12">
+                <label data-toggle="collapse" data-target="#collapseStripe">
+                  <input type="hidden" name="stripe" value="0">
+                  <input type="checkbox" name="stripe" value="1" checked="">
+                  <span class="label-text">Stripe</span>
+                </label>
+              </div>
+              <div id="collapseStripe" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <div class="form-group col-md-6">
+                    <label for="stripe_secret_key">stripe secret key</label>
+                    <input type="text" value="" name="stripe_secret_key" class="form-control" id="stripe_secret_key" placeholder="stripe secret key">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="stripe_publishable_key">stripe publishable key</label>
+                    <input type="text" value="" name="stripe_publishable_key" class="form-control" id="stripe_publishable_key" placeholder="stripe publishable key">
+                  </div>
+                </div>
+              </div>
+			  
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-add btn-lg">Submit</button>
+              </div>
+            </form>
+          </div>
+          <!-- users tab -->
+          <div class="tab-pane fade in " id="users">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Avatar</th>
+                  <th>first Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>last Active</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                  <td><img class="img-circle topbar-userpic hidden-xs" src="http://www.dar-elweb.com/demos/zarpos/files/Avatars/9fff9cc26e539214e9a5fd3b6a10cde9.jpg" width="30px" height="30px"></td>
+                  <td>admin</td>
+                  <td>Doe</td>
+                  <td>admin</td>
+                  <td>admin</td>
+                  <td>2017-06-08 10:58:07</td>
+                  <td>
+                    <div class="btn-group">
+                      <a class="btn btn-default" href="settings/editUser/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img class="img-circle topbar-userpic hidden-xs" src="http://www.dar-elweb.com/demos/zarpos/files/Avatars/3b49aefa789efb5e6db62d5ae906a4c2.jpg" width="30px" height="30px"></td>
+                  <td>sale</td>
+                  <td>Staff</td>
+                  <td>sale</td>
+                  <td>sales</td>
+                  <td>2017-06-08 08:46:53</td>
+                  <td>
+                    <div class="btn-group">
+                      <a class="btn btn-default" href="settings/deleteUser/15" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a> <a class="btn btn-default" href="settings/editUser/15" data-toggle="tooltip"
+                      data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-add btn-lg" data-toggle="modal" data-target="#AddUser">
+              Add User </button>
+          </div>
+          <!-- Stores tab -->
+          <div class="tab-pane fade in " id="stores">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Store Name</th>
+                  <th>Email</th>
+                  <th>Store Phone</th>
+                  <th>Country</th>
+                  <th>City</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                  <td>Dar el web</td>
+                  <td>default@store.com</td>
+                  <td>+12345678</td>
+                  <td>tunisia</td>
+                  <td>zarzis</td>
+                  <td>
+                    <div class="btn-group">
+                      <a class="btn btn-default" disabled="disabled" href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                      <a class="btn btn-default" href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>zar POS store</td>
+                  <td>zarpos@website.com</td>
+                  <td>+12345678</td>
+                  <td>France</td>
+                  <td>Paris</td>
+                  <td>
+                    <div class="btn-group">
+                      <a class="btn btn-default" href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                      <a class="btn btn-default" href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-add btn-lg" data-toggle="modal" data-target="#AddStore">
+              Add Store </button>
+          </div>
+          <!-- Warehouse tab -->
+          <div class="tab-pane fade in " id="warehouses">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th>Warehouse Name</th>
+                  <th>Warehouse Phone</th>
+                  <th>Email</th>
+                  <th>Adresse</th>
+                  <th>Action</th>
+                </tr>
+                <tr>
+                  <td>warehouse1</td>
+                  <td>12345678</td>
+                  <td>email@hotmail.com</td>
+                  <td>adresse at city rue</td>
+                  <td>
+                    <div class="btn-group">
+                      <a class="btn btn-default" href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                      <a class="btn btn-default" href="" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-add btn-lg" data-toggle="modal" data-target="#AddWarehouse">
+              Add Warehouse </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+  <!-- add user Modal -->
+  <div class="modal fade" id="AddUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add User</h4>
+        </div>
+        <form action="#" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="username">Username *</label>
+              <input type="text" name="username" class="form-control" id="username" placeholder="Username" required="">
+            </div>
+            <div class="form-group">
+              <label for="firstname">first Name *</label>
+              <input type="text" name="firstname" class="form-control" id="firstname" placeholder="first Name" required="">
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+              <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+              <label for="role">Role *</label>
+              <br>
+              <label class="radio-inline">
+                <input type="radio" name="role" id="role" value="admin" checked=""> Admin </label>
+              <label class="radio-inline">
+                <input type="radio" name="role" id="role" value="sales"> Sales Staff </label>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password *</label>
+              <input type="password" name="password" class="form-control" id="password" placeholder="Password" required="">
+            </div>
+            <div class="form-group">
+              <label for="confirm_password">Repeat Password *</label>
+              <input type="password" name="PasswordRepeat" class="form-control" id="confirm_password" placeholder="Repeat Password" required="">
+            </div>
+            <div class="form-group">
+              <label for="Avatar">Avatar</label>
+              <input type="file" name="userfile" id="Avatar">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-add">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal -->
+
+
+  <!-- add store Modal -->
+  <div class="modal fade" id="AddStore" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add Store</h4>
+        </div>
+        <form action="#" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="StoreName">Store Name *</label>
+              <input type="text" name="name" class="form-control" id="StoreName" placeholder="Store Name" required="">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="StorePhone">Store Phone</label>
+              <input type="text" name="phone" class="form-control" id="StorePhone" placeholder="Store Phone">
+            </div>
+            <div class="form-group">
+              <label for="Country">Country</label>
+              <input type="text" name="country" class="form-control" id="Country" placeholder="Country">
+            </div>
+            <div class="form-group">
+              <label for="City">City</label>
+              <input type="text" name="city" class="form-control" id="City" placeholder="City">
+            </div>
+            <div class="form-group">
+              <label for="Adresse">Adresse</label>
+              <input type="text" name="adresse" class="form-control" id="Adresse" placeholder="Adresse">
+            </div>
+            <div class="form-group">
+              <label for="CustomeFooter">Custome Footer for the receipt</label>
+              <input type="text" name="footer_text" class="form-control" id="CustomeFooter" placeholder="Custome Footer for the receipt">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-add">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal -->
+
+  <!-- add warehouse Modal -->
+  <div class="modal fade" id="AddWarehouse" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add Warehouse</h4>
+        </div>
+        <form action="#" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="WarehouseName">Warehouse Name *</label>
+              <input type="text" name="name" class="form-control" id="WarehouseName" placeholder="Warehouse Name" required="">
+            </div>
+            <div class="form-group">
+              <label for="WarehousePhone">Warehouse Phone</label>
+              <input type="text" name="phone" class="form-control" id="WarehousePhone" placeholder="Warehouse Phone">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="Adresse">Adresse</label>
+              <input type="text" name="adresse" class="form-control" id="Adresse" placeholder="Adresse">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-add">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- /.Modal -->
+
+  <script type="text/javascript">
+    /******** passwors confirmation validation ****************/
+
+    var currency = document.getElementById("currency");
+
+    function validatecurrency() {
+      if (currency.value.length < 3) {
+        currency.setCustomValidity("The Currency code must be at least 3 characters length");
+      } else {
+        currency.setCustomValidity('');
+      }
+    }
+    if (currency) currency.onchange = validatecurrency;
+
+    $('.collapse').collapse()
+  </script>
+
+
+<!-- slim scroll script -->
+  <script type="text/javascript" src="./pos-js/jquery.slimscroll.min.js"></script>
+  <!-- waves material design effect -->
+  <script type="text/javascript" src="./pos-js/waves.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="./pos-js/bootstrap.min.js"></script>
+  <!-- keyboard widget dependencies -->
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-all.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-extender.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-typing.js"></script>
+  <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.mousewheel.js"></script>
+  <!-- select2 plugin script -->
+  <script type="text/javascript" src="./pos-js/select2.min.js"></script>
+  <!-- dalatable scripts 
+  <script src="../../pos-js/jquery.dataTables.min.js"></script>
+  <script src="../../pos-js/dataTables.bootstrap.js"></script>-->
+  <!-- summernote js -->
+  <script src="./pos-js/summernote.js"></script>
+  <!-- chart.js script -->
+  <script src="./pos-js/Chart.js"></script>
+  <!-- moment JS -->
+  <script type="text/javascript" src="./pos-js/moment.min.js"></script>
+  <!-- Include Date Range Picker -->
+  <script type="text/javascript" src="./pos-js/daterangepicker.js"></script>
+  <!-- Sweet Alert swal -->
+  <script src="./pos-js/sweetalert.min.js"></script>
+  <!-- datepicker script -->
+  <script src="./pos-js/bootstrap-datepicker.min.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/jquery.creditCardValidator.js"></script>
+  <!-- creditCardValidator script -->
+  <script src="./pos-js/credit-card-scanner.js"></script>
+  <script src="./pos-js/jquery.redirect.js"></script>
+  <!-- ajax form -->
+  <script src="./pos-js/jquery.form.min.js"></script>
+  <!-- custom script -->
+  <script src="./pos-js/app.js"></script>
+
+
+  <div class="note-popover popover in note-link-popover bottom">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container"><span><a target="_blank"></a>&nbsp;</span>
+      <div class="note-btn-group btn-group note-link">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Edit"><i class="note-icon-link"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Unlink"><i class="note-icon-chain-broken"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="note-popover popover in note-image-popover bottom">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container">
+      <div class="note-btn-group btn-group note-imagesize">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Full"><span class="note-fontsize-10">100%</span></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Half"><span class="note-fontsize-10">50%</span></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Quarter"><span class="note-fontsize-10">25%</span></button>
+      </div>
+      <div class="note-btn-group btn-group note-float">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float Left"><i class="note-icon-align-left"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float Right"><i class="note-icon-align-right"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float None"><i class="note-icon-align-justify"></i></button>
+      </div>
+      <div class="note-btn-group btn-group note-remove">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Remove Image"><i class="note-icon-trash"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="note-popover popover in note-link-popover bottom">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container"><span><a target="_blank"></a>&nbsp;</span>
+      <div class="note-btn-group btn-group note-link">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Edit"><i class="note-icon-link"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Unlink"><i class="note-icon-chain-broken"></i></button>
+      </div>
+    </div>
+  </div>
+  <div class="note-popover popover in note-image-popover bottom">
+    <div class="arrow"></div>
+    <div class="popover-content note-children-container">
+      <div class="note-btn-group btn-group note-imagesize">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Full"><span class="note-fontsize-10">100%</span></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Half"><span class="note-fontsize-10">50%</span></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Resize Quarter"><span class="note-fontsize-10">25%</span></button>
+      </div>
+      <div class="note-btn-group btn-group note-float">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float Left"><i class="note-icon-align-left"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float Right"><i class="note-icon-align-right"></i></button>
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Float None"><i class="note-icon-align-justify"></i></button>
+      </div>
+      <div class="note-btn-group btn-group note-remove">
+        <button type="button" class="note-btn btn btn-default btn-sm" title="" data-original-title="Remove Image"><i class="note-icon-trash"></i></button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

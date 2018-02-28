@@ -1,0 +1,51 @@
+	<div class="navbar navbar-default navbar-fixed-top" id="login_top_headr">
+		<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
+			<img src="./images/new-logo.png" alt="logo" class="smt_logo">
+        </div>
+		<div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+			<h1 class="login-title-pos">Welcome to SMT-Hub POS</h1>
+        </div>
+		<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
+			<h5 class="login-query">For any queries : 040-46161234</h5>
+        </div>
+    </div>
+    <!-- Fixed header top end here -->
+  
+    <!-- Begin page content -->
+    <div class="bg-imageDiv">
+      <div class="container" id="wrapper">
+        <div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" ng-controller="loginController">
+				<div class="loginmodal-container">
+					   <!--<img src="./images/new-logo.png" alt="logo" class="logo-pos-main">-->
+						<h1>Login to Your Account</h1><br>
+						<form name="loginForm" novalidate method="post" accept-charset="utf-8" class="login">
+							<input type="text" autofocus="" name="username" value="" ng-pattern = '/^((([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,}))|((^0-5$)|(^[6-9]\d{0,9}))$/i' placeholder="Email/Phone number" required  ng-model="loginData.username">
+							<p class="validationError errorMsg" ng-show="submitted && loginForm.username.$error.required">Enter Email/Phone number</p>
+				
+							<div ng-messages="loginForm.username.$error ">
+					
+					<p class="validationError errorMsg" ng-message="pattern">Enter Valid Email/Phone number</p>
+					
+						</div><br>
+							<input type="password" name="password" placeholder="Password" required ng-model="loginData.password">
+							<p class="validationError errorMsg" ng-show="submitted && loginForm.password.$error.required">Enter password</p>
+				
+							<input type="submit" name="submit" value="Login" class="login loginmodal-submit" ng-click="submitted=true; loginForm.$valid && login(loginData)">
+						</form>
+					<div class="login-help">© 2017 Golden Sun Technology Pvt Ltd</div>
+				</div>
+			</div>
+        </div>
+      </div>
+    </div>
+	<!-- Begin page content end-->
+   
+    <!-- footer -->
+    <div id="footer">
+      <footer class="footer">
+			<div class="row">
+				<marquee><h2 id="footer_scroll" style="padding-bottom: 10px;">Welcome to POS Shopping</h2></marquee>
+			</div>
+      </footer>
+    </div>

@@ -1,618 +1,1235 @@
 <html lang="en">
 
+
+
 <head>
+
 	<meta charset="utf-8">
+
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<meta name="description" content="">
+
 	<meta name="author" content="">
+
 	<title>POS - point of sale</title>
 
+
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 	<!-- normalize & reset style -->
+
 	<link rel="stylesheet" href="./pos-css/normalize.min.css" type="text/css">
+
 	<link rel="stylesheet" href="./pos-css/reset.min.css" type="text/css">
+
 	<link rel="stylesheet" href="./pos-css/jquery-ui.css" type="text/css">
+
 	<!-- google lato font -->
+
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900,300" rel="stylesheet" type="text/css">
+
 	<!-- Bootstrap Core CSS -->
+
 	<!--<link href="./pos-css/bootstrap.min.css" rel="stylesheet">-->
+
 	<!-- bootstrap-horizon -->
+
 	<link href="./pos-css/bootstrap-horizon.css" rel="stylesheet">
+
 	<!-- datatable style -->
+
 	<link href="./pos-css/dataTables.bootstrap.css" rel="stylesheet">
+
 	<!-- font awesome -->
+
 	<link rel="stylesheet" href="./pos-css/font-awesome.min.css">
+
 	<!-- include summernote css-->
+
 	<link href="./pos-css/summernote.css" rel="stylesheet">
+
 	<!-- waves -->
+
 	<link rel="stylesheet" href="./pos-css/waves.min.css">
+
 	<!-- daterangepicker -->
+
 	<link rel="stylesheet" type="text/css" href="./pos-css/daterangepicker.css">
+
 	<!-- css for the preview keyset extension -->
+
 	<link href="./pos-css/keyboard-previewkeyset.css" rel="stylesheet">
+
 	<!-- keyboard widget style -->
+
 	<link href="./pos-css/keyboard.css" rel="stylesheet">
+
 	<!-- Select 2 style -->
+
 	<link href="./pos-css/select2.min.css" rel="stylesheet">
+
 	<!-- datepicker css -->
+
 	<link rel="stylesheet" type="text/css" href="./pos-css/bootstrap-datepicker.min.css">
+
 	<!-- Sweet alert swal -->
+
 	<link rel="stylesheet" type="text/css" href="./pos-css/sweetalert.css">
+
 	<!-- Custom CSS -->
+
 	<link href="./pos-css/Style-Light.css" rel="stylesheet">
+
 	<!-- jQuery -->
+
 	<script type="text/javascript" src="./pos-js/jquery-2.2.2.min.js"></script>
+
 	<script type="text/javascript" src="./pos-js/loading.js"></script>
+
 	<!-- pdf format js files -->
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
+
+
 	<!-- angular links -->
+
 	<script src="./pos-js/angular.min.js"></script>
+
 	<script src="angular-app.js"></script>
+
 	<script src="./pos-js/controllers/pos-filter.js"></script>
+
 	<script src="./pos-js/controllers/productController.js"></script>
+
 	<script src="./pos-js/controllers/smtCategoriesProductsController.js"></script>
+
 	<script src="./pos-js/controllers/ordersController.js"></script>
+
 	<script src="./pos-js/controllers/headerController.js"></script>
+
 	<script src="./pos-js/controllers/customerPageController.js"></script>
+
 	<script src="./pos-js/controllers/posMainController.js"></script>
+
+
 
 	<script src="./pos-js/services/config.js"></script>
 
+
+
 	<script src="./pos-js/controllers/loginController.js"></script>
+
 	<script src="./pos-js/services/customerPageService.js"></script>
+
 	<script src="./pos-js/services/newCustomerService.js"></script>
+
 	<script src="./pos-js/services/editCustomerService.js"></script>
+
 	<script src="./pos-js/services/deleteCustomerService.js"></script>
+
 	<script src="./pos-js/services/loginService.js"></script>
+
 	<script src="./pos-js/services/smtCategoriesProductsService.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.3/angular-messages.min.js"></script>
+
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
 
 
+
+
+
 	<style>
+
 		.loading {
+
 			border: 1px solid #6e7171;
+
 			background: #6e7171;
+
 			border-radius: 8px;
+
 			color: #fff;
+
 			padding: 20px;
+
 			margin: 40px 500px;
+
 			width: 100px;
+
 		}
+
 	</style>
+
 </head>
 
+
+
 <body class="pace-done" ng-app="myApp" ng-cloak>
+
 	<!--<div class="pace  pace-inactive">
+
 		<div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+
 			<div class="pace-progress-inner"></div>
+
 		</div>
+
 		<div class="pace-activity"></div>
+
 	</div>-->
+
+
 
 	<!-------------------------------------header part start here---------------------------------------------------------------->
 
+
+
 	<!-- Fixed header top start here -->
+
 	<div class="navbar" id="myDIV" ng-controller="posMainController">
 
+
+
 		<!-- login person details start here -->
+
 		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
+
 			<form class="form-horizontal">
+
 				<div class="form-group" style="float:left;width:100%;">
 
+
+
 					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="">
+
 						<div class="navbar-header"  id="top_logo_pos">
+
 							<a class="navbar-brand111" href="#"><img src="./images/new-logo.png" alt="td logo" class="img-responsive"></a>
+
 						</div>
+
 					</div>
+
+
 
 					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="sesTime">
+
 						<label class="control-label "><b>Session Time : </b></label>
+
 						<span ng-cloak>{{loginSessionTime}}</span>
+
 					</div>
+
+
 
 					<div class="col-md-5 col-lg-5 col-sm-5 col-xs-12" id="shopName">
+
 						<label for="inputtxt" class="control-label"><b>Shop Name : </b></label>
+
 						<span ng-cloak>{{shopName}}</span>
+
 					</div>
+
+
 
 					<!--<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+
 							<span style="color:#b9f2ff;font-size:20px;"><i class="fa fa-circle"></i></span>
+
 							<label class="control-label">Diamond</label>
+
 						</div>-->
+
 						
+
 					<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" id="usrName">
+
 						<label for="inputtxt" class="control-label"><b>Hai, </b></label>
+
 						<span ng-cloak>{{userName}}</span>
+
 					</div>
 
+
+
 				</div>
+
 			</form>
+
 		</div>
 
+
+
 	</div>
+
 	<!-- Fixed header top end here -->
 
+
+
 	<!-------------------------------------------------header part end here---------------------------------------------------->
+
 	<!-- Navigation start here -->
+
 	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="menuToggle" ng-controller="posMainController">
+
 		<nav class="navbar navbar-default" role="navigation" id="nav_bckground">
+
 			<div class="navbar-header">
+
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+
 				 aria-expanded="false">
+
 					  <span class="sr-only">Toggle navigation</span>
+
 					  <span class="icon-bar"></span>
+
 					  <span class="icon-bar"></span>
+
 					  <span class="icon-bar"></span>
+
 					</button>
+
 			</div>
 
+
+
 			<!-- Brand and toggle get grouped for better mobile display -->
+
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
 				<ul class="nav navbar-nav products_menu">
+
 					<li class="flat-box waves-effect waves-block"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i>POS</a></li>
+
 					<li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i>PRODUCTS</a></li>
+
 					<li class="flat-box waves-effect waves-block active"><a href="people-customers.html"><i class="fa fa-user"></i>CUSTOMERS</a></li>
+
 					<!--<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>-->
+
 					<li class="flat-box waves-effect waves-block"><a href="pos-orderinfo.html"><i class="fa fa-line-chart"></i>ORDERINFO</a></li>
+
+
 
 					<li class="flat-box waves-effect waves-block"><a href="pos-invoice.html"><i class="fa fa-line-chart"></i>INVOICEINFO</a></li>
 
+
+
 					<li class="flat-box waves-effect waves-block"><a href="pos-services.html"><i class="fa fa-line-chart"></i>SERVICES</a></li>
+
 					<li class="flat-box waves-effect waves-block"><a href="pos-exchange.html"><i class="fa fa-line-chart"></i>EXCHANGE</a></li>
+
 					<li class="flat-box waves-effect waves-block"><a href="pos-transferorders.html"><i class="fa fa-share"></i>TRANSFER-ORDER</a></li>
+
 				</ul>
+
 				<ul class="nav navbar-nav navbar-right">
+
 					<li class="flat-box waves-effect waves-block" style="padding-right:20px;" ng-click="logOut()"><a  title="Logout" id="lgout"><i class="fa fa-sign-out fa-lg"></i>Logout</a></li>
+
 				</ul>
+
 			</div>
+
 			<!-- Brand and toggle get grouped for better mobile display end here-->
 
+
+
 			<div id="loadingimg" style="display: none;"></div>
+
 		</nav>
+
 	</div>
+
 	<!-- navigation end here -->
+
 			
+
 			
+
 <!-- Page Content start here -->			
+
 <div class="container">
+
 <div class="row" id="edit_row">
+
 <div ng-controller='customerPageController'>
+
 <div ng-switch="x">
+
       <div id="Table_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+
 	  <div class="clear"></div>
+
 	  
+
 	  
+
 		<div style="padding-bottom:0px;">	
+
 			<div id="Table_filter">
+
 			  <label>Search:
+
 				<input type="search" class="form-control input-sm" placeholder="Enter Mobile Number" aria-controls="Table" ng-model="searchText" ng-change="searchByMobile(searchText)" id="gosearch">
+
 			  </label>
+
 			</div>
+
 		</div>
+
 		<!-- add,update,delete  successfully msg start here -->
+
 		<div class="alert alert-success" ng-if="message" >
+
 			<a href="#" class="close" ng-click="clearMessage()">&times;</a>{{message}}
+
 		</div>
+
 		<!-- add,update,delete  successfully msg end here -->
+
 		
+
 		
+
 		
+
 	<div ng-switch-when="Table" class="table-responsive">
+
 	  <table id="Table" class="table table-striped table-bordered no-footer" role="grid" aria-describedby="Table_info">
+
           <thead class="table-head-styl">
+
               <tr role="row">
+
 				  <!--<th ng-click = "sortData('customer_name')">Customer Name<div ng-class = "getSortClass('username')"></div></th>
+
 				  <th ng-click = "sortData('phone_number')">Phone<div ng-class = "getSortClass('username')"></div></th>
+
 				  <th ng-click = "sortData('email')">Email<div ng-class = "getSortClass('username')"></div></th>
+
 				  <th ng-click = "sortData('discount')">Discount<div ng-class = "getSortClass('username')"></div></th>-->
+
 				  <!--  <th ng-click = "sortData('brand')">Created At<div ng-class = "getSortClass('username')"></div></th>-->
+
 				     <th style="text-align:center;">S.No</th>  
+
 				  <th style="text-align:left;" ng-click = "sortData('firstname')">First Name<div ng-class = "getSortClass('username')"></div></th>
+
 				  <th style="text-align:left;" ng-click = "sortData('lastname')">Last Name<div ng-class = "getSortClass('username')"></div></th>				  
+
 				  <th style="text-align:left;" ng-click = "sortData('mobile')">Mobile<div ng-class = "getSortClass('username')"></div></th>
+
 				  <th style="text-align:left;" ng-click = "sortData('altmobile')">Alt Mobile<div ng-class = "getSortClass('username')"></div></th>
+
 				  <th style="text-align:left;" ng-click = "sortData('email')">Email Id<div ng-class = "getSortClass('username')"></div></th>
+
 				  <th style="text-align:right;" ng-click = "sortData('rewardpoints')">Rewards Points<div ng-class = "getSortClass('username')"></div></th>
+
 				  <th style="text-align:right;" ng-click = "sortData('discount')">Discount (%)<div ng-class = "getSortClass('username')"></div></th>
+
 				  <th style="text-align:center;" ng-click = "sortData('createddate')">Created Date<div ng-class = "getSortClass('username')"></div></th>
+
 				 <!-- <th ng-click = "sortData('createdat')">Created At<div ng-class = "getSortClass('username')"></div></th>-->
+
 				  
+
 				<th>Action</th>
+
 			  </tr>
+
           </thead>
 
+
+
           <tbody>
+
 		  <tr role="row" ng-repeat="customer in customerList  |  orderBy:sortColumn:reverseSort| filter:searchText">
+
 				  <td style="text-align:center;"  ng-cloak>{{customer.S_no}}</td>
+
 					 <!-- <td style="text-align:center;" ng-if="customerNextBtn == 'false'" ng-cloak>{{customer.sno}}</td>
+
                <td style="text-align:center;" ng-if="customerNextBtn == 'true'" ng-cloak>{{customer.sno+1}}</td> -->
+
 				 <td style="text-align:left;" ng-cloak>{{customer.firstname}}</td>
+
 				 <td style="text-align:left;" ng-cloak>{{customer.lastname}}</td>
+
                  <td style="text-align:left;" ng-cloak ng-if="customer.mobile.length == 12">{{customer.mobile.slice(2,customer.mobile.length)}}</td>
+
 				  <td style="text-align:left;" ng-cloak ng-if="customer.mobile.length == 10">{{customer.mobile}}</td>
+
                 
+
 				 <td style="text-align:left;" ng-cloak>{{customer.altmobile}}</td>			 
+
                  <td style="text-align:left;" ng-cloak>{{customer.email}}</td>
+
 				 <td style="text-align:right;" ng-cloak>{{customer.rewardpoints}}</td>
+
 				 <td style="text-align:right;" ng-cloak>{{customer.discount}}</td>
+
 				 <td style="text-align:center;" ng-cloak>{{customer.createddate}}</td>
+
 				<!-- <td style="text-align:center;" ng-cloak>{{customer.createdat}}</td>-->
+
 				 
+
 				 
+
                  <td style="text-align:center;">
+
 				 <div class="btn-group">
+
 					<!--  <a class="btn btn-action" href="#" dropdown-toggle=" " data-toggle="dropdown"> Action</a>
+
 					 <a class="btn btn-action dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa fa-caret-down" title="Toggle dropdown menu"></span></a>
+
 						<ul class="dropdown-menu">-->
+
 							
+
 							<!--<li><a href="#" data-toggle="modal" data-target="" ng-click="deleteUser(customer.mobile)"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>-->
+
 							<a class="btn btn-action btn_edit_cust" href="#" data-toggle="modal" data-target="#pplcustmrEditModal" ng-click="editUser(customer)"><i class="fa fa-pencil fa-fw"></i> Edit</a>
+
 						
+
 					</div>
+
                   </td>
+
               </tr>
+
 			</tbody>
+
       </table>
+
 	</div>
+
 		  
+
 	  </div>
+
  
+
   
+
    <!-- Add customer button code -->
+
    <button type="button" class="btn btn-place-order pull-right" data-toggle="modal" ng-click="resetForm()" data-target="#AddCustomer">
+
      Add Customer </button>
-	 
-	 
-		<!-- previous next buttons start here -->
-			<div class="buttons-countrows" >
-				<button type="button" class="btn-prev btn  col-md flat-box-btn waves-effect waves-button" ng-disabled="currentPageNumber == 1" ng-click="previousPageMethod(fromVal,toVal)">
-					<< Previous
-				</button>
-				<span class="countpages" ng-cloak>
-					{{currentPageNumber}}
-				</span>
-				<button type="button" class="btn-next btn  col-md flat-box-btn waves-effect waves-button" ng-disabled="customerList.length == 0" ng-click="nextPageMethod(fromVal,toVal)">
-					Next >>
-				</button>
-			</div>
-		<!-- previous next buttons end here -->
-	
-	 
-	 
+
 	 
 
+	 
+
+		<!-- previous next buttons start here -->
+
+			<div class="buttons-countrows" >
+
+				<button type="button" class="btn-prev btn  col-md flat-box-btn waves-effect waves-button" ng-disabled="currentPageNumber == 1" ng-click="previousPageMethod(fromVal,toVal)">
+
+					<< Previous
+
+				</button>
+
+				<span class="countpages" ng-cloak>
+
+					{{currentPageNumber}}
+
+				</span>
+
+				<button type="button" class="btn-next btn  col-md flat-box-btn waves-effect waves-button" ng-disabled="customerList.length == 0" ng-click="nextPageMethod(fromVal,toVal)">
+
+					Next >>
+
+				</button>
+
+			</div>
+
+		<!-- previous next buttons end here -->
+
+	
+
+	 
+
+	 
+
+	 
+
+
+
 <!-- /.container -->
+
 </div>
+
+
+
+
 
 
 
 <!-- Modal for add customer start here -->
+
 <div class="modal fade" id="AddCustomer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" cache="false">
+
 	<div class="modal-dialog" role="document">
+
 		<div class="modal-content">
+
 			<div class="modal-header">
+
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
 				<h4 class="modal-title" id="myModalLabel">Add Customer</h4>
+
 			</div>
+
 				<form method="post" accept-charset="utf-8" enctype="multipart/form-data" name="addCustomerForm" role="form" id="register-form" autocomplete="off" novalidate="true">
+
 					<div class="modal-body">
+
 				  
+
 						<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
 							<label for="firstname"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> First Name</label>
+
 							<div ng-messages="addCustomerForm.firstname.$error " style="float:right !important;">
+
 								<p class="validationError errorMsg" ng-message="pattern">Enter valid First name</p>
+
 								<p class="validationError errorMsg" ng-message="minlength">Minimum 3 to Maximum 50 characters</p>
+
 								<p class="validationError errorMsg" ng-message="maxlength">Minimum 3 to Maximum 50 characters</p>
+
 							</div>
+
 							<p style="float:right !important;" class="validationError errorMsg" ng-show="submitted && addCustomerForm.firstname.$error.required">Enter First name</p>				
+
 							<input type="text" name="firstname" required class="form-control" id="firstname" ng-model="newCustomer.firstname" 
+
 								   placeholder="Enter Customer Name" ng-minlength="3" ng-maxlength="50" required ng-pattern="/^[a-zA-Z ]{1,50}$/">		
+
 						</div>			  
+
 					   
+
 						<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
 							<label for="lastname"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Last Name</label>
+
 							<div ng-messages="addCustomerForm.lastname.$error " style="float:right !important;">
+
 								<p class="validationError errorMsg" ng-message="pattern">Enter valid Last name</p>
+
 								<p class="validationError errorMsg" ng-message="minlength">Minimum 3 to Maximum 50 characters</p>
+
 								<p class="validationError errorMsg" ng-message="maxlength">Minimum 3 to Maximum 50 characters</p>
+
 							</div>
+
 							<p style="float:right !important;" class="validationError errorMsg" ng-show="submitted && addCustomerForm.lastname.$error.required">Enter Last name</p>
+
 							
+
 							<input type="text" name="lastname" required="" class="form-control" id="lastname" ng-model="newCustomer.lastname" 
+
 								   placeholder="Enter Customer Name" ng-minlength="3" ng-maxlength="50" required ng-pattern="/^[a-zA-Z ]{1,50}$/">					
+
 						</div>
 
+
+
 						<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
+
 							<div class="col-md-12">
+
 								<div class="col-md-6">
+
 									<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
 										<label for="mobile"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Mobile</label>
+
 										<div ng-messages="addCustomerForm.mobile.$error " style="float:right !important;">
+
 											<p class="validationError errorMsg" ng-message="pattern">Enter 10 digit mobile number</p>
+
 											<p class="validationError errorMsg" ng-message="minlength">Mobile should be 10 digits</p>
+
 											<p class="validationError errorMsg" ng-message="maxlength">Mobile should be 10 digits</p>
+
 										</div>
+
 										<p style="float:right !important;" class="validationError errorMsg" ng-show="submitted && addCustomerForm.mobile.$error.required">Enter Mobile Number</p>							
+
 										<input type="text" name="mobile" class="form-control" id="mobile" ng-model="newCustomer.mobile" 
+
 											placeholder="Enter phone Number" ng-minlength="10" ng-maxlength="10" required ng-pattern="/^[0]?[789]\d{9}$/">					 
+
 									</div>
+
 								</div>
+
 						   
+
 							   <div class="col-md-6">
+
 									<div class="form-group" style="margin-bottom:-20px;padding-top: 9px;">
+
 									 <label for="altmobile"> Alt Mobile</label>
+
 										<div ng-messages="addCustomerForm.altmobile.$error " style="float:right !important;">
+
 											<p class="validationError errorMsg" ng-message="pattern">Enter 10 digit mobile number</p>
+
 											<p class="validationError errorMsg" ng-message="minlength">Mobile should be 10 digits</p>
+
 											<p class="validationError errorMsg" ng-message="maxlength">Mobile should be 10 digits</p>
+
 											<p class="validationError errorMsg" ng-message="match">Alternate number should not be same</p>
+
 										</div> 
+
 										<input type="text" name="altmobile" class="form-control" id="altmobile" ng-model="newCustomer.altmobile" 
+
 										placeholder="Enter phone Number" ng-minlength="10" ng-maxlength="10" data-ng-match="!newCustomer.mobile" ng-pattern="/^[0]?[789]\d{9}$/">			  
+
 									</div>
+
 								</div>
+
 							</div>
+
 						</div>
+
+
+
 
 
 						<div class="form-group" style="margin-bottom:-20px;padding-top:9px;">
+
 							<label for="email" style="margin-top: 10px;"> Email</label>
+
 							<div ng-messages="addCustomerForm.email.$error " style="float:right !important;">
+
 								<p class="validationError errorMsg" ng-message="pattern">Enter valid Email</p>					
+
 							</div>
+
 							<input type="email" name="email" class="form-control" id="email" ng-model="newCustomer.email"
+
 								placeholder="Enter Email ID"  ng-pattern="/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/">					
+
 						</div>
+
 								
+
 						
+
 						<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
+
 							<div class="col-md-12">			
+
 								<div class="col-md-6">
+
 									<div class="form-group" style="margin-bottom:-20px;padding-top: 9px;">
+
 									 <label for="rewardpoints"> Reward Points</label>
+
 									 <input type="text" name="rewardpoints" class="form-control" id="rewardpoints" placeholder="0" ng-model="newCustomer.rewardpoints" ng-disabled="true">
+
 									</div>
+
 								</div>	
+
 								
+
 								<div class="col-md-6">
+
 									<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
 										<label for="discount"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Discount</label>				
+
 										<div ng-messages="addCustomerForm.discount.$error " style="float:right !important;">
+
 											<p class="validationError errorMsg" ng-message="pattern">Enter in digits</p>
+
 											<p class="validationError errorMsg" ng-message="maxlength">Please enter valid Discount</p>						
+
 										</div>
+
 										<p style="float:right !important;" class="validationError errorMsg" ng-show="submitted && addCustomerForm.discount.$error.required">Enter Discount</p>					
+
 										<input type="text" maxlength="2" name="discount" class="form-control" id="discount" ng-model="newCustomer.discount" 
+
 											placeholder="Enter Discount" required ng-pattern="/^[1-9]?[0-9]$|^99$/">
+
 									</div>
+
 								</div>	 
+
 							</div>
+
 						</div>
+
 				
+
 						<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
+
 							<div class="col-md-12">			
+
 								<div class="col-md-6">	
+
 									<div class="form-group" style="padding-top: 7px;">
+
 										<label for="createddate"> Created Date </label>
+
 										<input type="text"  class="form-control" id="createddate"  ng-model="newCustomer.createddate" ng-disabled="true">
+
 									</div>
+
 								</div>
+
 								<div class="col-md-6">	
+
 									<div class="form-group" style="padding-top: 7px;">
+
 									 <label for="createdat"> Created At </label>
+
 									 <input type="text" name="createdat" class="form-control" id="createdat" ng-model="newCustomer.createdat" ng-disabled="true">
+
 								   </div>		
+
 								</div>
+
 							</div>
+
 						</div>
+
 						
+
 					</div>
+
+
 
 			  <div class="modal-footer" id="mf">
+
 				<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="">Close</button>
+
 				<button type="submit" class="btn btn-add"  ng-click="submitted=true; addCustomerForm.$valid && saveNewCustomer(newCustomer)" >Submit</button>
+
 			  </div>
+
 			  
+
 				</form>   
+
 		</div>
+
 	</div>
+
 </div>
+
 <!-- /.Modal for add customer start here -->
 
+
+
  <!-- Modal for editing new user strat here-->
+
   <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="pplcustmrEditModal">
+
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+
+      <div class="modal-content" style="width: 115%; margin-left: -32px;">
+
         <div class="modal-header">
+
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="closeEditCustModal()"><span aria-hidden="true">×</span></button>
+
           <h4 class="modal-title" id="myModalLabel">Edit Customer Details</h4>
+
         </div>
+
         <form action="#" method="post" name="editCustomerForm" accept-charset="utf-8" id="addform" enctype="multipart/form-data">
+
           <div class="modal-body">
+
 		  		  
+
 			<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
+
 				<div class="col-md-12">
+
 					<div class="col-md-6">
+
 						<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
 							<label for="CustomerName">First Name</label>
-							<input type="text" name="firstName" required="" class="form-control" id="firstName" ng-model="updateCustomerArray.firstName" disabled>
+
+							<input type="text" name="firstname" required="" class="form-control" id="firstname" ng-model="clickedUser.firstname" disabled>
+
 						</div>
+
 					</div>
+
 			   
+
 				   <div class="col-md-6" style="margin-top: 8px;">
+
 					   <div class="form-group">
+
 							<label for="CustomerName">Last Name</label>
-							<input type="text" name="lastName" required="" class="form-control" id="lastName" ng-model="updateCustomerArray.lastName" disabled>
+
+							<input type="text" name="lastname" required="" class="form-control" id="lastname" ng-model="clickedUser.lastname" disabled>
+
 						</div>
+
 					</div>
+
 				</div>
-			</div>
-			
-			<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
-				<div class="col-md-12">
-					<div class="col-md-6">
-						<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
-							<label for="CustomerPhone">Mobile</label>
-							<input type="text" name="mobileNo" class="form-control" id="mobileNo" ng-if="updateCustomerArray.mobileNo.length == 10" ng-model="updateCustomerArray.mobileNo">
-							<input type="text" name="mobileNo" class="form-control" id="mobileNo" ng-if="updateCustomerArray.mobileNo.length == 12" ng-model="updateCustomerArray.mobileNo.slice(2,clickedUser.mobileNo.length)">
-						</div>
-				   </div>
-			   
-					<div class="col-md-6" style="margin-top: 8px;">
-						<div class="form-group">
-							<label for="CustomerAltPhone">Alternative Mobile</label>
-							<input type="text" name="altmobileNo" class="form-control" id="altmobileNo" ng-model="updateCustomerArray.altmobileNo">
-						</div>
-					</div>
-				</div>
+
 			</div>
 
 			
+
+			<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
+
+				<div class="col-md-12">
+
+					<div class="col-md-6">
+
+						<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
+							<label for="CustomerPhone">Mobile</label>
+
+							<input type="text" name="mobile" class="form-control" id="mobileNo"  ng-model="clickedUser.mobile">
+
+							<!--<input type="text" name="mobile" class="form-control" id="mobileNo" ng-if="clickedUser.mobile.length == 12" ng-model="clickedUser.mobile.slice(2,clickedUser.mobile.length)">
+							-->
+						</div>
+
+				   </div>
+
+			   
+
+					<div class="col-md-6" style="margin-top: 8px;">
+
+						<div class="form-group">
+
+							<label for="CustomerAltPhone">Alternative Mobile</label>
+
+							<input type="text" name="altmobile" class="form-control" id="altmobile" ng-model="clickedUser.altmobile">
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+			
+
 			<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
              <label for="CustomerEmail" style="margin-top: 10px;">Email</label>
-             <input type="email" name="emailId" class="form-control" id="emailId" ng-model="updateCustomerArray.emailId">
+
+             <input type="email" name="email" class="form-control" id="email" ng-model="clickedUser.email">
+
            </div>
+
 			
+
 			<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
+
 				<div class="col-md-12">
+
 					<div class="col-md-6">
+
 						<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
 							<label for="Customerrewardpoints">Rewards Points</label>
-							<input type="text" name="rewardpoints" class="form-control" id="rewardpoints" ng-model="updateCustomerArray.rewardpoints" disabled>
+
+							<input type="text" name="rewardpoints" class="form-control" id="rewardpoints" ng-model="clickedUser.rewardpoints" disabled>
+
 						</div>
+
 					</div>
+
 				
+
 					<div class="col-md-6">
+
 						<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
 							<label for="CustomerDiscount">Discount</label>
+
 							<div ng-messages="editCustomerForm.discount.$error " style="float:right !important;">
+
 								<p class="validationError errorMsg" ng-message="pattern">Discount should contain only Digits</p>
+
 								<p class="validationError errorMsg" ng-message="maxlength">Discount should be max 100</p>
+
 								
+
 							</div>
+
 							<p style="float:right !important;" class="validationError errorMsg" ng-show="submitted && editCustomerForm.discount.$error.required">Enter Discount</p>
+
 							
-							<input type="text" maxlength="5" name="discount" class="form-control" id="discount" ng-model="updateCustomerArray.discount">
+
+							<input type="text" maxlength="5" name="discount" class="form-control" id="discount" ng-model="clickedUser.discount">
+
 						</div>
+
 					</div>
+
 				</div>
+
 			</div>
+
 			
+
 			
+
 			<div class="rqw" style="margin-right: -30px;margin-left: -30px;">
+
 				<div class="col-md-12">
+
 					<div class="col-md-6">
+
 						<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
 							<label for="CustomercreatedDate">Created Date</label>
-							<input type="text" name="createddate" class="form-control" id="createddate" ng-model="updateCustomerArray.createddate" disabled>
+
+							<input type="text" name="createddate" class="form-control" id="createddate" ng-model="clickedUser.createddate" disabled>
+
 						</div>
+
 					</div>
+
 					
+
 					<div class="col-md-6">
+
 						<div class="form-group" style="margin-bottom:-20px;padding-top: 7px;">
+
 							<label for="CustomercreatedAt">Created At</label>
-							<input type="text" name="createdat" class="form-control" id="createdat" ng-model="updateCustomerArray.createdat" disabled>
+
+							<input type="text" name="createdat" class="form-control" id="createdat" ng-model="clickedUser.createdat" disabled>
+
 						</div>
+
 					</div>
+
 				</div>
+
 			</div>
+
 			
+
 		<div class="modal-footer" id="mf">
+
             <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="closeEditCustModal()">Close</button>
-            <button type="button" class="btn btn-add" ng-click="submitted=true; editCustomerForm.$valid && updateUser(updateCustomerArray)" >Save</button>
+
+            <button type="button" class="btn btn-add" ng-click="submitted=true; editCustomerForm.$valid && updateUser(clickedUser)" >Save</button>
+
         </div>
+
+
 
         </form>
+
       </div>
+
     </div>
+
   </div>
+
   <!-- /.Modal for editing new user end here -->
+
  
+
 	<!-- Modal for delete start here-->
+
 	  <div class="modal fade" id="pplcustmrdeleteModal" role="dialog">
+
 		<div class="modal-dialog">
+
 		  <!-- Modal content-->
+
 		  <div class="modal-content">
+
 			<div class="modal-header">
+
 			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+
 			  <h4 class="modal-title">Delete Customer Registration</h4>
+
 			</div>
+
 			<div class="modal-body">
+
 				<strong style="color:red;">Your going to delete {{mobileNo}}. All Information.....</strong>
+
 			</div>
+
 			<div class="modal-footer">
+
 			  <button type="button" class="btn btn-add pull-left" data-dismiss="modal" ng-click="deleteUser()">Yes</button>
+
 			  <button type="button" class="btn btn-add" data-dismiss="modal">No</button>
+
 			</div>
+
 		  </div> 
+
 		</div>
+
 	  </div>
+
 	<!-- Modal for delete end here --> 
+
  
+
    <!-- Modal for delete start here-->
+
 	  <!--<div class="modal fade" id="pplcustmrdeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
 		<div class="modal-dialog" role="document">
+
 	
+
 		  <div class="modal-content">
+
 			<div class="modal-header">
+
 			  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
 			  <h4 class="modal-title" id="myModalLabel">Delete Customer Registration</h4>
+
 			</div>
+
 			<div class="modal-body">
+
 				<strong style="color:red;">Your going to delete {{clickedUser.mobile}}. All Information.....</strong>
+
 			</div>
+
 			<div class="modal-footer">
+
 			  <button type="button" class="btn btn-add pull-left" data-dismiss="modal" ng-click="deleteUser()">Yes</button>
+
 			  <button type="button" class="btn btn-add" data-dismiss="modal">No</button>
+
 			</div>
+
 		  </div> 
+
 		</div>
+
 	  </div>-->
+
 	<!-- Modal for delete end here --> 
+
 </div>
+
 </div>
+
 <!-- slim scroll script -->
+
   <script type="text/javascript" src="./pos-js/jquery.slimscroll.min.js"></script>
+
   <!-- waves material design effect -->
+
   <script type="text/javascript" src="./pos-js/waves.min.js"></script>
+
   <!-- Bootstrap Core JavaScript -->
+
   <script type="text/javascript" src="./pos-js/bootstrap.min.js"></script>
+
   <!-- keyboard widget dependencies -->
+
   <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.js"></script>
+
   <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-all.js"></script>
+
   <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-extender.js"></script>
+
   <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.keyboard.extension-typing.js"></script>
+
   <script type="text/javascript" src="http://www.dar-elweb.com/demos/zarpos/assets/js/jquery.mousewheel.js"></script>
+
   <!-- select2 plugin script -->
+
   <script type="text/javascript" src="./pos-js/select2.min.js"></script>
+
   <!-- dalatable scripts 
+
   <script src="../../pos-js/jquery.dataTables.min.js"></script>
+
   <script src="../../pos-js/dataTables.bootstrap.js"></script>-->
+
   <!-- summernote js -->
+
   <script src="./pos-js/summernote.js"></script>
+
   <!-- chart.js script -->
+
   <script src="./pos-js/Chart.js"></script>
+
   <!-- moment JS -->
+
   <script type="text/javascript" src="./pos-js/moment.min.js"></script>
+
   <!-- Include Date Range Picker -->
+
   <script type="text/javascript" src="./pos-js/daterangepicker.js"></script>
+
   <!-- Sweet Alert swal -->
+
   <script src="./pos-js/sweetalert.min.js"></script>
+
   <!-- datepicker script -->
+
   <script src="./pos-js/bootstrap-datepicker.min.js"></script>
+
   <!-- creditCardValidator script -->
+
   <script src="./pos-js/jquery.creditCardValidator.js"></script>
+
   <!-- creditCardValidator script -->
+
   <script src="./pos-js/credit-card-scanner.js"></script>
+
   <script src="./pos-js/jquery.redirect.js"></script>
+
   <!-- ajax form -->
+
   <script src="./pos-js/jquery.form.min.js"></script>
+
   <!-- custom script -->
+
   <script src="./pos-js/app.js"></script>
+
   </div> 
+
   </div>
+
 </body></html>

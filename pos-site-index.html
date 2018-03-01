@@ -272,7 +272,7 @@
 												<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" ng-if="orderProduct.proddescription"><span class="textPD">{{orderProduct.proddescription}}</span></div>
 												<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" ng-if="orderProduct.productdesp"><span class="textPD">{{orderProduct.productdesp}}</span></div>
 											</div>
-											<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.offer_price}}</span></div>
+											<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.offer_price|number:2}}</span></div>
 
 											<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 nopadding productNum">
 												<!-- <div class="col-xs-2"><span class="textPD">{{orderProduct.qty}}</span></div>-->
@@ -295,7 +295,7 @@
 												<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2" ng-if="orderSavedFlag == 'true'"><span class="textPD">{{orderProduct.qty}}</span></div>
 											</div>
 
-											<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.offer_price*orderProduct.qty}}</span></div>
+											<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.offer_price*orderProduct.qty|number:2}}</span></div>
 
 										</div>
 									</div>
@@ -327,16 +327,16 @@
 
 											<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" style="margin-left:10%;"><span class="textPD">{{orderProduct.productdesp}}</span></div>
 										</div>
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.unitprice | number : 0}}</span></div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.unitprice | number : 2}}</span></div>
 
 
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.qty | number : 0}}</span></div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.qty | number : 2}}</span></div>
 
 
 
 
 
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.unitprice*orderProduct.qty | number : 0}}</span></div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.unitprice*orderProduct.qty | number : 2}}</span></div>
 
 									</div>
 								</div>
@@ -367,16 +367,16 @@
 
 											<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" style="margin-left:10%;"><span class="textPD">{{orderProduct.productdesp}}</span></div>
 										</div>
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.unitprice | number : 0}}</span></div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.unitprice | number : 2}}</span></div>
 
 
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.qty | number : 0}}</span></div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.qty | number : 2}}</span></div>
 
 
 
 
 
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.unitprice*orderProduct.qty | number : 0}}</span></div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.unitprice*orderProduct.qty | number : 2}}</span></div>
 
 									</div>
 								</div>

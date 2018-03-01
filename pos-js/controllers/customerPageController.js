@@ -270,7 +270,7 @@ function ($scope,$filter,customerPageService,customerMobileNumService,newCustome
 
 		var newCustomerArray = {"shop":window.localStorage['shopName'],"firstname":newCustomer.firstname,"lastname":newCustomer.lastname,
 
-		"mobile":"91"+newCustomer.mobile,"altmobile":"91"+newCustomer.altmobile,"email":newCustomer.email,
+		"mobile":newCustomer.mobile,"altmobile":newCustomer.altmobile,"email":newCustomer.email,
 
 		"rewardpoints":"0","discount":newCustomer.discount,"createddate":newCustomer.createddate,"createdat":newCustomer.createdat};
 
@@ -370,17 +370,17 @@ function ($scope,$filter,customerPageService,customerMobileNumService,newCustome
 
 		updateCustomerArray.lastname = newCustomer.lastname ;
 		
-		if(newCustomer.mobile.length == 10){
+		// if(newCustomer.mobile.length == 10){
 		updateCustomerArray.mobile = newCustomer.mobile ;
-			}else if(newCustomer.mobile.length == 12){
-		updateCustomerArray.mobile = newCustomer.mobile.slice(2,newCustomer.mobile.length) ;	
-		}
+		// 	}else if(newCustomer.mobile.length == 12){
+		// updateCustomerArray.mobile = newCustomer.mobile.slice(2,newCustomer.mobile.length) ;	
+		// }
 
-		if(newCustomer.altmobile .length == 10){
+		// if(newCustomer.altmobile .length == 10){
 		updateCustomerArray.altmobile =newCustomer.altmobile ;
-			}else if(newCustomer.mobile.length == 12){
-		updateCustomerArray.altmobile = newCustomer.altmobile.slice(2,newCustomer.altmobile.length) ;	
-		}
+		// 	}else if(newCustomer.mobile.length == 12){
+		// updateCustomerArray.altmobile = newCustomer.altmobile.slice(2,newCustomer.altmobile.length) ;	
+		// }
 
 
 		

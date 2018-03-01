@@ -797,10 +797,43 @@
 														</div>
 													</tbody>
 												</table>
-											</div>									
+											</div>		
+											
+															<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed #ddd;padding:5px" 
+											 ng-if="orderDetailsArray.status == 'Accepted'  && orderDetailsArray.paymenttype == 'payu' || orderDetailsArray.paymenttype != 'payu'">
+												<div class="tax-invoice">
+													<div class="row">
+														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+															<div class="" style="float:left;font-size:12px;">
+																<h4>Verify: <span><input type="text" ng-model="verify" ></span></h4>
+																<button type="submit" class="btn btn-success" ng-show="showVerify == 'false'" style="margin-top: -26px; float: right;margin-right: -60px;" ng-click="verifyCode(verify)">GET</button>
+																<button type="submit" class="btn btn-success" ng-show="showVerify == 'true'" style="margin-top: -26px; float: right;margin-right: -96px;">VERIFIED</button>
+															</div>
+														</div>
+
+														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+															<div class="" style="float:right;">
+																<button type="submit" class="btn btn-success" ng-disabled="showPrintBtn == 'true'" ng-click="confirmOnlineInvoiceMethod(total_amtchange())">Done</button>
+																<button type="submit" class="btn btn-danger" ng-click="cancelInvoice()">Cancel</button>
+															</div>
+														</div>
+
+														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+															<div class="subtotal_invc">
+																<h5><span><b style="padding-right:10px;">Sub Total : </b> {{invoiceTotalAmt|currency:'&#8377;'}}</span></h5>
+																<h5 ng-if="discount > 0"><span><b style="padding-right:10px;">Discount  : </b>{{discount}}</span></h5>
+																<h5 ng-if="couponArray.discount"><span><b style="padding-right:10px;">Coupon Amount  : </b>{{couponArray.discount}}</span></h5>
+																
+																<h5><span><b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span></h5>
+																<h5><span><b style="padding-right:10px;">Total(Inc. Tax) : </b> {{invoiceTotalAmtTaxInc-couponArray.discount|currency:'&#8377;'}}</span></h5>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
 
 											<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed #ddd;padding:5px" ng-hide="orderDetailsArray.status == 'Accepted' || getDetails == 'true' || !orderDetailsArray "
-											 ng-if="orderDetailsArray.status == 'Accepted'  && orderDetailsArray.paymenttype != 'cashondelivery' || orderDetailsArray.paymenttype != 'COD'">
+											 ng-if="orderDetailsArray.status == 'Accepted'  && orderDetailsArray.paymenttype == 'cashondelivery' || orderDetailsArray.paymenttype != 'COD'">
 												<div class="tax-invoice">
 													<div class="row">
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">

@@ -71,7 +71,7 @@
   <script src="./pos-js/services/deleteCustomerService.js"></script>
   <script src="./pos-js/services/loginService.js"></script>
   <script src="./pos-js/services/smtCategoriesProductsService.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.3/angular-messages.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.6.3/angular-messages.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
 
 
@@ -98,194 +98,275 @@
 
   <!-------------------------------------header part start here---------------------------------------------------------------->
 
- <!-- Fixed header top start here -->
-	<div class="navbar" id="myDIV" ng-controller="posMainController">
+  <!-- Fixed header top start here -->
+  <div class="navbar" id="myDIV" ng-controller="posMainController">
 
-		<!-- login person details start here -->
-		<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
-			<form class="form-horizontal">
-				<div class="form-group" style="float:left;width:100%;">
+    <!-- login person details start here -->
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 login-details">
+      <form class="form-horizontal">
+        <div class="form-group" style="float:left;width:100%;">
 
-					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="">
-						<div class="navbar-header"  id="top_logo_pos">
-							<a class="navbar-brand111" href="#"><img src="./images/new-logo.png" alt="td logo" class="img-responsive"></a>
-						</div>
-					</div>
+          <div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="">
+            <div class="navbar-header" id="top_logo_pos">
+              <a class="navbar-brand111" href="#">
+                <img src="./images/new-logo.png" alt="td logo" class="img-responsive">
+              </a>
+            </div>
+          </div>
 
-					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="sesTime">
-						<label class="control-label "><b>Session Time : </b></label>
-						<span ng-cloak>{{loginSessionTime}}</span>
-					</div>
+          <div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="sesTime">
+            <label class="control-label ">
+              <b>Session Time : </b>
+            </label>
+            <span ng-cloak>{{loginSessionTime}}</span>
+          </div>
 
-					<div class="col-md-5 col-lg-5 col-sm-5 col-xs-12" id="shopName">
-						<label for="inputtxt" class="control-label"><b>Shop Name : </b></label>
-						<span ng-cloak>{{shopName}}</span>
-					</div>
+          <div class="col-md-5 col-lg-5 col-sm-5 col-xs-12" id="shopName">
+            <label for="inputtxt" class="control-label">
+              <b>Shop Name : </b>
+            </label>
+            <span ng-cloak>{{shopName}}</span>
+          </div>
 
-					<!--<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+          <!--<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
 							<span style="color:#b9f2ff;font-size:20px;"><i class="fa fa-circle"></i></span>
 							<label class="control-label">Diamond</label>
 						</div>-->
-						
-					<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" id="usrName">
-						<label for="inputtxt" class="control-label"><b>Hai, </b></label>
-						<span ng-cloak>{{userName}}</span>
-					</div>
 
-				</div>
-			</form>
-		</div>
-
-	</div>
-	<!-- Fixed header top end here -->
-
-  <!-- Navigation start here -->
-	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="menuToggle" ng-controller="posMainController">
-		<nav class="navbar navbar-default" role="navigation" id="nav_bckground">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-				 aria-expanded="false">
-					  <span class="sr-only">Toggle navigation</span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					</button>
-			</div>
-
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav products_menu">
-					<li class="flat-box waves-effect waves-block"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i>POS</a></li>
-					<li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i>PRODUCTS</a></li>
-					<li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i>CUSTOMERS</a></li>
-					<!--<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>-->
-					<li class="flat-box waves-effect waves-block"><a href="pos-orderinfo.html"><i class="fa fa-line-chart"></i>ORDERINFO</a></li>
-
-					<li class="flat-box waves-effect waves-block active"><a href="pos-invoice.html"><i class="fa fa-line-chart"></i>INVOICEINFO</a></li>
-
-					<li class="flat-box waves-effect waves-block"><a href="pos-services.html"><i class="fa fa-line-chart"></i>SERVICES</a></li>
-					<li class="flat-box waves-effect waves-block"><a href="pos-exchange.html"><i class="fa fa-line-chart"></i>EXCHANGE</a></li>
-					<li class="flat-box waves-effect waves-block"><a href="pos-transferorders.html"><i class="fa fa-share"></i>TRANSFER-ORDER</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="flat-box waves-effect waves-block" style="padding-right:20px;" ng-click="logOut()"><a title="Logout" id="lgout"><i class="fa fa-sign-out fa-lg"></i>Logout</a></li>
-				</ul>
-			</div>
-			<!-- Brand and toggle get grouped for better mobile display end here-->
-
-			<div id="loadingimg" style="display: none;"></div>
-		</nav>
-	</div>
-	<!-- navigation end here -->
-
-  <div class="pos-main" ng-controller="invoicePageController">
-<br><br>
- <div class="container" align="middle" ng-if="showInvoicePrint == 'false'" id="odinf">
-       <div id="order_info_content">
-	  <form method="post" name="getInvoiceDetailsForm" role="form">
-
-        <label for="invoiceId" style="float:left;font-size: 14px;margin-bottom: 5px;font-weight: bold;">Invoice Id : </label>
-        <input type="text" class="form-control" name="invoiceId" required id="invoiceId" ng-model="invoice.invoiceId" ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Enter Invoice Id" my-enter="getInvoiceDetails(invoice)">
-        <div ng-messages="getInvoiceDetailsForm.invoiceId.$error ">
-          <p class="validationError errorMsg"  ng-message="pattern">Enter valid Invoice Id</p>
+          <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" id="usrName">
+            <label for="inputtxt" class="control-label">
+              <b>Hai, </b>
+            </label>
+            <span ng-cloak>{{userName}}</span>
+          </div>
 
         </div>
-        <p class="validationError errorMsg"  ng-show="submitted && getInvoiceDetailsForm.invoiceId.$error.required">Enter Invoice Id</p>
-		 <button type="submit" style="margin-top:5px;float:right;" class="btn btn-add" ng-click="submitted=true; getInvoiceDetailsForm.$valid && getInvoiceDetails(invoice)">Get</button>
       </form>
-     
-		</div>
+    </div>
+
+  </div>
+  <!-- Fixed header top end here -->
+
+  <!-- Navigation start here -->
+  <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="menuToggle" ng-controller="posMainController">
+    <nav class="navbar navbar-default" role="navigation" id="nav_bckground">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav products_menu">
+          <li class="flat-box waves-effect waves-block">
+            <a href="pos-site-index.html">
+              <i class="fa fa-credit-card"></i>POS</a>
+          </li>
+          <li class="flat-box waves-effect waves-block">
+            <a href="products-page.html">
+              <i class="fa fa-archive"></i>PRODUCTS</a>
+          </li>
+          <li class="flat-box waves-effect waves-block">
+            <a href="people-customers.html">
+              <i class="fa fa-user"></i>CUSTOMERS</a>
+          </li>
+          <!--<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>-->
+          <li class="flat-box waves-effect waves-block">
+            <a href="pos-orderinfo.html">
+              <i class="fa fa-line-chart"></i>ORDERINFO</a>
+          </li>
+
+          <li class="flat-box waves-effect waves-block active">
+            <a href="pos-invoice.html">
+              <i class="fa fa-line-chart"></i>INVOICEINFO</a>
+          </li>
+
+          <li class="flat-box waves-effect waves-block">
+            <a href="pos-services.html">
+              <i class="fa fa-line-chart"></i>SERVICES</a>
+          </li>
+          <li class="flat-box waves-effect waves-block">
+            <a href="pos-exchange.html">
+              <i class="fa fa-line-chart"></i>EXCHANGE</a>
+          </li>
+          <li class="flat-box waves-effect waves-block">
+            <a href="pos-transferorders.html">
+              <i class="fa fa-share"></i>TRANSFER-ORDER</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="flat-box waves-effect waves-block" style="padding-right:20px;" ng-click="logOut()">
+            <a title="Logout" id="lgout">
+              <i class="fa fa-sign-out fa-lg"></i>Logout</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Brand and toggle get grouped for better mobile display end here-->
+
+      <div id="loadingimg" style="display: none;"></div>
+    </nav>
+  </div>
+  <!-- navigation end here -->
+
+  <div class="pos-main" ng-controller="invoicePageController">
+    <br>
+    <br>
+    <div class="container" align="middle" ng-if="showInvoicePrint == 'false'" id="odinf">
+      <div id="order_info_content">
+        <form method="post" name="getInvoiceDetailsForm" role="form">
+
+          <label for="invoiceId" style="float:left;font-size: 14px;margin-bottom: 5px;font-weight: bold;">Invoice Id : </label>
+          <input type="text" class="form-control" name="invoiceId" required id="invoiceId" ng-model="invoice.invoiceId" ng-pattern="/^[a-zA-Z0-9]*$/"
+            placeholder="Enter Invoice Id" my-enter="getInvoiceDetails(invoice)">
+          <div ng-messages="getInvoiceDetailsForm.invoiceId.$error ">
+            <p class="validationError errorMsg" ng-message="pattern">Enter valid Invoice Id</p>
+
+          </div>
+          <p class="validationError errorMsg" ng-show="submitted && getInvoiceDetailsForm.invoiceId.$error.required">Enter Invoice Id</p>
+          <button type="submit" style="margin-top:5px;float:right;" class="btn btn-add" ng-click="submitted=true; getInvoiceDetailsForm.$valid && getInvoiceDetails(invoice)">Get</button>
+        </form>
+
+      </div>
 
     </div>
-    <div class="container" ng-if="showInvoicePrint == 'true'" id="printSectionId" style="margin-top:30px;" >
+    <div class="container" ng-if="showInvoicePrint == 'true'" id="printSectionId" style="margin-top:30px;">
 
-    <div class="all_h5" style=""><!-- border:1px solid #ddd;border-top:1px solid #ddd; -->
+      <div class="all_h5">
+        <!-- border:1px solid #ddd;border-top:1px solid #ddd; -->
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border:1px solid #ddd;padding:5px;background:#f9f9f9;">
-		  <div class="">
-			<div class="tax-invoice">  
-				
-			  <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
+          <div class="">
+            <div class="tax-invoice">
+
+              <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
                 <div class="orderinfo_name">
-                  <h5><span><b style="color:#444;font-weight:bold;">Shop Name : </b> {{shopName}}</span></h5>
-                  <h5><span><b style="color:#444;font-weight:bold;">GSTIN : </b> {{gstnum}}</span></h5>
+                  <h5 style="font-size:12px;">
+                    <span>
+                      <b style="color:#444;font-weight:bold;">Shop Name : </b> {{shopName}}</span>
+                  </h5>
+                  <h5 style="font-size:12px;">
+                    <span>
+                      <b style="color:#444;font-weight:bold;">GSTIN : </b> {{gstnum}}</span>
+                  </h5>
                 </div>
               </div>
-			  
+
               <!--<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
                 <div class="orderinfo_user">
                   <h5><span><b style="color:#444;font-weight:bold;">USER : </b> {{user_name}}</span></h5>
                   <h5><span><b style="color:#444;font-weight:bold;">MOBILE : </b> {{mobile}}</span></h5>
                 </div>
               </div>-->
-             
+
               <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
                 <div class="orderinfo_totalamt" style="float:right;">
-                  <h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Invoice No : </b> {{invoicenum}}</span></h5>
-                  <h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Total Amt : </b> {{totalamount|currency:'&#8377;'}}</span></h5>
-				  <h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
+                  <h5 style="font-size:12px;">
+                    <span style="padding-left:10px;">
+                      <b style="color:#444;font-weight:bold;">Invoice No : </b> {{invoicenum}}</span>
+                  </h5>
+                  <h5 style="font-size:12px;">
+                    <span style="padding-left:10px;">
+                      <b style="color:#444;font-weight:bold;">Total Amt : </b> {{totalamount|currency:'&#8377;'}}</span>
+                  </h5>
+                  <h5 style="font-size:12px;">
+                    <span style="padding-left:10px;">
+                      <b>Date : </b> {{ today | date:'dd-MM-yyyy' }} </span>
+                  </h5>
                 </div>
               </div>
-			  
+
             </div>
           </div>
         </div>
-		
-		<div class="table-responsive" style="overflow-x: unset !important;">
-        <table class="table table-bordered" style="margin-bottom:5px;">
-          <thead style="background: #0487a1;color: #fff;">
-              <th style="text-align:center;font-size:12px;padding: 5px !important;"><strong style="font-weight:bold;">S.No</strong></th>
-              <th style="text-align:left;font-size:12px;padding: 5px !important;"><strong style="font-weight:bold;">Product</strong></th>
-			  <th style="text-align:left;font-size:12px;padding: 5px !important;"><strong style="font-weight:bold;">SMT ID</strong></th>
-              <th style="text-align:right;font-size:12px;padding: 5px !important;"><strong style="font-weight:bold;">Qty</strong></th>
-              <th style="text-align:right;font-size:12px;padding: 5px !important;"><strong style="font-weight:bold;">Unit Price(₹)</strong></th>            
-              <th style="text-align:right;font-size:12px;padding: 5px !important;"><strong style="font-weight:bold;">Tax (%)</strong></th>
-                <th style="text-align:right;font-size:12px;padding: 5px !important;"><strong style="font-weight:bold;">Tax Amt(₹)</strong></th>
-              <th style="text-align:right;font-size:12px;padding: 5px !important;"><strong style="font-weight:bold;">Amount(Inc. Tax)(₹)</strong></th>
-          </thead>
-          <tbody>
-            <div class="panel panel-default product-details">
-              <tr ng-repeat="productInfo in invoiceDetails">
-                <td style="text-align:center;border-top:none;font-size:11px;padding: 5px;">{{$index + 1}}</td>
-                <td style="text-align:left;border-top: none;font-size:11px;padding: 5px;">{{productInfo.productdesp}}</td>
-				<td style="text-align:left;border-top: none;font-size:11px;padding: 5px;"><span ng-repeat="x in productInfo.smtids">{{x}}, </span></td>
-                <td style="text-align:right;border-top: none;font-size:11px;padding: 5px;">{{productInfo.qty}}</td>
-                <td style="text-align:right;border-top: none;font-size:11px;padding: 5px;">{{productInfo.offer_price|currency:''}}</td>
-                <td style="text-align:right;border-top: none;font-size:11px;padding: 5px;">{{productInfo.tax}}</td>
-               <td style="text-align:right;border-top: none;font-size:11px;padding: 5px;">{{productInfo.tax_amount|currency:''}}</td>
-                <td style="text-align:right;border-top: none;font-size:11px;padding: 5px;">{{productInfo.tax_including_total|currency:''}}</td>
-              </tr><br>
+
+        <div class="table-responsive" style="overflow-x: unset !important;">
+          <table class="table table-bordered" style="margin-bottom:5px;">
+            <thead style="background: #0487a1;color: #fff;">
+              <th style="text-align:center;font-size:12px;padding: 5px !important;">
+                <strong style="font-weight:bold;">S.No</strong>
+              </th>
+              <th style="text-align:left;font-size:12px;padding: 5px !important;">
+                <strong style="font-weight:bold;">Product</strong>
+              </th>
+              <th style="text-align:left;font-size:12px;padding: 5px !important;">
+                <strong style="font-weight:bold;">SMT ID</strong>
+              </th>
+              <th style="text-align:right;font-size:12px;padding: 5px !important;">
+                <strong style="font-weight:bold;">Qty</strong>
+              </th>
+              <th style="text-align:right;font-size:12px;padding: 5px !important;">
+                <strong style="font-weight:bold;">Unit Price(₹)</strong>
+              </th>
+              <th style="text-align:right;font-size:12px;padding: 5px !important;">
+                <strong style="font-weight:bold;">Tax (%)</strong>
+              </th>
+              <th style="text-align:right;font-size:12px;padding: 5px !important;">
+                <strong style="font-weight:bold;">Tax Amt(₹)</strong>
+              </th>
+              <th style="text-align:right;font-size:12px;padding: 5px !important;">
+                <strong style="font-weight:bold;">Amount(Inc. Tax)(₹)</strong>
+              </th>
+            </thead>
+            <tbody>
+              <div class="panel panel-default product-details">
+                <tr ng-repeat="productInfo in invoiceDetails">
+                  <td style="text-align:center;border-top:none;font-size:11px;padding: 5px;">{{$index + 1}}</td>
+                  <td style="text-align:left;border-top: none;font-size:11px;padding: 5px;">{{productInfo.productdesp}}</td>
+                  <td style="text-align:left;border-top: none;font-size:11px;padding: 5px;">
+                    <span ng-repeat="x in productInfo.smtids">{{x}}, </span>
+                  </td>
+                  <td style="text-align:right;border-top: none;font-size:11px;padding: 5px;">{{productInfo.qty}}</td>
+                  <td style="text-align:right;border-top: none;font-size:11px;padding: 5px;">{{productInfo.offer_price|currency:''}}</td>
+                  <td style="text-align:right;border-top: none;font-size:11px;padding: 5px;">{{productInfo.tax}}</td>
+                  <td style="text-align:right;border-top: none;font-size:11px;padding: 5px;">{{productInfo.tax_amount|currency:''}}</td>
+                  <td style="text-align:right;border-top: none;font-size:11px;padding: 5px;">{{productInfo.tax_including_total|currency:''}}</td>
+                </tr>
+                <br>
+              </div>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="border:1px solid #ddd;padding:5px;margin-top:-5px;background:#f9f9f9;">
+          <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
+              <div class="service_gst">
+                <!--<h5><span><b>Shop Name : </b> {{shopName}}</span></h5>-->
+                <h5 style="font-size:12px;">
+                  <span>
+                    <b>Address : </b> {{shopAddress}}</span>
+                </h5>
+              </div>
             </div>
-          </tbody>
-        </table>
-		</div>
-		
-		<div style="border:1px solid #ddd;padding:5px;margin-top:-5px;background:#f9f9f9;"> 										
-			<div class="row">
-				<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
-					<div class="service_gst">
-						<!--<h5><span><b>Shop Name : </b> {{shopName}}</span></h5>-->
-						<h5><span><b>Address : </b> {{shopAddress}}</span></h5>																
-					</div>
-				</div>
-															
-				<!--<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
+
+            <!--<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 					<div class="service_usr">
 						<h5><span><b></b></span></h5>
 						<h5><span><b></b></span></h5>
 					</div>
 				</div>-->
-															
-				<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
-					<div class="service_inv" style="float:right;">
-						<!--<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
+
+            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
+              <div class="service_inv" style="float:right;">
+                <!--<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
 						<h5><span style="padding-left:10px;"><b>Signature : </b> </span></h5>-->
-						<h5><span><b style="color:#444;font-weight:bold;">User : </b> {{user_name}}</span></h5>
-                  <h5><span><b style="color:#444;font-weight:bold;">Mobile : </b> {{mobile}}</span></h5>
-					</div>
-				</div>
-			</div>
-		</div>
-		
+                <h5 style="font-size:12px;">
+                  <span>
+                    <b style="color:#444;font-weight:bold;">User : </b> {{user_name}}</span>
+                </h5>
+                <h5 style="font-size:12px;">
+                  <span>
+                    <b style="color:#444;font-weight:bold;">Mobile : </b> {{mobile}}</span>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     <br>

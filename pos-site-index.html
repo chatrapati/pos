@@ -60,7 +60,6 @@
 	<script src="./pos-js/controllers/posMainController.js"></script>
 
 	<script src="./pos-js/services/config.js"></script>
-
 	<script src="./pos-js/controllers/loginController.js"></script>
 	<script src="./pos-js/services/customerPageService.js"></script>
 	<script src="./pos-js/services/newCustomerService.js"></script>
@@ -1289,7 +1288,7 @@
 													<h5 style="font-size:10px;"><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Invoice No : </b><b> {{invoiceNo}}</b></span></h5>
 													<!-- <h5><span style="padding-left:10px;"><b>Total Amount:</b>Rs.{{totalPrice() | currency:""}}</span></h5> -->
 													<h5 style="font-size:10px;"><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Order ID : </b><b> {{orderId}}</b></span></h5>
-													<h5 style="font-size:10px;"><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
+													<h5 style="font-size:10px;"><span style="padding-left:10px;"><b>Date : </b> {{ today | date:'dd-MM-yyyy'}} </span></h5>
 												</div>
 											</div>
 										</div>

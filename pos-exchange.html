@@ -360,14 +360,14 @@
 					<div class="tax-invoice">
 						<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 							<div class="orderinfo_name">
-								<h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Shop Name : </b> {{shopName}}</span></h5>
-								<h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">GSTIN : </b> {{exchangeDetails.GSTnumber}}</span></h5>
+								<h5 style="font-size:12px;"><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Shop Name : </b> {{shopName}}</span></h5>
+								<h5 style="font-size:12px;"><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">GSTIN : </b> {{exchangeDetails.GSTnumber}}</span></h5>
 							</div>
 						</div>
 						<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 							<div class="orderinfo_totalamt" style="float:right;">
-								<h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Order ID : </b> {{exchangeDetails.orderid}}</span></h5>              
-								<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
+								<h5 style="font-size:12px;"><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Order ID : </b> {{exchangeDetails.orderid}}</span></h5>              
+								<h5 style="font-size:12px;"><span style="padding-left:10px;"><b>Date : </b> {{ today | date:'dd-MM-yyyy' }} </span></h5>
 							</div>
 						</div>
 					</div>
@@ -422,13 +422,13 @@
 				<div class="row">
 					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 						<div class="service_gst">
-							<h5><span><b>Address : </b> {{shopAddress}}</span></h5>
+							<h5 style="font-size:12px;"><span><b>Address : </b> {{shopAddress}}</span></h5>
 						</div>
 					</div>
 					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 						<div class="service_inv" style="float:right;">
-							<h5><span><b style="color:#444;font-weight:bold;">User : </b>{{exchangeDetails.user_name}}</span></h5>
-							<h5><span><b style="color:#444;font-weight:bold;">Mobile : </b>{{exchangeDetails.user_mobile}}</span></h5>
+							<h5 style="font-size:12px;"><span><b style="color:#444;font-weight:bold;">User : </b>{{exchangeDetails.user_name}}</span></h5>
+							<h5 style="font-size:12px;"><span><b style="color:#444;font-weight:bold;">Mobile : </b>{{exchangeDetails.user_mobile}}</span></h5>
 						</div>
 					</div>
 				</div>

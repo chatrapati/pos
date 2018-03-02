@@ -185,9 +185,9 @@
         <br><br>
          <div class="container" align="middle" ng-if="showOrderPrint == 'false'" id="odinf">
 			<div id="order_info_content">
-				<form method="post" name="getOrderDetailsForm" role="form">
+				<form method="post" name="getOrderDetailsForm" role="form" id="ord_inf">
 					<label for="orderId" style="float:left;font-size: 14px;margin-bottom: 5px;font-weight: bold;">Order Id : </label>
-					<input type="text" class="form-control" name="orderId" required id="orderId" ng-model="orderInfo.orderId" ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Enter Order Id" my-enter="getOrderInfoDetails(orderInfo)">
+					<input type="text" class="form-control order_info_id" name="orderId" required id="orderId" ng-model="orderInfo.orderId" ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Enter Order Id" my-enter="getOrderInfoDetails(orderInfo)">
 					<div ng-messages="getOrderDetailsForm.orderId.$error ">
 					  <p class="validationError errorMsg"  ng-message="pattern">Enter valid Order Id</p>
 					</div>
@@ -206,7 +206,7 @@
 				<div class="tax-invoice">           					
 					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 						<div class="orderinfo_name">
-						   <h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Shop Name : </b> {{shopName}}</span></h5>
+						   <h5 style="font-size:12px;"><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Shop Name : </b> {{shopName}}</span></h5>
 						</div>
 					</div>
 					
@@ -219,9 +219,9 @@
 					
 					<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 						<div class="orderinfo_totalamt" style="float:right;">
-						   <h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Order ID : </b> {{orderInfoProductList.orderid}}</span></h5>
-							<h5><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Total Amt : </b> {{orderInfoProductList.totalamount|currency:'&#8377;'}}</span></h5>
-							<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
+						   <h5 style="font-size:12px;"><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Order ID : </b> {{orderInfoProductList.orderid}}</span></h5>
+							<h5 style="font-size:12px;"><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Total Amt : </b> {{orderInfoProductList.totalamount|currency:'&#8377;'}}</span></h5>
+							<h5 style="font-size:12px;"><span style="padding-left:10px;"><b>Date : </b> {{ today | date:'dd-MM-yyyy' }} </span></h5>
 						</div>
 					</div>
 				</div>
@@ -256,7 +256,7 @@
 				<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 					<div class="service_gst">
 						<!--<h5><span><b>Shop Name : </b> {{shopName}}</span></h5>-->
-						<h5><span><b>Address : </b> {{shopAddress}}</span></h5>																
+						<h5 style="font-size:12px;"><span><b>Address : </b> {{shopAddress}}</span></h5>																
 					</div>
 				</div>
 															
@@ -271,8 +271,8 @@
 					<div class="service_inv" style="float:right;">
 						<!--<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
 						<h5><span style="padding-left:10px;"><b>Signature : </b> </span></h5>-->
-						<h5><span><b style="color:#444;font-weight:bold;">User : </b> {{orderInfoUser}}</span></h5>
-						   <h5><span><b style="color:#444;font-weight:bold;">Mobile : </b> {{orderInfoMobile}}</span></h5>
+						<h5 style="font-size:12px;"><span><b style="color:#444;font-weight:bold;">User : </b> {{orderInfoUser}}</span></h5>
+						   <h5 style="font-size:12px;"><span><b style="color:#444;font-weight:bold;">Mobile : </b> {{orderInfoMobile}}</span></h5>
 					</div>
 				</div>
 			</div>

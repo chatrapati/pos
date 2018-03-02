@@ -2345,6 +2345,9 @@ b{
 	#old_smt_id {
 		margin-left: 0px !important;
 	}
+	#ord_inf .order_info_id{
+		margin-left: 0px !important;
+	}
 	#orderid {
 		margin-left: 11px !important;
 	}
@@ -2893,7 +2896,7 @@ b{
     margin-left: 5px;
 }
 #orderid{
-	 margin-left:15px;
+	margin-left:15px;
 }
 #productdesp{
 	margin-left:19px;
@@ -2952,4 +2955,7 @@ b{
 #print_Invc{
 	margin-top: 15px;
     float: right;
+}
+.order_info_id{
+	margin-left: 0px !important;
 }

@@ -99,17 +99,23 @@
 
 					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="">
 						<div class="navbar-header" id="top_logo_pos">
-							<a class="navbar-brand111" href="#"><img src="./images/new-logo.png" alt="td logo" class="img-responsive"></a>
+							<a class="navbar-brand111" href="#">
+								<img src="./images/new-logo.png" alt="td logo" class="img-responsive">
+							</a>
 						</div>
 					</div>
 
 					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="sesTime">
-						<label class="control-label "><b>Session Time : </b></label>
+						<label class="control-label ">
+							<b>Session Time : </b>
+						</label>
 						<span ng-cloak>{{loginSessionTime}}</span>
 					</div>
 
 					<div class="col-md-5 col-lg-5 col-sm-5 col-xs-12" id="shopName">
-						<label for="inputtxt" class="control-label"><b>Shop Name : </b></label>
+						<label for="inputtxt" class="control-label">
+							<b>Shop Name : </b>
+						</label>
 						<span ng-cloak>{{shopName}}</span>
 					</div>
 
@@ -119,7 +125,9 @@
 						</div>-->
 
 					<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" id="usrName">
-						<label for="inputtxt" class="control-label"><b>Hai, </b></label>
+						<label for="inputtxt" class="control-label">
+							<b>Hai, </b>
+						</label>
 						<span ng-cloak>{{userName}}</span>
 					</div>
 
@@ -140,30 +148,57 @@
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 				 aria-expanded="false">
-					  <span class="sr-only">Toggle navigation</span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					  <span class="icon-bar"></span>
-					</button>
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 			</div>
 
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav products_menu">
-					<li class="flat-box waves-effect waves-block"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i>POS</a></li>
-					<li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i>PRODUCTS</a></li>
-					<li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i>CUSTOMERS</a></li>
+					<li class="flat-box waves-effect waves-block">
+						<a href="pos-site-index.html">
+							<i class="fa fa-credit-card"></i>POS</a>
+					</li>
+					<li class="flat-box waves-effect waves-block">
+						<a href="products-page.html">
+							<i class="fa fa-archive"></i>PRODUCTS</a>
+					</li>
+					<li class="flat-box waves-effect waves-block">
+						<a href="people-customers.html">
+							<i class="fa fa-user"></i>CUSTOMERS</a>
+					</li>
 					<!--<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>-->
-					<li class="flat-box waves-effect waves-block"><a href="pos-orderinfo.html"><i class="fa fa-line-chart"></i>ORDERINFO</a></li>
+					<li class="flat-box waves-effect waves-block">
+						<a href="pos-orderinfo.html">
+							<i class="fa fa-line-chart"></i>ORDERINFO</a>
+					</li>
 
-					<li class="flat-box waves-effect waves-block"><a href="pos-invoice.html"><i class="fa fa-line-chart"></i>INVOICEINFO</a></li>
+					<li class="flat-box waves-effect waves-block">
+						<a href="pos-invoice.html">
+							<i class="fa fa-line-chart"></i>INVOICEINFO</a>
+					</li>
 
-					<li class="flat-box waves-effect waves-block active"><a href="pos-services.html"><i class="fa fa-line-chart"></i>SERVICES</a></li>
-					<li class="flat-box waves-effect waves-block"><a href="pos-exchange.html"><i class="fa fa-line-chart"></i>EXCHANGE</a></li>
-					<li class="flat-box waves-effect waves-block"><a href="pos-transferorders.html"><i class="fa fa-share"></i>TRANSFER-ORDER</a></li>
+					<li class="flat-box waves-effect waves-block active">
+						<a href="pos-services.html">
+							<i class="fa fa-line-chart"></i>SERVICES</a>
+					</li>
+					<li class="flat-box waves-effect waves-block">
+						<a href="pos-exchange.html">
+							<i class="fa fa-line-chart"></i>EXCHANGE</a>
+					</li>
+					<li class="flat-box waves-effect waves-block">
+						<a href="pos-transferorders.html">
+							<i class="fa fa-share"></i>TRANSFER-ORDER</a>
+					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="flat-box waves-effect waves-block" style="padding-right:20px;" ng-click="logOut()"><a title="Logout" id="lgout"><i class="fa fa-sign-out fa-lg"></i>Logout</a></li>
+					<li class="flat-box waves-effect waves-block" style="padding-right:20px;" ng-click="logOut()">
+						<a title="Logout" id="lgout">
+							<i class="fa fa-sign-out fa-lg"></i>Logout</a>
+					</li>
 				</ul>
 			</div>
 			<!-- Brand and toggle get grouped for better mobile display end here-->
@@ -182,7 +217,8 @@
 					<div class="smtId_part">
 						<form name="getSMTDetailsForm" novalidate>
 							<label for="itemId" style="padding-right:10px;font-weight: bold;">SMT Id : </label>
-							<input type="text" name="itemId" required id="itemId" ng-model="serviceitem.itemId" ng-change="serviceSmtId(serviceitem.itemId)" ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Enter SMTID">
+							<input type="text" name="itemId" required id="itemId" ng-model="serviceitem.itemId" ng-change="serviceSmtId(serviceitem.itemId)"
+							 ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Enter SMTID">
 							<div ng-messages="getSMTDetailsForm.itemId.$error ">
 								<p class="validationError errorMsg" style="margin-left: 6%;" ng-message="pattern">Enter valid SMTID</p>
 							</div>
@@ -195,27 +231,44 @@
 						<table class="table table-striped table-bordered" id="service_module">
 							<tbody>
 								<tr>
-									<th><b>SMT ID</b></th>
+									<th>
+										<b>SMT ID</b>
+									</th>
 									<td>{{serviceItemDetails.SMTID}}</td>
-									<th><b>Shop</b></th>
+									<th>
+										<b>Shop</b>
+									</th>
 									<td>{{serviceItemDetails.shop}}</td>
 								</tr>
 								<tr>
-									<th><b>Brand<b></th>
-						<td>{{serviceItemDetails.brand}}</td>
-						<th><b>Customer Name</b></th>
+									<th>
+										<b>Brand
+											<b>
+									</th>
+									<td>{{serviceItemDetails.brand}}</td>
+									<th>
+										<b>Customer Name</b>
+									</th>
 									<td>{{serviceItemDetails.user_name}}</td>
 								</tr>
 								<tr>
-									<th><b>Model</b></th>
+									<th>
+										<b>Model</b>
+									</th>
 									<td>{{serviceItemDetails.model}}</td>
-									<th><b>Mobile</b></th>
+									<th>
+										<b>Mobile</b>
+									</th>
 									<td>{{serviceItemDetails.user_mobile}}</td>
 								</tr>
 								<tr>
-									<th><b>Purchased Date</b></th>
+									<th>
+										<b>Purchased Date</b>
+									</th>
 									<td>{{serviceItemDetails.purchased_date}}</td>
-									<th><b>Warranty</b></th>
+									<th>
+										<b>Warranty</b>
+									</th>
 									<td>{{serviceItemDetails.warranty}}</td>
 								</tr>
 
@@ -240,7 +293,10 @@
 							<form name="serviceDetailsForm" novalidate>
 								<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="servicesChargesMbl">
 									<div class="form-group aa">
-										<label for="item_name" id="serviceCharges"><b>Service Name</b></label><br/>
+										<label for="item_name" id="serviceCharges">
+											<b>Service Name</b>
+										</label>
+										<br/>
 										<input type="text" name="item_name" id="item_name" placeholder="Service Name" required ng-pattern="/^[\w -]*$/" ng-model="service.item_name">
 										<!-- <div ng-messages="serviceDetailsForm.item_name.$error " >
 							<p class="validationError errorMsg" style="margin-left: 6%;" ng-message="pattern">Enter valid Service Name</p>					
@@ -251,7 +307,10 @@
 								</div>
 								<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="servicesChargesMbl">
 									<div class="form-group aa">
-										<label for="charges" id="serviceCharges"><b>Charges</b></label><br/>
+										<label for="charges" id="serviceCharges">
+											<b>Charges</b>
+										</label>
+										<br/>
 										<input type="text" placeholder="Charges" name="charges" id="charges" required ng-pattern="/^[0-9]*$/" ng-model="service.charges">
 										<!-- <div ng-messages="serviceDetailsForm.charges.$error " >
 							<p class="validationError errorMsg" style="margin-left: 6%;" ng-message="pattern">Enter valid Charges</p>				
@@ -261,33 +320,39 @@
 								</div>
 								<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="servicesChargesMbl">
 									<div class="form-group aa">
-										<label for="tax" id="serviceCharges"><b>Tax (%)</b></label><br/>
+										<label for="tax" id="serviceCharges">
+											<b>Tax (%)</b>
+										</label>
+										<br/>
 										<select class="dropdown" name="tax" id="tax" ng-model="service.tax" style="width:100px;" required>
-								<option ng-repeat="tax in taxArray"  ng-value="tax.tax_rate">{{tax.tax_rate}}</option>
-								
-							</select>
+											<option ng-repeat="tax in taxArray" ng-value="tax.tax_rate">{{tax.tax_rate}}</option>
+
+										</select>
 										<!-- <p  class="validationError errorMsg" style="margin-left: 6%;" ng-show="submitted && serviceDetailsForm.tax.$error.required">Select Tax</p>-->
 									</div>
 								</div>
 								<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="servicesChargesMbl">
 									<div class="form-group aa">
-										<label for="applicable" id="serviceCharges"><b>Applicable</b></label><br/>
+										<label for="applicable" id="serviceCharges">
+											<b>Applicable</b>
+										</label>
+										<br/>
 										<select class="dropdown" name="applicable" id="applicable" ng-model="service.applicable" style="width:100px;" required>
-								<option value="yes">Yes</option>
-								<option value="no">No</option>
-							</select>
+											<option value="yes">Yes</option>
+											<option value="no">No</option>
+										</select>
 										<!-- <p  class="validationError errorMsg" style="margin-left: 6%;" ng-show="submitted && serviceDetailsForm.applicable.$error.required">Select Applicable or Not</p> -->
 									</div>
 								</div>
-								<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="servicesChargesMbl_btn" >
-									<button  class="btn-theme"  ng-disabled="getSMTidBtn == 'true'" id="addServiceDetails_btn" ng-click="addServiceDetails(service)">Add</button>
+								<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="servicesChargesMbl_btn">
+									<button class="btn-theme" ng-disabled="getSMTidBtn == 'true'" id="addServiceDetails_btn" ng-click="addServiceDetails(service)">Add</button>
 								</div>
 							</form>
 						</div>
 
 					</div>
 
-					<div class="service_item" >
+					<div class="service_item">
 						<div class="table-responsive">
 							<table class="table table-striped table-bordered" style="margin-bottom:5px;" id="service_item_tbl">
 								<thead>
@@ -317,7 +382,7 @@
 						</div>
 					</div>
 					<div class="service_order_generation">
-						<label style="float:left;font-weight:bold;font-size: 13px;margin-top: 3px;">Total(₹)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+						<label style="float:left;font-weight:bold;font-size: 13px;margin-top: 3px;">Total(₹) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
 						<input type="text" placeholder="Total" disabled ng-model="totalAmnt | currency:''">
 						<button type="button" class="btn btn-theme" style="float:right;margin-top:-5px;" ng-disabled="showOrderPrintBtn == 'false'"
 						 ng-click="printServiceOrder(printSectionId1)">Print</button>
@@ -325,7 +390,7 @@
 						 ng-click="serviceOrderIdGenerate()">Service Order Generation</button>
 					</div>
 				</div>
-					<div id="printSectionId1" ng-hide="printSection == 'true'" class="all_h5">
+				<div id="printSectionId1" ng-hide="printSection == 'true'" class="all_h5">
 
 					<div style="border:1px solid #ddd;border-top:1px solid #ddd;">
 						<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed #ddd;padding:5px">
@@ -335,8 +400,14 @@
 
 									<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 										<div class="" style="float:left;font-size:12px;">
-											<h5><span><b>Shop Name:</b>{{shopName}}</span></h5>
-											<h5><span><b>GSTIN:</b>{{serviceItemDetails.GSTnumber}}</span></h5>
+											<h5 style="font-size:12px;">
+												<span>
+													<b>Shop Name:</b>{{shopName}}</span>
+											</h5>
+											<h5 style="font-size:12px;">
+												<span>
+													<b>GSTIN:</b>{{serviceItemDetails.GSTnumber}}</span>
+											</h5>
 
 										</div>
 									</div>
@@ -349,16 +420,29 @@
 									</div>-->
 
 									<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
-										<div class="" style="float:right;font-size:12px;">											
-											<h5><span style="padding-left:10px;"><b>Invoice No : </b><span> {{serviceOrderId}}</span></span></h5>
-											<h5><span style="padding-left:10px;"><b>Total : </b><span> {{totalAmnt|currency:'&#8377;'}}</span></span></h5>
-											<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
+										<div class="" style="float:right;font-size:12px;">
+											<h5 style="font-size:12px;">
+												<span style="padding-left:10px;">
+													<b>Invoice No : </b>
+													<span> {{serviceOrderId}}</span>
+												</span>
+											</h5>
+											<h5 style="font-size:12px;">
+												<span style="padding-left:10px;">
+													<b>Total : </b>
+													<span> {{totalAmnt|currency:'&#8377;'}}</span>
+												</span>
+											</h5>
+											<h5 style="font-size:12px;">
+												<span style="padding-left:10px;">
+													<b>Date : </b> {{ today | date:'dd-MM-yyyy' }} </span>
+											</h5>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					
+
 						<table class="table table-striped table-bordered" style="margin-bottom:5px;" id="service_order_tbl">
 							<thead>
 								<tr>
@@ -381,29 +465,38 @@
 								</tr>
 							</tbody>
 						</table>
-						
-						<div style="border:0px solid #ddd;padding:5px;"> 										
+
+						<div style="border:0px solid #ddd;padding:5px;">
 							<div class="row">
 								<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 									<div class="service_gst">
 										<!--<h5><span><b>Shop Name : </b> {{shopName}}</span></h5>-->
-										<h5><span><b>Address : </b> {{shopAddress}}</span></h5>																
+										<h5 style="font-size:12px;">
+											<span>
+												<b>Address : </b> {{shopAddress}}</span>
+										</h5>
 									</div>
 								</div>
-																			
+
 								<!--<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 									<div class="service_usr">
 										<h5><span><b></b></span></h5>
 										<h5><span><b></b></span></h5>
 									</div>
 								</div>-->
-																			
+
 								<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 									<div class="service_inv" style="float:right;">
 										<!--<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
 										<h5><span style="padding-left:10px;"><b>Signature : </b> </span></h5>-->
-										<h5><span><b>User:</b>{{serviceItemDetails.user_name}}</span></h5>
-										<h5><span><b>Mobile:</b>{{serviceItemDetails.user_mobile}}</span></h5>
+										<h5 style="font-size:12px;">
+											<span>
+												<b>User:</b>{{serviceItemDetails.user_name}}</span>
+										</h5>
+										<h5 style="font-size:12px;">
+											<span>
+												<b>Mobile:</b>{{serviceItemDetails.user_mobile}}</span>
+										</h5>
 									</div>
 								</div>
 							</div>
@@ -440,15 +533,15 @@
 					<div class="service_order_id">
 						<form method="post" accept-charset="utf-8" enctype="multipart/form-data" name="getServiceDetailsForm" role="form" novalidate="true">
 
-							<label style="padding-right:10px;font-weight:bold;">Service Order ID  </label>
-							<input type="text" placeholder="Service Order ID" ng-model="sevice_order"  ng-pattern="/^[a-zA-Z0-9]*$/" required>
+							<label style="padding-right:10px;font-weight:bold;">Service Order ID </label>
+							<input type="text" placeholder="Service Order ID" ng-model="sevice_order" ng-pattern="/^[a-zA-Z0-9]*$/" required>
 							<div ng-messages="getServiceDetailsForm.sevice_order.$error ">
 								<p class="validationError errorMsg" ng-message="pattern">Enter valid Service Order Id</p>
 
 							</div>
 							<p class="validationError errorMsg" ng-show="submitted && getServiceDetailsForm.sevice_order.$error.required">Enter Service Order Id</p>
 						</form>
-						<button  class="btn-add btn-theme" id="addServiceDetails_btn_get" ng-disabled="showOrderPrintBtn == 'false'" ng-click="submitted=true; getServiceDetailsForm.$valid && getServiceOrderInfo(sevice_order)">Get</button>
+						<button class="btn-add btn-theme" id="addServiceDetails_btn_get" ng-disabled="showOrderPrintBtn == 'false'" ng-click="submitted=true; getServiceDetailsForm.$valid && getServiceOrderInfo(sevice_order)">Get</button>
 					</div>
 					<div id="invoiceOrder">
 						<div class="service_module1" id="invoiceOrder" style="border:0px solid #000;padding:0px;">
@@ -457,27 +550,44 @@
 								<table class="table table-striped table-bordered" id="service_module">
 									<tbody>
 										<tr>
-											<th><b>SMT ID</b></th>
+											<th>
+												<b>SMT ID</b>
+											</th>
 											<td>{{serviceOrderUserInfo.smtid}}</td>
-											<th><b>Shop</b></th>
+											<th>
+												<b>Shop</b>
+											</th>
 											<td>{{serviceOrderUserInfo.shop}}</td>
 										</tr>
 										<tr>
-											<th><b>Brand<b></th>
-							<td>{{serviceOrderUserInfo.brand}}</td>
-							<th><b>Customer Name</b></th>
+											<th>
+												<b>Brand
+													<b>
+											</th>
+											<td>{{serviceOrderUserInfo.brand}}</td>
+											<th>
+												<b>Customer Name</b>
+											</th>
 											<td>{{serviceOrderUserInfo.customer_name}}</td>
 										</tr>
 										<tr>
-											<th><b>Model</b></th>
+											<th>
+												<b>Model</b>
+											</th>
 											<td>{{serviceOrderUserInfo.model}}</td>
-											<th><b>Mobile</b></th>
+											<th>
+												<b>Mobile</b>
+											</th>
 											<td>{{serviceOrderUserInfo.mobile}}</td>
 										</tr>
 										<tr>
-											<th><b>Purchased Date</b></th>
+											<th>
+												<b>Purchased Date</b>
+											</th>
 											<td>{{serviceOrderUserInfo.purchased_date}}</td>
-											<th><b>Warranty</b></th>
+											<th>
+												<b>Warranty</b>
+											</th>
 											<td>{{serviceOrderUserInfo.warranty}}</td>
 										</tr>
 
@@ -520,7 +630,7 @@
 						</div>
 					</div>
 					<div class="service_order_generation">
-						<label style="float:left;font-weight:bold;font-size: 13px;margin-top: 3px;">Total(₹)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+						<label style="float:left;font-weight:bold;font-size: 13px;margin-top: 3px;">Total(₹) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
 						<input type="text" placeholder="Total" disabled ng-model="invoiceAmnt | currency:''">
 						<button type="button" class="btn btn-theme" style="float:right;margin-top:-5px;" ng-disabled="showPrintBtn == 'false'" ng-click="printInvoice(printSectionId)">Print</button>
 						<button type="button" class="btn btn-theme" style="margin-top:-5px;" id="servOrdrBtn" ng-disabled="showPrintBtn == 'true'"
@@ -537,8 +647,14 @@
 
 									<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 										<div class="" style="float:left;font-size:12px;">
-											<h5><span><b>Shop Name:</b>{{shopName}}</span></h5>
-											<h5><span><b>GSTIN:</b>{{serviceOrderUserInfo.GSTnumber}}</span></h5>
+											<h5 style="font-size:12px;">
+												<span>
+													<b>Shop Name:</b>{{shopName}}</span>
+											</h5>
+											<h5 style="font-size:12px;">
+												<span>
+													<b>GSTIN:</b>{{serviceOrderUserInfo.GSTnumber}}</span>
+											</h5>
 
 										</div>
 									</div>
@@ -552,10 +668,23 @@
 
 									<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 										<div class="" style="float:right;font-size:12px;">
-											
-											<h5><span style="padding-left:10px;"><b>Invoice No : </b><span> {{invoiceId}}</span></span></h5>
-											<h5><span style="padding-left:10px;"><b>Total : </b><span> {{invoiceAmnt|currency:'&#8377;'}}</span></span></h5>
-											<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
+
+											<h5 style="font-size:12px;">
+												<span style="padding-left:10px;">
+													<b>Invoice No : </b>
+													<span> {{invoiceId}}</span>
+												</span>
+											</h5>
+											<h5 style="font-size:12px;">
+												<span style="padding-left:10px;">
+													<b>Total : </b>
+													<span> {{invoiceAmnt|currency:'&#8377;'}}</span>
+												</span>
+											</h5>
+											<h5 style="font-size:12px;">
+												<span style="padding-left:10px;">
+													<b>Date : </b> {{ today | date:'dd-MM-yyyy' }} </span>
+											</h5>
 										</div>
 									</div>
 								</div>
@@ -563,28 +692,45 @@
 						</div>
 						<table class="table table-striped table-bordered" id="service_module">
 							<tbody>
-								<tr>
-									<th><b>SMT ID</b></th>
+								<tr style="font-size: 12px;">
+									<th>
+										<b>SMT ID</b>
+									</th>
 									<td>{{serviceOrderUserInfo.smtid}}</td>
-									<th><b>Shop</b></th>
+									<th>
+										<b>Shop</b>
+									</th>
 									<td>{{serviceOrderUserInfo.shop}}</td>
 								</tr>
-								<tr>
-									<th><b>Brand<b></th>
-							<td>{{serviceOrderUserInfo.brand}}</td>
-							<th><b>Customer Name</b></th>
+								<tr style="font-size: 12px;">
+									<th>
+										<b>Brand
+											<b>
+									</th>
+									<td>{{serviceOrderUserInfo.brand}}</td>
+									<th>
+										<b>Customer Name</b>
+									</th>
 									<td>{{serviceOrderUserInfo.customer_name}}</td>
 								</tr>
-								<tr>
-									<th><b>Model</b></th>
+								<tr style="font-size: 12px;">
+									<th>
+										<b>Model</b>
+									</th>
 									<td>{{serviceOrderUserInfo.model}}</td>
-									<th><b>Mobile</b></th>
+									<th>
+										<b>Mobile</b>
+									</th>
 									<td>{{serviceOrderUserInfo.mobile}}</td>
 								</tr>
-								<tr>
-									<th><b>Purchased Date</b></th>
+								<tr style="font-size: 12px;">
+									<th>
+										<b>Purchased Date</b>
+									</th>
 									<td>{{serviceOrderUserInfo.purchased_date}}</td>
-									<th><b>Warranty</b></th>
+									<th>
+										<b>Warranty</b>
+									</th>
 									<td>{{serviceOrderUserInfo.warranty}}</td>
 								</tr>
 
@@ -613,31 +759,40 @@
 								</tr>
 							</tbody>
 						</table>
-						
-						
 
-						<div style="border:0px solid #ddd;padding:5px;"> 										
+
+
+						<div style="border:0px solid #ddd;padding:5px;">
 							<div class="row">
 								<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 									<div class="service_gst">
 										<!--<h5><span><b>Shop Name : </b> {{shopName}}</span></h5>-->
-										<h5><span><b>Address : </b> {{shopAddress}}</span></h5>																
+										<h5 style="font-size:12px;">
+											<span>
+												<b>Address : </b> {{shopAddress}}</span>
+										</h5>
 									</div>
 								</div>
-																			
+
 								<!--<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 									<div class="service_usr">
 										<h5><span><b></b></span></h5>
 										<h5><span><b></b></span></h5>
 									</div>
 								</div>-->
-																			
+
 								<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 									<div class="service_inv" style="float:right;">
 										<!--<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
 										<h5><span style="padding-left:10px;"><b>Signature : </b> </span></h5>-->
-										<h5><span><b>User:</b>{{serviceItemDetails.user_name}}</span></h5>
-										<h5><span><b>Mobile:</b>{{serviceItemDetails.user_mobile}}</span></h5>
+										<h5 style="font-size:12px;">
+											<span>
+												<b>User:</b>{{serviceItemDetails.user_name}}</span>
+										</h5>
+										<h5 style="font-size:12px;">
+											<span>
+												<b>Mobile:</b>{{serviceItemDetails.user_mobile}}</span>
+										</h5>
 									</div>
 								</div>
 							</div>
@@ -726,27 +881,44 @@
 			<table class="table table-striped table-bordered" id="service_module">
 				<tbody>
 					<tr>
-						<th><b>SMT ID</b></th>
+						<th>
+							<b>SMT ID</b>
+						</th>
 						<td>{{serviceOrderUserInfo.smtid}}</td>
-						<th><b>Shop</b></th>
+						<th>
+							<b>Shop</b>
+						</th>
 						<td>{{serviceOrderUserInfo.shop}}</td>
 					</tr>
 					<tr>
-						<th><b>Brand<b></th>
+						<th>
+							<b>Brand
+								<b>
+						</th>
 						<td>{{serviceOrderUserInfo.brand}}</td>
-						<th><b>Customer Name</b></th>
+						<th>
+							<b>Customer Name</b>
+						</th>
 						<td>{{serviceOrderUserInfo.customer_name}}</td>
 					</tr>
 					<tr>
-						<th><b>Model</b></th>
+						<th>
+							<b>Model</b>
+						</th>
 						<td>{{serviceOrderUserInfo.model}}</td>
-						<th><b>Mobile</b></th>
+						<th>
+							<b>Mobile</b>
+						</th>
 						<td>{{serviceOrderUserInfo.mobile}}</td>
 					</tr>
 					<tr>
-						<th><b>Purchased Date</b></th>
+						<th>
+							<b>Purchased Date</b>
+						</th>
 						<td>{{serviceOrderUserInfo.purchased_date}}</td>
-						<th><b>Warranty</b></th>
+						<th>
+							<b>Warranty</b>
+						</th>
 						<td>{{serviceOrderUserInfo.warranty}}</td>
 					</tr>
 

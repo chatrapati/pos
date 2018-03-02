@@ -105,23 +105,17 @@
 
 					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="">
 						<div class="navbar-header" id="top_logo_pos">
-							<a class="navbar-brand111" href="#">
-								<img src="./images/new-logo.png" alt="td logo" class="img-responsive">
-							</a>
+							<a class="navbar-brand111" href="#"><img src="./images/new-logo.png" alt="td logo" class="img-responsive"></a>
 						</div>
 					</div>
 
 					<div class="col-md-2 col-lg-2 col-sm-2 col-xs-12" id="sesTime">
-						<label class="control-label ">
-							<b>Session Time : </b>
-						</label>
+						<label class="control-label "><b>Session Time : </b></label>
 						<span ng-cloak>{{loginSessionTime}}</span>
 					</div>
 
 					<div class="col-md-5 col-lg-5 col-sm-5 col-xs-12" id="shopName">
-						<label for="inputtxt" class="control-label">
-							<b>Shop Name : </b>
-						</label>
+						<label for="inputtxt" class="control-label"><b>Shop Name : </b></label>
 						<span ng-cloak>{{shopName}}</span>
 					</div>
 
@@ -131,9 +125,7 @@
 						</div>-->
 
 					<div class="col-md-3 col-lg-3 col-sm-3 col-xs-12" id="usrName">
-						<label for="inputtxt" class="control-label">
-							<b>Hai, </b>
-						</label>
+						<label for="inputtxt" class="control-label"><b>Hai, </b></label>
 						<span ng-cloak>{{userName}}</span>
 					</div>
 
@@ -151,57 +143,30 @@
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
 				 aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
+					  <span class="sr-only">Toggle navigation</span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					</button>
 			</div>
 
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav products_menu">
-					<li class="flat-box waves-effect waves-block active">
-						<a href="pos-site-index.html">
-							<i class="fa fa-credit-card"></i>POS</a>
-					</li>
-					<li class="flat-box waves-effect waves-block">
-						<a href="products-page.html">
-							<i class="fa fa-archive"></i>PRODUCTS</a>
-					</li>
-					<li class="flat-box waves-effect waves-block">
-						<a href="people-customers.html">
-							<i class="fa fa-user"></i>CUSTOMERS</a>
-					</li>
+					<li class="flat-box waves-effect waves-block active"><a href="pos-site-index.html"><i class="fa fa-credit-card"></i>POS</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="products-page.html"><i class="fa fa-archive"></i>PRODUCTS</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="people-customers.html"><i class="fa fa-user"></i>CUSTOMERS</a></li>
 					<!--<li class="flat-box waves-effect waves-block"><a href="pos-reports.html"><i class="fa fa-line-chart"></i>REPORTS</a></li>-->
-					<li class="flat-box waves-effect waves-block">
-						<a href="pos-orderinfo.html">
-							<i class="fa fa-line-chart"></i>ORDERINFO</a>
-					</li>
+					<li class="flat-box waves-effect waves-block"><a href="pos-orderinfo.html"><i class="fa fa-line-chart"></i>ORDERINFO</a></li>
 
-					<li class="flat-box waves-effect waves-block">
-						<a href="pos-invoice.html">
-							<i class="fa fa-line-chart"></i>INVOICEINFO</a>
-					</li>
+					<li class="flat-box waves-effect waves-block"><a href="pos-invoice.html"><i class="fa fa-line-chart"></i>INVOICEINFO</a></li>
 
-					<li class="flat-box waves-effect waves-block">
-						<a href="pos-services.html">
-							<i class="fa fa-line-chart"></i>SERVICES</a>
-					</li>
-					<li class="flat-box waves-effect waves-block">
-						<a href="pos-exchange.html">
-							<i class="fa fa-line-chart"></i>EXCHANGE</a>
-					</li>
-					<li class="flat-box waves-effect waves-block">
-						<a href="pos-transferorders.html">
-							<i class="fa fa-share"></i>TRANSFER-ORDER</a>
-					</li>
+					<li class="flat-box waves-effect waves-block"><a href="pos-services.html"><i class="fa fa-line-chart"></i>SERVICES</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="pos-exchange.html"><i class="fa fa-line-chart"></i>EXCHANGE</a></li>
+					<li class="flat-box waves-effect waves-block"><a href="pos-transferorders.html"><i class="fa fa-share"></i>TRANSFER-ORDER</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="flat-box waves-effect waves-block" style="padding-right:20px;" ng-click="logOut()">
-						<a title="Logout" id="lgout">
-							<i class="fa fa-sign-out fa-lg"></i>Logout</a>
-					</li>
+					<li class="flat-box waves-effect waves-block" style="padding-right:20px;" ng-click="logOut()"><a title="Logout" id="lgout"><i class="fa fa-sign-out fa-lg"></i>Logout</a></li>
 				</ul>
 			</div>
 			<!-- Brand and toggle get grouped for better mobile display end here-->
@@ -220,40 +185,36 @@
 
 						<!---- user mobilee & user links strats here --->
 						<div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
-							<h3 style="margin-top:4px;font-size:14px;font-weight:bold;margin-left:5px;" ng-if=" getDetailsInfo== 'false'">User:
-								<span ng-cloak style="color:#ff6a00;">
-									{{regMobileNo}}&nbsp;&nbsp;&nbsp;{{mobileUserName}}</span>
-							</h3>
-
-							<h3 style="margin-top:4px;font-size:14px;font-weight:bold;margin-left:5px;" ng-if=" getDetailsInfo== 'true'">User:
-								<span ng-cloak style="color:#ff6a00;">
-									{{regMobileNo}}&nbsp;&nbsp;&nbsp;{{firstLastName}}</span>
-							</h3>
+							<h3 style="margin-top:4px;font-size:14px;font-weight:bold;margin-left:5px;" ng-if=" getDetailsInfo== 'false'">User:<span ng-cloak style="color:#ff6a00;">
+								{{regMobileNo}}&nbsp;&nbsp;&nbsp;{{mobileUserName}}</span></h3>
+								
+								<h3 style="margin-top:4px;font-size:14px;font-weight:bold;margin-left:5px;" ng-if=" getDetailsInfo== 'true'">User:<span ng-cloak style="color:#ff6a00;">
+								{{regMobileNo}}&nbsp;&nbsp;&nbsp;{{firstLastName}}</span></h3>
 						</div>
 						<!--<div class="col-md-4">
           <h3 style="margin-top:4px;font-size:14px;font-weight:bold;">Name : <span ng-cloak style="color:#ff6a00;"></span></h3>
         </div>-->
 						<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12 client-add client_add_users">
 							<a href="javascript:void(0)" data-toggle="modal" data-target="#AddCustomer" ng-click="resetForm()">
-								<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add New Customer">
-									<i class="fa fa-user-plus fa-stack-1x fa-inverse dark-blue iconBackground"></i>
-								</span>
-							</a>
+				<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add New Customer">
+					<i class="fa fa-user-plus fa-stack-1x fa-inverse dark-blue iconBackground"></i>
+				</span>
+			</a>
 							<a href="javascript:void(0)" data-toggle="modal" data-target="#ticket" ng-click="showLastReceipt()">
-								<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Show last Receipt">
-									<i class="fa fa-ticket fa-stack-1x fa-inverse dark-blue iconBackground"></i>
-								</span>
-							</a>
+				<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Show last Receipt">
+					<i class="fa fa-ticket fa-stack-1x fa-inverse dark-blue iconBackground"></i>
+               </span>
+			</a>
 							<a href="javascript:void(0)" data-toggle="modal" data-target="#selectUser" ng-click="resetForm()">
-								<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Select User">
-									<i class="fa fa-user fa-stack-1x fa-inverse dark-blue iconBackground"></i>
-								</span>
-							</a>
+				<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Select User">
+					<i class="fa fa-user fa-stack-1x fa-inverse dark-blue iconBackground"></i>
+				</span>
+			</a>
 							<a href="javascript:void(0)" data-toggle="modal" data-target="#" ng-click="refreshData()">
-								<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh Data">
-									<i class="fa fa-refresh fa-stack-1x fa-inverse dark-blue iconBackground"></i>
-								</span>
-							</a>
+				<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh Data">              
+					<i class="fa fa-refresh fa-stack-1x fa-inverse dark-blue iconBackground"></i>
+               </span>
+			</a>
 						</div>
 						<!---- user mobilee & user links ends here --->
 						<!---- order id & get buttons strats here --->
@@ -293,9 +254,7 @@
 
 						<div class="slimScrollDiv" ng-if="getDetailsInfo == 'false'" id="pro_disply_part">
 							<div ng-show="productList.length == 0 || showEmptyList == 'true'" id="productList">
-								<div class="messageVide">Empty List
-									<span>(Select Product)</span>
-								</div>
+								<div class="messageVide">Empty List <span>(Select Product)</span></div>
 							</div>
 							<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
 								<div class="row" style="padding-left:10px;">
@@ -304,49 +263,39 @@
 											<div class="col-md-5 col-lg-5 col-sm-5 col-xs-5 nopadding">
 												<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding">
 													<a href="javascript:void(0)" ng-if="orderSavedFlag == 'false'">
-														<span class="fa-stack fa-sm productD">
-															<i class="fa fa-circle fa-stack-2x delete-product"></i>
-															<i class="fa fa-times fa-stack-1x fa-fw fa-inverse" ng-click="deleteProduct(orderProduct)"></i>
-														</span>
-													</a>
+													<span class="fa-stack fa-sm productD">
+													<i class="fa fa-circle fa-stack-2x delete-product"></i>
+													<i class="fa fa-times fa-stack-1x fa-fw fa-inverse" ng-click="deleteProduct(orderProduct)"></i>
+													</span>
+												</a>
 												</div>
-												<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" ng-if="orderProduct.proddescription">
-													<span class="textPD">{{orderProduct.proddescription}}</span>
-												</div>
-												<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" ng-if="orderProduct.productdesp">
-													<span class="textPD">{{orderProduct.productdesp}}</span>
-												</div>
+												<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" ng-if="orderProduct.proddescription"><span class="textPD">{{orderProduct.proddescription}}</span></div>
+												<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" ng-if="orderProduct.productdesp"><span class="textPD">{{orderProduct.productdesp}}</span></div>
 											</div>
-											<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
-												<span class="textPD">{{orderProduct.offer_price|number:2}}</span>
-											</div>
+											<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.offer_price|number:2}}</span></div>
 
 											<div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 nopadding productNum">
 												<!-- <div class="col-xs-2"><span class="textPD">{{orderProduct.qty}}</span></div>-->
 
 												<a href="javascript:void(0)" ng-if="orderSavedFlag == 'false'">
-													<span class="fa-stack fa-sm decbutton">
-														<i class="fa fa-square fa-stack-2x light-grey"></i>
-														<i class="fa fa-minus fa-stack-1x fa-inverse white" ng-click="reduceQuantity(orderProduct)"></i>
-													</span>
-												</a>
+												<span class="fa-stack fa-sm decbutton">
+													<i class="fa fa-square fa-stack-2x light-grey" ></i>
+													<i class="fa fa-minus fa-stack-1x fa-inverse white" ng-click="reduceQuantity(orderProduct)" ></i>
+												</span>
+											</a>
 												<input type="text" ng-if="orderSavedFlag == 'false'" id="qt-1505" ng-change="enterQuantity(orderProduct)" class="form-control"
 												 ng-model="orderProduct.qty ">
 												<a href="javascript:void(0)" ng-if="orderSavedFlag == 'false'">
-													<span class="fa-stack fa-sm incbutton">
-														<i class="fa fa-square fa-stack-2x light-grey"></i>
-														<i class="fa fa-plus fa-stack-1x fa-inverse white" ng-click="addQuantity(orderProduct)"></i>
-													</span>
-												</a>
+												<span class="fa-stack fa-sm incbutton">
+													<i class="fa fa-square fa-stack-2x light-grey" ></i>
+													<i class="fa fa-plus fa-stack-1x fa-inverse white" ng-click="addQuantity(orderProduct)"></i>
+												</span>
+											</a>
 
-												<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2" ng-if="orderSavedFlag == 'true'">
-													<span class="textPD">{{orderProduct.qty}}</span>
-												</div>
+												<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2" ng-if="orderSavedFlag == 'true'"><span class="textPD">{{orderProduct.qty}}</span></div>
 											</div>
 
-											<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding ">
-												<span class="subtotal textPD">{{orderProduct.offer_price*orderProduct.qty|number:2}}</span>
-											</div>
+											<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.offer_price*orderProduct.qty|number:2}}</span></div>
 
 										</div>
 									</div>
@@ -376,26 +325,18 @@
 									<div class="panel-body" style="">
 										<div class="col-md-5 col-lg-5 col-sm-5 col-xs-5 nopadding">
 
-											<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" style="margin-left:10%;">
-												<span class="textPD">{{orderProduct.productdesp}}</span>
-											</div>
+											<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" style="margin-left:10%;"><span class="textPD">{{orderProduct.productdesp}}</span></div>
 										</div>
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
-											<span class="textPD">{{orderProduct.unitprice | number : 2}}</span>
-										</div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.unitprice | number : 2}}</span></div>
 
 
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
-											<span class="textPD">{{orderProduct.qty | number : 2}}</span>
-										</div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.qty | number : 2}}</span></div>
 
 
 
 
 
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding ">
-											<span class="subtotal textPD">{{orderProduct.unitprice*orderProduct.qty | number : 2}}</span>
-										</div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.unitprice*orderProduct.qty | number : 2}}</span></div>
 
 									</div>
 								</div>
@@ -424,26 +365,18 @@
 									<div class="panel-body">
 										<div class="col-md-5 col-lg-5 col-sm-5 col-xs-5 nopadding">
 
-											<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" style="margin-left:10%;">
-												<span class="textPD">{{orderProduct.productdesp}}</span>
-											</div>
+											<div class="col-md-10 col-lg-10 col-sm-10 col-xs-10 nopadding" style="margin-left:10%;"><span class="textPD">{{orderProduct.productdesp}}</span></div>
 										</div>
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
-											<span class="textPD">{{orderProduct.unitprice | number : 2}}</span>
-										</div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.unitprice | number : 2}}</span></div>
 
 
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
-											<span class="textPD">{{orderProduct.qty | number : 2}}</span>
-										</div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"><span class="textPD">{{orderProduct.qty | number : 2}}</span></div>
 
 
 
 
 
-										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding ">
-											<span class="subtotal textPD">{{orderProduct.unitprice*orderProduct.qty | number : 2}}</span>
-										</div>
+										<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 nopadding "><span class="subtotal textPD">{{orderProduct.unitprice*orderProduct.qty | number : 2}}</span></div>
 
 									</div>
 								</div>
@@ -460,11 +393,8 @@
 									<tbody>
 										<tr>
 											<td class="active" width="40%">SubTotal</td>
-											<td class="whiteBg" width="60%">
-												<span id="Subtot" ng-cloak> {{totalPrice() |currency:'&#8377;'}}</span>
-												<span class="float-right">
-													<b id="ItemsNum">
-														<span ng-cloak> {{totalQty}}</span> items</b>
+											<td class="whiteBg" width="60%"><span id="Subtot" ng-cloak> {{totalPrice() |currency:'&#8377;'}}</span>
+												<span class="float-right"><b id="ItemsNum"><span ng-cloak> {{totalQty}}</span> items</b>
 												</span>
 											</td>
 										</tr>
@@ -477,16 +407,15 @@
 								</table>
 							</div>
 
-							<button type="button" class="btn btn-red col-md-5 col-lg-5 col-sm-5 col-xs-5 flat-box-btn confirmBtn" ng-disabled="productList.length == '0' || invoiceBtn == 'true'  || orderDetailsArray.status == 'Accepted' || orderDetailsArray.status == 'Complete'"
+							<button type="button" class="btn btn-red col-md-5 col-lg-5 col-sm-5 col-xs-5 flat-box-btn confirmBtn"
+							 ng-disabled="productList.length == '0' || invoiceBtn == 'true'  || orderDetailsArray.status == 'Accepted' || orderDetailsArray.status == 'Complete'"
 							 ng-enabled="productList.length > '0'" ng-click="saveOrder()" id="confirmBtn_btm">
-								<h5 class="text-bold" style="line-height:0;">CONFIRM</h5>
-							</button>
+							<h5 class="text-bold" style="line-height:0;">CONFIRM</h5></button>
 
 							<button type="button" ng-click="makeInvoice()" class="btn btn-green col-md-5 col-lg-5 col-sm-5 col-xs-5 flat-box-btn invoiceBtn"
 							 data-toggle="modal" ng-disabled="invoiceBtn == 'false' || orderDetailsArray.status == 'Complete'" ng-enabled="invoiceBtn == 'true'|| orderDetailsArray.status == 'Accepted' || orderDetailsArray.status == 'Complete'"
 							 style="height:30px;" id="invoiceBtn_btm">
-								<h5 class="text-bold" style="line-height:0;">INVOICE IT</h5>
-							</button>
+							<h5 class="text-bold" style="line-height:0;">INVOICE IT</h5></button>
 
 
 
@@ -509,11 +438,11 @@
 							</div>
 							<div class="col-md-2 col-lg-2 col-sm-2 col-xs-2" style="margin-top:8px;margin-left:-25px;">
 								<button type="submit" class="btn btn-success" ng-click="getBarcodeProduct(barcode.barcodeNo)" style="background:#0487a1 !important;border:1px solid #0487a1 !important;">Get</button>
-								<a href="javascript:void(0)" ng-click="productsRefreshData()">
-									<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh Data">
-										<i class="fa fa-refresh fa-stack-1x fa-inverse dark-blue iconBackground"></i>
-									</span>
-								</a>
+								<a href="javascript:void(0)"  ng-click="productsRefreshData()">
+				<span class="fa-stack fa-lg" data-toggle="tooltip" data-placement="top" title="" data-original-title="Refresh Data">              
+					<i class="fa fa-refresh fa-stack-1x fa-inverse dark-blue iconBackground"></i>
+               </span>
+			</a>
 							</div>
 
 						</div>
@@ -662,12 +591,8 @@
 									<div id="proicons">
 										<i class="fa fa-cart-plus" ng-click="saveProductObj(product)" aria-hidden="true" style="color:#5b5858;font-size:20px;float:right;"></i>
 										<!--<span style="margin-left:-5px;color:#000;">/</span> <span style="color:#000;">{{product.inqty-product.outqty}}</span>-->
-										<i class="fa fa-rupee" aria-hidden="true" style="color:#008000;font-size:15px;">
-											<span style="padding-left:1px;color:#008000;font-weight:bold;">{{product.offer_price}}</span>
-										</i>
-										<i class="fa fa-rupee" aria-hidden="true" style="color:#e34a38;font-size:15px;text-decoration:line-through;">
-											<span style="padding-left:1px;color:#e34a38;">{{product.enduser_price}}</span>
-										</i>
+										<i class="fa fa-rupee" aria-hidden="true" style="color:#008000;font-size:15px;"><span style="padding-left:1px;color:#008000;font-weight:bold;">{{product.offer_price}}</span></i>
+										<i class="fa fa-rupee" aria-hidden="true" style="color:#e34a38;font-size:15px;text-decoration:line-through;"><span style="padding-left:1px;color:#e34a38;">{{product.enduser_price}}</span></i>
 										<!--<i class="fa fa-plus" aria-hidden="true" style="color:#fff;font-size:15px;float:right;"><span style="padding-left:5px;">{{product.inqty-product.outqty}}</span></i>-->
 									</div>
 								</a>
@@ -698,12 +623,8 @@
 									<div id="proicons">
 										<i class="fa fa-cart-plus" ng-click="saveProductObj(barcodeArray)" aria-hidden="true" style="color:#5b5858;font-size:20px;float:right;"></i>
 										<!--<span style="margin-left:-5px;color:#000;">/</span> <span style="color:#000;">{{product.inqty-product.outqty}}</span>-->
-										<i class="fa fa-rupee" aria-hidden="true" style="color:#008000;font-size:15px;">
-											<span style="padding-left:1px;color:#008000;font-weight:bold;">{{barcodeArray.offer_price}}</span>
-										</i>
-										<i class="fa fa-rupee" aria-hidden="true" style="color:#e34a38;font-size:15px;text-decoration:line-through;">
-											<span style="padding-left:1px;color:#e34a38;">{{barcodeArray.enduser_price}}</span>
-										</i>
+										<i class="fa fa-rupee" aria-hidden="true" style="color:#008000;font-size:15px;"><span style="padding-left:1px;color:#008000;font-weight:bold;">{{barcodeArray.offer_price}}</span></i>
+										<i class="fa fa-rupee" aria-hidden="true" style="color:#e34a38;font-size:15px;text-decoration:line-through;"><span style="padding-left:1px;color:#e34a38;">{{barcodeArray.enduser_price}}</span></i>
 										<!--<i class="fa fa-plus" aria-hidden="true" style="color:#fff;font-size:15px;float:right;"><span style="padding-left:5px;">{{product.inqty-product.outqty}}</span></i>-->
 									</div>
 								</a>
@@ -744,9 +665,7 @@
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">×</span>
-									</button>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 									<h4 class="modal-title" id="selectUser">Mobile Number</h4>
 								</div>
 								<form method="post" accept-charset="utf-8" enctype="multipart/form-data" name="mobileNumForm" role="form" novalidate="true">
@@ -754,10 +673,8 @@
 									<div class="modal-body" id="modal-body">
 										<h5 class="input-label form-group" id="sectMblNum">Enter Mobile Number</h5>
 										<label class="item item-input">
-											<input type="text" autocomplete="off" class="form-control" ng-change="blur(userData)" ng-model="userData.mobileno" id="mblinput"
-											 name="mobileno" ng-maxlength="10" placeholder="Enter Mobile Number" ng-pattern="/(^0-5$)|(^[6-9]\d{0,9}$)/" required>
-										</label>
-										<br>
+		<input type="text" autocomplete="off" class="form-control" ng-change="blur(userData)" ng-model="userData.mobileno"  id="mblinput" name="mobileno" ng-maxlength="10" placeholder="Enter Mobile Number" ng-pattern="/(^0-5$)|(^[6-9]\d{0,9}$)/"  required >
+		</label><br>
 
 										<div ng-messages="mobileNumForm.mobileno.$error " style="float:right !important;">
 
@@ -769,10 +686,7 @@
 										<p class="validationError errorMsg" ng-show="submitted && mobileNumForm.mobileno.$error.required">Enter Mobile Number</p>
 										<div ng-show="showHint == 'true'" ng-repeat="mobileUser in mobileUserData">
 											<div ng-click="saveMobile(mobileUser)">
-												<p class="userMblSelection">
-													<span id="mblstyle">{{mobileUser.mobile}}</span>-
-													<span>{{mobileUser.firstname | uppercase}}</span>
-												</p>
+												<p  class="userMblSelection"> <span id="mblstyle">{{mobileUser.mobile}}</span>-<span>{{mobileUser.firstname | uppercase}}</span></p>
 											</div>
 										</div>
 
@@ -815,9 +729,7 @@
 						<div class="modal-dialog" role="document" id="ticketModal">
 							<div class="modal-content">
 								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancelInvoice()">
-										<span aria-hidden="true">×</span>
-									</button>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancelInvoice()"><span aria-hidden="true">×</span></button>
 									<h4 class="modal-title" id="invoiceIt">Invoice</h4>
 								</div>
 								<div class="modal-body" id="modal-body">
@@ -825,48 +737,29 @@
 
 									<div>
 
-										<div style="border:1px solid #ddd;border-top:1px solid #ddd;float:left;">
+										<div style="border:1px solid #ddd;border-top:1px solid #ddd;">
 											<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed #ddd;padding:5px">
 												<div class="tax-invoice" id="tax_invoice1">
 													<div class="row">
-
+														
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-															<div class="service_gst">
-																<h5>
-																	<span>
-																		<b>Shop Name : </b>{{shopName}}</span>
-																</h5>
-																<h5>
-																	<span>
-																		<b>GSTIN : </b>{{gstNumber}}</span>
-																</h5>
+															<div class="service_gst">																
+																<h5><span><b>Shop Name : </b>{{shopName}}</span></h5>
+																<h5><span><b>GSTIN : </b>{{gstNumber}}</span></h5>
 															</div>
 														</div>
-
+														
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<div class="service_usr">
-																<h5>
-																	<span>
-																		<b>User : </b>{{custName}}</span>
-																</h5>
-																<h5>
-																	<span>
-																		<b>Mobile : </b>{{regMobileNo}}</span>
-																</h5>
+																<h5><span><b>User : </b>{{custName}}</span></h5>
+																<h5><span><b>Mobile : </b>{{regMobileNo}}</span></h5>
 															</div>
 														</div>
-
+														
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<div class="service_inv">
-																<h5>
-																	<span style="padding-left:10px;">
-																		<b>{{invoiceNo}}</b>
-																	</span>
-																</h5>
-																<h5>
-																	<span style="padding-left:10px;">
-																		<b>Total Amt : </b> {{invoiceTotalAmt | currency:'&#8377;'}}</span>
-																</h5>
+																<h5><span style="padding-left:10px;"><b>{{invoiceNo}}</b></span></h5>
+																<h5><span style="padding-left:10px;"><b>Total Amt : </b> {{invoiceTotalAmt | currency:'&#8377;'}}</span></h5>
 															</div>
 														</div>
 													</div>
@@ -879,9 +772,9 @@
 														<tr>
 															<th style="text-align:center;font-size:13px;padding: 5px;">S.No</th>
 															<th style="text-align:left;font-size:13px;padding: 5px;">Product</th>
-															<th style="text-align:left;font-size:13px;padding: 5px;width: 50%;overflow: hidden;display: inline-block;white-space: nowrap;">SMT ID</th>
+															<th style="text-align:left;font-size:13px;padding: 5px;">SMT ID</th>
 															<th style="text-align:right;font-size:13px;padding: 5px;">Qty</th>
-															<th style="text-align:right;font-size:13px;padding: 5px;">Unit Price(₹)</th>
+															<th style="text-align:right;font-size:13px;padding: 5px;">Unit Price(₹)</th>															
 															<th style="text-align:right;font-size:13px;padding: 5px;">Tax(%)</th>
 															<th style="text-align:right;font-size:13px;padding: 5px;">Tax(₹)</th>
 															<th style="text-align:right;font-size:13px;padding: 5px;">Amount(Inc. Tax)(₹)</th>
@@ -891,35 +784,29 @@
 															<tr ng-repeat="productInfo in productData">
 																<td style="text-align:center;border-top:none;font-size:12px;padding: 5px;">{{$index + 1}}</td>
 																<td style="text-align:left;border-top: none;font-size:12px;padding: 5px;">{{productInfo.proddescription}}</td>
-																<td style="text-align:left;border-top: none;font-size:12px;padding: 5px;width: 50%;overflow: hidden;display: inline-block;white-space: nowrap;">
-																	<textarea type="text" class="form-control" ng-show="showSMTIDs == 'true'" ng-model="productInfo.avlSMTIDs" my-enter="editedSMTId(productInfo)"></textarea>
-																	<span ng-click="editSmtId()" ng-show="showSMTIDs == 'false'" ng-repeat="x in productInfo.avlSMTIDs">{{x}},</span>
-																</td>
+																<td style="text-align:left;border-top: none;font-size:12px;padding: 5px;">
+																	<textarea type="text" class="form-control" ng-show="showSMTIDs == 'true'"  ng-model="productInfo.avlSMTIDs" my-enter="editedSMTId(productInfo)"></textarea>
+																	<span ng-click="editSmtId()" ng-show="showSMTIDs == 'false'" ng-repeat="x in productInfo.avlSMTIDs">{{x}},</span></td>
 																</td>
 																<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.qty}}</td>
-																<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.offer_price | currency:''}}</td>
+																<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.offer_price | currency:''}}</td>																
 																<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.tax}}</td>
 																<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.tax_amount | currency:''}}</td>
 																<td style="text-align:right;border-top: none;font-size:12px;padding: 5px;">{{productInfo.tax_including_total | currency:''}}</td>
-															</tr>
-															<br>
+															</tr><br>
 														</div>
 													</tbody>
 												</table>
-											</div>
-
-											<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed #ddd;padding:5px" ng-if="orderDetailsArray.status == 'Accepted'  && orderDetailsArray.paymenttype == 'payu' || orderDetailsArray.paymenttype == 'payu'">
+											</div>		
+											
+															<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed #ddd;padding:5px" 
+											 ng-if="orderDetailsArray.status == 'Accepted'  && orderDetailsArray.paymenttype == 'payu' || orderDetailsArray.paymenttype == 'payu'">
 												<div class="tax-invoice">
 													<div class="row">
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<div class="" style="float:left;font-size:12px;">
-																<h4>Verify:
-																	<span>
-																		<input type="text" ng-model="verify">
-																	</span>
-																</h4>
-																<button type="submit" class="btn btn-success" ng-show="showVerify == 'false'" style="margin-top: -26px; float: right;margin-right: -60px;"
-																 ng-click="verifyCode(verify)">GET</button>
+																<h4>Verify: <span><input type="text" ng-model="verify" ></span></h4>
+																<button type="submit" class="btn btn-success" ng-show="showVerify == 'false'" style="margin-top: -26px; float: right;margin-right: -60px;" ng-click="verifyCode(verify)">GET</button>
 																<button type="submit" class="btn btn-success" ng-show="showVerify == 'true'" style="margin-top: -26px; float: right;margin-right: -96px;">VERIFIED</button>
 															</div>
 														</div>
@@ -933,27 +820,12 @@
 
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<div class="subtotal_invc">
-																<h5>
-																	<span>
-																		<b style="padding-right:10px;">Sub Total : </b> {{invoiceTotalAmt|currency:'&#8377;'}}</span>
-																</h5>
-																<h5 ng-if="discount > 0">
-																	<span>
-																		<b style="padding-right:10px;">Discount : </b>{{discount}}</span>
-																</h5>
-																<h5 ng-if="couponArray.discount">
-																	<span>
-																		<b style="padding-right:10px;">Coupon Amount : </b>{{couponArray.discount}}</span>
-																</h5>
-
-																<h5>
-																	<span>
-																		<b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span>
-																</h5>
-																<h5>
-																	<span>
-																		<b style="padding-right:10px;">Total(Inc. Tax) : </b> {{invoiceTotalAmtTaxInc-couponArray.discount|currency:'&#8377;'}}</span>
-																</h5>
+																<h5><span><b style="padding-right:10px;">Sub Total : </b> {{invoiceTotalAmt|currency:'&#8377;'}}</span></h5>
+																<h5 ng-if="discount > 0"><span><b style="padding-right:10px;">Discount  : </b>{{discount}}</span></h5>
+																<h5 ng-if="couponArray.discount"><span><b style="padding-right:10px;">Coupon Amount  : </b>{{couponArray.discount}}</span></h5>
+																
+																<h5><span><b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span></h5>
+																<h5><span><b style="padding-right:10px;">Total(Inc. Tax) : </b> {{invoiceTotalAmtTaxInc-couponArray.discount|currency:'&#8377;'}}</span></h5>
 															</div>
 														</div>
 													</div>
@@ -966,13 +838,8 @@
 													<div class="row">
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<div class="" style="float:left;font-size:12px;">
-																<h4>Verify:
-																	<span>
-																		<input type="text" ng-model="verify">
-																	</span>
-																</h4>
-																<button type="submit" class="btn btn-success" ng-show="showVerify == 'false'" style="margin-top: -26px; float: right;margin-right: -60px;"
-																 ng-click="verifyCode(verify)">GET</button>
+																<h4>Verify: <span><input type="text" ng-model="verify" ></span></h4>
+																<button type="submit" class="btn btn-success" ng-show="showVerify == 'false'" style="margin-top: -26px; float: right;margin-right: -60px;" ng-click="verifyCode(verify)">GET</button>
 																<button type="submit" class="btn btn-success" ng-show="showVerify == 'true'" style="margin-top: -26px; float: right;margin-right: -96px;">VERIFIED</button>
 															</div>
 														</div>
@@ -986,27 +853,12 @@
 
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<div class="subtotal_invc">
-																<h5>
-																	<span>
-																		<b style="padding-right:10px;">Sub Total : </b> {{invoiceTotalAmt|currency:'&#8377;'}}</span>
-																</h5>
-																<h5 ng-if="discount > 0">
-																	<span>
-																		<b style="padding-right:10px;">Discount : </b>{{discount}}</span>
-																</h5>
-																<h5 ng-if="couponArray.discount">
-																	<span>
-																		<b style="padding-right:10px;">Coupon Amount : </b>{{couponArray.discount}}</span>
-																</h5>
-
-																<h5>
-																	<span>
-																		<b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span>
-																</h5>
-																<h5>
-																	<span>
-																		<b style="padding-right:10px;">Total(Inc. Tax) : </b> {{invoiceTotalAmtTaxInc-couponArray.discount|currency:'&#8377;'}}</span>
-																</h5>
+																<h5><span><b style="padding-right:10px;">Sub Total : </b> {{invoiceTotalAmt|currency:'&#8377;'}}</span></h5>
+																<h5 ng-if="discount > 0"><span><b style="padding-right:10px;">Discount  : </b>{{discount}}</span></h5>
+																<h5 ng-if="couponArray.discount"><span><b style="padding-right:10px;">Coupon Amount  : </b>{{couponArray.discount}}</span></h5>
+																
+																<h5><span><b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span></h5>
+																<h5><span><b style="padding-right:10px;">Total(Inc. Tax) : </b> {{invoiceTotalAmtTaxInc-couponArray.discount|currency:'&#8377;'}}</span></h5>
 															</div>
 														</div>
 													</div>
@@ -1018,40 +870,20 @@
 													<div class="row">
 														<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 															<div class="" style="float:left;font-size:12px;">
-																<h4>Verify:
-																	<span>
-																		<input type="text" ng-model="verify">
-																	</span>
-																</h4>
-																<button type="submit" class="btn btn-success" ng-show="showVerify == 'false'" style="margin-top: -26px; float: right;margin-right: -60px;"
-																 ng-click="verifyCode(verify)">GET</button>
+																<h4>Verify: <span><input type="text" ng-model="verify" ></span></h4>
+																<button type="submit" class="btn btn-success" ng-show="showVerify == 'false'" style="margin-top: -26px; float: right;margin-right: -60px;" ng-click="verifyCode(verify)">GET</button>
 																<button type="submit" class="btn btn-success" ng-show="showVerify == 'true'" style="margin-top: -26px; float: right;margin-right: -96px;">VERIFIED</button>
 															</div>
 														</div>
 
 														<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 															<div class="subtotal_invc">
-																<h5>
-																	<span>
-																		<b style="padding-right:10px;">Sub Total : </b> {{invoiceTotalAmt | currency:'&#8377;'}}</span>
-																</h5>
-																<h5 ng-if="discount > 0">
-																	<span>
-																		<b style="padding-right:10px;">Discount : </b>{{discount}}</span>
-																</h5>
-																<h5 ng-if="couponArray.discount">
-																	<span>
-																		<b style="padding-right:10px;">Coupon Amount : </b>{{couponArray.discount|currency:'&#8377;'}}</span>
-																</h5>
-
-																<h5>
-																	<span>
-																		<b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span>
-																</h5>
-																<h5>
-																	<span>
-																		<b style="padding-right:10px;">Total(Inc. Tax) : </b> {{invoiceTotalAmtTaxInc-couponArray.discount | currency:'&#8377;'}}</span>
-																</h5>
+																<h5><span><b style="padding-right:10px;">Sub Total  : </b> {{invoiceTotalAmt | currency:'&#8377;'}}</span></h5>
+																<h5 ng-if="discount > 0"><span><b style="padding-right:10px;">Discount  : </b>{{discount}}</span></h5>
+																<h5 ng-if="couponArray.discount"><span><b style="padding-right:10px;">Coupon Amount  : </b>{{couponArray.discount|currency:'&#8377;'}}</span></h5>
+																
+																<h5><span><b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span></h5>
+																<h5><span><b style="padding-right:10px;">Total(Inc. Tax)  : </b> {{invoiceTotalAmtTaxInc-couponArray.discount | currency:'&#8377;'}}</span></h5>
 															</div>
 														</div>
 													</div>
@@ -1065,10 +897,9 @@
 															<div class="paymntMthd">
 																<div class="form-group">
 																	<label id="paymentMethodlbl" for="paymentMethod">Payment method:</label>
-																	<select class="form-control" ng-init="paymentMethod = 'Cash'" ng-model="paymentMethod" ng-change="selectedPaymentMethod(paymentMethod)"
-																	 id="card_type_wid">
-																		<option>Cash</option>
-																		<option>Card Payment</option>
+																	<select class="form-control" ng-init="paymentMethod = 'Cash'" ng-model="paymentMethod" ng-change="selectedPaymentMethod(paymentMethod)" id="card_type_wid">
+																			<option >Cash</option>
+																			<option >Card Payment</option>
 																	</select>
 																	<p class="validationError errorMsg" style="margin-left: 49%" ng-if="showPaymentMsg == 'true'">Select option</p>
 																</div>
@@ -1083,21 +914,20 @@
 													<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="cash-sec" ng-show="paymentFlag == 'cash'">
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<form name="paymentCardForm">
-																<div class="form-group" id="cash_given_invc">
-																	<label id="cashGivenId" for="cash_given">Cash Given</label>
-																	<input type="text" class="form-control" id="cash_given" name="cash_given" ng-model="cash_given" required>
-																</div>
-																<p class="validationError errorMsg" style="margin-left: 27%;" ng-show="submitted&&paymentCardForm.cash_given.$error.required">Enter this Field</p>
-															</form>
+															<div class="form-group" id="cash_given_invc">
+																<label id="cashGivenId" for="cash_given">Cash Given</label>
+																<input type="text" class="form-control" id="cash_given" name="cash_given" ng-model="cash_given" required>
+															</div>
+															<p class="validationError errorMsg" style="margin-left: 27%;" ng-show="submitted&&paymentCardForm.cash_given.$error.required">Enter this Field</p>
+														</form>
 														</div>
 
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-															<div class="form-group" id="cash_given_invc">
+																<div class="form-group" id="cash_given_invc">
 																<label id="returnId" for="return_amt">Return</label>
-																<input type="text" class="form-control" id="return_amt" ng-show="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt"
-																 ng-model="cash_given-invoiceTotalAmtTaxInc | numberEx:2" value="{{cash_given-invoiceTotalAmtTaxInc | numberEx:2}}">
-																<input type="text" class="form-control" id="return_amt" ng-hide="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt"
-																 value="0">
+																<input type="text" class="form-control" id="return_amt" ng-show="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt" ng-model="cash_given-invoiceTotalAmtTaxInc | numberEx:2"
+																 value="{{cash_given-invoiceTotalAmtTaxInc | numberEx:2}}">
+																<input type="text" class="form-control" id="return_amt" ng-hide="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt" value="0">
 															</div>
 														</div>
 
@@ -1112,18 +942,18 @@
 												<div class="tax-invoice" ng-if="orderDetail.status == 'Accepted' || orderDetailsArray.paymenttype == 'cashondelivery' || orderDetailsArray.paymenttype == 'COD'">
 													<div class="row">
 														<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="return-sec" ng-show="paymentFlag == 'card'">
-
+															
 															<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 																<form name="paymentCardForm">
-																	<div class="form-group" id="cash_given_invc">
-																		<label id="cardEndsId" for="card_ends">Card Ends</label>
-																		<input type="text" class="form-control" id="card_ends" name="card_ends" ng-model="card_ends" style="width:45%;" required>
-																		<p class="validationError errorMsg" style="margin-left: 27%;" ng-show="submitted && paymentCardForm.card_ends.$error.required">Enter this Field</p>
-																	</div>
+																<div class="form-group" id="cash_given_invc">
+																	<label id="cardEndsId" for="card_ends">Card Ends</label>
+																	<input type="text" class="form-control" id="card_ends" name="card_ends" ng-model="card_ends" style="width:45%;" required>
+																	<p class="validationError errorMsg" style="margin-left: 27%;" ng-show="submitted && paymentCardForm.card_ends.$error.required">Enter this Field</p>
+																</div>
 																</form>
 
 															</div>
-
+														
 															<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="invc_btns" ng-show="orderDetailsArray.status == 'Accepted'  && showVerify == 'true' && orderDetailsArray.paymenttype == 'cashondelivery' || orderDetailsArray.paymenttype == 'COD' && paymentFlag == 'card'">
 																<div class="id_btns_done">
 																	<button type="submit" class="btn btn-success" ng-disabled="showPrintBtn == 'true'" ng-click="submitted=true;paymentCardForm.card_ends.$valid && confirmOnlineInvoiceMethod(total_amtchange(),'Card')">Done</button>
@@ -1146,10 +976,9 @@
 															<div class="" style="float:left;font-size:12px;">
 																<div class="form-group">
 																	<label id="paymentMethodlbl" for="paymentMethod">Payment method:</label>
-																	<select class="form-control" ng-init="paymentMethod = 'Cash'" ng-model="paymentMethod" ng-change="selectedPaymentMethod(paymentMethod)"
-																	 style="width: 130px;">
-																		<option>Cash</option>
-																		<option>Card Payment</option>
+																	<select class="form-control" ng-init="paymentMethod = 'Cash'" ng-model="paymentMethod" ng-change="selectedPaymentMethod(paymentMethod)" style="width: 130px;">
+																		<option >Cash</option>
+																		<option >Card Payment</option>
 																	</select>
 																	<p class="validationError errorMsg" style="margin-left: 49%" ng-if="showPaymentMsg == 'true'">Select option</p>
 																</div>
@@ -1158,27 +987,12 @@
 
 														<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 															<div class="subtotal_invc">
-																<h5>
-																	<span>
-																		<b style="padding-right:10px;">Sub Total : </b> {{invoiceTotalAmt|currency:'&#8377;'}}</span>
-																</h5>
-																<h5 ng-if="discount > 0">
-																	<span>
-																		<b style="padding-right:10px;">Discount : </b>{{discount}}</span>
-																</h5>
-
-																<h5 ng-if="couponArray.discount">
-																	<span>
-																		<b style="padding-right:10px;">Coupon Amount : </b>{{couponArray.discount|currency:'&#8377;'}}</span>
-																</h5>
-																<h5>
-																	<span>
-																		<b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span>
-																</h5>
-																<h5>
-																	<span>
-																		<b style="padding-right:10px;">Total(Inc. Tax) : </b> {{invoiceTotalAmtTaxInc-couponArray.discount|currency:'&#8377;'}}</span>
-																</h5>
+																<h5><span><b style="padding-right:10px;">Sub Total : </b> {{invoiceTotalAmt|currency:'&#8377;'}}</span></h5>
+																<h5 ng-if="discount > 0"><span><b style="padding-right:10px;">Discount  : </b>{{discount}}</span></h5>
+																
+																<h5 ng-if="couponArray.discount"><span><b style="padding-right:10px;">Coupon Amount  : </b>{{couponArray.discount|currency:'&#8377;'}}</span></h5>
+																<h5><span><b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span></h5>
+																<h5><span><b style="padding-right:10px;">Total(Inc. Tax) : </b> {{invoiceTotalAmtTaxInc-couponArray.discount|currency:'&#8377;'}}</span></h5>
 															</div>
 														</div>
 
@@ -1192,20 +1006,19 @@
 
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<form name="paymentCardForm">
-																<div class="form-group" id="cash_given_invc">
-																	<label id="cashGivenId" for="cash_given">Cash Given</label>
-																	<input type="text" class="form-control" id="cash_given" name="cash_given" ng-model="cash_given" required>
-																</div>
-																<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="submitted&&paymentCardForm.cash_given.$error.required">Enter this Field</p>
-															</form>
+															<div class="form-group" id="cash_given_invc">
+																<label id="cashGivenId" for="cash_given">Cash Given</label>
+																<input type="text" class="form-control" id="cash_given" name="cash_given" ng-model="cash_given" required>
+															</div>
+															<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="submitted&&paymentCardForm.cash_given.$error.required">Enter this Field</p>
+														</form>
 														</div>
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<div class="form-group" id="cash_given_invc">
 																<label id="returnId" for="return_amt">Return</label>
-																<input type="text" class="form-control" id="return_amt" ng-show="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt"
-																 ng-model="cash_given-invoiceTotalAmtTaxInc | numberEx:2" value="{{cash_given-invoiceTotalAmtTaxInc | numberEx:2}}">
-																<input type="text" class="form-control" id="return_amt" ng-hide="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt"
-																 value="0">
+																<input type="text" class="form-control" id="return_amt" ng-show="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt" ng-model="cash_given-invoiceTotalAmtTaxInc | numberEx:2"
+																 value="{{cash_given-invoiceTotalAmtTaxInc | numberEx:2}}">
+																<input type="text" class="form-control" id="return_amt" ng-hide="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt" value="0">
 															</div>
 														</div>
 
@@ -1224,11 +1037,11 @@
 
 															<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 																<form name="paymentCardForm">
-																	<div class="form-group" id="cash_given_invc">
-																		<label id="cardEndsId" for="card_ends">Card Ends</label>
-																		<input type="text" class="form-control" id="card_ends" name="card_ends" ng-model="card_ends" style="width:45%;" required>
-																		<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="submitted&&paymentCardForm.card_ends.$error.required">Enter this Field</p>
-																	</div>
+																<div class="form-group" id="cash_given_invc">
+																	<label id="cardEndsId" for="card_ends">Card Ends</label>
+																	<input type="text" class="form-control" id="card_ends" name="card_ends" ng-model="card_ends" style="width:45%;" required>
+																	<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="submitted&&paymentCardForm.card_ends.$error.required">Enter this Field</p>
+																</div>
 																</form>
 															</div>
 															<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="invc_btns">
@@ -1240,7 +1053,7 @@
 												</div>
 											</div>
 
-											<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed #ddd;padding:5px" ng-if="orderDetailsArray.fromweb == 'shop'">
+													<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed #ddd;padding:5px" ng-if="orderDetailsArray.fromweb == 'shop'">
 												<div class="tax-invoice">
 													<div class="row">
 
@@ -1248,10 +1061,9 @@
 															<div class="" style="float:left;font-size:12px;">
 																<div class="form-group">
 																	<label id="paymentMethodlbl" for="paymentMethod">Payment method:</label>
-																	<select class="form-control" ng-init="paymentMethod = 'Cash'" ng-model="paymentMethod" ng-change="selectedPaymentMethod(paymentMethod)"
-																	 style="width: 130px;">
-																		<option>Cash</option>
-																		<option>Card Payment</option>
+																	<select class="form-control" ng-init="paymentMethod = 'Cash'" ng-model="paymentMethod" ng-change="selectedPaymentMethod(paymentMethod)" style="width: 130px;">
+																		<option >Cash</option>
+																		<option >Card Payment</option>
 																	</select>
 																	<p class="validationError errorMsg" style="margin-left: 49%" ng-if="showPaymentMsg == 'true'">Select option</p>
 																</div>
@@ -1260,24 +1072,12 @@
 
 														<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 															<div class="subtotal_invc">
-																<h5>
-																	<span>
-																		<b style="padding-right:10px;">Sub Total : </b> {{invoiceTotalAmt|currency:'&#8377;'}}</span>
-																</h5>
-																<h5 ng-if="discount > 0">
-																	<span>
-																		<b style="padding-right:10px;">Discount : </b>{{discount}}</span>
-																</h5>
-
+																<h5><span><b style="padding-right:10px;">Sub Total : </b> {{invoiceTotalAmt|currency:'&#8377;'}}</span></h5>
+																<h5 ng-if="discount > 0"><span><b style="padding-right:10px;">Discount  : </b>{{discount}}</span></h5>
+																
 																<!-- <h5 ><span><b style="padding-right:10px;">Coupon Amount  : </b>{{couponArray.discount|currency:'&#8377;'}}</span></h5> -->
-																<h5>
-																	<span>
-																		<b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span>
-																</h5>
-																<h5>
-																	<span>
-																		<b style="padding-right:10px;">Total(Inc. Tax) : </b> {{invoiceTotalAmtTaxInc-couponArray.discount|currency:'&#8377;'}}</span>
-																</h5>
+																<h5><span><b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span></h5>
+																<h5><span><b style="padding-right:10px;">Total(Inc. Tax) : </b> {{invoiceTotalAmtTaxInc-couponArray.discount|currency:'&#8377;'}}</span></h5>
 															</div>
 														</div>
 
@@ -1285,26 +1085,25 @@
 												</div>
 											</div>
 
-											<div class="tax-invoice" ng-if="orderDetailsArray.fromweb == 'shop'">
+																	<div class="tax-invoice" ng-if="orderDetailsArray.fromweb == 'shop'">
 												<div class="row">
 													<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="cash-sec" ng-if="paymentFlag == 'cash'">
 
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<form name="paymentCardForm">
-																<div class="form-group" id="cash_given_invc">
-																	<label id="cashGivenId" for="cash_given">Cash Given</label>
-																	<input type="text" class="form-control" id="cash_given" name="cash_given" ng-model="cash_given" required>
-																</div>
-																<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="submitted&&paymentCardForm.cash_given.$error.required">Enter this Field</p>
-															</form>
+															<div class="form-group" id="cash_given_invc">
+																<label id="cashGivenId" for="cash_given">Cash Given</label>
+																<input type="text" class="form-control" id="cash_given" name="cash_given" ng-model="cash_given" required>
+															</div>
+															<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="submitted&&paymentCardForm.cash_given.$error.required">Enter this Field</p>
+														</form>
 														</div>
 														<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
 															<div class="form-group" id="cash_given_invc">
 																<label id="returnId" for="return_amt">Return</label>
-																<input type="text" class="form-control" id="return_amt" ng-show="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt"
-																 ng-model="cash_given-invoiceTotalAmtTaxInc | numberEx:2" value="{{cash_given-invoiceTotalAmtTaxInc | numberEx:2}}">
-																<input type="text" class="form-control" id="return_amt" ng-hide="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt"
-																 value="0">
+																<input type="text" class="form-control" id="return_amt" ng-show="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt" ng-model="cash_given-invoiceTotalAmtTaxInc | numberEx:2"
+																 value="{{cash_given-invoiceTotalAmtTaxInc | numberEx:2}}">
+																<input type="text" class="form-control" id="return_amt" ng-hide="cash_given-invoiceTotalAmtTaxInc > 0" name="return_amt" value="0">
 															</div>
 														</div>
 
@@ -1323,11 +1122,11 @@
 
 															<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 																<form name="paymentCardForm">
-																	<div class="form-group" id="cash_given_invc">
-																		<label id="cardEndsId" for="card_ends">Card Ends</label>
-																		<input type="text" class="form-control" id="card_ends" name="card_ends" ng-model="card_ends" style="width:45%;" required>
-																		<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="submitted&&paymentCardForm.card_ends.$error.required">Enter this Field</p>
-																	</div>
+																<div class="form-group" id="cash_given_invc">
+																	<label id="cardEndsId" for="card_ends">Card Ends</label>
+																	<input type="text" class="form-control" id="card_ends" name="card_ends" ng-model="card_ends" style="width:45%;" required>
+																	<p class="validationError errorMsg" style="margin-left: 27%;" ng-if="submitted&&paymentCardForm.card_ends.$error.required">Enter this Field</p>
+																</div>
 																</form>
 															</div>
 															<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12" id="invc_btns">
@@ -1446,9 +1245,7 @@
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<button type="button" class="close" aria-label="Close" ng-click="closeVerifyAlert()">
-											<span aria-hidden="true">×</span>
-										</button>
+										<button type="button" class="close" aria-label="Close" ng-click="closeVerifyAlert()"><span aria-hidden="true">×</span></button>
 
 									</div>
 
@@ -1475,43 +1272,24 @@
 										<div class="row">
 											<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 												<div class="" style="float:left;">
-													<h5 style="font-size:10px;">
-														<span>
-															<b>Shop Name : </b> {{shopName}}</span>
-													</h5>
-													<h5 style="font-size:10px;">
-														<span>
-															<b>GSTIN : </b> {{gstNumber}}</span>
-													</h5>
+													<h5 style="font-size:10px;"><span><b>Shop Name : </b> {{shopName}}</span></h5>
+													<h5 style="font-size:10px;"><span><b>GSTIN : </b> {{gstNumber}}</span></h5>													
 												</div>
 											</div>
-
+											
 											<!--<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 												<div class="" style="float:left;font-size:12px;">
 													<h5><span><b>User : </b> {{custName}}</span></h5>
 													<h5><span><b>Mobile : </b> {{regMobileNo}}</span></h5>
 												</div>
 											</div>-->
-
+											
 											<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 												<div class="" style="float:right;">
-													<h5 style="font-size:10px;">
-														<span style="padding-left:10px;">
-															<b style="color:#444;font-weight:bold;">Invoice No : </b>
-															<b> {{invoiceNo}}</b>
-														</span>
-													</h5>
+													<h5 style="font-size:10px;"><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Invoice No : </b><b> {{invoiceNo}}</b></span></h5>
 													<!-- <h5><span style="padding-left:10px;"><b>Total Amount:</b>Rs.{{totalPrice() | currency:""}}</span></h5> -->
-													<h5 style="font-size:10px;">
-														<span style="padding-left:10px;">
-															<b style="color:#444;font-weight:bold;">Order ID : </b>
-															<b> {{orderId}}</b>
-														</span>
-													</h5>
-													<h5 style="font-size:10px;">
-														<span style="padding-left:10px;">
-															<b>Date : </b> {{ today | date }} </span>
-													</h5>
+													<h5 style="font-size:10px;"><span style="padding-left:10px;"><b style="color:#444;font-weight:bold;">Order ID : </b><b> {{orderId}}</b></span></h5>
+													<h5 style="font-size:10px;"><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
 												</div>
 											</div>
 										</div>
@@ -1525,7 +1303,7 @@
 											<th style="text-align:left;font-size:11px;padding: 5px;">Product</th>
 											<th style="text-align:left;font-size:11px;padding: 5px;">SMT ID</th>
 											<th style="text-align:right;font-size:11px;padding: 5px;">Qty</th>
-											<th style="text-align:right;font-size:11px;padding: 5px;">Unit Price(₹)</th>
+											<th style="text-align:right;font-size:11px;padding: 5px;">Unit Price(₹)</th>											
 											<th style="text-align:right;font-size:11px;padding: 5px;">Tax(%)</th>
 											<th style="text-align:right;font-size:11px;padding: 5px;">Tax(₹)</th>
 											<th style="text-align:right;font-size:11px;padding: 5px;">Amount(₹)</th>
@@ -1536,19 +1314,17 @@
 												<td style="text-align:center;border-top:none;font-size:10px;padding: 5px;">{{$index + 1}}</td>
 												<td style="text-align:left;border-top: none;font-size:10px;padding: 5px;">{{productInfo.proddescription}}</td>
 												<td style="text-align:left;border-top: none;font-size:10px;padding: 5px;">
-													<span ng-repeat="x in productInfo.avlSMTIDs">{{x}}, </span>
-												</td>
+													<span ng-repeat="x in productInfo.avlSMTIDs">{{x}}, </span></td>
 												</td>
 												<td style="text-align:right;border-top: none;font-size:10px;padding: 5px;">{{productInfo.qty}}</td>
-												<td style="text-align:right;border-top: none;font-size:10px;padding: 5px;">{{productInfo.unitprice | currency:''}}</td>
+												<td style="text-align:right;border-top: none;font-size:10px;padding: 5px;">{{productInfo.unitprice | currency:''}}</td>												
 												<td style="text-align:right;border-top: none;font-size:10px;padding: 5px;">{{productInfo.tax}}</td>
 												<td style="text-align:right;border-top: none;font-size:10px;padding: 5px;">{{productInfo.tax_amount | currency:''}}</td>
 												<td style="text-align:right;border-top: none;font-size:10px;padding: 5px;">{{productInfo.tax_including_total | currency:''}}</td>
-											</tr>
-											<br/>
+											</tr><br/>
 										</div>
 									</tbody>
-								</table>
+								</table>								
 
 								<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="border-bottom:0px dashed #ddd;padding:5px">
 									<div class="tax-invoice">
@@ -1556,33 +1332,18 @@
 											<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 												<div class="" style="float:left;">
 
-													<h5 style="font-size:10px;"> Payment method:
-														<span>{{paymentPaid}}</span>
-													</h5>
+													<h5 style="font-size:10px;"> Payment method:<span>{{paymentPaid}}</span></h5>
 
 
 												</div>
 											</div>
 											<div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
 												<div class="" style="float:right;">
-													<h5 style="font-size:10px;">
-														<span>
-															<b>Sub Total : </b> {{invoiceTotalAmt | currency:'&#8377;'}}</span>
-													</h5>
-
-													<h5 style="font-size:10px;">
-														<span style="float:right;">
-															<b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span>
-													</h5>
-													<h5 ng-if="discountVal > 0" style="font-size:10px;">
-														<span>
-															<b>Discount:</b>
-														</span>
-													</h5>
-													<h5 style="font-size:10px;">
-														<span style="float:right;">
-															<b>Total : </b> {{invoiceTotalAmtTaxInc | currency:'&#8377;'}}</span>
-													</h5>
+													<h5 style="font-size:10px;"><span><b>Sub Total : </b> {{invoiceTotalAmt | currency:'&#8377;'}}</span></h5>
+													
+													<h5 style="font-size:10px;"><span style="float:right;"><b>Total Tax : </b> {{totalTaxAmount | currency:'&#8377;'}}</span></h5>
+													<h5 ng-if="discountVal > 0" style="font-size:10px;"><span><b>Discount:</b></span></h5>
+													<h5 style="font-size:10px;"><span style="float:right;"><b>Total : </b> {{invoiceTotalAmtTaxInc | currency:'&#8377;'}}</span></h5>
 
 
 												</div>
@@ -1592,93 +1353,72 @@
 									</div>
 								</div>
 
-								<div class="col-md-12" style="margin-top:10px;" ng-if="orderDetailsArray.shippingtype == 'Delivery'">
-									<div class="col-md-6" style="float:left; width:48%;border:1px solid #cfcfcf;padding:2px 2px;">
-										<div class="" style="border-bottom:1px solid #cfcfcf;">
+								 <div class="col-md-12" style="margin-top:10px;" ng-if="orderDetailsArray.shippingtype == 'Delivery'">
+            <div class="col-md-6" style="float:left; width:48%;border:1px solid #cfcfcf;padding:2px 2px;">
+                <div class="" style="border-bottom:1px solid #cfcfcf;">
 
-											<span>Shipping Address</span>
+                    <span>Shipping Address</span>
 
-										</div>
+                </div>
 
-										<div class="shipping_address_viewmore" style="font-size:10px;padding: 5px;">
+                <div class="shipping_address_viewmore"  style="font-size:10px;padding: 5px;">
 
-											<span>{{shippingaddress.firstname}}&nbsp;&nbsp;{{shippingaddress.lastname}}</span>
-											<br>
-											<span>{{shippingaddress.mobile}}</span>
-											<br>
-											<span>{{shippingaddress.alt_mobile}}</span>
-											<br>
-											<span>{{shippingaddress.house_no}},&nbsp;&nbsp;{{shippingaddress.street_address}}</span>
-											<br>
-											<span>{{shippingaddress.city}},&nbsp;&nbsp;{{shippingaddress.postal_code}}</span>
-											<br>
-											<span>{{shippingaddress.state}}</span>
-											<br>
-											<span>{{shippingaddress.country}}</span>
-										</div>
-									</div>
-									<div class="col-md-6" style="float:right; width:48%;border:1px solid #cfcfcf;padding:2px 2px;">
-										<div class="" style="border-bottom:1px solid #cfcfcf;">
+                    <span>{{shippingaddress.firstname}}&nbsp;&nbsp;{{shippingaddress.lastname}}</span><br>
+                    <span>{{shippingaddress.mobile}}</span><br>
+                      <span>{{shippingaddress.alt_mobile}}</span><br>
+                    <span>{{shippingaddress.house_no}},&nbsp;&nbsp;{{shippingaddress.street_address}}</span><br>
+                    <span>{{shippingaddress.city}},&nbsp;&nbsp;{{shippingaddress.postal_code}}</span><br>
+                    <span>{{shippingaddress.state}}</span><br>
+                    <span>{{shippingaddress.country}}</span>
+                </div>
+            </div>
+            <div class="col-md-6"  style="float:right; width:48%;border:1px solid #cfcfcf;padding:2px 2px;">
+                <div class="" style="border-bottom:1px solid #cfcfcf;">
 
-											<span>Billing Address</span>
+                    <span>Billing Address</span>
 
-										</div>
+                </div>
 
-										<div class="shipping_address_viewmore" style="font-size:10px;padding: 5px;">
+                <div class="shipping_address_viewmore"  style="font-size:10px;padding: 5px;">
 
-											<span>{{billingaddress.firstname}}&nbsp;&nbsp;{{billingaddress.lastname}}</span>
-											<br>
-											<span>{{billingaddress.mobile}}</span>
-											<br>
-											<span>{{billingaddress.alt_mobile}}</span>
-											<br>
-											<span>{{billingaddress.house_no}},&nbsp;&nbsp;{{billingaddress.street_address}}</span>
-											<br>
-											<span>{{billingaddress.city}},&nbsp;&nbsp;{{billingaddress.postal_code}}</span>
-											<br>
-											<span>{{billingaddress.state}}</span>
-											<br>
-											<span>{{billingaddress.country}}</span>
-										</div>
-									</div>
-
-								</div>
-
-								<div style="border:1px solid #ddd;padding:5px;margin-top:-5px;">
+                    <span>{{billingaddress.firstname}}&nbsp;&nbsp;{{billingaddress.lastname}}</span><br>
+                    <span>{{billingaddress.mobile}}</span><br>
+                       <span>{{billingaddress.alt_mobile}}</span><br>
+                    <span>{{billingaddress.house_no}},&nbsp;&nbsp;{{billingaddress.street_address}}</span><br>
+                    <span>{{billingaddress.city}},&nbsp;&nbsp;{{billingaddress.postal_code}}</span><br>
+                    <span>{{billingaddress.state}}</span><br>
+                    <span>{{billingaddress.country}}</span>
+                </div>
+            </div>
+    
+        </div>
+								
+								<div style="border:1px solid #ddd;padding:5px;margin-top:-5px;"> 										
 									<div class="row">
 										<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 											<div class="service_gst">
 												<!--<h5><span><b>Shop Name : </b> {{shopName}}</span></h5>-->
-												<h5 style="font-size:10px;">
-													<span>
-														<b>Address : </b> {{shopAddress}}</span>
-												</h5>
+												<h5 style="font-size:10px;"><span><b>Address : </b> {{shopAddress}}</span></h5>																
 											</div>
 										</div>
-
+																				
 										<!--<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" id="headrMbl">
 											<div class="service_usr">
 												<h5><span><b></b></span></h5>
 												<h5><span><b></b></span></h5>
 											</div>
 										</div>-->
-
+																				
 										<div class="col-md-6 col-lg-6 col-sm-6 col-xs-6" id="headrMbl">
 											<div class="service_inv" style="float:right;">
-												<h5 style="font-size:10px;">
-													<span>
-														<b>User : </b> {{custName}}</span>
-												</h5>
-												<h5 style="font-size:10px;">
-													<span>
-														<b>Mobile : </b> {{regMobileNo}}</span>
-												</h5>
+												<h5 style="font-size:10px;"><span><b>User : </b> {{custName}}</span></h5>
+												<h5 style="font-size:10px;"><span><b>Mobile : </b> {{regMobileNo}}</span></h5>
 												<!--<h5><span style="padding-left:10px;"><b>Date : </b> {{ today | date }} </span></h5>
 												<h5><span style="padding-left:10px;"><b>Signature : </b> </span></h5>-->
 											</div>
 										</div>
 									</div>
-								</div>
+								</div>								
 
 							</div>
 						</div>
@@ -1788,9 +1528,7 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<h4 class="modal-title" id="myModalLabel">Add Customer</h4>
 						</div>
 						<form method="post" accept-charset="utf-8" enctype="multipart/form-data" name="addCustomerForm" role="form" id="register-form"
@@ -1799,8 +1537,7 @@
 
 
 								<div class="form-group" style="padding-bottom:5px;">
-									<label for="firstname">
-										<span style="color:red;font-weight:bolder;font-size: 15px;">*</span> First Name </label>
+									<label for="firstname"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> First Name </label>
 									<div ng-messages="addCustomerForm.firstname.$error" style="float:right !important;">
 										<p class="validationError errorMsg" ng-message="pattern">Enter valid First name</p>
 										<p class="validationError errorMsg" ng-message="minlength">Minimum 3 to Maximum 50 characters</p>
@@ -1812,8 +1549,7 @@
 								</div>
 
 								<div class="form-group" style="padding-bottom:5px;">
-									<label for="lastname">
-										<span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Last Name</label>
+									<label for="lastname"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Last Name</label>
 									<div ng-messages="addCustomerForm.lastname.$error " style="float:right !important;">
 										<p class="validationError errorMsg" ng-message="pattern">Enter valid Last name</p>
 										<p class="validationError errorMsg" ng-message="minlength">Minimum 3 to Maximum 50 characters</p>
@@ -1830,8 +1566,7 @@
 									<div class="col-md-12">
 										<div class="col-md-6">
 											<div class="form-group" style="padding-bottom:5px;">
-												<label for="mobile">
-													<span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Phone</label>
+												<label for="mobile"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Phone</label>
 												<div ng-messages="addCustomerForm.mobile.$error " style="float:right !important;">
 													<p class="validationError errorMsg" ng-message="pattern">Enter 10 digit mobile number</p>
 													<p class="validationError errorMsg" ng-message="minlength">Mobile should be 10 digits</p>
@@ -1869,7 +1604,7 @@
 
 									</div>
 									<input type="email" name="email" class="form-control" id="email" ng-model="newCustomer.email" placeholder="Enter Email ID"
-									 ng-pattern="/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/">
+									  ng-pattern="/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/">
 
 								</div>
 
@@ -1885,8 +1620,7 @@
 
 										<div class="col-md-6">
 											<div class="form-group" style="padding-bottom:5px;">
-												<label for="discount">
-													<span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Discount</label>
+												<label for="discount"><span style="color:red;font-weight:bolder;font-size: 15px;">*</span> Discount</label>
 
 
 												<div ng-messages="addCustomerForm.discount.$error " style="float:right !important;">
@@ -1938,9 +1672,7 @@
 				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<h4 class="modal-title" id="myModalLabel">close&nbsp;register</h4>
 						</div>
 						<div class="modal-body">
@@ -1961,35 +1693,26 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<h4 class="modal-title" id="myModalLabel">Edit Customer Details</h4>
 						</div>
 						<form action="#" method="post" accept-charset="utf-8" id="addform" enctype="multipart/form-data">
 							<div class="modal-body">
 
 								<div class="form-group controls">
-									<input type="checkbox" name="id1" value="Bike">
-									<span>21514646464</span>
+									<input type="checkbox" name="id1" value="Bike"><span>21514646464</span>
 								</div>
 
 								<div class="form-group controls">
-									<input type="checkbox" name="id1" value="Bike">
-									<span>9865486764</span>
-									<br>
+									<input type="checkbox" name="id1" value="Bike"><span>9865486764</span><br>
 								</div>
 
 								<div class="form-group controls">
-									<input type="checkbox" name="id1" value="Bike">
-									<span>2545787</span>
-									<br>
+									<input type="checkbox" name="id1" value="Bike"><span>2545787</span><br>
 								</div>
 
 								<div class="form-group">
-									<input type="checkbox" name="id1" value="Bike">
-									<span>95545772255</span>
-									<br>
+									<input type="checkbox" name="id1" value="Bike"><span>95545772255</span><br>
 								</div>
 
 							</div>
@@ -2014,9 +1737,7 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<h4 class="modal-title" id="myModalLabel">Success</h4>
 						</div>
 						<div class="modal-body">
@@ -2036,9 +1757,7 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<h4 class="modal-title" id="myModalLabel">Success</h4>
 						</div>
 						<div class="modal-body">
@@ -2058,9 +1777,7 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<h4 class="modal-title" id="myModalLabel"></h4>
 						</div>
 						<div class="modal-footer">
@@ -2077,9 +1794,7 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">×</span>
-							</button>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<h4 class="modal-title" id="myModalLabel">Success</h4>
 						</div>
 						<div class="modal-body">

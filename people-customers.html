@@ -678,7 +678,7 @@
 
 										<input type="text" name="mobile" class="form-control" id="mobile" ng-model="newCustomer.mobile" 
 
-											placeholder="Enter phone Number" ng-minlength="10" ng-maxlength="10" required ng-pattern="/^[0]?[789]\d{9}$/">					 
+											placeholder="Enter phone Number" ng-minlength="10" ng-maxlength="10" maxlength="10" required ng-pattern="/^[0]?[789]\d{9}$/">					 
 
 									</div>
 
@@ -706,7 +706,7 @@
 
 										<input type="text" name="altmobile" class="form-control" id="altmobile" ng-model="newCustomer.altmobile" 
 
-										placeholder="Enter phone Number" ng-minlength="10" ng-maxlength="10" data-ng-match="!newCustomer.mobile" ng-pattern="/^[0]?[789]\d{9}$/">			  
+										placeholder="Enter phone Number" ng-minlength="10" ng-maxlength="10" maxlength="10" data-ng-match="!newCustomer.mobile" ng-pattern="/^[0]?[789]\d{9}$/">			  
 
 									</div>
 
